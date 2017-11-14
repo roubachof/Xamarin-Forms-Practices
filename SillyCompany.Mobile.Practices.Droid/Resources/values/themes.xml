@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  
+  <style name="ZoliTheme" parent="Theme.App">
+    <!--<item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>-->
+  </style>
+
+  <style name="ZoliTheme.Splash" parent="ZoliTheme">
+  </style>
+  
+  <style name="Theme.App" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primaryDark</item>
+    <item name="colorAccent">@color/accent</item>
+    <item name="android:colorActivatedHighlight">@color/accent</item>
+  </style>
+  
+</resources>

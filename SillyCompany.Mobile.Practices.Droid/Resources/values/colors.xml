@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <color name="background_holo_light">#fff3f3f3</color>
+  
+  <color name="primary">#008DA8</color>
+  <color name="primaryDark">#008DA8</color>
+  <color name="accent">#008DA8</color>
+
+  <color name="grey">#FF979797</color>
+  <color name="error_red">#FFF32F21</color>
+
+  <!-- Black 87% -->
+  <color name="primary_text_default_material_light">#de000000</color>
+
+  <!-- Black 54% -->
+  <!--<color name="secondary_text_material_light">#8a000000</color>-->
+  <color name="secondary_text_material_light">#FF979797</color>
+
+  <!-- Black 54% -->
+  <!--<color name="tertiary_text_material_light">#8a000000</color>-->
+  <color name="tertiary_text_material_light">#FF979797</color> 
+  
+  <!-- Cards -->
+  <color name="card_background_grey">#fff1f1f1</color>
+  <color name="card_background_pink">#ffF2DEDD</color>
+  
+  <color name="separator">#FFC7C7C7</color>
+  <color name="light_grey">#ffaaaaaa</color>
+</resources>

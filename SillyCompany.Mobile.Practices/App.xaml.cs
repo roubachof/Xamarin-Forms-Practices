@@ -1,0 +1,70 @@
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="App.xaml.cs" company="The Silly Company">
+//   The Silly Company 2016. All rights reserved.
+// </copyright>
+// <summary>
+//   The app.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SillyCompany.Mobile.Practices
+{
+    using SillyCompany.Mobile.Practices.Services.Navigables;
+    using SillyCompany.Mobile.Practices.ViewModels;
+
+    using Xamarin.Forms;
+
+    /// <summary>
+    /// The app.
+    /// </summary>
+    public partial class App : Application
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class.
+        /// </summary>
+        public App()
+        {
+            this.InitializeComponent();
+
+            var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
+
+            var firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
+            this.MainPage = new NavigationPage((Page)firstScreenView);
+
+            var firstScreenVm = (SillyPeopleVm)firstScreenView.BindingContext;
+            firstScreenVm.Load(null);
+        }
+
+        /// <summary>
+        /// The on parent set.
+        /// </summary>
+        protected override void OnParentSet()
+        {
+        }
+
+        /// <summary>
+        /// The on start.
+        /// </summary>
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+            // Initiate Navigation and navigate to the splashscreen
+        }
+
+        /// <summary>
+        /// The on sleep.
+        /// </summary>
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        /// <summary>
+        /// The on resume.
+        /// </summary>
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
+}

@@ -1,0 +1,34 @@
+﻿<resources>
+
+  <!-- Define standard dimensions to comply with Holo-style grids and rhythm. -->
+  <dimen name="MarginTiniest">2dp</dimen>
+  <dimen name="MarginTiny">4dp</dimen>
+  <dimen name="MarginSmall">8dp</dimen>
+  <dimen name="MarginMediumSmall">12dp</dimen>
+  <dimen name="MarginMedium">16dp</dimen>
+  <dimen name="MarginMediumLarge">24dp</dimen>
+  <dimen name="MarginLarge">32dp</dimen>
+  <dimen name="MarginVeryLarge">48dp</dimen>
+  <dimen name="MarginHuge">64dp</dimen>
+
+  <!-- Text Semantic -->
+  <dimen name="TextSizeHeadline">23sp</dimen>
+  <dimen name="TextSizeTitle">20sp</dimen>
+  <dimen name="TextSizeSubhead">16sp</dimen>
+  <dimen name="TextSizeBody">14sp</dimen>
+  <dimen name="TextSizeCaption">12sp</dimen>
+  <dimen name="TextSizeSmallCaption">10sp</dimen>
+
+  <dimen name="TextSizeMenu">16sp</dimen>
+  <dimen name="TextSizeButton">14sp</dimen>
+
+  <!-- ListView -->
+  <dimen name="ListViewSingleTileHeight">48dp</dimen>
+  <dimen name="ListViewTwoLinesTileHeight">72dp</dimen>
+  <dimen name="ListViewThreeLinesTileHeight">88dp</dimen>
+  <dimen name="ListLeftMarginRelative">56dp</dimen>
+  <dimen name="ListLeftMarginAbsolute">72dp</dimen>
+
+  <!-- Item Details -->
+  <dimen name="ItemDetailsLineHeight">72dp</dimen>
+</resources>

@@ -1,0 +1,104 @@
+﻿<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SillyCompany.Mobile.Practices.Converters;assembly=SillyCompany.Mobile.Practices"
+    x:Class="SillyCompany.Mobile.Practices.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <converters:IsNullConverter x:Key="IsNullConverter" />
+            <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+
+            <Color x:Key="BlackC90">#414142</Color>
+            <Color x:Key="BlackC50">#939598</Color>
+            <Color x:Key="BlackC25">#C8C8C8</Color>
+            <Color x:Key="BlackC05">#F1F1F2</Color>
+            <Color x:Key="Black.20">#33000000</Color>
+            <Color x:Key="Blue">#008DA8</Color>
+            <Color x:Key="Red">#EE3524</Color>
+            <Color x:Key="Orange">#F6A01A</Color>
+            <Color x:Key="White">#F8F8F8</Color>
+
+            <Color x:Key="Primary">#008DA8</Color>
+            <Color x:Key="Accent">#008DA8</Color>
+
+            <Thickness x:Key="SmallPadding">4</Thickness>
+            <Thickness x:Key="MediumPadding">8</Thickness>
+            <Thickness x:Key="StandardPadding">16</Thickness>
+
+            <x:Double x:Key="SmallSpacing">4</x:Double>
+            <x:Double x:Key="MediumSpacing">8</x:Double>
+            <x:Double x:Key="StandardSpacing">16</x:Double>
+
+            <x:Double x:Key="TextSizeHeadline">20</x:Double>
+            <x:Double x:Key="TextSizeTitle">18</x:Double>
+            <x:Double x:Key="TextSizeSubhead">16</x:Double>
+            <x:Double x:Key="TextSizeBody">14</x:Double>
+            <x:Double x:Key="TextSizeCaption">12</x:Double>
+            <x:Double x:Key="TextSizeSmallCaption">10</x:Double>
+
+            <Color x:Key="TextPrimaryColor">#DE000000</Color>
+            <Color x:Key="TextSecondaryColor">#FF979797</Color>
+            <Color x:Key="TextTernaryColor">#C8C8C8</Color>
+
+            <x:Double x:Key="ListViewSingleLineHeight">48</x:Double>
+            <x:Double x:Key="ListViewTwoLinesHeight">72</x:Double>
+            <x:Double x:Key="ListViewThreeLinesHeight">88</x:Double>
+
+            <Style x:Key="ButtonDefault" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="Accent" />
+                <Setter Property="WidthRequest" Value="100" />
+            </Style>
+
+            <Style x:Key="TextHeadline" TargetType="Label">
+                <Setter Property="Font" Value="Large" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeHeadline}" />
+            </Style>
+
+            <Style x:Key="TextTitle" TargetType="Label">
+                <Setter Property="Font" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeTitle}" />
+            </Style>
+
+            <Style x:Key="TextSubhead" TargetType="Label">
+                <Setter Property="Font" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeSubhead}" />
+            </Style>
+
+            <Style x:Key="TextSubheadSecondary" TargetType="Label">
+                <Setter Property="Font" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeSubhead}" />
+            </Style>
+
+            <Style x:Key="TextBody" TargetType="Label">
+                <Setter Property="Font" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeBody}" />
+            </Style>
+
+            <Style x:Key="TextBodySecondary" TargetType="Label">
+                <Setter Property="Font" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeBody}" />
+            </Style>
+
+            <Style x:Key="TextCaption" TargetType="Label">
+                <Setter Property="Font" Value="Small" />
+                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeCaption}" />
+            </Style>
+
+            <Style x:Key="TextCaptionSecondary" TargetType="Label">
+                <Setter Property="Font" Value="Small" />
+                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeCaption}" />
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

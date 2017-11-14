@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  
+  <style name="ZoliTheme" parent="Theme.App">
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowAllowEnterTransitionOverlap">true</item>
+    <item name="android:windowAllowReturnTransitionOverlap">true</item>
+    <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+    <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+    <item name="android:navigationBarColor">@color/primaryDark</item>
+    <item name="android:alertDialogTheme">@style/Theme.AlertDialog</item>
+    <item name="android:navigationBarColor">@color/primaryDark</item>
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@color/primaryDark</item>
+    <!--<item name="android:windowTranslucentStatus">true</item>-->
+    <item name="windowActionModeOverlay">true</item>
+  </style>
+
+  <style name="ZoliTheme.Splash" parent="ZoliTheme">
+    <!--<item name="android:windowActionBar">false</item>
+    <item name="android:windowNoTitle">true</item>-->
+  </style>
+
+  <style name="Theme.AlertDialog" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorAccent">@color/primary</item>
+    <item name="colorPrimaryDark">@color/primaryDark</item>
+  </style>
+  
+</resources>

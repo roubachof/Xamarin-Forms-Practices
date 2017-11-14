@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+ 
+    <style name="TextView">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:maxLines">1</item>
+      <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextView.Headline" parent="TextView.Headline.Base" />
+    <style name="TextView.Title" parent="TextView.Title.Base" >
+      <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextView.Subhead" parent="TextView.Subhead.Base" />
+    <style name="TextView.Subhead.Secondary" parent="TextView.Subhead.Secondary.Base" />
+    <style name="TextView.Body" parent="TextView.Body.Base" />
+    <style name="TextView.Body.Secondary" parent="TextView.Body.Secondary.Base" />
+    <style name="TextView.Body2" parent="TextView.Body2.Base" />
+    <style name="TextView.Body2.Secondary" parent="TextView.Body2.Secondary.Base" >
+      <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextView.Caption" parent="TextView.Caption.Base" />
+    <style name="TextView.Button" parent="TextView.Button.Base" />
+
+
+    <style name="TextView.Headline.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeHeadline</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="TextView.Title.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeTitle</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="TextView.Subhead.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeSubhead</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="TextView.Subhead.Secondary.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeSubhead</item>
+      <item name="android:textColor">@color/secondary_text_material_light</item>
+    </style>
+
+    <style name="TextView.Body.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeBody</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="TextView.Body.Secondary.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeBody</item>
+      <item name="android:textColor">@color/secondary_text_material_light</item>
+    </style>
+
+    <style name="TextView.Body2.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeBody</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="TextView.Body2.Secondary.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeBody</item>
+      <item name="android:textColor">@color/secondary_text_material_light</item>
+    </style>
+
+    <style name="TextView.Caption.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeCaption</item>
+      <item name="android:textColor">@color/secondary_text_material_light</item>
+    </style>
+
+    <style name="TextView.Button.Base" parent="TextView">
+      <item name="android:textSize">@dimen/TextSizeBody</item>
+      <item name="android:textColor">@color/primary_text_default_material_light</item>
+      <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Buttons -->
+
+    <style name="FlatButton">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">48dp</item>
+      <item name="android:minWidth">72dp</item>
+      <item name="android:textColor">@android:color/white</item>
+      <item name="android:textSize">@dimen/TextSizeButton</item>
+      <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Lists -->
+    <style name="ListViewItem">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">match_parent</item>
+      <item name="android:padding">@dimen/MarginMedium</item>
+      <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="ListViewItem.TwoLines">
+      <item name="android:layout_height">72dp</item>
+    </style>
+
+    <!-- Details -->
+    <style name="ItemDetails">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">match_parent</item>
+      <item name="android:padding">@dimen/MarginMedium</item>
+      <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="ItemDetailsLine">
+      <item name="android:orientation">vertical</item>
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">@dimen/ItemDetailsLineHeight</item>
+      <item name="android:paddingTop">@dimen/MarginMedium</item>
+      <item name="android:paddingRight">@dimen/MarginMedium</item>
+      <item name="android:layout_marginLeft">@dimen/ListLeftMarginRelative</item>
+    </style>
+
+    <!-- Block -->
+    <style name="ItemDetailsBlock">
+      <item name="android:layout_width">0dp</item>
+      <item name="android:layout_height">72dp</item>
+      <item name="android:padding">@dimen/MarginMedium</item>
+    </style>
+
+  <!-- Dividers -->
+  <style name="HorizontalDivider">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">1dp</item>
+    <item name="android:background">@color/separator</item>
+  </style>
+
+  <style name="VerticalDivider">
+    <item name="android:layout_width">1dp</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:background">@color/separator</item>
+  </style>
+
+  <style name="HorizontalDivider.Region">
+    <item name="android:layout_marginLeft">@dimen/ListLeftMarginRelative</item>
+    <item name="android:layout_marginRight">0dp</item>
+  </style>
+
+</resources>

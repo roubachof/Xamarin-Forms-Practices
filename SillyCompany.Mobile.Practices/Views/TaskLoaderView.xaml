@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.ViewModels;assembly=SillyCompany.Mobile.Practices"             
+             x:Class="SillyCompany.Mobile.Practices.Views.TaskLoaderView"
+             x:Name="LoaderView">
+
+    <!--d:DataContext="{d:DesignInstance vm:IViewModelLoader}"-->
+    <ContentView.Content>
+        <Grid x:Name="Grid">
+            <ActivityIndicator Color="Accent"
+                               IsRunning="{Binding IsNotCompleted}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+            <StackLayout HorizontalOptions="Center"
+                         IsVisible="{Binding IsFaulted}"
+                         Orientation="Vertical"
+                         VerticalOptions="Center">
+                <Label HorizontalTextAlignment="Center"
+                       Style="{StaticResource TextBodySecondary}"
+                       Text="{Binding ErrorMessage}"
+                       WidthRequest="300" />
+                <Button Command="{Binding ReloadCommand}"
+                        Style="{StaticResource ButtonDefault}"
+                        HorizontalOptions="Center"
+                        Text="Réessayer" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
