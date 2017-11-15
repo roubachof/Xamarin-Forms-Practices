@@ -64,7 +64,7 @@ public async void Initialize(object parameter)
 
 ```
 
-Pfew, this a lot of copy paste on each of my VM, I will create a base VM for this, and all my VM will inherit from that.
+Pfew, this is a lot of copy paste on each of my VM, I will create a base VM for this, and all my VM will inherit from that.
 
 ```
 STOP NOW, just stop for the love of will ferrell.
@@ -79,7 +79,7 @@ STOP NOW, just stop for the love of will ferrell.
 source: https://github.com/roubachof/Xamarin-Forms-Practices/tree/master/SillyCompany.Mobile.Practices/NotifyTask
 
 Now for the loading part, the issue has been tackled years ago by [Stephen Cleary](https://i.pinimg.com/236x/40/50/80/40508052830e8d54585ee7a83008e00c--monty-python-morals.jpg).
-You should use a NotifyTask object to wrap your async initialization.
+You should use a ```NotifyTask``` object to wrap your async initialization.
 It garantees that the exception is correctly caught, and it will notify you (it implements ```INotifyPropertyChanged```).
 
 Start by reading this: https://msdn.microsoft.com/en-us/magazine/dn605875.aspx.
@@ -97,13 +97,13 @@ source: https://github.com/roubachof/Xamarin-Forms-Practices/blob/master/SillyCo
 An object wrapping a ```NotifyTask``` (which wraps a ```Task```, you follow ?), filling the gap between pure 
 Task UI management and Views data loading scenarios.
 
-It was created for separation of concerns, NotifyTask must remain async focused while ViewModelLoader should answer to all 
+It was created for separation of concerns, ```NotifyTask``` must remain async focused while ```ViewModelLoader``` should answer to all 
 the needs of the views.
 
 It will handle classic loading patterns:
 
 ```
-start loading 
+start loading
 show loading indicator
 end loading 
 dismiss indicator
@@ -115,14 +115,14 @@ It will also handle a Pull-To-Refresh scenario:
 
 1. You initialize your view model, data shows on the view
 2. You pull to refresh
-3. An error occurs: you don't want to show the error view since you have already data, you just want to display a visual feedback
+3. An error occurs: you don't want to show the error view since you already have data displayed, you just want to display a visual feedback
 
 ### TaskLoaderView
 
 source: https://github.com/roubachof/Xamarin-Forms-Practices/tree/master/SillyCompany.Mobile.Practices/Views
 
 This is a container for any view, that will handle the above scenarios.
-It is bound to the ViewModelLoader and will handle the visibility of all the views:
+It is bound to the ```ViewModelLoader``` and will handle the visibility of all the views:
 
 1. Loading spinner view
 2. Result view
@@ -131,6 +131,6 @@ It is bound to the ViewModelLoader and will handle the visibility of all the vie
 
 ### What ?
 
-To see the NotifyTask binding in action, have a look at https://github.com/roubachof/Xamarin-Forms-Practices/blob/master/SillyCompany.Mobile.Practices/Views/SillyPeoplePage.xaml.
+To see the ```NotifyTask``` binding in action, have a look at https://github.com/roubachof/Xamarin-Forms-Practices/blob/master/SillyCompany.Mobile.Practices/Views/SillyPeoplePage.xaml.
 
-To see the TaskLoaderView, have a peek at https://github.com/roubachof/Xamarin-Forms-Practices/blob/master/SillyCompany.Mobile.Practices/Views/SillyDudePage.xaml.
+To see the ```TaskLoaderView```, have a peek at https://github.com/roubachof/Xamarin-Forms-Practices/blob/master/SillyCompany.Mobile.Practices/Views/SillyDudePage.xaml.
