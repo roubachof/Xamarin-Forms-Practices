@@ -12,6 +12,8 @@ namespace SillyCompany.Mobile.Practices.ViewModels
     {
         ICommand ReloadCommand { get; }
 
+        ICommand RefreshCommand { get; }
+
         bool IsCompleted { get; }
 
         bool IsNotStarted { get; }
@@ -31,19 +33,31 @@ namespace SillyCompany.Mobile.Practices.ViewModels
     {
         protected static readonly ILogger Log = LoggerFactory.GetLogger("ViewModelLoader");
 
+        private readonly object _syncRoot = new object();
+
         private Func<Task<TData>> _loadingTaskSource;
 
         private INotifyTask<TData> _currentLoadingTask = NotifyTask<TData>.NotStartedTask;
 
+        private bool _showLoader;
+        private bool _showRefresher;
+        private bool _showResult;
+        private bool _showError;
+        private bool _showErrorNotification;
+
+        private TData _result;
         private string _errorMessage;
 
         public ViewModelLoader()
         {
             ReloadCommand = new Command(() => Load(_loadingTaskSource));
+            RefreshCommand = new Command(() => Load(_loadingTaskSource, isRefreshing: true));
         }
 
         public ICommand ReloadCommand { get; protected set; }
 
+        public ICommand RefreshCommand { get; protected set; }
+        
         public bool IsCompleted => _currentLoadingTask.IsCompleted;
 
         public bool IsNotStarted => _currentLoadingTask == null || _currentLoadingTask.IsNotStarted;
@@ -56,7 +70,41 @@ namespace SillyCompany.Mobile.Practices.ViewModels
 
         public bool IsFaulted => _currentLoadingTask.IsFaulted;
 
-        public TData Result => _currentLoadingTask.Result;
+        public bool ShowLoader
+        {
+            get => _showLoader;
+            set => SetAndRaise(ref _showLoader, value);
+        }
+
+        public bool ShowRefresher
+        {
+            get => _showRefresher;
+            set => SetAndRaise(ref _showRefresher, value);
+        }
+
+        public bool ShowResult
+        {
+            get => _showResult;
+            set => SetAndRaise(ref _showResult, value);
+        }
+
+        public bool ShowError
+        {
+            get => _showError;
+            set => SetAndRaise(ref _showError, value);
+        }
+
+        public bool ShowErrorNotification
+        {
+            get => _showErrorNotification;
+            set => SetAndRaise(ref _showErrorNotification, value);
+        }
+
+        public TData Result
+        {
+            get => _result;
+            set => SetAndRaise(ref _result, value);
+        }
 
         public string ErrorMessage
         {
@@ -64,48 +112,76 @@ namespace SillyCompany.Mobile.Practices.ViewModels
             set => SetAndRaise(ref _errorMessage, value);
         }
 
-        public void Load(Func<Task<TData>> loadingTaskSource)
+        public void Load(Func<Task<TData>> loadingTaskSource, bool isRefreshing = false)
         {
             Log.Info("Load");
-            _loadingTaskSource = loadingTaskSource;
 
-            _currentLoadingTask = null;
-            _currentLoadingTask = new NotifyTask<TData>.Builder(_loadingTaskSource)
-                .WithWhenCompleted(
-                    completedTask =>
-                    {
-                        Log.Info("Task completed");
-                        RaisePropertyChanged(nameof(IsCompleted));
-                        RaisePropertyChanged(nameof(IsNotCompleted));
-                        RaisePropertyChanged(nameof(IsNotStarted));
-                    })
-                .WithWhenSuccessfullyCompleted(
-                    (completedTask, result) =>
-                    {
-                        Log.Info("Task successfully completed");
-                        RaisePropertyChanged(nameof(IsSuccessfullyCompleted));                      
-                        RaisePropertyChanged(nameof(Result));
-                    })
-                .WithWhenFaulted(
-                    faultedTask =>
-                    {
-                        Log.Info("Task completed with fault");
-                        RaisePropertyChanged(nameof(IsFaulted));
-                        ErrorMessage = ToErrorMessage(faultedTask.InnerException);
-                    })
-                .Build();
+            lock (_syncRoot)
+            {
+                if (_currentLoadingTask != NotifyTask<TData>.NotStartedTask && _currentLoadingTask.IsNotCompleted)
+                {
+                    Log.Warn("A loading task is currently running: discarding this call");
+                    return;
+                }
 
-            _currentLoadingTask.Start();
-            RaiseAllProperties();
+                _loadingTaskSource = loadingTaskSource;
+
+                _currentLoadingTask = null;
+                _currentLoadingTask = new NotifyTask<TData>.Builder(_loadingTaskSource)
+                    .WithWhenCompleted(
+                        completedTask =>
+                        {
+                            Log.Info("Task completed");
+
+                            RaisePropertyChanged(nameof(IsCompleted));
+                            RaisePropertyChanged(nameof(IsNotCompleted));
+                            RaisePropertyChanged(nameof(IsNotStarted));
+
+                            ShowRefresher = ShowLoader = false;
+                        })
+                    .WithWhenSuccessfullyCompleted(
+                        (completedTask, result) =>
+                        {
+                            Log.Info("Task successfully completed");
+                            RaisePropertyChanged(nameof(IsSuccessfullyCompleted));
+
+                            ShowResult = true;
+                            Result = result;
+                        })
+                    .WithWhenFaulted(
+                        faultedTask =>
+                        {
+                            Log.Info("Task completed with fault");
+
+                            RaisePropertyChanged(nameof(IsFaulted));
+
+                            ShowError = !isRefreshing;
+                            ShowErrorNotification = isRefreshing;
+                            ErrorMessage = ToErrorMessage(faultedTask.InnerException);
+                        })
+                    .Build();
+
+                _currentLoadingTask.Start();
+            }
+
+            Reset(isRefreshing);
         }
 
         public string ToErrorMessage(Exception exception)
         {
-            return "Une erreur inconnue est servenue, merci de réessayer ultérieurement.";
+            return $"Une erreur inconnue est servenue.{Environment.NewLine}Merci de réessayer ultérieurement.";
         }
 
-        private void RaiseAllProperties()
+        private void Reset(bool isRefreshing)
         {
+            ShowLoader = !isRefreshing;
+            ShowRefresher = isRefreshing;
+
+            if (!isRefreshing)
+            {
+                ShowError = ShowResult = false;
+            }
+            
             RaisePropertyChanged(nameof(IsCompleted));
             RaisePropertyChanged(nameof(IsNotCompleted));
             RaisePropertyChanged(nameof(IsNotStarted));

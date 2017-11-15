@@ -7,11 +7,22 @@
 
     public class TimedVisibilityBehavior : Behavior<View>
     {
-        private bool lastVisibility;
+        private bool _lastVisibility;
+
+        public TimedVisibilityBehavior()
+        {
+            VisibilityInSeconds = 5;
+        }
+
+        public int VisibilityInSeconds
+        {
+            get;
+            set;
+        }
 
         protected override void OnAttachedTo(View bindable)
         {
-            this.lastVisibility = bindable.IsVisible;
+            _lastVisibility = bindable.IsVisible;
             bindable.PropertyChanged += this.ViewPropertyChanged;
         }
 
@@ -20,14 +31,14 @@
             var view = (View)sender;
             if (e.PropertyName == "IsVisible")
             {
-                if (!this.lastVisibility && view.IsVisible)
+                if (!_lastVisibility && view.IsVisible)
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(5));
+                    await Task.Delay(TimeSpan.FromSeconds(VisibilityInSeconds));
                     Device.BeginInvokeOnMainThread(() => view.IsVisible = false);
                 }
                 else
                 {
-                    this.lastVisibility = view.IsVisible;
+                    _lastVisibility = view.IsVisible;
                 }
             }
         }

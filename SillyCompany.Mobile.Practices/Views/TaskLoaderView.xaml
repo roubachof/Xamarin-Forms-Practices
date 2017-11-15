@@ -4,21 +4,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.ViewModels;assembly=SillyCompany.Mobile.Practices"             
+             xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:behaviors="clr-namespace:SillyCompany.Mobile.Practices.Behaviors;assembly=SillyCompany.Mobile.Practices"
              x:Class="SillyCompany.Mobile.Practices.Views.TaskLoaderView"
              x:Name="LoaderView">
 
     <!--d:DataContext="{d:DesignInstance vm:IViewModelLoader}"-->
     <ContentView.Content>
-        <Grid x:Name="Grid">
+        <AbsoluteLayout x:Name="Grid">
             <ActivityIndicator Color="Accent"
-                               IsRunning="{Binding IsNotCompleted}"
+                               IsRunning="{Binding ShowLoader}"
                                VerticalOptions="Center"
-                               HorizontalOptions="Center" />
+                               HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                               AbsoluteLayout.LayoutFlags="All"/>
             <StackLayout HorizontalOptions="Center"
-                         IsVisible="{Binding IsFaulted}"
+                         IsVisible="{Binding ShowError}"
                          Orientation="Vertical"
-                         VerticalOptions="Center">
+                         VerticalOptions="Center"
+                         AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All">
                 <Label HorizontalTextAlignment="Center"
                        Style="{StaticResource TextBodySecondary}"
                        Text="{Binding ErrorMessage}"
@@ -28,6 +33,23 @@
                         HorizontalOptions="Center"
                         Text="Réessayer" />
             </StackLayout>
-        </Grid>
+
+            <!-- Snackbar like error notification -->
+            <Frame BackgroundColor="#99F57C00"
+                   Padding="10, 5, 10, 5"
+                   AbsoluteLayout.LayoutBounds="0, 1, 1, 50"
+                   AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                   IsVisible="{Binding ShowErrorNotification, Mode=TwoWay}">
+                <Frame.Behaviors>
+                    <behaviors:TimedVisibilityBehavior VisibilityInSeconds="3"/>
+                </Frame.Behaviors>
+                <Label Style="{StaticResource TextBody}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       LineBreakMode="CharacterWrap"
+                       Text="{Binding ErrorMessage}"
+                       TextColor="White" />
+            </Frame>
+        </AbsoluteLayout>
     </ContentView.Content>
 </ContentView>

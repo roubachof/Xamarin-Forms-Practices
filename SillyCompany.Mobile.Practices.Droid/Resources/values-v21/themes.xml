@@ -13,7 +13,7 @@
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     <item name="android:statusBarColor">@color/primaryDark</item>
     <!--<item name="android:windowTranslucentStatus">true</item>-->
-    <item name="windowActionModeOverlay">true</item>
+    <item name="android:windowActionModeOverlay">true</item>
   </style>
 
   <style name="ZoliTheme.Splash" parent="ZoliTheme">
@@ -22,9 +22,9 @@
   </style>
 
   <style name="Theme.AlertDialog" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorPrimary">@color/primary</item>
-    <item name="colorAccent">@color/primary</item>
-    <item name="colorPrimaryDark">@color/primaryDark</item>
+    <item name="android:colorPrimary">@color/primary</item>
+    <item name="android:colorAccent">@color/primary</item>
+    <item name="android:colorPrimaryDark">@color/primaryDark</item>
   </style>
   
 </resources>

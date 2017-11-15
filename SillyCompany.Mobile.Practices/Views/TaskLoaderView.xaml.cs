@@ -31,7 +31,7 @@ namespace SillyCompany.Mobile.Practices.Views
                 HorizontalOptions = LayoutOptions.Fill,
             };
 
-            ContentContainer.SetBinding(ContentView.IsVisibleProperty, "IsSuccessfullyCompleted");
+            ContentContainer.SetBinding(ContentView.IsVisibleProperty, "ShowResult");
             
             Grid.Children.Insert(0, ContentContainer);
         }

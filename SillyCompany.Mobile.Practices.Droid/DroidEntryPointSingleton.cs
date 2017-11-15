@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Refractored.XamForms.PullToRefresh.Droid;
+
 namespace SillyCompany.Mobile.Practices.Droid
 {
     using System;
@@ -53,6 +55,7 @@ namespace SillyCompany.Mobile.Practices.Droid
         public static async Task InitializeApp()
         {
             await EntryPoint.RegisterDependenciesAsync().ConfigureAwait(false);
+            PullToRefreshLayoutRenderer.Init();
         }
     }
 }

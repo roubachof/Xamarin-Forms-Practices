@@ -96,6 +96,9 @@
     <Reference Include="Nito.Mvvm.Core, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nito.Mvvm.Core.1.2.2\lib\netstandard1.0\Nito.Mvvm.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Refractored.XamForms.PullToRefresh, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Refractored.XamForms.PullToRefresh.2.0.0.13\lib\netstandard1.0\Refractored.XamForms.PullToRefresh.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.1.5\lib\portable-net4+sl4+wp8+win8+wpa81\SimpleInjector.dll</HintPath>
       <Private>True</Private>
