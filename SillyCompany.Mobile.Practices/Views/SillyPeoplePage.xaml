@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Views;assembly=SillyCompany.Mobile.Practices"
@@ -6,83 +7,79 @@
              Title="Silly list"
              x:Class="SillyCompany.Mobile.Practices.Views.SillyPeoplePage">
 
-  <AbsoluteLayout>
-        
-    <ListView
-      x:Name="SillyList"
-      BackgroundColor="White"
-      IsPullToRefreshEnabled="True"
-      RefreshCommand="{Binding ReloadCommand}"
-      IsRefreshing="{Binding SillyPeopleTask.IsNotCompleted}"
-      ItemsSource="{Binding SillyPeopleTask.Result}"
-      HorizontalOptions="Fill"
-      VerticalOptions="Fill"
-      AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-      AbsoluteLayout.LayoutFlags="All">
+    <AbsoluteLayout>
 
-      <ListView.RowHeight>
-        <OnPlatform x:TypeArguments="x:Int32" iOS="80" Android="72" WinPhone="90" />
-      </ListView.RowHeight>
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <views:SillyCell />
-        </DataTemplate>
-      </ListView.ItemTemplate>
-      <ListView.Behaviors>
-		    <behaviors:SelectedItemBehavior Command="{Binding GoToSillyDudeCommand}" 
-                                        Converter="{StaticResource SelectedItemConverter}" />
-	    </ListView.Behaviors>
-    </ListView>
-    
-    <!-- Little trix: when first loading of the view, pull to refresh doesn't appear, so we display the activity indicator -->
-    <ActivityIndicator
-        Color="Accent"
-        IsRunning="{Binding IsFirstLoadNotCompleted}"
-        IsVisible="{Binding IsFirstLoadNotCompleted}"
-        VerticalOptions="Center"
-        HorizontalOptions="Center"
-        AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-        AbsoluteLayout.LayoutFlags="All">
-      
-    </ActivityIndicator>
-
-    <!-- Error displayed when loading failed -->
-    <StackLayout Orientation="Vertical" 
-                  VerticalOptions="Center" 
-                  HorizontalOptions="Center" 
-                  IsVisible="{Binding SillyPeopleTask.IsFaulted}"
+        <ListView x:Name="SillyList"
+                  BackgroundColor="White"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  ItemsSource="{Binding SillyPeopleTask.Result}"
+                  HorizontalOptions="Fill"
+                  VerticalOptions="Fill"
                   AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
                   AbsoluteLayout.LayoutFlags="All">
-      <Label
-        Style="{StaticResource TextBodySecondary}"
-        WidthRequest="200"
-        HorizontalTextAlignment="Center"
-        Text="Something went woopsie during loading..." />
-      <Button Style="{StaticResource ButtonDefault}" Text="Try Again" Command="{Binding ReloadCommand}" />
-    </StackLayout>
-    <!--</Grid>-->
-    
-    <!-- Error box displayed when trying to navigate to the knights of ni -->
-    <Frame BackgroundColor="#99F57C00"
-           Padding="16, 16, 16, 16"
-           AbsoluteLayout.LayoutBounds="0, 1, 1, 50"
-           AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-           IsVisible="False">
-      <!-- Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720-->
-      <Frame.Triggers>
-        <DataTrigger TargetType="Frame" Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}" Value="True" >
-          <Setter Property="IsVisible" Value="True" />
-        </DataTrigger>
-      </Frame.Triggers>
-      <Frame.Behaviors>
-        <behaviors:TimedVisibilityBehavior/>
-      </Frame.Behaviors>
-      <Label Style="{StaticResource TextBody}"
-             HorizontalTextAlignment="Center"
-             VerticalTextAlignment="Center"
-             Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-             TextColor="White" />
-    </Frame>
-    
-  </AbsoluteLayout>
+
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32" iOS="80" Android="72" WinPhone="90" />
+            </ListView.RowHeight>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <views:SillyCell />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Behaviors>
+                <behaviors:SelectedItemBehavior Command="{Binding GoToSillyDudeCommand}"
+                                                Converter="{StaticResource SelectedItemConverter}" />
+            </ListView.Behaviors>
+        </ListView>
+
+        <!-- Little trix: when first loading of the view, pull to refresh doesn't appear, so we display the activity indicator -->
+        <ActivityIndicator Color="Accent"
+                           IsRunning="{Binding IsFirstLoadNotCompleted}"
+                           IsVisible="{Binding IsFirstLoadNotCompleted}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                           AbsoluteLayout.LayoutFlags="All" />
+
+        <!-- Error displayed when loading failed -->
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     IsVisible="{Binding SillyPeopleTask.IsFaulted}"
+                     AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                     AbsoluteLayout.LayoutFlags="All">
+            <Label Style="{StaticResource TextBodySecondary}"
+                   WidthRequest="200"
+                   HorizontalTextAlignment="Center"
+                   Text="Something went woopsie during loading..." />
+            <Button Style="{StaticResource ButtonDefault}" Text="Try Again" Command="{Binding ReloadCommand}" />
+        </StackLayout>
+        <!--</Grid>-->
+
+        <!-- Error box displayed when trying to navigate to the knights of ni -->
+        <Frame BackgroundColor="#99F57C00"
+               Padding="16, 16, 16, 16"
+               AbsoluteLayout.LayoutBounds="0, 1, 1, 50"
+               AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+               IsVisible="False">
+            <!-- Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720-->
+            <Frame.Triggers>
+                <DataTrigger TargetType="Frame" Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                             Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Frame.Behaviors>
+                <behaviors:TimedVisibilityBehavior />
+            </Frame.Behaviors>
+            <Label Style="{StaticResource TextBody}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                   TextColor="White" />
+        </Frame>
+
+    </AbsoluteLayout>
 </ContentPage>

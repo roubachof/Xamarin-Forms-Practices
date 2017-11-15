@@ -7,52 +7,35 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+using SillyCompany.Mobile.Practices.Commands;
+using SillyCompany.Mobile.Practices.NotifyTask;
+using SillyCompany.Mobile.Practices.Services;
+using SillyCompany.Mobile.Practices.Services.Navigables;
+using SillyCompany.Mobile.Practices.ViewModels.ViewModelObjects;
+
+using Xamarin.Forms;
+
 namespace SillyCompany.Mobile.Practices.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices.ComTypes;
-    using System.Threading.Tasks;
-    using System.Windows.Input;
-
-    using SillyCompany.Mobile.Practices.AsyncCommand;
-    using SillyCompany.Mobile.Practices.NotifyTask;
-    using SillyCompany.Mobile.Practices.Services;
-    using SillyCompany.Mobile.Practices.Services.Navigables;
-    using SillyCompany.Mobile.Practices.ViewModels.ViewModelObjects;
-
-    using Xamarin.Forms;
-
-    /// <summary>
-    /// The silly people vm.
-    /// </summary>
     public class SillyPeopleVm : ANavigableViewModel
     {
-        /// <summary>
-        /// The silly front service.
-        /// </summary>
-        private readonly ISillyFrontService sillyFrontService;
+        private readonly ISillyFrontService _sillyFrontService;
+        
+        private bool _isFirstLoadNotCompleted;
 
-        /// <summary>
-        /// The is first load not completed
-        /// </summary>
-        private bool isFirstLoadNotCompleted;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SillyPeopleVm"/> class.
-        /// </summary>
-        /// <param name="navigationService">
-        /// The navigation service.
-        /// </param>
-        /// <param name="sillyFrontService">
-        /// The silly front service.
-        /// </param>
+        private bool _isRefreshing;
+        
         public SillyPeopleVm(INavigationService navigationService, ISillyFrontService sillyFrontService)
             : base(navigationService)
         {
-            this.sillyFrontService = sillyFrontService;
-            this.InitCommands();
-            this.isFirstLoadNotCompleted = true;
+            _sillyFrontService = sillyFrontService;
+            InitCommands();
+            _isFirstLoadNotCompleted = true;
         }
 
         /// <summary>
@@ -66,14 +49,22 @@ namespace SillyCompany.Mobile.Practices.ViewModels
         /// <value><c>true</c> if [first load not completed]; otherwise, <c>false</c>.</value>
         public bool IsFirstLoadNotCompleted
         {
-            get { return this.isFirstLoadNotCompleted; }
-            set { this.SetAndRaise(ref this.isFirstLoadNotCompleted, value); }
+            get => _isFirstLoadNotCompleted;
+            set => SetAndRaise(ref _isFirstLoadNotCompleted, value);
+        }
+
+        public bool IsRefreshing
+        {
+            get => _isRefreshing;
+            set => SetAndRaise(ref _isRefreshing, value);
         }
 
         /// <summary>
         /// Gets or sets the reload command.
         /// </summary>
         public ICommand ReloadCommand { get; protected set; }
+
+        public ICommand RefreshCommand { get; protected set; }
 
         /// <summary>
         /// Commands accessible directly on screen are declared in the ScreenVm.
@@ -86,8 +77,14 @@ namespace SillyCompany.Mobile.Practices.ViewModels
         /// </summary>
         private void InitCommands()
         {
-            this.ReloadCommand = new Command(() => this.Load(null));
-            this.GoToSillyDudeCommand = AsyncCommand.Create(parameter => this.GoToSillyDude((SillyVmo)parameter));
+            ReloadCommand = new Command(() => Load(null));
+            RefreshCommand = new Command(() =>
+            {
+                IsRefreshing = true;
+                Load(null);
+            });
+
+            GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDude((SillyVmo)parameter));
         }
 
         /// <summary>
@@ -98,8 +95,11 @@ namespace SillyCompany.Mobile.Practices.ViewModels
         /// </param>
         public override void Load(object parameter)
         {
-            this.SillyPeopleTask = NotifyTask<IReadOnlyList<SillyVmo>>.Create(this.LoadSillyPeople());
-            this.RaisePropertyChanged(() => this.SillyPeopleTask);
+            SillyPeopleTask = NotifyTask<IReadOnlyList<SillyVmo>>.Create(
+                LoadSillyPeople(), 
+                whenCompleted: task => IsRefreshing = false);
+
+            RaisePropertyChanged(() => this.SillyPeopleTask);
         }
 
         /// <summary>
@@ -112,11 +112,11 @@ namespace SillyCompany.Mobile.Practices.ViewModels
         {
             try
             {
-                return await this.sillyFrontService.GetSillyPeople();
+                return await _sillyFrontService.GetSillyPeople();
             }
             finally
             {
-                this.IsFirstLoadNotCompleted = false;
+                IsFirstLoadNotCompleted = false;
             }
         }
 
@@ -133,7 +133,7 @@ namespace SillyCompany.Mobile.Practices.ViewModels
                 throw new InvalidOperationException("The knigths demand...... A SACRIFICE!");
             }
 
-            await this.NavigationService.NavigateToAsync<SillyDudeVm>(sillyDude.Id);
+            await NavigationService.NavigateToAsync<SillyDudeVm>(sillyDude.Id);
         }
     }
 }

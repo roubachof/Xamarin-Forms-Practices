@@ -38,9 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AsyncCommand\AsyncCommand.cs" />
-    <Compile Include="AsyncCommand\AsyncCommandBase.cs" />
-    <Compile Include="AsyncCommand\IAsyncCommand.cs" />
+    <Compile Include="Commands\AsyncCommand.cs" />
+    <Compile Include="Commands\AsyncCommandBase.cs" />
+    <Compile Include="Commands\IAsyncCommand.cs" />
     <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\SelectedItemBehavior.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="Services\Navigables\NavigationTransition.cs" />
     <Compile Include="ViewModels\BindableObject.cs" />
     <Compile Include="ViewModels\SillyDudeVm.cs" />
-    <Compile Include="ViewModels\SillyPeopleScreenVm.cs" />
+    <Compile Include="ViewModels\SillyPeopleVm.cs" />
     <Compile Include="ViewModels\ViewModelLoader.cs" />
     <Compile Include="ViewModels\ViewModelObjects\SillyVmo.cs" />
     <Compile Include="Views\IBindablePage.cs" />

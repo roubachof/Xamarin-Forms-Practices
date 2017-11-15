@@ -4,11 +4,11 @@
 // <web>https://msdn.microsoft.com/en-us//magazine/dn630647.aspx</web>
 // ****************************************************************************
 
-namespace SillyCompany.Mobile.Practices.AsyncCommand
-{
-    using System;
-    using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;
 
+namespace SillyCompany.Mobile.Practices.Commands
+{
     public abstract class AsyncCommandBase
     {
         public abstract bool CanExecute(object parameter = null);

@@ -1,13 +1,13 @@
 ﻿// 
 // From: https://raw.githubusercontent.com/davidbritch/xamarin-forms/master/ItemSelectedBehavior/ItemSelectedBehavior/Behaviors/ListViewSelectedItemBehavior.cs
 // 
+
+using SillyCompany.Mobile.Practices.Commands;
+
 namespace SillyCompany.Mobile.Practices.Behaviors
 {
     using System;
     using System.Windows.Input;
-
-    using SillyCompany.Mobile.Practices.AsyncCommand;
-
     using Xamarin.Forms;
 
     public class SelectedItemBehavior : Behavior<ListView>

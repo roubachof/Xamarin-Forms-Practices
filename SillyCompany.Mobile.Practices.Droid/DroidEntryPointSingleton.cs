@@ -7,15 +7,15 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Threading.Tasks;
+
+using Android.Util;
+using ImageCircle.Forms.Plugin.Droid;
 using Refractored.XamForms.PullToRefresh.Droid;
 
 namespace SillyCompany.Mobile.Practices.Droid
 {
-    using System;
-    using System.Threading.Tasks;
-
-    using Android.Util;
-    
     public static class DroidEntryPointSingleton
     {
         private static readonly CoreEntryPoint EntryPoint = new CoreEntryPoint();
@@ -55,6 +55,7 @@ namespace SillyCompany.Mobile.Practices.Droid
         public static async Task InitializeApp()
         {
             await EntryPoint.RegisterDependenciesAsync().ConfigureAwait(false);
+            ImageCircleRenderer.Init();
             PullToRefreshLayoutRenderer.Init();
         }
     }

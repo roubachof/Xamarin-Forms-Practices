@@ -10,12 +10,10 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using SillyCompany.Mobile.Practices.NotifyTask;
 
-namespace SillyCompany.Mobile.Practices.AsyncCommand
+namespace SillyCompany.Mobile.Practices.Commands
 {
-    
     public static class AsyncCommand
     {
         public static AsyncCommand<object> Create(Func<Task> command, Func<object, bool> canExecute = null)

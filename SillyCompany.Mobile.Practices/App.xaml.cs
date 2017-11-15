@@ -7,13 +7,13 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using SillyCompany.Mobile.Practices.Services.Navigables;
+using SillyCompany.Mobile.Practices.ViewModels;
+
+using Xamarin.Forms;
+
 namespace SillyCompany.Mobile.Practices
 {
-    using SillyCompany.Mobile.Practices.Services.Navigables;
-    using SillyCompany.Mobile.Practices.ViewModels;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// The app.
     /// </summary>

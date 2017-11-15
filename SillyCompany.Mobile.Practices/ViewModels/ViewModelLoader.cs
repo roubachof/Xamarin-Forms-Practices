@@ -169,7 +169,7 @@ namespace SillyCompany.Mobile.Practices.ViewModels
 
         public string ToErrorMessage(Exception exception)
         {
-            return $"Une erreur inconnue est servenue.{Environment.NewLine}Merci de réessayer ultérieurement.";
+            return $"An unknown error occured.{Environment.NewLine}Please try again later.";
         }
 
         private void Reset(bool isRefreshing)

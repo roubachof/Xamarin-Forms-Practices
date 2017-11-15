@@ -6,10 +6,9 @@
 
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using SillyCompany.Mobile.Practices.NotifyTask;
 
-namespace SillyCompany.Mobile.Practices.AsyncCommand
+namespace SillyCompany.Mobile.Practices.Commands
 {
 
     public interface IAsyncCommand : ICommand

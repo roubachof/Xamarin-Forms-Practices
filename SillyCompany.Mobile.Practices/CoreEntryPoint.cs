@@ -7,47 +7,35 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
+
 using MetroLog;
 using MetroLog.Targets;
 
+using SillyCompany.Mobile.Practices.Services;
+using SillyCompany.Mobile.Practices.Services.Navigables;
+using SillyCompany.Mobile.Practices.Services.Navigables.Impl;
+
+using Xamarin.Forms;
+
 namespace SillyCompany.Mobile.Practices
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-    using System.Threading.Tasks;
-
-    using SillyCompany.Mobile.Practices.Services;
-    using SillyCompany.Mobile.Practices.Services.Navigables;
-    using SillyCompany.Mobile.Practices.Services.Navigables.Impl;
-
-    using Xamarin.Forms;
-
     /// <summary>
     /// The core entry point.
     /// </summary>
     public class CoreEntryPoint
-    {
-        /// <summary>
-        /// The project assembly.
-        /// </summary>
+    {        
         private static readonly Assembly ProjectAssembly = typeof(CoreEntryPoint).GetTypeInfo().Assembly;
-
-        /// <summary>
-        /// The register dependencies async.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
+        
         public async Task RegisterDependenciesAsync()
         {
             await Task.Run(() => this.RegisterDependencies());
         }
-
-        /// <summary>
-        /// The register dependencies.
-        /// </summary>
-        private void RegisterDependencies()
+                
+        public void RegisterDependencies()
         {
             var container = DependencyContainer.Instance;
 

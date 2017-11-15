@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 using Foundation;
+using ImageCircle.Forms.Plugin.iOS;
+using Refractored.XamForms.PullToRefresh.iOS;
 using UIKit;
 
 namespace SillyCompany.Mobile.Practices.iOS
@@ -23,9 +23,26 @@ namespace SillyCompany.Mobile.Practices.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Initialize();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private void Initialize()
+        {
+            try
+            {
+                new CoreEntryPoint().RegisterDependencies();
+                ImageCircleRenderer.Init();
+                PullToRefreshLayoutRenderer.Init();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"Exception while initializing app: {exception.Message}");
+                throw;
+            }
         }
     }
 }

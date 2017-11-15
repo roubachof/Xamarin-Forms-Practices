@@ -62,6 +62,7 @@ namespace SillyCompany.Mobile.Practices.NotifyTask
         /// </summary>
         public static NotifyTask<TResult> Create(
             Task<TResult> task,
+            Action<INotifyTask> whenCompleted = null,
             Action<INotifyTask> whenFaulted = null,
             Action<INotifyTask, TResult> whenSuccessfullyCompleted = null,
             string name = null,
@@ -69,6 +70,7 @@ namespace SillyCompany.Mobile.Practices.NotifyTask
         {
             return new NotifyTask<TResult>(
                 task,
+                whenCompleted: whenCompleted,
                 whenFaulted: whenFaulted,
                 whenSuccessfullyCompleted: whenSuccessfullyCompleted,
                 name: name,
