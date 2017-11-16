@@ -67,7 +67,7 @@ namespace SillyCompany.Mobile.Practices.Views
 
                 ErrorNotificationView.SetBinding(
                     Frame.IsVisibleProperty,
-                    new Binding(nameof(ViewModelLoader.ShowErrorNotification), source: ViewModelLoader));
+                    new Binding(nameof(ViewModelLoader.ShowErrorNotification), source: ViewModelLoader, mode: BindingMode.TwoWay));
 
                 ErrorNotificationViewLabel.SetBinding(
                     Label.TextProperty,

@@ -27,10 +27,8 @@
                 <Label x:Name="ErrorViewLabel"
                        HorizontalTextAlignment="Center"
                        Style="{StaticResource TextBodySecondary}"
-                       Text="{Binding ErrorMessage}"
                        WidthRequest="300" />
                 <Button x:Name="ErrorViewButton"
-                        Command="{Binding ReloadCommand}"
                         Style="{StaticResource ButtonDefault}"
                         HorizontalOptions="Center"
                         Text="Retry" />
@@ -41,8 +39,7 @@
                    BackgroundColor="#99F57C00"
                    Padding="10, 5, 10, 5"
                    AbsoluteLayout.LayoutBounds="0, 1, 1, 50"
-                   AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                   IsVisible="{Binding ShowErrorNotification, Mode=TwoWay}">
+                   AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional">
                 <Frame.Behaviors>
                     <behaviors:TimedVisibilityBehavior VisibilityInSeconds="3"/>
                 </Frame.Behaviors>
@@ -51,7 +48,6 @@
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        LineBreakMode="CharacterWrap"
-                       Text="{Binding ErrorMessage}"
                        TextColor="White" />
             </Frame>
         </AbsoluteLayout>
