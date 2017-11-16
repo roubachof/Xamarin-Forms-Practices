@@ -12,30 +12,33 @@
     <!--d:DataContext="{d:DesignInstance vm:IViewModelLoader}"-->
     <ContentView.Content>
         <AbsoluteLayout x:Name="Grid">
-            <ActivityIndicator Color="Accent"
-                               IsRunning="{Binding ShowLoader}"
+            <ActivityIndicator x:Name="Loader"
+                               Color="Accent"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
                                AbsoluteLayout.LayoutFlags="All"/>
-            <StackLayout HorizontalOptions="Center"
-                         IsVisible="{Binding ShowError}"
+            <StackLayout x:Name="ErrorView"
+                         HorizontalOptions="Center"
                          Orientation="Vertical"
                          VerticalOptions="Center"
                          AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All">
-                <Label HorizontalTextAlignment="Center"
+                <Label x:Name="ErrorViewLabel"
+                       HorizontalTextAlignment="Center"
                        Style="{StaticResource TextBodySecondary}"
                        Text="{Binding ErrorMessage}"
                        WidthRequest="300" />
-                <Button Command="{Binding ReloadCommand}"
+                <Button x:Name="ErrorViewButton"
+                        Command="{Binding ReloadCommand}"
                         Style="{StaticResource ButtonDefault}"
                         HorizontalOptions="Center"
-                        Text="Réessayer" />
+                        Text="Retry" />
             </StackLayout>
 
             <!-- Snackbar like error notification -->
-            <Frame BackgroundColor="#99F57C00"
+            <Frame x:Name="ErrorNotificationView"
+                   BackgroundColor="#99F57C00"
                    Padding="10, 5, 10, 5"
                    AbsoluteLayout.LayoutBounds="0, 1, 1, 50"
                    AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
@@ -43,7 +46,8 @@
                 <Frame.Behaviors>
                     <behaviors:TimedVisibilityBehavior VisibilityInSeconds="3"/>
                 </Frame.Behaviors>
-                <Label Style="{StaticResource TextBody}"
+                <Label x:Name="ErrorNotificationViewLabel"
+                       Style="{StaticResource TextBody}"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        LineBreakMode="CharacterWrap"

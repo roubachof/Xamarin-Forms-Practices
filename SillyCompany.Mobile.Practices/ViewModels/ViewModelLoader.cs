@@ -27,6 +27,16 @@ namespace SillyCompany.Mobile.Practices.ViewModels
         bool IsFaulted { get; }
 
         string ErrorMessage { get; }
+
+        bool ShowLoader { get; }
+
+        bool ShowRefresher { get; }
+
+        bool ShowResult { get; }
+
+        bool ShowError { get; }
+
+        bool ShowErrorNotification { get; }
     }
 
     public class ViewModelLoader<TData> : BindableObject, IViewModelLoader

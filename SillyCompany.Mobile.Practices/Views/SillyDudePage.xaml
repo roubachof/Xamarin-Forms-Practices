@@ -12,14 +12,14 @@
 
     <!--d:DataContext="{d:DesignInstance vm:SillyDudeVm}"-->
 
-    <views:TaskLoaderView BackgroundColor="White" BindingContext="{Binding SillyDudeLoader}">
+    <views:TaskLoaderView BackgroundColor="White" ViewModelLoader="{Binding SillyDudeLoader}">
         <pullToRefresh:PullToRefreshLayout
             IsPullToRefreshEnabled="True"
-            RefreshCommand="{Binding RefreshCommand}"
-            IsRefreshing="{Binding ShowRefresher}"
+            RefreshCommand="{Binding SillyDudeLoader.RefreshCommand}"
+            IsRefreshing="{Binding SillyDudeLoader.ShowRefresher}"
             RefreshColor="Blue">
             <ScrollView>
-                <StackLayout BindingContext="{Binding Result}">
+                <StackLayout BindingContext="{Binding SillyDudeLoader.Result}">
                     <AbsoluteLayout BackgroundColor="Black" HeightRequest="250">
                         <!-- WidthRequest="200" is weird here but works around an issue on image width miscalculation on android -->
                         <Image Aspect="AspectFill"
