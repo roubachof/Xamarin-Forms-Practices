@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyDudePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+             xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             d:DataContext="{d:DesignInstance vm:SillyDudeVm}"
+             mc:Ignorable="d">
+
+    <customViews:TaskLoaderView BackgroundColor="White" ViewModelLoader="{Binding SillyDudeLoader}">
+        <pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                           IsRefreshing="{Binding SillyDudeLoader.ShowRefresher}"
+                                           RefreshColor="Blue"
+                                           RefreshCommand="{Binding SillyDudeLoader.RefreshCommand}">
+            <ScrollView>
+                <Grid Padding="{StaticResource StandardThickness}"
+                      BindingContext="{Binding SillyDudeLoader.Result}"
+                      ColumnSpacing="0"
+                      RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--  ROW 1  -->
+                    <Image Grid.RowSpan="4"
+                           Margin="-16,-16,-16,0"
+                           Aspect="AspectFill"
+                           Source="{Binding ImageUrl}" />
+
+                    <BoxView Grid.Row="1"
+                             Grid.RowSpan="3"
+                             Margin="-16,0"
+                             BackgroundColor="#99000000" />
+
+                    <Label Grid.Row="1"
+                           Style="{StaticResource TextHeadline}"
+                           VerticalOptions="End"
+                           Text="{Binding Name}"
+                           TextColor="White" />
+
+                    <Label Grid.Row="2"
+                           Style="{StaticResource TextSubhead}"
+                           Text="{Binding Role}"
+                           TextColor="White" />
+
+                    <skiaRate:RatingView Grid.Row="3"
+                                         WidthRequest="100"
+                                         HeightRequest="30"
+                                         HorizontalOptions="Start"
+                                         ColorOn="Yellow"
+                                         Count="5"
+                                         OutlineOffColor="Transparent"
+                                         OutlineOnColor="Yellow"
+                                         RatingType="Floating"
+                                         StrokeWidth="1"
+                                         Value="{Binding SillinessDegree}" />
+
+                    <Frame Grid.Row="4"
+                           Padding="0,16,0,0"
+                           BackgroundColor="Transparent"
+                           HasShadow="False">
+                        <Label Style="{StaticResource TextBody}" Text="{Binding Description}" />
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </pullToRefresh:PullToRefreshLayout>
+    </customViews:TaskLoaderView>
+</ContentPage>

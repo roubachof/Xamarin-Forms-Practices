@@ -19,6 +19,6 @@ namespace SillyCompany.Mobile.Practices
         /// <summary>
         /// The instance.
         /// </summary>
-        public static Container Instance = new Container();
+        public static Container Instance { get; } = new Container();
     }
 }

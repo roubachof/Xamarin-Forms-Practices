@@ -7,9 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using SillyCompany.Mobile.Practices.Services.Navigables;
-using SillyCompany.Mobile.Practices.ViewModels;
-
+using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels;
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices

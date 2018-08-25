@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyPeoplePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
+             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+             xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             Title="{loc:Translate SillyPeople_Title}"
+             d:DataContext="{d:DesignInstance vm:SillyPeopleVm}"
+             mc:Ignorable="d">
+
+    <ScrollView>
+        <Grid Padding="{StaticResource StandardThickness}"
+              ColumnSpacing="0"
+              RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <!--  ROW 0  -->
+                <RowDefinition Height="40" />
+                <RowDefinition Height="70" />
+
+                <!--  ROW 2  -->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  ROW 0: TaskLoaderView Configuration  -->
+            <Label Grid.Row="0"
+                   Style="{StaticResource TextSubheadCenter}"
+                   VerticalTextAlignment="Start"
+                   Text="{loc:Translate SillyPeople_TaskLoaderView}" />
+
+            <renderedViews:MaterialFrame Grid.Row="1"
+                                         Padding="{StaticResource StandardThickness}"
+                                         Elevation="4">
+                <StackLayout Orientation="Horizontal" Spacing="10">
+
+                    <Label Style="{StaticResource TextBody}"
+                           VerticalOptions="Center"
+                           Text="{loc:Translate SillyPeople_ErrorEmulation}" />
+
+                    <Picker HorizontalOptions="FillAndExpand"
+                            FontFamily="{StaticResource FontSemiBold}"
+                            FontSize="Small"
+                            ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
+                            SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
+                            TextColor="{StaticResource Accent}" />
+                </StackLayout>
+            </renderedViews:MaterialFrame>
+
+            <!--  ROW 2: TaskLoaderView Container  -->
+            <customViews:TaskLoaderView Grid.Row="2"
+                                        Style="{StaticResource SillyTaskLoader}"
+                                        ViewModelLoader="{Binding SillyPeopleLoader}">
+                <Grid ColumnSpacing="0" RowSpacing="0">
+
+                    <Grid.RowDefinitions>
+                        <!--  ROW 0  -->
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="Auto" />
+
+                        <!--  ROW 2  -->
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0"
+                           Style="{StaticResource TextSubheadCenter}"
+                           Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
+
+                    <renderedViews:MaterialFrame Grid.Row="1"
+                                                 Padding="{StaticResource StandardThickness}"
+                                                 Elevation="4">
+                        <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                              effects:TapCommandEffect.TapParameter="{Binding .}"
+                              effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                              BindingContext="{Binding SillyOfTheDay}"
+                              ColumnSpacing="0"
+                              RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="136" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ic:CircleImage Grid.Row="0"
+                                            Grid.RowSpan="3"
+                                            Grid.Column="0"
+                                            Style="{StaticResource LargeAvatar}"
+                                            Margin="0,0,16,0"
+                                            HorizontalOptions="Start"
+                                            Aspect="AspectFill"
+                                            BorderColor="{StaticResource Accent}"
+                                            BorderThickness="2"
+                                            Source="{Binding ImageUrl}" />
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource TextBody}"
+                                   Margin="0,16,0,0"
+                                   HorizontalOptions="Start"
+                                   Text="{Binding Name}" />
+
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource TextBodySecondary}"
+                                   Margin="0,4,0,0"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   Text="{Binding Role}" />
+
+                            <skiaRate:RatingView Grid.Row="2"
+                                                 Grid.Column="1"
+                                                 WidthRequest="100"
+                                                 HeightRequest="30"
+                                                 HorizontalOptions="Start"
+                                                 ColorOn="Yellow"
+                                                 Count="5"
+                                                 OutlineOnColor="Orange"
+                                                 RatingType="Floating"
+                                                 StrokeWidth="1"
+                                                 Value="{Binding SillinessDegree}" />
+                        </Grid>
+                    </renderedViews:MaterialFrame>
+
+                    <!--  ROW 2: HorizontalListView  -->
+                    <Label Grid.Row="2"
+                           Style="{StaticResource TextSubhead}"
+                           Margin="16,0,0,0"
+                           VerticalOptions="Center"
+                           Text="{loc:Translate SillyPeople_HorizontalListView}" />
+
+                    <Label Grid.Row="2"
+                           HeightRequest="30"
+                           Margin="0,0,16,0"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           effects:TapCommandEffect.Tap="{Binding SortSillyPeopleCommand}"
+                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                           BackgroundColor="Transparent"
+                           FontFamily="{StaticResource FontSemiBold}"
+                           FontSize="15"
+                           Text="SORT THE LIST"
+                           TextColor="Accent" />
+
+                    <renderedViews:HorizontalListView Grid.Row="3"
+                                                      Margin="-16,0"
+                                                      CurrentIndex="3"
+                                                      ItemHeight="160"
+                                                      ItemWidth="160"
+                                                      ItemsSource="{Binding SillyPeopleLoader.Result}"
+                                                      SnapStyle="Center">
+                        <renderedViews:HorizontalListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                           effects:TapCommandEffect.TapParameter="{Binding .}"
+                                                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </renderedViews:HorizontalListView.ItemTemplate>
+                    </renderedViews:HorizontalListView>
+
+                    <!--  Error box displayed when trying to navigate to the knights of ni  -->
+                    <Frame Grid.Row="3"
+                           HeightRequest="30"
+                           Margin="-16,-16,-16,-16"
+                           Padding="{StaticResource StandardThickness}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="End"
+                           BackgroundColor="#99F57C00"
+                           IsVisible="False">
+                        <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                                         TargetType="Frame"
+                                         Value="True">
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Frame.Behaviors>
+                            <behaviors:TimedVisibilityBehavior />
+                        </Frame.Behaviors>
+                        <Label Style="{StaticResource TextBody}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                               TextColor="White" />
+                    </Frame>
+                </Grid>
+            </customViews:TaskLoaderView>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

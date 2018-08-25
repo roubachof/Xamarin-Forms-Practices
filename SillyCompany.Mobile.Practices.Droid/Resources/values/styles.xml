@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
  
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+      <!--set your custom font properties-->
+      <item name="android:fontFamily">@font/opensansbold</item>
+    </style>
+
     <style name="TextView">
       <item name="android:layout_width">wrap_content</item>
       <item name="android:layout_height">wrap_content</item>

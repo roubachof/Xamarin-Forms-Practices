@@ -20,35 +20,35 @@ namespace SillyCompany.Mobile.Practices.Droid
     {
         private static readonly CoreEntryPoint EntryPoint = new CoreEntryPoint();
 
-        private static bool isInitializing;
-        
-        private static bool isInitialized;
-        
+        private static bool _isInitializing;
+
+        private static bool _isInitialized;
+
         public static async Task EnsureInitialized(Action whenCompleted)
         {
-            if (isInitialized)
+            if (_isInitialized)
             {
                 Log.Warn("pocm", "Tried to initialize app while it's already been initialized");
                 whenCompleted();
                 return;
             }
 
-            if (isInitializing)
+            if (_isInitializing)
             {
                 Log.Warn("pocm", "Tried to initialize app while it's currently initializing");
                 return;
             }
 
-            isInitializing = true;
+            _isInitializing = true;
             try
             {
                 await InitializeApp().ConfigureAwait(false);
-                isInitialized = true;
+                _isInitialized = true;
                 whenCompleted();
             }
             finally
             {
-                isInitializing = false;
+                _isInitializing = false;
             }
         }
 

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillySquareCell"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             Padding="{StaticResource MediumThickness}">
+    <ContentView.Content>
+        <rv:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <ic:CircleImage Style="{StaticResource SmallAvatar}"
+                                Aspect="AspectFill"
+                                Source="{Binding ImageUrl}" />
+                <Label Style="{StaticResource TextBody}"
+                       WidthRequest="100"
+                       HeightRequest="20"
+                       Margin="{StaticResource MediumTopThickness}"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Name}" />
+                <Label Style="{StaticResource TextBodySecondary}"
+                       WidthRequest="100"
+                       HeightRequest="20"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding Role}" />
+            </StackLayout>
+        </rv:MaterialFrame>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyCell"
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
+
+    <StackLayout Padding="16,16,16,16" Orientation="Horizontal">
+
+        <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
+                                  Aspect="AspectFill"
+                                  Source="{Binding ImageUrl}" />
+
+        <StackLayout Padding="16,0,0,0" Orientation="Vertical">
+            <Label Style="{StaticResource TextSubhead}" Text="{Binding Name}" />
+            <Label Style="{StaticResource TextSubheadSecondary}" Text="{Binding Role}" />
+        </StackLayout>
+
+    </StackLayout>
+</ViewCell>

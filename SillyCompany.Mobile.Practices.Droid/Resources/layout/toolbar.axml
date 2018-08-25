@@ -8,5 +8,6 @@
     android:minHeight="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+	app:titleTextAppearance="@style/Toolbar.TitleText"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:layout_scrollFlags="scroll|enterAlways" />

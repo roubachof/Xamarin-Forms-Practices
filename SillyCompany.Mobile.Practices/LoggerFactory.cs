@@ -16,7 +16,9 @@ namespace SillyCompany.Mobile.Practices
         public static ILogger GetLogger(string loggerName)
         {
             if (_logManager == null)
+            {
                 throw new InvalidOperationException("LogFactory must be Initialized before creating any logger");
+            }
 
             return _logManager.GetLogger(loggerName);
         }

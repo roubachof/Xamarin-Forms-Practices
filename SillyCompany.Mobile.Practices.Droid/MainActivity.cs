@@ -7,23 +7,19 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+
+using Android.App;
+using Android.Content.PM;
+using Android.OS;
+
+using Xamarin.Forms.Platform.Android;
+
 namespace SillyCompany.Mobile.Practices.Droid
 {
-    using Android.App;
-    using Android.Content.PM;
-    using Android.OS;
 
-    using Xamarin.Forms.Platform.Android;
-
-    /// <summary>
-    /// </summary>
     [Activity(Theme = "@style/ZoliTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="bundle">
-        /// </param>
         protected override void OnCreate(Bundle bundle)
         {
             ToolbarResource = Resource.Layout.toolbar;
@@ -32,7 +28,7 @@ namespace SillyCompany.Mobile.Practices.Droid
             
             Xamarin.Forms.Forms.Init(this, bundle);
 
-            this.LoadApplication(new App());
+            LoadApplication(new App());
         }
     }
 }
