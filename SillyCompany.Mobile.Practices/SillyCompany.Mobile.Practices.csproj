@@ -51,4 +51,25 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillyCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillyDudePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillyPeoplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillySquareCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SortSillyPeoplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

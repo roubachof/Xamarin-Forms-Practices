@@ -187,7 +187,7 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sharpnado Silly People.
+        ///   Looks up a localized string similar to Sharpnado.
         /// </summary>
         internal static string SillyPeople_Title {
             get {
@@ -196,7 +196,7 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sort your Silly People.
+        ///   Looks up a localized string similar to Drag&apos;N&apos;Drop.
         /// </summary>
         internal static string SortSillyPeople_Title {
             get {

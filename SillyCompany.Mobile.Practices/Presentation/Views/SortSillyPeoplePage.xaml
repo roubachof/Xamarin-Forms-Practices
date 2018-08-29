@@ -5,13 +5,40 @@
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             Title="{loc:Translate SortSillyPeople_Title}"
-             Padding="{StaticResource StandardThickness}">
+             Title="{loc:Translate SortSillyPeople_Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
+                <Setter Property="ItemHeight">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="iOS">120</On>
+                            <On Platform="Android">120</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ItemWidth">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="iOS">100</On>
+                            <On Platform="Android">110</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ItemSpacing">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="iOS">4</On>
+                            <On Platform="Android">4</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <renderedViews:HorizontalListView EnableDragAndDrop="True"
-                                          ItemHeight="120"
-                                          ItemSpacing="8"
-                                          ItemWidth="110"
+        <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                          EnableDragAndDrop="True"
                                           ItemsSource="{Binding SillyPeople}"
                                           ListLayout="Grid">
             <renderedViews:HorizontalListView.ItemTemplate>

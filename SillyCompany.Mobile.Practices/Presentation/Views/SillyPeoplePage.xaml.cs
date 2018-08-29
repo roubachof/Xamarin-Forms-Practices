@@ -7,6 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using SillyCompany.Mobile.Practices.Presentation.Converters;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +22,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         public SillyPeoplePage()
         {
             InitializeComponent();
+
+            TaskLoaderHeader.Height = SizeScalingByScreenConverter.Instance.Convert(TaskLoaderHeader.Height.Value);
+            SillyOfTheDayHeader.Height = SizeScalingByScreenConverter.Instance.Convert(SillyOfTheDayHeader.Height.Value);
+            ListViewHeader.Height = SizeScalingByScreenConverter.Instance.Convert(ListViewHeader.Height.Value);
         }
     }
 }

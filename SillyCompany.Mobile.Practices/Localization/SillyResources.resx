@@ -164,9 +164,9 @@
     <value>TASK LOADER VIEW</value>
   </data>
   <data name="SillyPeople_Title" xml:space="preserve">
-    <value>Sharpnado Silly People</value>
+    <value>Sharpnado</value>
   </data>
   <data name="SortSillyPeople_Title" xml:space="preserve">
-    <value>Sort your Silly People</value>
+    <value>Drag'N'Drop</value>
   </data>
 </root>

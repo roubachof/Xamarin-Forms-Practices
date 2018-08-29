@@ -37,7 +37,7 @@ namespace SillyCompany.Mobile.Practices.Droid
             {
                 await
                     DroidEntryPointSingleton.EnsureInitialized(
-                        () => this.RunOnUiThread(() => this.StartActivity(typeof(MainActivity))));
+                        () => RunOnUiThread(() => StartActivity(typeof(MainActivity))));
             }
             catch (Exception exception)
             {

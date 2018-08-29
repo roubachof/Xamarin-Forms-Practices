@@ -17,6 +17,21 @@
              Title="{loc:Translate SillyPeople_Title}"
              d:DataContext="{d:DesignInstance vm:SillyPeopleVm}"
              mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TextHeader"
+                   BasedOn="{StaticResource TextSubhead}"
+                   TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="Margin" Value="0, 0, 0, 8" />
+            </Style>
+
+            <GridLength x:Key="HeaderHeight">40</GridLength>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <Grid Padding="{StaticResource StandardThickness}"
@@ -25,21 +40,22 @@
 
             <Grid.RowDefinitions>
                 <!--  ROW 0  -->
-                <RowDefinition Height="40" />
-                <RowDefinition Height="70" />
+                <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
+                <RowDefinition Height="80" />
 
                 <!--  ROW 2  -->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!--  ROW 0: TaskLoaderView Configuration  -->
+            <!--  ROW 0: TaskLoaderView Configuration Header  -->
             <Label Grid.Row="0"
-                   Style="{StaticResource TextSubheadCenter}"
-                   VerticalTextAlignment="Start"
+                   Style="{StaticResource TextHeader}"
                    Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
+            <!--  ROW 1: TaskLoaderView Configuration  -->
             <renderedViews:MaterialFrame Grid.Row="1"
-                                         Padding="{StaticResource StandardThickness}"
+                                         Margin="0,8"
+                                         Padding="16,8"
                                          Elevation="4">
                 <StackLayout Orientation="Horizontal" Spacing="10">
 
@@ -64,19 +80,20 @@
 
                     <Grid.RowDefinitions>
                         <!--  ROW 0  -->
-                        <RowDefinition Height="60" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
+                        <RowDefinition Height="144" />
 
                         <!--  ROW 2  -->
-                        <RowDefinition Height="60" />
+                        <RowDefinition x:Name="ListViewHeader" Height="{StaticResource HeaderHeight}" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0"
-                           Style="{StaticResource TextSubheadCenter}"
+                           Style="{StaticResource TextHeader}"
                            Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                     <renderedViews:MaterialFrame Grid.Row="1"
+                                                 Margin="0,8,0,0"
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
                         <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
@@ -99,7 +116,7 @@
                                             Grid.RowSpan="3"
                                             Grid.Column="0"
                                             Style="{StaticResource LargeAvatar}"
-                                            Margin="0,0,16,0"
+                                            Margin="16,0"
                                             HorizontalOptions="Start"
                                             Aspect="AspectFill"
                                             BorderColor="{StaticResource Accent}"
@@ -137,33 +154,37 @@
 
                     <!--  ROW 2: HorizontalListView  -->
                     <Label Grid.Row="2"
-                           Style="{StaticResource TextSubhead}"
+                           Style="{StaticResource TextHeader}"
                            Margin="16,0,0,0"
-                           VerticalOptions="Center"
+                           HorizontalOptions="Start"
+                           VerticalOptions="End"
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="End"
                            Text="{loc:Translate SillyPeople_HorizontalListView}" />
 
                     <Label Grid.Row="2"
                            HeightRequest="30"
-                           Margin="0,0,16,0"
+                           Margin="0,0,16,1"
                            HorizontalOptions="End"
-                           VerticalOptions="Center"
+                           VerticalOptions="End"
                            HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
+                           VerticalTextAlignment="End"
                            effects:TapCommandEffect.Tap="{Binding SortSillyPeopleCommand}"
                            effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                            BackgroundColor="Transparent"
                            FontFamily="{StaticResource FontSemiBold}"
                            FontSize="15"
-                           Text="SORT THE LIST"
-                           TextColor="Accent" />
+                           Text="SORT"
+                           TextColor="{StaticResource Accent}" />
 
                     <renderedViews:HorizontalListView Grid.Row="3"
-                                                      Margin="-16,0"
-                                                      CurrentIndex="3"
-                                                      ItemHeight="160"
-                                                      ItemWidth="160"
+                                                      HeightRequest="144"
+                                                      Margin="-16,8"
+                                                      VerticalOptions="Start"
+                                                      ItemHeight="144"
+                                                      ItemWidth="144"
                                                       ItemsSource="{Binding SillyPeopleLoader.Result}"
-                                                      SnapStyle="Center">
+                                                      SnapStyle="Start">
                         <renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -176,14 +197,14 @@
                     </renderedViews:HorizontalListView>
 
                     <!--  Error box displayed when trying to navigate to the knights of ni  -->
-                    <Frame Grid.Row="3"
-                           HeightRequest="30"
-                           Margin="-16,-16,-16,-16"
-                           Padding="{StaticResource StandardThickness}"
-                           HorizontalOptions="Fill"
-                           VerticalOptions="End"
-                           BackgroundColor="#99F57C00"
-                           IsVisible="False">
+                    <renderedViews:MaterialFrame Grid.Row="3"
+                                                 HeightRequest="30"
+                                                 Margin="-16,-16,-16,-16"
+                                                 Padding="{StaticResource StandardThickness}"
+                                                 HorizontalOptions="Fill"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="#99F57C00"
+                                                 IsVisible="False">
                         <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
                         <Frame.Triggers>
                             <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
@@ -200,7 +221,7 @@
                                VerticalTextAlignment="Center"
                                Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
                                TextColor="White" />
-                    </Frame>
+                    </renderedViews:MaterialFrame>
                 </Grid>
             </customViews:TaskLoaderView>
 

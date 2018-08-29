@@ -14,7 +14,7 @@
                 <Label Style="{StaticResource TextBody}"
                        WidthRequest="100"
                        HeightRequest="20"
-                       Margin="{StaticResource MediumTopThickness}"
+                       Margin="{StaticResource SmallTopThickness}"
                        HorizontalTextAlignment="Center"
                        Text="{Binding Name}" />
                 <Label Style="{StaticResource TextBodySecondary}"

@@ -11,6 +11,7 @@
             <convertersSharpnado:IsNullConverter x:Key="IsNullConverter" />
             <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
             <converters:ExceptionToImageSourceConverter x:Key="ExceptionToImageSourceConverter" />
+            <converters:SizeScalingByScreenConverter x:Key="SizeScalingByScreenConverter" />
 
             <Thickness x:Key="StatusBarHeightPadding"
                        Bottom="0"

@@ -2,7 +2,10 @@
 using System.Text;
 using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
+using ObjCRuntime;
 using Refractored.XamForms.PullToRefresh.iOS;
+using Sharpnado.Presentation.Forms.iOS.Renderers.HorizontalList;
+using SillyCompany.Mobile.Practices.Infrastructure;
 using UIKit;
 
 namespace SillyCompany.Mobile.Practices.iOS
@@ -21,21 +24,6 @@ namespace SillyCompany.Mobile.Practices.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-
-            var fontList = new StringBuilder();
-            var familyNames = UIFont.FamilyNames;
-            foreach (var familyName in familyNames)
-            {
-                fontList.Append(String.Format("Family: {0}\n", familyName));
-                Console.WriteLine("Family: {0}\n", familyName);
-                var fontNames = UIFont.FontNamesForFamilyName(familyName);
-                foreach (var fontName in fontNames)
-                {
-                    Console.WriteLine("\tFont: {0}\n", fontName);
-                    fontList.Append(String.Format("\tFont: {0}\n", fontName));
-                }
-            };
-
             Initialize();
             LoadApplication(new App());
 
@@ -46,15 +34,21 @@ namespace SillyCompany.Mobile.Practices.iOS
         {
             try
             {
+                PlatformService.Initialize(
+                    UIScreen.MainScreen.Scale,
+                    (int)UIScreen.MainScreen.Bounds.Width,
+                    (int)UIScreen.MainScreen.Bounds.Height);
+
                 new CoreEntryPoint().RegisterDependencies();
                 ImageCircleRenderer.Init();
                 PullToRefreshLayoutRenderer.Init();
+                iOSHorizontalListViewRenderer.Initialize();
 
-                //UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
-                //{
-                //    TextColor = UIColor.White,
-                //    Font = UIFont.FromName("ComicSansMS", 24),
-                //});
+                UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
+                {
+                    TextColor = UIColor.White,
+                    Font = UIFont.FromName("OpenSans-SemiBold", 17),
+                });
             }
             catch (Exception exception)
             {
