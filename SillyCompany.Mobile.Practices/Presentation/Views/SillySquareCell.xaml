@@ -7,22 +7,26 @@
              Padding="{StaticResource MediumThickness}">
     <ContentView.Content>
         <rv:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
-            <StackLayout Orientation="Vertical" Spacing="0">
-                <ic:CircleImage Style="{StaticResource SmallAvatar}"
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <ic:CircleImage Grid.Row="0"
+                                Style="{StaticResource SmallAvatar}"
                                 Aspect="AspectFill"
                                 Source="{Binding ImageUrl}" />
-                <Label Style="{StaticResource TextBody}"
-                       WidthRequest="100"
-                       HeightRequest="20"
+                <Label Grid.Row="1"
                        Margin="{StaticResource SmallTopThickness}"
+                       Style="{StaticResource TextBody}"
                        HorizontalTextAlignment="Center"
                        Text="{Binding Name}" />
-                <Label Style="{StaticResource TextBodySecondary}"
-                       WidthRequest="100"
-                       HeightRequest="20"
+                <Label Grid.Row="2"
+                       Style="{StaticResource TextBodySecondary}"
                        HorizontalTextAlignment="Center"
                        Text="{Binding Role}" />
-            </StackLayout>
+            </Grid>
         </rv:MaterialFrame>
     </ContentView.Content>
 </ContentView>

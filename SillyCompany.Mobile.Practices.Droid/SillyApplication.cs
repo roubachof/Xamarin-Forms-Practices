@@ -10,8 +10,8 @@ namespace SillyCompany.Mobile.Practices.Droid
     [Application]
     public class SillyApplication : Application, Application.IActivityLifecycleCallbacks
     {
-        public SillyApplication(IntPtr handle, JniHandleOwnership transer)
-            : base(handle, transer)
+        public SillyApplication(IntPtr handle, JniHandleOwnership transfer)
+            : base(handle, transfer)
         {
         }
 
