@@ -21,9 +21,11 @@
                        Margin="{StaticResource SmallTopThickness}"
                        Style="{StaticResource TextBody}"
                        HorizontalTextAlignment="Center"
-                       Text="{Binding Name}" />
+                       Text="{Binding Name}"
+                       VerticalTextAlignment="End" />
+
                 <Label Grid.Row="2"
-                       Style="{StaticResource TextBodySecondary}"
+                       Style="{StaticResource TextCaptionSecondary}"
                        HorizontalTextAlignment="Center"
                        Text="{Binding Role}" />
             </Grid>

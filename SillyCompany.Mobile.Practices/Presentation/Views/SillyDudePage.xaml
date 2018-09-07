@@ -42,8 +42,8 @@
                              BackgroundColor="#99000000" />
 
                     <Label Grid.Row="1"
-                           Style="{StaticResource TextHeadline}"
                            VerticalOptions="End"
+                           Style="{StaticResource TextHeadline}"
                            Text="{Binding Name}"
                            TextColor="White" />
 

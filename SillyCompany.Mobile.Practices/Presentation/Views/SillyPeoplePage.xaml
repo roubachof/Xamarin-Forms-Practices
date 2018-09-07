@@ -39,11 +39,8 @@
               RowSpacing="0">
 
             <Grid.RowDefinitions>
-                <!--  ROW 0  -->
                 <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
                 <RowDefinition Height="80" />
-
-                <!--  ROW 2  -->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -55,7 +52,7 @@
             <!--  ROW 1: TaskLoaderView Configuration  -->
             <renderedViews:MaterialFrame Grid.Row="1"
                                          Margin="0,8"
-                                         Padding="16,8"
+                                         Padding="16,10"
                                          Elevation="4">
                 <StackLayout Orientation="Horizontal" Spacing="10">
 
@@ -79,19 +76,19 @@
                 <Grid ColumnSpacing="0" RowSpacing="0">
 
                     <Grid.RowDefinitions>
-                        <!--  ROW 0  -->
                         <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
                         <RowDefinition Height="144" />
-
-                        <!--  ROW 2  -->
                         <RowDefinition x:Name="ListViewHeader" Height="{StaticResource HeaderHeight}" />
+                        <RowDefinition Height="160" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
+                    <!--  ROW 0: Silly Of The Day Header  -->
                     <Label Grid.Row="0"
                            Style="{StaticResource TextHeader}"
                            Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
+                    <!--  ROW 1: Silly Of The Day  -->
                     <renderedViews:MaterialFrame Grid.Row="1"
                                                  Margin="0,8,0,0"
                                                  Padding="{StaticResource StandardThickness}"
@@ -152,7 +149,7 @@
                         </Grid>
                     </renderedViews:MaterialFrame>
 
-                    <!--  ROW 2: HorizontalListView  -->
+                    <!--  ROW 2: HorizontalListView Header  -->
                     <Label Grid.Row="2"
                            Margin="16,0,0,0"
                            HorizontalOptions="Start"
@@ -177,10 +174,9 @@
                            TextColor="{StaticResource Accent}"
                            VerticalTextAlignment="End" />
 
+                    <!--  ROW 3: HorizontalListView  -->
                     <renderedViews:HorizontalListView Grid.Row="3"
-                                                      HeightRequest="144"
                                                       Margin="-16,8"
-                                                      VerticalOptions="Start"
                                                       ItemHeight="144"
                                                       ItemWidth="144"
                                                       ItemsSource="{Binding SillyPeopleLoader.Result}"
@@ -198,6 +194,7 @@
 
                     <!--  Error box displayed when trying to navigate to the knights of ni  -->
                     <renderedViews:MaterialFrame Grid.Row="3"
+                                                 Grid.RowSpan="2"
                                                  HeightRequest="30"
                                                  Margin="-16,-16,-16,-16"
                                                  Padding="{StaticResource StandardThickness}"

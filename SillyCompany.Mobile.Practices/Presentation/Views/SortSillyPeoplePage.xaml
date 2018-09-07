@@ -28,11 +28,12 @@
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
-                            <On Platform="iOS">4</On>
+                            <On Platform="iOS">8</On>
                             <On Platform="Android">8</On>
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
+                <Setter Property="GridPadding" Value="16" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -68,7 +69,7 @@
                                                               Source="{Binding ImageUrl}" />
                                     <Label Grid.Row="1"
                                            Margin="{StaticResource MediumTopThickness}"
-                                           Style="{StaticResource TextCaption}"
+                                           Style="{StaticResource TextSmallCaption}"
                                            HorizontalTextAlignment="Center"
                                            Text="{Binding Name}" />
                                 </Grid>

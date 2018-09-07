@@ -83,7 +83,7 @@
             <x:Double x:Key="TextSizeSubhead">16</x:Double>
             <x:Double x:Key="TextSizeBody">14</x:Double>
             <x:Double x:Key="TextSizeCaption">12</x:Double>
-            <x:Double x:Key="TextSizeSmallCaption">10</x:Double>
+            <x:Double x:Key="TextSizeSmallCaption">11</x:Double>
 
             <Color x:Key="TextPrimaryColor">#B0000000</Color>
             <Color x:Key="TextSecondaryColor">#80000000</Color>
@@ -164,6 +164,12 @@
                 <Setter Property="FontSize" Value="{StaticResource TextSizeCaption}" />
             </Style>
 
+            <Style x:Key="TextSmallCaption"
+                   BasedOn="{StaticResource TextCaption}"
+                   TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource TextSizeSmallCaption}" />
+            </Style>
+
             <Style x:Key="TextCaptionSecondary" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
                 <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
@@ -219,8 +225,8 @@
                    TargetType="Image">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HeightRequest" Value="60" />
-                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
             </Style>
 
             <Style x:Key="MediumAvatar"
