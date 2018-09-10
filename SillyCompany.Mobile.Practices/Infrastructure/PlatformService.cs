@@ -41,12 +41,12 @@ namespace SillyCompany.Mobile.Practices.Infrastructure
                 }
 
                 // Android
-                if (DpToPixels(MainSize.Width) <= 768)
+                if (MainSize.Width <= 384)
                 {
                     return ScreenSize.Small;
                 }
 
-                if (DpToPixels(MainSize.Width) <= 1080)
+                if (MainSize.Width <= 540)
                 {
                     return ScreenSize.Regular;
                 }

@@ -33,7 +33,7 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="GridPadding" Value="16" />
+                <Setter Property="CollectionPadding" Value="16" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
