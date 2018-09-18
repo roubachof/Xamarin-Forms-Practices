@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                         ++_peopleCounter,
                         new SillyDude(
                             _peopleCounter,
-                            "Will Ferrel",
+                            "Will Ferrell",
                             "Actor",
                             "Hey.\nThey laughed at Louis Armstrong when he said he was gonna go to the moon.\nNow he’s up there, laughing at them.",
 #if LOCAL_DATA
@@ -42,7 +42,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://www.2oceansvibe.com/wp-content/uploads/2017/10/willlferell.jpg",
 #endif
-                            4)
+                            4,
+                            "https://youtu.be/sPFRZP4qY7I?t=26")
                     },
                     {
                         ++_peopleCounter,
@@ -56,7 +57,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://images.uncyc.org/commons/d/dd/The_leader_of_the_Knights_Who_Say_Ni.jpg",
 #endif
-                            5)
+                            5,
+                            "https://www.youtube.com/watch?v=zIV4poUZAQo")
                     },
                     {
                         ++_peopleCounter,
@@ -72,19 +74,34 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #endif
                             5)
                     },
+//                    {
+//                        ++_peopleCounter,
+//                        new SillyDude(
+//                            _peopleCounter,
+//                            "Louis C.K.",
+//                            "Comedian",
+//                            "There are people that really live by doing the right thing, but I don't know what that is, I'm really curious about that.\nI'm really curious about what people think they're doing when they're doing something evil, casually.\nI think it's really interesting, that we benefit from suffering so much, and we excuse ourselves from it.",
+//#if LOCAL_DATA
+//                            "louis_ck.jpg",
+//#else
+//                            "http://pixel.nymag.com/imgs/daily/vulture/2016/04/21/21-louis-ck.w529.h529.jpg",
+//#endif
+//                            2)
+//                    },
                     {
                         ++_peopleCounter,
                         new SillyDude(
                             _peopleCounter,
-                            "Louis C.K.",
-                            "Comedian",
-                            "There are people that really live by doing the right thing, but I don't know what that is, I'm really curious about that.\nI'm really curious about what people think they're doing when they're doing something evil, casually.\nI think it's really interesting, that we benefit from suffering so much, and we excuse ourselves from it.",
+                            "Triumph",
+                            "Insult Comic Dog",
+                            "Occupy Wall Street, talking to a trader with a Fox News mustache on.\nThese protesters with their whining and crying right?\nDon't they realize that their public education are being funded from the taxes you evade each year?\nI don't want to keep you, you're a good man! You better hurry back from lunch so you can collect your hurry back from lunch bonus.",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://pixel.nymag.com/imgs/daily/vulture/2016/04/21/21-louis-ck.w529.h529.jpg",
+                            "https://jnxz07-a.akamaihd.net/wp-content/uploads/2015/03/triumph-e1425247855563.jpeg",
 #endif
-                            2)
+                            2,
+                            "https://youtu.be/O-253uBJap8?t=315")
                     },
                     {
                         ++_peopleCounter,
@@ -106,13 +123,14 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             _peopleCounter,
                             "Steve Carell",
                             "Comedian",
-                            "Everyone said to Vincent van Gogh, \"You can\'t be a great painter, you only have one ear.\"\nAnd you know what he said?\n\"I can\'t hear you.",
+                            "Vincent van Gogh. Everyone told him: \"You only have one ear. You cannot be a great artist.\"\nAnd you know what he said?\n\"I can\'t hear you.",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
                             "http://www4.pictures.zimbio.com/mp/8q1mIIQGkXHm.jpg",
 #endif
-                            3)
+                            3,
+                            "https://youtu.be/N9Z4vqysxMQ?t=92")
                     },
                     {
                         ++_peopleCounter,
@@ -126,7 +144,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://cdn.playbuzz.com/cdn/b0cd9743-c236-4c0e-b468-00f83724f117/e2b08eac-053b-4b06-8538-405852dc865b.jpg",
 #endif
-                            4)
+                            4,
+                            "https://www.youtube.com/watch?v=jzYzVMcgWhg")
                     },
                     {
                         ++_peopleCounter,
@@ -140,7 +159,23 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://i123.photobucket.com/albums/o320/lucy_edward/moss_pic2.jpg",
 #endif
-                            3)
+                            3,
+                            "https://youtu.be/NKHyqjHqQLU?t=32")
+                    },
+                    {
+                        ++_peopleCounter,
+                        new SillyDude(
+                            _peopleCounter,
+                            "Les Nuls",
+                            "Crétins Fabuleux",
+                            "Agad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors.\n",
+#if LOCAL_DATA
+                            "louis_ck.jpg",
+#else
+                            "http://4.bp.blogspot.com/_fMA4vs4kLc0/S0yka8se4NI/AAAAAAAAAtc/chbrVG878_0/s1600/carette+chabat.jpg",
+#endif
+                            4,
+                            "https://www.youtube.com/watch?v=lNEpFJYduto")
                     },
                 };
         }

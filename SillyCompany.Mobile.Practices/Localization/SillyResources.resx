@@ -151,6 +151,9 @@
     <value>"An ill wind is blowing..."</value>
     <comment>richmond.jpg</comment>
   </data>
+  <data name="SillyDude_GoToSource" xml:space="preserve">
+    <value>WATCH ON YOUTUBE</value>
+  </data>
   <data name="SillyPeople_ErrorEmulation" xml:space="preserve">
     <value>Error Emulation</value>
   </data>

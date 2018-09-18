@@ -22,6 +22,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects
             Description = dude.Description;
             ImageUrl = dude.ImageUrl;
             SillinessDegree = dude.SillinessDegree;
+            SourceUrl = dude.SourceUrl;
 
             OnItemTappedCommand = onItemTappedCommand;
         }
@@ -39,5 +40,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects
         public string ImageUrl { get; }
 
         public int SillinessDegree { get; }
+
+        public string SourceUrl { get; }
     }
 }

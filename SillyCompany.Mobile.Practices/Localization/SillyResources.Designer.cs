@@ -151,6 +151,15 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WATCH ON YOUTUBE.
+        /// </summary>
+        internal static string SillyDude_GoToSource {
+            get {
+                return ResourceManager.GetString("SillyDude_GoToSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error Emulation.
         /// </summary>
         internal static string SillyPeople_ErrorEmulation {

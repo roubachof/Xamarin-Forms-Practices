@@ -5,6 +5,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
@@ -27,6 +29,7 @@
                         <RowDefinition Height="40" />
                         <RowDefinition Height="30" />
                         <RowDefinition Height="30" />
+                        <RowDefinition Height="{Binding SourceUrl, Converter={StaticResource NullToValueConverter}, ConverterParameter=40}" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
@@ -64,7 +67,17 @@
                                          StrokeWidth="1"
                                          Value="{Binding SillinessDegree}" />
 
-                    <Frame Grid.Row="4"
+                    <Label Grid.Row="4"
+                           Style="{StaticResource TextSubhead}"
+                           effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                           effects:TapCommandEffect.TapParameter="{Binding SourceUrl}"
+                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                           IsVisible="{Binding SourceUrl, Converter={StaticResource IsNotNullConverter}}"
+                           Text="{loc:Translate SillyDude_GoToSource}"
+                           TextColor="{StaticResource Accent}"
+                           VerticalTextAlignment="End" />
+
+                    <Frame Grid.Row="5"
                            Padding="0,16,0,0"
                            BackgroundColor="Transparent"
                            HasShadow="False">

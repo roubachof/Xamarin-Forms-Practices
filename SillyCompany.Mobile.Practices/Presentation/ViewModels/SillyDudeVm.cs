@@ -7,11 +7,16 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Threading.Tasks;
+
+using Sharpnado.Presentation.Forms.Commands;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
+
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
@@ -61,7 +66,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         private async Task<SillyDudeVmo> LoadSillyDude(int id)
         {
-            return new SillyDudeVmo(await _dudeService.GetSilly(id), null);
+            var dude = await _dudeService.GetSilly(id);
+            return new SillyDudeVmo(dude, new TapCommand(url => Device.OpenUri(new Uri((string)url))));
         }
     }
 }

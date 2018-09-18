@@ -4,7 +4,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 {
     public class SillyDude
     {
-        public SillyDude(int id, string name, string role, string description, string imageUrl, int sillinessDegree)
+        public SillyDude(int id, string name, string role, string description, string imageUrl, int sillinessDegree, string sourceUrl = null)
         {
             if (sillinessDegree > 5 || sillinessDegree < 0)
             {
@@ -17,33 +17,21 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
             Description = description;
             ImageUrl = imageUrl;
             SillinessDegree = sillinessDegree;
+            SourceUrl = sourceUrl;
         }
 
-        /// <summary>
-        /// Gets the id.
-        /// </summary>
         public int Id { get; }
 
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
         public string Name { get; }
 
-        /// <summary>
-        /// Gets the role.
-        /// </summary>
         public string Role { get; }
 
-        /// <summary>
-        /// Gets the description.
-        /// </summary>
         public string Description { get; }
 
-        /// <summary>
-        /// Gets the image url.
-        /// </summary>
         public string ImageUrl { get; }
 
         public int SillinessDegree { get; }
+
+        public string SourceUrl { get; }
     }
 }
