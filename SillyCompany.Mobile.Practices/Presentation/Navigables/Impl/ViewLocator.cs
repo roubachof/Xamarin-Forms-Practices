@@ -18,6 +18,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Navigables.Impl
                 { nameof(SillyPeopleVm), typeof(SillyPeoplePage) },
                 { nameof(SillyDudeVm), typeof(SillyDudePage) },
                 { nameof(SortSillyPeopleVm), typeof(SortSillyPeoplePage) },
+                { nameof(SillyInfinitePeopleVm), typeof(SillyInfinitePeoplePage) },
+                { nameof(SillyInfiniteGridPeopleVm), typeof(SillyInfiniteGridPeoplePage) },
             };
 
         public IBindablePage GetViewFor<TViewModel>()

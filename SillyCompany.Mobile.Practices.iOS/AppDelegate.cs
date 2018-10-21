@@ -4,6 +4,8 @@ using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using ObjCRuntime;
 using Refractored.XamForms.PullToRefresh.iOS;
+
+using Sharpnado.Presentation.Forms.iOS;
 using Sharpnado.Presentation.Forms.iOS.Renderers.HorizontalList;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using UIKit;
@@ -42,7 +44,7 @@ namespace SillyCompany.Mobile.Practices.iOS
                 new CoreEntryPoint().RegisterDependencies();
                 ImageCircleRenderer.Init();
                 PullToRefreshLayoutRenderer.Init();
-                iOSHorizontalListViewRenderer.Initialize();
+                SharpnadoInitializer.Initialize(enableInternalLogger: true);
 
                 UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
                 {

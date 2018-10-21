@@ -14,16 +14,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
     public class SortSillyPeopleVm : ANavigableViewModel
     {
-        private readonly ISillyDudeService _sillyDudeService;
-
-        public SortSillyPeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService)
+        public SortSillyPeopleVm(INavigationService navigationService)
             : base(navigationService)
         {
-            _sillyDudeService = sillyDudeService;
-            SillyPeopleLoader = new ViewModelLoader(ApplicationExceptions.ToString, SillyResources.Empty_Screen);
         }
-
-        public ViewModelLoader SillyPeopleLoader { get; }
 
         public ObservableCollection<SillyDudeVmo> SillyPeople { get; set; }
 
@@ -37,15 +31,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             }
 
             NotifyTask.Create(NavigationService.NavigateBackAsync(typeof(SortSillyPeopleVm)));
-
-            // SillyPeopleLoader.Load(LoadSillyPeopleAsync);
-        }
-
-        private async Task<IReadOnlyList<SillyDudeVmo>> LoadSillyPeopleAsync()
-        {
-            return new List<SillyDudeVmo>(
-                (await _sillyDudeService.GetSillyPeople())
-                .Select(dude => new SillyDudeVmo(dude, null)));
         }
     }
 }

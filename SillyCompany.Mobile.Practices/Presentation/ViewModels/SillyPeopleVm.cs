@@ -5,7 +5,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +16,6 @@ using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
-using SillyCompany.Mobile.Practices.Presentation.Views;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {

@@ -160,6 +160,15 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Infinite Grid.
+        /// </summary>
+        internal static string SillyInfiniteGridPeople_Title {
+            get {
+                return ResourceManager.GetString("SillyInfiniteGridPeople_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error Emulation.
         /// </summary>
         internal static string SillyPeople_ErrorEmulation {
@@ -169,11 +178,29 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GRID MODE.
+        /// </summary>
+        internal static string SillyPeople_GoToGrid {
+            get {
+                return ResourceManager.GetString("SillyPeople_GoToGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HORIZONTAL LIST VIEW.
         /// </summary>
         internal static string SillyPeople_HorizontalListView {
             get {
                 return ResourceManager.GetString("SillyPeople_HorizontalListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INFINITE LIST VIEW.
+        /// </summary>
+        internal static string SillyPeople_InfiniteListView {
+            get {
+                return ResourceManager.GetString("SillyPeople_InfiniteListView", resourceCulture);
             }
         }
         

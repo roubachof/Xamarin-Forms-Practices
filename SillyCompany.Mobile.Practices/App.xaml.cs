@@ -23,14 +23,18 @@ namespace SillyCompany.Mobile.Practices
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 
+#if INFINITE_LIST
+            var firstScreenView = viewLocator.GetViewFor<SillyInfinitePeopleVm>();
+#else
             var firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
-            this.MainPage = new NavigationPage((Page)firstScreenView);
+#endif
 
-            var firstScreenVm = (SillyPeopleVm)firstScreenView.BindingContext;
+            MainPage = new NavigationPage((Page)firstScreenView);
+            var firstScreenVm = (ANavigableViewModel)firstScreenView.BindingContext;
             firstScreenVm.Load(null);
         }
 

@@ -3,6 +3,9 @@
 using Android.App;
 using Android.OS;
 using Android.Runtime;
+
+using Sharpnado.Presentation.Forms.Droid;
+
 using SillyCompany.Mobile.Practices.Infrastructure;
 
 namespace SillyCompany.Mobile.Practices.Droid
@@ -23,6 +26,8 @@ namespace SillyCompany.Mobile.Practices.Droid
                 Resources.DisplayMetrics.Density,
                 (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density),
                 (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density));
+
+            SharpnadoInitializer.Initialize(enableInternalLogger: true);
 
             RegisterActivityLifecycleCallbacks(this);
         }

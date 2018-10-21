@@ -154,11 +154,20 @@
   <data name="SillyDude_GoToSource" xml:space="preserve">
     <value>WATCH ON YOUTUBE</value>
   </data>
+  <data name="SillyInfiniteGridPeople_Title" xml:space="preserve">
+    <value>Infinite Grid</value>
+  </data>
   <data name="SillyPeople_ErrorEmulation" xml:space="preserve">
     <value>Error Emulation</value>
   </data>
+  <data name="SillyPeople_GoToGrid" xml:space="preserve">
+    <value>GRID MODE</value>
+  </data>
   <data name="SillyPeople_HorizontalListView" xml:space="preserve">
     <value>HORIZONTAL LIST VIEW</value>
+  </data>
+  <data name="SillyPeople_InfiniteListView" xml:space="preserve">
+    <value>INFINITE LIST VIEW</value>
   </data>
   <data name="SillyPeople_SillyOfTheDay" xml:space="preserve">
     <value>SILLY DUDE OF THE DAY</value>

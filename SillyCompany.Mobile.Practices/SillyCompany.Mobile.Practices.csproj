@@ -3,7 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\Sharpnado.Infrastructure\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+    <Configurations>Debug;Release;DebugInfinite</Configurations>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugInfinite|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;INFINITE_LIST;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Presentation\StandAlonePaginator.CompileNone.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="LiveXAML" Version="2.1.41" />
@@ -28,10 +42,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Presentation\StandAlonePaginator.CompileNone.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Localization\SillyResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>SillyResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\SillyInfiniteGridPeoplePage.xaml.cs">
+      <DependentUpon>SillyInfiniteGridPeoplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\SillyInfinitePeoplePage.xaml.cs">
+      <DependentUpon>SillyInfinitePeoplePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Presentation\Views\SortSillyPeoplePage.xaml.cs">
       <DependentUpon>SortSillyPeoplePage.xaml</DependentUpon>
@@ -59,6 +83,12 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Presentation\Views\SillyDudePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillyInfiniteGridPeoplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\Views\SillyInfinitePeoplePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Presentation\Views\SillyPeoplePage.xaml">

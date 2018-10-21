@@ -11,8 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SillyCompany.Mobile.Practices.Domain;
-using SillyCompany.Mobile.Practices.Domain.Silly;
+using Sharpnado.Infrastructure;
+using Sharpnado.Infrastructure.Services;
 using SillyCompany.Mobile.Practices.Infrastructure;
 
 namespace SillyCompany.Mobile.Practices.Domain.Silly
@@ -178,9 +178,15 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "https://www.youtube.com/watch?v=lNEpFJYduto")
                     },
                 };
+
+            for (int id = 1; id < 200; id++)
+            {
+                var dudeToClone = _repository[id];
+                _repository.Add(++_peopleCounter, dudeToClone.Clone(_peopleCounter));
+            }
         }
 
-        public async Task<IReadOnlyList<SillyDude>> GetSillyPeople()
+        public async Task<IReadOnlyCollection<SillyDude>> GetSillyPeople()
         {
             await Task.Delay(TimeSpan.FromSeconds(3));
             if (ProcessErrorEmulator())
@@ -188,7 +194,23 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                 return new List<SillyDude>();
             }
 
-            return new List<SillyDude>(_repository.Values);
+            return _repository.Values.Take(9).ToList();
+        }
+
+        public async Task<PageResult<SillyDude>> GetSillyPeoplePage(int pageNumber, int pageSize)
+        {
+            Contract.Requires(() => pageNumber > 0);
+            Contract.Requires(() => pageSize >= 10);
+
+            await Task.Delay(TimeSpan.FromSeconds(pageNumber > 1 ? 1 : 3));
+            if (ProcessErrorEmulator())
+            {
+                return PageResult<SillyDude>.Empty;
+            }
+
+            return new PageResult<SillyDude>(
+                _repository.Count,
+                _repository.Values.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList());
         }
 
         public async Task<SillyDude> GetSilly(int id)
