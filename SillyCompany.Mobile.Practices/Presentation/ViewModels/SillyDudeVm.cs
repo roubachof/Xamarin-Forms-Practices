@@ -14,7 +14,6 @@ using Sharpnado.Presentation.Forms.Commands;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
-using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
 
 using Xamarin.Forms;
 

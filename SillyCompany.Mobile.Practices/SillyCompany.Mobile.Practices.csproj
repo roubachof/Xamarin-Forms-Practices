@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiveXAML" Version="2.1.41" />
+    <PackageReference Include="LiveXAML" Version="2.1.44" />
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.2.2" />
     <PackageReference Include="SimpleInjector" Version="4.3.0" />    
@@ -28,7 +28,7 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta008" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.2.0.839982</Version>
+      <Version>3.3.0.912540</Version>
     </PackageReference>
   </ItemGroup>
 
@@ -56,6 +56,9 @@
     </Compile>
     <Compile Update="Presentation\Views\SillyInfinitePeoplePage.xaml.cs">
       <DependentUpon>SillyInfinitePeoplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\AlternateSillySquareCell.xaml.cs">
+      <DependentUpon>AlternateSillySquareCell.xaml</DependentUpon>
     </Compile>
     <Compile Update="Presentation\Views\SortSillyPeoplePage.xaml.cs">
       <DependentUpon>SortSillyPeoplePage.xaml</DependentUpon>

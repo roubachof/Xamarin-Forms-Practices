@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Sharpnado.Infrastructure.Services;
-using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
@@ -12,7 +11,6 @@ using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
-using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {

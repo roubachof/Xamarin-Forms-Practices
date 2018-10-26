@@ -30,6 +30,27 @@
 
             <GridLength x:Key="HeaderHeight">40</GridLength>
 
+            <DataTemplate x:Key="SillyDataTemplate">
+                <ViewCell>
+                    <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                           effects:TapCommandEffect.TapParameter="{Binding .}"
+                                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AlternateSillyDataTemplate">
+                <ViewCell>
+                    <views:AlternateSillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                    effects:TapCommandEffect.TapParameter="{Binding .}"
+                                                    effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                </ViewCell>
+            </DataTemplate>
+
+            <views:SillyDudeTemplateSelector x:Key="DudeTemplateSelector"
+                                             AlternateSillySquare="{StaticResource AlternateSillyDataTemplate}"
+                                             SillySquare="{StaticResource SillyDataTemplate}" />
+
+
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -179,13 +200,15 @@
                     <renderedViews:HorizontalListView Grid.Row="3"
                                                       Margin="-16,8"
                                                       CollectionPadding="0,8"
+                                                      EnableDragAndDrop="True"
                                                       InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                                       ItemHeight="144"
                                                       ItemSpacing="8"
+                                                      ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                       ItemWidth="144"
                                                       ItemsSource="{Binding SillyPeople}"
                                                       SnapStyle="Center">
-                        <renderedViews:HorizontalListView.ItemTemplate>
+                        <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
@@ -193,7 +216,7 @@
                                                            effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
                                 </ViewCell>
                             </DataTemplate>
-                        </renderedViews:HorizontalListView.ItemTemplate>
+                        </renderedViews:HorizontalListView.ItemTemplate>-->
                     </renderedViews:HorizontalListView>
 
                     <!--  Error box displayed when trying to navigate to the knights of ni  -->

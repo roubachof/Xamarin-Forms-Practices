@@ -18,7 +18,6 @@ using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
-using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {

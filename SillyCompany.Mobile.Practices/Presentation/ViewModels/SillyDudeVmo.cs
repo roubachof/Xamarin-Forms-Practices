@@ -10,7 +10,7 @@
 using System.Windows.Input;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 
-namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects
+namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
     public class SillyDudeVmo
     {

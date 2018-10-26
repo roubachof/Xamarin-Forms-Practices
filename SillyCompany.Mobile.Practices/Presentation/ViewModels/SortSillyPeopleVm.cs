@@ -1,14 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Sharpnado.Infrastructure.Tasks;
-using Sharpnado.Presentation.Forms.ViewModels;
-using SillyCompany.Mobile.Practices.Domain;
-using SillyCompany.Mobile.Practices.Domain.Silly;
-using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
-using SillyCompany.Mobile.Practices.Presentation.ViewModels.ViewModelObjects;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
