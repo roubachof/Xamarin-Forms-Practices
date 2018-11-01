@@ -48,23 +48,19 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <Grid x:DataType="viewModels:SillyDudeVmo"
-                              ColumnSpacing="0"
-                              RowSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <abstractions:CircleImage Grid.Row="0"
+                        <StackLayout Orientation="Vertical"
+                                     x:DataType="viewModels:SillyDudeVmo"
+                                     Spacing="0">
+
+                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
                                                       Style="{StaticResource SmallAvatar}"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Grid.Row="1"
-                                   Margin="{StaticResource MediumTopThickness}"
+                            <Label Margin="{StaticResource MediumTopThickness}"
                                    Style="{StaticResource TextSmallCaption}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
-                        </Grid>
+                        </StackLayout>
                     </renderedViews:MaterialFrame>
                 </ViewCell>
             </DataTemplate>
@@ -76,38 +72,7 @@
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                               ItemTemplate="{StaticResource DudeDataTemplate}"
                                               ItemsSource="{Binding SillyPeople}"
-                                              ListLayout="Grid">
-                <!--<renderedViews:HorizontalListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ContentView>
-                                <renderedViews:MaterialFrame Margin="4"
-                                                             Padding="{StaticResource StandardThickness}"
-                                                             Elevation="4">
-
-                                    <Grid x:DataType="viewModels:SillyDudeVmo"
-                                          ColumnSpacing="0"
-                                          RowSpacing="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="2*" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
-                                        <abstractions:CircleImage Grid.Row="0"
-                                                                  Style="{StaticResource SmallAvatar}"
-                                                                  Aspect="AspectFill"
-                                                                  Source="{Binding ImageUrl}" />
-                                        <Label Grid.Row="1"
-                                               Margin="{StaticResource MediumTopThickness}"
-                                               Style="{StaticResource TextSmallCaption}"
-                                               HorizontalTextAlignment="Center"
-                                               Text="{Binding Name}" />
-                                    </Grid>
-                                </renderedViews:MaterialFrame>
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </renderedViews:HorizontalListView.ItemTemplate>-->
-            </renderedViews:HorizontalListView>
+                                              ListLayout="Grid" />
         </customViews:TaskLoaderView>
     </ContentPage.Content>
 </ContentPage>
