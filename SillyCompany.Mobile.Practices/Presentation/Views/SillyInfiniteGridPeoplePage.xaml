@@ -48,16 +48,16 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <StackLayout Orientation="Vertical"
-                                     x:DataType="viewModels:SillyDudeVmo"
+                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
+                                     Orientation="Vertical"
                                      Spacing="0">
 
-                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
-                                                      Style="{StaticResource SmallAvatar}"
+                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
+                                                      VerticalOptions="StartAndExpand"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Margin="{StaticResource MediumTopThickness}"
-                                   Style="{StaticResource TextSmallCaption}"
+                            <Label Style="{StaticResource TextSmallCaption}"
+                                   Margin="{StaticResource MediumTopThickness}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -69,10 +69,13 @@
     <ContentPage.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                              CurrentIndex="{Binding CurrentIndex}"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                               ItemTemplate="{StaticResource DudeDataTemplate}"
                                               ItemsSource="{Binding SillyPeople}"
-                                              ListLayout="Grid" />
+                                              ListLayout="Grid"
+                                              ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                              ScrollEndedCommand="{Binding OnScrollEndCommand}" />
         </customViews:TaskLoaderView>
     </ContentPage.Content>
 </ContentPage>

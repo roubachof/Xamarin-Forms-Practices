@@ -9,7 +9,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Sharpnado.Infrastructure.Services;
+using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
@@ -18,6 +20,7 @@ using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
@@ -25,6 +28,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
     {
         private const int PageSize = 10;
         private readonly ISillyDudeService _sillyDudeService;
+
+        private int _currentIndex = -1;
 
         public SillyInfinitePeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService, ErrorEmulator errorEmulator)
             : base(navigationService)
@@ -39,6 +44,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             SillyPeopleLoader = new ViewModelLoader<IReadOnlyCollection<SillyDude>>(
                 ApplicationExceptions.ToString,
                 SillyResources.Empty_Screen);
+        }
+
+        public int CurrentIndex
+        {
+            get => _currentIndex;
+            set => SetAndRaise(ref _currentIndex, value);
         }
 
         public ErrorEmulatorVm ErrorEmulator { get; }
@@ -58,6 +69,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         public IAsyncCommand GoToSillyDudeCommand { get; protected set; }
 
         public IAsyncCommand GoToSillyInfiniteGridPeopleCommand { get; protected set; }
+
+        public ICommand OnScrollBeginCommand { get; private set; }
+
+        public ICommand OnScrollEndCommand { get; private set; }
 
         public override void Load(object parameter)
         {
@@ -85,6 +100,11 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDudeAsync((SillyDudeVmo)parameter));
             GoToSillyInfiniteGridPeopleCommand = AsyncCommand.Create(GoToSillyInfiniteGridPeopleAsync);
+
+            OnScrollBeginCommand = new Command(
+                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollBeginCommand"));
+            OnScrollEndCommand = new Command(
+                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollEndCommand"));
         }
 
         private async Task<PageResult<SillyDude>> LoadSillyPeoplePageAsync(int pageNumber, int pageSize)
@@ -92,6 +112,14 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             PageResult<SillyDude> resultPage = await _sillyDudeService.GetSillyPeoplePage(pageNumber, pageSize);
             var viewModels = resultPage.Items.Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)).ToList();
             SillyPeople.AddRange(viewModels);
+
+            // Uncomment to test CurrentIndex property
+            NotifyTask.Create(
+               async () =>
+               {
+                   await Task.Delay(2000);
+                   CurrentIndex = 5;
+               });
 
             return resultPage;
         }
