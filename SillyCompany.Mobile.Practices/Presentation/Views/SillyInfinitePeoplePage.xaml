@@ -54,165 +54,190 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView>
-        <Grid Padding="{StaticResource StandardThickness}"
-              ColumnSpacing="0"
-              RowSpacing="0">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Grid.RowDefinitions>
-                <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
-                <RowDefinition Height="80" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <!--  Error box displayed when trying to navigate to the knights of ni  -->
+        <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
+                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                     BackgroundColor="#99F57C00"
+                                     IsVisible="False">
 
-            <!--  ROW 0: TaskLoaderView Configuration Header  -->
-            <Label Grid.Row="0"
-                   Style="{StaticResource TextHeader}"
-                   Text="{loc:Translate SillyPeople_TaskLoaderView}" />
+            <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
 
-            <!--  ROW 1: TaskLoaderView Configuration  -->
-            <renderedViews:MaterialFrame Grid.Row="1"
-                                         Margin="0,8"
-                                         Padding="16,10"
-                                         Elevation="4">
-                <StackLayout Orientation="Horizontal" Spacing="10">
+            <Frame.Triggers>
+                <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                             TargetType="Frame"
+                             Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Frame.Behaviors>
+                <behaviors:TimedVisibilityBehavior />
+            </Frame.Behaviors>
+            <Label Style="{StaticResource TextBody}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                   TextColor="White" />
+        </renderedViews:MaterialFrame>
 
-                    <Label VerticalOptions="Center"
-                           Style="{StaticResource TextBody}"
-                           Text="{loc:Translate SillyPeople_ErrorEmulation}" />
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <Grid Padding="{StaticResource StandardThickness}"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
 
-                    <Picker HorizontalOptions="FillAndExpand"
-                            FontFamily="{StaticResource FontSemiBold}"
-                            FontSize="Small"
-                            ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
-                            SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
-                            TextColor="{StaticResource Accent}" />
-                </StackLayout>
-            </renderedViews:MaterialFrame>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <!--  ROW 2: TaskLoaderView Container  -->
-            <customViews:TaskLoaderView Grid.Row="2"
-                                        Style="{StaticResource SillyTaskLoader}"
-                                        ViewModelLoader="{Binding SillyPeopleLoader}">
-                <Grid ColumnSpacing="0" RowSpacing="0">
+                <!--  ROW 0: TaskLoaderView Configuration Header  -->
+                <Label Grid.Row="0"
+                       Style="{StaticResource TextHeader}"
+                       Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
-                        <RowDefinition Height="144" />
-                        <RowDefinition x:Name="ListViewHeader" Height="{StaticResource HeaderHeight}" />
-                        <!--  ItemHeight + VerticalMargin + VerticalPadding  -->
-                        <RowDefinition Height="176" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                <!--  ROW 1: TaskLoaderView Configuration  -->
+                <renderedViews:MaterialFrame Grid.Row="1"
+                                             Margin="0,8"
+                                             Padding="16,10"
+                                             Elevation="4">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
 
-                    <!--  ROW 0: Silly Of The Day Header  -->
-                    <Label Grid.Row="0"
-                           Style="{StaticResource TextHeader}"
-                           Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
+                        <Label Style="{StaticResource TextBody}"
+                               VerticalOptions="Center"
+                               Text="{loc:Translate SillyPeople_ErrorEmulation}" />
 
-                    <!--  ROW 1: Silly Of The Day  -->
-                    <renderedViews:MaterialFrame Grid.Row="1"
-                                                 Margin="0,8,0,0"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 Elevation="4">
-                        <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                              effects:TapCommandEffect.TapParameter="{Binding .}"
-                              effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                              BindingContext="{Binding SillyOfTheDay}"
-                              ColumnSpacing="0"
-                              RowSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+                        <Picker HorizontalOptions="FillAndExpand"
+                                FontFamily="{StaticResource FontSemiBold}"
+                                FontSize="Small"
+                                ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
+                                SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
+                                TextColor="{StaticResource Accent}" />
+                    </StackLayout>
+                </renderedViews:MaterialFrame>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="136" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <ic:CircleImage Grid.Row="0"
-                                            Grid.RowSpan="3"
-                                            Grid.Column="0"
-                                            Margin="16,0"
-                                            HorizontalOptions="Start"
-                                            Style="{StaticResource LargeAvatar}"
-                                            Aspect="AspectFill"
-                                            BorderColor="{StaticResource Accent}"
-                                            BorderThickness="2"
-                                            Source="{Binding ImageUrl}" />
+                <!--  ROW 2: TaskLoaderView Container  -->
+                <customViews:TaskLoaderView Grid.Row="2"
+                                            Style="{StaticResource SillyTaskLoader}"
+                                            ViewModelLoader="{Binding SillyPeopleLoader}">
+                    <Grid ColumnSpacing="0" RowSpacing="0">
 
-                            <Label Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="0,16,0,0"
-                                   HorizontalOptions="Start"
-                                   Style="{StaticResource TextBody}"
-                                   Text="{Binding Name}" />
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
+                            <RowDefinition Height="144" />
+                            <RowDefinition x:Name="ListViewHeader" Height="{StaticResource HeaderHeight}" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                            <Label Grid.Row="1"
-                                   Grid.Column="1"
-                                   Margin="0,4,0,0"
-                                   HorizontalOptions="Start"
-                                   VerticalOptions="Start"
-                                   Style="{StaticResource TextBodySecondary}"
-                                   Text="{Binding Role}" />
+                        <!--  ROW 0: Silly Of The Day Header  -->
+                        <Label Grid.Row="0"
+                               Style="{StaticResource TextHeader}"
+                               Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
-                            <skiaRate:RatingView Grid.Row="2"
-                                                 Grid.Column="1"
-                                                 WidthRequest="100"
-                                                 HeightRequest="30"
-                                                 HorizontalOptions="Start"
-                                                 ColorOn="Yellow"
-                                                 Count="5"
-                                                 OutlineOnColor="Orange"
-                                                 RatingType="Floating"
-                                                 StrokeWidth="1"
-                                                 Value="{Binding SillinessDegree}" />
-                        </Grid>
-                    </renderedViews:MaterialFrame>
+                        <!--  ROW 1: Silly Of The Day  -->
+                        <renderedViews:MaterialFrame Grid.Row="1"
+                                                     Margin="0,8,0,0"
+                                                     Padding="{StaticResource StandardThickness}"
+                                                     Elevation="4">
+                            <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                  effects:TapCommandEffect.TapParameter="{Binding .}"
+                                  effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                  BindingContext="{Binding SillyOfTheDay}"
+                                  ColumnSpacing="0"
+                                  RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                    <!--  ROW 2: HorizontalListView Header  -->
-                    <Label Grid.Row="2"
-                           Margin="16,0,0,0"
-                           HorizontalOptions="Start"
-                           VerticalOptions="End"
-                           Style="{StaticResource TextHeader}"
-                           HorizontalTextAlignment="Start"
-                           Text="{loc:Translate SillyPeople_InfiniteListView}"
-                           VerticalTextAlignment="End" />
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="136" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ic:CircleImage Grid.Row="0"
+                                                Grid.RowSpan="3"
+                                                Grid.Column="0"
+                                                Style="{StaticResource LargeAvatar}"
+                                                Margin="16,0"
+                                                HorizontalOptions="Start"
+                                                Aspect="AspectFill"
+                                                BorderColor="{StaticResource Accent}"
+                                                BorderThickness="2"
+                                                Source="{Binding ImageUrl}" />
 
-                    <Label Grid.Row="2"
-                           HeightRequest="30"
-                           Margin="0,0,16,1"
-                           HorizontalOptions="End"
-                           VerticalOptions="End"
-                           effects:TapCommandEffect.Tap="{Binding GoToSillyInfiniteGridPeopleCommand}"
-                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                           BackgroundColor="Transparent"
-                           FontFamily="{StaticResource FontSemiBold}"
-                           FontSize="15"
-                           HorizontalTextAlignment="Center"
-                           Text="{loc:Translate SillyPeople_GoToGrid}"
-                           TextColor="{StaticResource Accent}"
-                           VerticalTextAlignment="End" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Style="{StaticResource TextBody}"
+                                       Margin="0,16,0,0"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding Name}" />
 
-                    <!--  ROW 3: HorizontalListView  -->
-                    <renderedViews:HorizontalListView Grid.Row="3"
-                                                      Margin="-16,8"
-                                                      BackgroundColor="Aqua"
-                                                      CollectionPadding="0,8"
-                                                      CurrentIndex="{Binding CurrentIndex}"
-                                                      EnableDragAndDrop="True"
-                                                      InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                      ItemSpacing="8"
-                                                      ItemTemplate="{StaticResource DudeTemplateSelector}"
-                                                      ItemsSource="{Binding SillyPeople}"
-                                                      ListLayout="Carousel"
-                                                      ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                      ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                      SnapStyle="Center">
-                        <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
-                        <!--<renderedViews:HorizontalListView.ItemTemplate>
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Style="{StaticResource TextBodySecondary}"
+                                       Margin="0,4,0,0"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Start"
+                                       Text="{Binding Role}" />
+
+                                <skiaRate:RatingView Grid.Row="2"
+                                                     Grid.Column="1"
+                                                     WidthRequest="100"
+                                                     HeightRequest="30"
+                                                     HorizontalOptions="Start"
+                                                     ColorOn="Yellow"
+                                                     Count="5"
+                                                     OutlineOnColor="Orange"
+                                                     RatingType="Floating"
+                                                     StrokeWidth="1"
+                                                     Value="{Binding SillinessDegree}" />
+                            </Grid>
+                        </renderedViews:MaterialFrame>
+
+                        <!--  ROW 2: HorizontalListView Header  -->
+                        <Label Grid.Row="2"
+                               Style="{StaticResource TextHeader}"
+                               Margin="16,0,0,0"
+                               HorizontalOptions="Start"
+                               VerticalOptions="End"
+                               HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="End"
+                               Text="{loc:Translate SillyPeople_InfiniteListView}" />
+
+                        <Label Grid.Row="2"
+                               HeightRequest="30"
+                               Margin="0,0,16,1"
+                               HorizontalOptions="End"
+                               VerticalOptions="End"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="End"
+                               effects:TapCommandEffect.Tap="{Binding GoToSillyInfiniteGridPeopleCommand}"
+                               effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                               BackgroundColor="Transparent"
+                               FontFamily="{StaticResource FontSemiBold}"
+                               FontSize="15"
+                               Text="{loc:Translate SillyPeople_GoToGrid}"
+                               TextColor="{StaticResource Accent}" />
+
+                        <!--  ROW 3: HorizontalListView  -->
+                        <renderedViews:HorizontalListView Grid.Row="3"
+                                                          Margin="-16,8"
+                                                          CollectionPadding="0,8"
+                                                          CurrentIndex="{Binding CurrentIndex}"
+                                                          EnableDragAndDrop="True"
+                                                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                          ItemSpacing="8"
+                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                                          ItemsSource="{Binding SillyPeople}"
+                                                          ListLayout="Carousel"
+                                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                          SnapStyle="Center">
+                            <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
+                            <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
@@ -221,38 +246,11 @@
                                 </ViewCell>
                             </DataTemplate>
                         </renderedViews:HorizontalListView.ItemTemplate>-->
-                    </renderedViews:HorizontalListView>
+                        </renderedViews:HorizontalListView>
+                    </Grid>
+                </customViews:TaskLoaderView>
 
-                    <!--  Error box displayed when trying to navigate to the knights of ni  -->
-                    <renderedViews:MaterialFrame Grid.Row="3"
-                                                 Grid.RowSpan="2"
-                                                 HeightRequest="30"
-                                                 Margin="-16,-16,-16,-16"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 HorizontalOptions="Fill"
-                                                 VerticalOptions="End"
-                                                 BackgroundColor="#99F57C00"
-                                                 IsVisible="False">
-                        <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
-                        <Frame.Triggers>
-                            <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
-                                         TargetType="Frame"
-                                         Value="True">
-                                <Setter Property="IsVisible" Value="True" />
-                            </DataTrigger>
-                        </Frame.Triggers>
-                        <Frame.Behaviors>
-                            <behaviors:TimedVisibilityBehavior />
-                        </Frame.Behaviors>
-                        <Label Style="{StaticResource TextBody}"
-                               HorizontalTextAlignment="Center"
-                               Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                               TextColor="White"
-                               VerticalTextAlignment="Center" />
-                    </renderedViews:MaterialFrame>
-                </Grid>
-            </customViews:TaskLoaderView>
-
-        </Grid>
-    </ScrollView>
+            </Grid>
+        </ScrollView>
+    </AbsoluteLayout>
 </ContentPage>

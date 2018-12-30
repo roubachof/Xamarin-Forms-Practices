@@ -9,22 +9,22 @@
                   Elevation="4">
     <Grid x:DataType="vm:SillyDudeVmo" RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0"
-               Margin="{StaticResource SmallTopThickness}"
                Style="{StaticResource TextBody}"
+               Margin="{StaticResource SmallTopThickness}"
                HorizontalTextAlignment="Center"
-               Text="{Binding Name}"
-               VerticalTextAlignment="Start" />
+               VerticalTextAlignment="End"
+               Text="{Binding Name}" />
 
         <Label Grid.Row="1"
                Style="{StaticResource TextCaptionSecondary}"
                HorizontalTextAlignment="Center"
-               Text="{Binding Role}"
-               VerticalTextAlignment="Start" />
+               VerticalTextAlignment="Start"
+               Text="{Binding Role}" />
 
         <ic:CircleImage Grid.Row="2"
                         Style="{StaticResource MediumAvatar}"
