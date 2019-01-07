@@ -34,31 +34,6 @@
     </ContentPage.Resources>
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <!--  Error box displayed when trying to navigate to the knights of ni  -->
-        <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
-                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                                     BackgroundColor="#99F57C00"
-                                     IsVisible="False">
-
-            <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
-
-            <Frame.Triggers>
-                <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
-                             TargetType="Frame"
-                             Value="True">
-                    <Setter Property="IsVisible" Value="True" />
-                </DataTrigger>
-            </Frame.Triggers>
-            <Frame.Behaviors>
-                <behaviors:TimedVisibilityBehavior />
-            </Frame.Behaviors>
-            <Label Style="{StaticResource TextBody}"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                   TextColor="White" />
-        </renderedViews:MaterialFrame>
 
         <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <Grid Padding="{StaticResource StandardThickness}"
@@ -83,8 +58,8 @@
                                              Elevation="4">
                     <StackLayout Orientation="Horizontal" Spacing="10">
 
-                        <Label Style="{StaticResource TextBody}"
-                               VerticalOptions="Center"
+                        <Label VerticalOptions="Center"
+                               Style="{StaticResource TextBody}"
                                Text="{loc:Translate SillyPeople_ErrorEmulation}" />
 
                         <Picker HorizontalOptions="FillAndExpand"
@@ -138,9 +113,9 @@
                                 <ic:CircleImage Grid.Row="0"
                                                 Grid.RowSpan="3"
                                                 Grid.Column="0"
-                                                Style="{StaticResource LargeAvatar}"
                                                 Margin="16,0"
                                                 HorizontalOptions="Start"
+                                                Style="{StaticResource LargeAvatar}"
                                                 Aspect="AspectFill"
                                                 BorderColor="{StaticResource Accent}"
                                                 BorderThickness="2"
@@ -148,17 +123,17 @@
 
                                 <Label Grid.Row="0"
                                        Grid.Column="1"
-                                       Style="{StaticResource TextBody}"
                                        Margin="0,16,0,0"
                                        HorizontalOptions="Start"
+                                       Style="{StaticResource TextBody}"
                                        Text="{Binding Name}" />
 
                                 <Label Grid.Row="1"
                                        Grid.Column="1"
-                                       Style="{StaticResource TextBodySecondary}"
                                        Margin="0,4,0,0"
                                        HorizontalOptions="Start"
                                        VerticalOptions="Start"
+                                       Style="{StaticResource TextBodySecondary}"
                                        Text="{Binding Role}" />
 
                                 <skiaRate:RatingView Grid.Row="2"
@@ -177,28 +152,28 @@
 
                         <!--  ROW 2: HorizontalListView Header  -->
                         <Label Grid.Row="2"
-                               Style="{StaticResource TextHeader}"
                                Margin="16,0,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="End"
+                               Style="{StaticResource TextHeader}"
                                HorizontalTextAlignment="Start"
-                               VerticalTextAlignment="End"
-                               Text="{loc:Translate SillyPeople_HorizontalListView}" />
+                               Text="{loc:Translate SillyPeople_HorizontalListView}"
+                               VerticalTextAlignment="End" />
 
                         <Label Grid.Row="2"
                                HeightRequest="30"
                                Margin="0,0,16,1"
                                HorizontalOptions="End"
                                VerticalOptions="End"
-                               HorizontalTextAlignment="Center"
-                               VerticalTextAlignment="End"
                                effects:TapCommandEffect.Tap="{Binding SortSillyPeopleCommand}"
                                effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                                BackgroundColor="Transparent"
                                FontFamily="{StaticResource FontSemiBold}"
                                FontSize="15"
+                               HorizontalTextAlignment="Center"
                                Text="SORT"
-                               TextColor="{StaticResource Accent}" />
+                               TextColor="{StaticResource Accent}"
+                               VerticalTextAlignment="End" />
 
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="3"
@@ -226,5 +201,32 @@
 
             </Grid>
         </ScrollView>
+
+        <!--  Error box displayed when trying to navigate to the knights of ni  -->
+        <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
+                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                     BackgroundColor="#99F57C00"
+                                     IsVisible="False">
+
+            <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
+
+            <Frame.Triggers>
+                <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                             TargetType="Frame"
+                             Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Frame.Behaviors>
+                <behaviors:TimedVisibilityBehavior />
+            </Frame.Behaviors>
+            <Label Style="{StaticResource TextBody}"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                   TextColor="White"
+                   VerticalTextAlignment="Center" />
+        </renderedViews:MaterialFrame>
+
     </AbsoluteLayout>
 </ContentPage>

@@ -45,7 +45,7 @@
             <renderedViews:HorizontalListView.ItemTemplate>
                 <DataTemplate>
                     <renderedViews:DraggableViewCell x:Name="DraggableViewCell">
-                        <ContentView BackgroundColor="Aqua">
+                        <ContentView>
                             <renderedViews:MaterialFrame Margin="4"
                                                          Padding="{StaticResource StandardThickness}"
                                                          Elevation="4">
@@ -68,8 +68,8 @@
                                                               Aspect="AspectFill"
                                                               Source="{Binding ImageUrl}" />
                                     <Label Grid.Row="1"
-                                           Style="{StaticResource TextSmallCaption}"
                                            Margin="{StaticResource MediumTopThickness}"
+                                           Style="{StaticResource TextSmallCaption}"
                                            HorizontalTextAlignment="Center"
                                            Text="{Binding Name}" />
                                 </Grid>

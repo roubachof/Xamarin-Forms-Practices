@@ -48,16 +48,16 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
-                                     Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
+                                     x:DataType="viewModels:SillyDudeVmo"
                                      Spacing="0">
 
-                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
-                                                      VerticalOptions="StartAndExpand"
+                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
+                                                      Style="{StaticResource SmallAvatar}"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Style="{StaticResource TextSmallCaption}"
-                                   Margin="{StaticResource MediumTopThickness}"
+                            <Label Margin="{StaticResource MediumTopThickness}"
+                                   Style="{StaticResource TextSmallCaption}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -69,7 +69,7 @@
     <ContentPage.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                              ColumnCount="1"
+                                              ColumnCount="3"
                                               CurrentIndex="{Binding CurrentIndex}"
                                               EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
