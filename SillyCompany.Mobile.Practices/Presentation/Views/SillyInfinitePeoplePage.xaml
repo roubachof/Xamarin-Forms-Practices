@@ -56,32 +56,6 @@
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <!--  Error box displayed when trying to navigate to the knights of ni  -->
-        <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
-                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                                     BackgroundColor="#99F57C00"
-                                     IsVisible="False">
-
-            <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
-
-            <Frame.Triggers>
-                <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
-                             TargetType="Frame"
-                             Value="True">
-                    <Setter Property="IsVisible" Value="True" />
-                </DataTrigger>
-            </Frame.Triggers>
-            <Frame.Behaviors>
-                <behaviors:TimedVisibilityBehavior />
-            </Frame.Behaviors>
-            <Label Style="{StaticResource TextBody}"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                   TextColor="White" />
-        </renderedViews:MaterialFrame>
-
         <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
             <Grid Padding="{StaticResource StandardThickness}"
                   ColumnSpacing="0"
@@ -225,7 +199,7 @@
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="3"
                                                           Margin="-16,8"
-                                                          CollectionPadding="0,8"
+                                                          CollectionPadding="8,8"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
@@ -252,5 +226,32 @@
 
             </Grid>
         </ScrollView>
+
+        <!--  Error box displayed when trying to navigate to the knights of ni  -->
+        <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
+                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                     BackgroundColor="#99F57C00"
+                                     IsVisible="False">
+
+            <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
+
+            <Frame.Triggers>
+                <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                             TargetType="Frame"
+                             Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Frame.Behaviors>
+                <behaviors:TimedVisibilityBehavior />
+            </Frame.Behaviors>
+            <Label Style="{StaticResource TextBody}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                   TextColor="White" />
+        </renderedViews:MaterialFrame>
+
     </AbsoluteLayout>
 </ContentPage>

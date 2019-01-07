@@ -39,7 +39,7 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="CollectionPadding" Value="0" />
+                <Setter Property="CollectionPadding" Value="8" />
             </Style>
 
             <DataTemplate x:Key="DudeDataTemplate">
@@ -48,16 +48,16 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <StackLayout Orientation="Vertical"
-                                     x:DataType="viewModels:SillyDudeVmo"
+                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
+                                     Orientation="Vertical"
                                      Spacing="0">
 
-                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
-                                                      Style="{StaticResource SmallAvatar}"
+                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
+                                                      VerticalOptions="StartAndExpand"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Margin="{StaticResource MediumTopThickness}"
-                                   Style="{StaticResource TextSmallCaption}"
+                            <Label Style="{StaticResource TextSmallCaption}"
+                                   Margin="{StaticResource MediumTopThickness}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -69,8 +69,9 @@
     <ContentPage.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                              ColumnCount="3"
+                                              ColumnCount="1"
                                               CurrentIndex="{Binding CurrentIndex}"
+                                              EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                               ItemTemplate="{StaticResource DudeDataTemplate}"
                                               ItemsSource="{Binding SillyPeople}"

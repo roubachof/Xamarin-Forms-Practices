@@ -33,7 +33,7 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="CollectionPadding" Value="16" />
+                <Setter Property="CollectionPadding" Value="8" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -45,7 +45,7 @@
             <renderedViews:HorizontalListView.ItemTemplate>
                 <DataTemplate>
                     <renderedViews:DraggableViewCell x:Name="DraggableViewCell">
-                        <ContentView>
+                        <ContentView BackgroundColor="Aqua">
                             <renderedViews:MaterialFrame Margin="4"
                                                          Padding="{StaticResource StandardThickness}"
                                                          Elevation="4">
@@ -68,8 +68,8 @@
                                                               Aspect="AspectFill"
                                                               Source="{Binding ImageUrl}" />
                                     <Label Grid.Row="1"
-                                           Margin="{StaticResource MediumTopThickness}"
                                            Style="{StaticResource TextSmallCaption}"
+                                           Margin="{StaticResource MediumTopThickness}"
                                            HorizontalTextAlignment="Center"
                                            Text="{Binding Name}" />
                                 </Grid>

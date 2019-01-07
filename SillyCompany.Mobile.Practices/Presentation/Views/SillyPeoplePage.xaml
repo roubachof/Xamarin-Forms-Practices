@@ -203,8 +203,8 @@
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="3"
                                                           Margin="-16,8"
-                                                          VerticalOptions="End"
-                                                          CollectionPadding="0,8"
+                                                          VerticalOptions="Start"
+                                                          CollectionPadding="8,8"
                                                           ItemHeight="144"
                                                           ItemSpacing="8"
                                                           ItemWidth="144"
