@@ -184,6 +184,9 @@
                                                           ItemSpacing="8"
                                                           ItemWidth="144"
                                                           ItemsSource="{Binding SillyPeopleLoader.Result}"
+                                                          ListLayout="Linear"
+                                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
                                                           SnapStyle="Center">
                             <renderedViews:HorizontalListView.ItemTemplate>
                                 <DataTemplate>

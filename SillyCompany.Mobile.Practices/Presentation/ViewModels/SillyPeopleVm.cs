@@ -8,6 +8,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
+
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
 using SillyCompany.Mobile.Practices.Domain.Silly;
@@ -15,6 +17,8 @@ using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
@@ -46,6 +50,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         public IAsyncCommand SortSillyPeopleCommand { get; protected set; }
 
+        public ICommand OnScrollBeginCommand { get; private set; }
+
+        public ICommand OnScrollEndCommand { get; private set; }
+
         /// <summary>
         /// Loads the specified parameter.
         /// </summary>
@@ -70,6 +78,11 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDudeAsync((SillyDudeVmo)parameter));
             SortSillyPeopleCommand = AsyncCommand.Create(SortSillyPeopleAsync);
+
+            OnScrollBeginCommand = new Command(
+                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollBeginCommand"));
+            OnScrollEndCommand = new Command(
+                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollEndCommand"));
         }
 
         /// <summary>
