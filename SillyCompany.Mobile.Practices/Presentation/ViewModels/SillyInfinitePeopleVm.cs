@@ -40,7 +40,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             ErrorEmulator = new ErrorEmulatorVm(errorEmulator, Load);
 
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
-            SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize, loadingThreshold: 1f);
+            SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize, loadingThreshold: 0.1f);
             SillyPeopleLoader = new ViewModelLoader<IReadOnlyCollection<SillyDude>>(
                 ApplicationExceptions.ToString,
                 SillyResources.Empty_Screen);
@@ -111,15 +111,16 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             PageResult<SillyDude> resultPage = await _sillyDudeService.GetSillyPeoplePage(pageNumber, pageSize);
             var viewModels = resultPage.Items.Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)).ToList();
+
             SillyPeople.AddRange(viewModels);
 
             // Uncomment to test CurrentIndex property
-            NotifyTask.Create(
-               async () =>
-               {
-                   await Task.Delay(2000);
-                   CurrentIndex = 5;
-               });
+            //NotifyTask.Create(
+            //   async () =>
+            //   {
+            //       await Task.Delay(2000);
+            //       CurrentIndex = 5;
+            //   });
 
             return resultPage;
         }

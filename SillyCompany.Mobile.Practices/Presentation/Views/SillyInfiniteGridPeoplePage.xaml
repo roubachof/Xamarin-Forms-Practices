@@ -23,14 +23,14 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <!--<Setter Property="ItemWidth">
+                <Setter Property="ItemWidth">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
                             <On Platform="iOS">100</On>
                             <On Platform="Android">110</On>
                         </OnPlatform>
                     </Setter.Value>
-                </Setter>-->
+                </Setter>
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
@@ -69,7 +69,6 @@
     <ContentPage.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                              ColumnCount="3"
                                               CurrentIndex="{Binding CurrentIndex}"
                                               EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"

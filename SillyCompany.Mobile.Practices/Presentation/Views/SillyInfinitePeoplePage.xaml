@@ -199,18 +199,18 @@
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="3"
                                                           Margin="-16,8"
-                                                          CollectionPadding="8,8"
-                                                          ColumnCount="2"
+                                                          CollectionPadding="40,10"
+                                                          ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                          ItemSpacing="8"
+                                                          ItemSpacing="20"
                                                           ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                           ItemsSource="{Binding SillyPeople}"
                                                           ListLayout="Linear"
                                                           ScrollBeganCommand="{Binding OnScrollBeginCommand}"
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                          SnapStyle="Start">
+                                                          SnapStyle="Center">
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
