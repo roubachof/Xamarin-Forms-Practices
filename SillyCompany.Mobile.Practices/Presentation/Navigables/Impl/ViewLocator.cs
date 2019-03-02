@@ -7,7 +7,9 @@
 using System;
 using System.Collections.Generic;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;
 using SillyCompany.Mobile.Practices.Presentation.Views;
+using SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Navigables.Impl
 {
@@ -20,6 +22,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Navigables.Impl
                 { nameof(SortSillyPeopleVm), typeof(SortSillyPeoplePage) },
                 { nameof(SillyInfinitePeopleVm), typeof(SillyInfinitePeoplePage) },
                 { nameof(SillyInfiniteGridPeopleVm), typeof(SillyInfiniteGridPeoplePage) },
+                { nameof(SillyBottomTabsPageViewModel), typeof(SillyBottomTabsPage) },
             };
 
         public IBindablePage GetViewFor<TViewModel>()

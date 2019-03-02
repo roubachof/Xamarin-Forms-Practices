@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.SillyBottomTabsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+    xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+    xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+    xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+    xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="IconSize" Value="28" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            x:DataType="vm:SillyBottomTabsPageViewModel"
+            ColumnSpacing="0"
+            RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
+            </Grid.RowDefinitions>
+
+            <tabs:ViewSwitcher
+                x:Name="Switcher"
+                Grid.Row="0"
+                Animate="False"
+                SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                <customViews:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
+                <customViews:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
+                <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+            </tabs:ViewSwitcher>
+
+            <tabs:TabHostView
+                x:Name="TabHost"
+                Grid.Row="1"
+                BackgroundColor="White"
+                SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                ShadowType="Top">
+                <tabs:BottomTabItem
+                    IconImageSource="house_96"
+                    Label="{localization:Translate Tabs_Home}"
+                    Style="{StaticResource BottomTabStyle}" />
+                <tabs:BottomTabItem
+                    IconImageSource="list_96"
+                    Label="{localization:Translate Tabs_List}"
+                    Style="{StaticResource BottomTabStyle}" />
+                <tabs:BottomTabItem
+                    IconImageSource="grid_view_96"
+                    Label="{localization:Translate Tabs_Grid}"
+                    Style="{StaticResource BottomTabStyle}" />
+            </tabs:TabHostView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

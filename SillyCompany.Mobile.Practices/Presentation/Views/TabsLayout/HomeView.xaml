@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.HomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+    xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+    xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+    xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices">
+
+    <ContentView.Content>
+        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyDudeLoader}">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Style="{StaticResource TextHeader}"
+                    Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
+
+                <!--  ROW 1: Silly Of The Day  -->
+                <renderedViews:MaterialFrame
+                    Grid.Row="1"
+                    Margin="0,8,0,0"
+                    Padding="{StaticResource StandardThickness}"
+                    Elevation="4">
+                    <Grid
+                        effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                        effects:TapCommandEffect.TapParameter="{Binding .}"
+                        effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                        BindingContext="{Binding SillyDudeLoader.Result}"
+                        ColumnSpacing="0"
+                        RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="136" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <abstractions:CircleImage
+                            Grid.Row="0"
+                            Grid.RowSpan="3"
+                            Grid.Column="0"
+                            Margin="16,0"
+                            Aspect="AspectFill"
+                            BorderColor="{StaticResource Accent}"
+                            BorderThickness="2"
+                            HorizontalOptions="Start"
+                            Source="{Binding ImageUrl}"
+                            Style="{StaticResource LargeAvatar}" />
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,16,0,0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource TextBody}"
+                            Text="{Binding Name}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,4,0,0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource TextBodySecondary}"
+                            Text="{Binding Role}"
+                            VerticalOptions="Start" />
+
+                        <skiaRate:RatingView
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            ColorOn="Yellow"
+                            Count="5"
+                            HeightRequest="30"
+                            HorizontalOptions="Start"
+                            OutlineOnColor="Orange"
+                            RatingType="Floating"
+                            StrokeWidth="1"
+                            WidthRequest="100"
+                            Value="{Binding SillinessDegree}" />
+                    </Grid>
+                </renderedViews:MaterialFrame>
+
+            </Grid>
+        </customViews:TaskLoaderView>
+    </ContentView.Content>
+</ContentView>

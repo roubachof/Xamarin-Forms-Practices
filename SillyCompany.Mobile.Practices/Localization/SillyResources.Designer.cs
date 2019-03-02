@@ -239,5 +239,32 @@ namespace SillyCompany.Mobile.Practices.Localization {
                 return ResourceManager.GetString("SortSillyPeople_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid.
+        /// </summary>
+        internal static string Tabs_Grid {
+            get {
+                return ResourceManager.GetString("Tabs_Grid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        internal static string Tabs_Home {
+            get {
+                return ResourceManager.GetString("Tabs_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List.
+        /// </summary>
+        internal static string Tabs_List {
+            get {
+                return ResourceManager.GetString("Tabs_List", resourceCulture);
+            }
+        }
     }
 }

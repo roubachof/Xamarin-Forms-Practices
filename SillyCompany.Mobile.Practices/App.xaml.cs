@@ -9,6 +9,7 @@
 
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices
@@ -28,7 +29,7 @@ namespace SillyCompany.Mobile.Practices
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 
 #if INFINITE_LIST
-            var firstScreenView = viewLocator.GetViewFor<SillyInfinitePeopleVm>();
+            var firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #else
             var firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
 #endif

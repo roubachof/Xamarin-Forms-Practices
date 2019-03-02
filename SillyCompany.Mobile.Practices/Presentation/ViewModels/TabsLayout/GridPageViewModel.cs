@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Sharpnado.Infrastructure.Services;
-using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
@@ -14,9 +13,9 @@ using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using Xamarin.Forms;
 
-namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
+namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 {
-    public class SillyInfiniteGridPeopleVm : ANavigableViewModel
+    public class GridPageViewModel : ANavigableViewModel
     {
         private const int PageSize = 20;
         private readonly ISillyDudeService _sillyDudeService;
@@ -25,7 +24,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         private int _currentIndex = -1;
 
-        public SillyInfiniteGridPeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService)
+        public GridPageViewModel(INavigationService navigationService, ISillyDudeService sillyDudeService)
             : base(navigationService)
         {
             _sillyDudeService = sillyDudeService;

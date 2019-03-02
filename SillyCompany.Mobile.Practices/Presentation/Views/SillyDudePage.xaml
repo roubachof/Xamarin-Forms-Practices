@@ -45,8 +45,8 @@
                              BackgroundColor="#99000000" />
 
                     <Label Grid.Row="1"
-                           VerticalOptions="End"
                            Style="{StaticResource TextHeadline}"
+                           VerticalOptions="End"
                            Text="{Binding Name}"
                            TextColor="White" />
 
@@ -69,13 +69,13 @@
 
                     <Label Grid.Row="4"
                            Style="{StaticResource TextSubhead}"
+                           VerticalTextAlignment="End"
                            effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
                            effects:TapCommandEffect.TapParameter="{Binding SourceUrl}"
                            effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                            IsVisible="{Binding SourceUrl, Converter={StaticResource IsNotNullConverter}}"
                            Text="{loc:Translate SillyDude_GoToSource}"
-                           TextColor="{StaticResource Accent}"
-                           VerticalTextAlignment="End" />
+                           TextColor="{StaticResource Accent}" />
 
                     <Frame Grid.Row="5"
                            Padding="0,16,0,0"

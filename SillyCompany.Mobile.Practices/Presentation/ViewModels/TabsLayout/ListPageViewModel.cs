@@ -1,17 +1,10 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SillyPeopleScreenVm.cs" company="The Silly Company">
-//   The Silly Company 2016. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Sharpnado.Infrastructure.Services;
-using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
@@ -22,16 +15,19 @@ using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using Xamarin.Forms;
 
-namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
+namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 {
-    public class SillyInfinitePeopleVm : ANavigableViewModel
+    public class ListPageViewModel : ANavigableViewModel
     {
         private const int PageSize = 10;
         private readonly ISillyDudeService _sillyDudeService;
 
         private int _currentIndex = -1;
 
-        public SillyInfinitePeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService, ErrorEmulator errorEmulator)
+        public ListPageViewModel(
+            INavigationService navigationService,
+            ISillyDudeService sillyDudeService,
+            ErrorEmulator errorEmulator) 
             : base(navigationService)
         {
             _sillyDudeService = sillyDudeService;
@@ -40,7 +36,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             ErrorEmulator = new ErrorEmulatorVm(errorEmulator, Load);
 
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
-            SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize, loadingThreshold: 0.1f);
+            SillyPeoplePaginator = new Paginator<SillyDude>(
+                LoadSillyPeoplePageAsync,
+                pageSize: PageSize,
+                loadingThreshold: 0.1f);
             SillyPeopleLoader = new ViewModelLoader<IReadOnlyCollection<SillyDude>>(
                 ApplicationExceptions.ToString,
                 SillyResources.Empty_Screen);
@@ -54,8 +53,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         public ErrorEmulatorVm ErrorEmulator { get; }
 
-        public SillyDudeVmo SillyOfTheDay { get; private set; }
-
         public ViewModelLoader<IReadOnlyCollection<SillyDude>> SillyPeopleLoader { get; }
 
         public Paginator<SillyDude> SillyPeoplePaginator { get; }
@@ -67,8 +64,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         /// Here, it is a command to navigate to the second screen.
         /// </summary>
         public IAsyncCommand GoToSillyDudeCommand { get; protected set; }
-
-        public IAsyncCommand GoToSillyInfiniteGridPeopleCommand { get; protected set; }
 
         public ICommand OnScrollBeginCommand { get; private set; }
 
@@ -84,13 +79,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
             RaisePropertyChanged(nameof(SillyPeople));
 
-            SillyPeopleLoader.Load(async () =>
-            {
-                SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
-                RaisePropertyChanged(nameof(SillyOfTheDay));
-
-                return (await SillyPeoplePaginator.LoadPage(1)).Items;
-            });
+            SillyPeopleLoader.Load(
+                async () => (await SillyPeoplePaginator.LoadPage(1)).Items);
         }
 
         /// <summary>
@@ -99,7 +89,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         private void InitCommands()
         {
             GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDudeAsync((SillyDudeVmo)parameter));
-            GoToSillyInfiniteGridPeopleCommand = AsyncCommand.Create(GoToSillyInfiniteGridPeopleAsync);
 
             OnScrollBeginCommand = new Command(
                 () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollBeginCommand"));
@@ -136,11 +125,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             }
 
             await NavigationService.NavigateToAsync<SillyDudeVm>(sillyDude.Id);
-        }
-
-        private Task GoToSillyInfiniteGridPeopleAsync()
-        {
-            return NavigationService.NavigateToAsync<SillyInfiniteGridPeopleVm>();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Sharpnado.Infrastructure.Tasks;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 {
@@ -9,7 +11,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         public SortSillyPeopleVm(INavigationService navigationService)
             : base(navigationService)
         {
+            InitCommands();
         }
+
+        public ICommand OnDragAndDropEndCommand { get; private set; }
 
         public ObservableCollection<SillyDudeVmo> SillyPeople { get; set; }
 
@@ -23,6 +28,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             }
 
             NotifyTask.Create(NavigationService.NavigateBackAsync(typeof(SortSillyPeopleVm)));
+        }
+
+        private void InitCommands()
+        {
+            OnDragAndDropEndCommand = new Command(
+                () => System.Diagnostics.Debug.WriteLine("SortSillyPeopleVm: OnDragAndDropEndCommand"));
         }
     }
 }

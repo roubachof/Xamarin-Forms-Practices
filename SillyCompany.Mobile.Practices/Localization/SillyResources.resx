@@ -181,4 +181,13 @@
   <data name="SortSillyPeople_Title" xml:space="preserve">
     <value>Drag'N'Drop</value>
   </data>
+  <data name="Tabs_Grid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="Tabs_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Tabs_List" xml:space="preserve">
+    <value>List</value>
+  </data>
 </root>

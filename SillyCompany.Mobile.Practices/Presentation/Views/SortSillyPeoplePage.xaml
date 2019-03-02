@@ -32,6 +32,7 @@
     <ContentPage.Content>
         <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
                                           ColumnCount="3"
+                                          DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           EnableDragAndDrop="True"
                                           ItemsSource="{Binding SillyPeople}"
                                           ListLayout="Grid">
@@ -61,8 +62,8 @@
                                                               Aspect="AspectFill"
                                                               Source="{Binding ImageUrl}" />
                                     <Label Grid.Row="1"
-                                           Margin="{StaticResource MediumTopThickness}"
                                            Style="{StaticResource TextSmallCaption}"
+                                           Margin="{StaticResource MediumTopThickness}"
                                            HorizontalTextAlignment="Center"
                                            Text="{Binding Name}" />
                                 </Grid>
