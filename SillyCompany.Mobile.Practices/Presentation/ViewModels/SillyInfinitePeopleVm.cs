@@ -107,7 +107,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
                 () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollEndCommand"));
         }
 
-        private async Task<PageResult<SillyDude>> LoadSillyPeoplePageAsync(int pageNumber, int pageSize)
+        private async Task<PageResult<SillyDude>> LoadSillyPeoplePageAsync(int pageNumber, int pageSize, bool isRefreshed)
         {
             PageResult<SillyDude> resultPage = await _sillyDudeService.GetSillyPeoplePage(pageNumber, pageSize);
             var viewModels = resultPage.Items.Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)).ToList();

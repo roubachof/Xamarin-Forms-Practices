@@ -197,7 +197,8 @@
                                VerticalTextAlignment="End" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <renderedViews:HorizontalListView Grid.Row="3"
+                        <renderedViews:HorizontalListView x:Name="HorizontalListView"
+                                                          Grid.Row="3"
                                                           Margin="-16,8"
                                                           CollectionPadding="40,10"
                                                           ColumnCount="1"
