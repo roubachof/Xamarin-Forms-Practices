@@ -7,6 +7,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         public SillyContentPage()
         {
             Padding = 0;
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

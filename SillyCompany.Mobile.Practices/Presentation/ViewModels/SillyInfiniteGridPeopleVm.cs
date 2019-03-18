@@ -12,6 +12,8 @@ using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
+
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels

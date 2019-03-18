@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.Quote"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices">
+    <ContentView.Content>
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding SourceUrl, Converter={StaticResource NullToValueConverter}, ConverterParameter=40}" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Style="{StaticResource TextSubhead}"
+                   effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                   effects:TapCommandEffect.TapParameter="{Binding SourceUrl}"
+                   effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                   IsVisible="{Binding SourceUrl, Converter={StaticResource IsNotNullConverter}}"
+                   Text="{localization:Translate SillyDude_GoToSource}"
+                   TextColor="{StaticResource Accent}"
+                   VerticalTextAlignment="End" />
+
+            <Frame Grid.Row="1"
+                   Padding="0,16,0,0"
+                   BackgroundColor="Transparent"
+                   HasShadow="False">
+                <Label Style="{StaticResource TextBody}" Text="{Binding Quote}" />
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

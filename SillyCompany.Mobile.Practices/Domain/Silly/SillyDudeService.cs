@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Sharpnado.Infrastructure;
 using Sharpnado.Infrastructure.Services;
 using SillyCompany.Mobile.Practices.Infrastructure;
+using SillyCompany.Mobile.Practices.Localization;
 
 namespace SillyCompany.Mobile.Practices.Domain.Silly
 {
@@ -43,6 +44,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://www.2oceansvibe.com/wp-content/uploads/2017/10/willlferell.jpg",
 #endif
                             4,
+                            Filmos.Ferrell,
+                            "https://sayingimages.com/wp-content/uploads/dear-monday-will-ferrell-memes.jpg",
                             "https://youtu.be/sPFRZP4qY7I?t=26")
                     },
                     {
@@ -58,6 +61,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://images.uncyc.org/commons/d/dd/The_leader_of_the_Knights_Who_Say_Ni.jpg",
 #endif
                             5,
+                            "ni!",
+                            "http://www.quickmeme.com/img/e8/e835352f2b7cd21efc12eba56c0d5a3e00c411965b029126cb5eb360fcfa6eb5.jpg",
                             "https://www.youtube.com/watch?v=zIV4poUZAQo")
                     },
                     {
@@ -72,7 +77,10 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://media.popculture.com/2017/06/jean-claude-van-damme-predator-20003834-640x480.jpg",
 #endif
-                            5)
+                            5,
+                            Filmos.VanDamme,
+                            "http://www.quickmeme.com/img/48/485340aeb0d8a432c3f3eb5b33ad9fb2c92b6c2ef17ccc53719474302e51b9de.jpg"
+                            )
                     },
 //                    {
 //                        ++_peopleCounter,
@@ -101,6 +109,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "https://jnxz07-a.akamaihd.net/wp-content/uploads/2015/03/triumph-e1425247855563.jpeg",
 #endif
                             2,
+                            Filmos.Triumph,
+                            "http://2.bp.blogspot.com/-sPduDIOi2-U/UR3Bpkjn0jI/AAAAAAAAGlo/SnSOI-tYyqo/s1600/PoopBoatTriumph.jpg",
                             "https://youtu.be/O-253uBJap8?t=315")
                     },
                     {
@@ -115,7 +125,9 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
                             "http://wfmj.images.worldnow.com/images/6382251_G.jpg?auto=webp&disable=upscale&width=800",
 #endif
-                            3)
+                            3,
+                            Filmos.Gervais,
+                            "https://cdn.newsapi.com.au/image/v1/e737788003cdba5e51cea05a15d8094a")
                     },
                     {
                         ++_peopleCounter,
@@ -130,6 +142,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://www4.pictures.zimbio.com/mp/8q1mIIQGkXHm.jpg",
 #endif
                             3,
+                            Filmos.Carell,
+                            "https://sayingimages.com/wp-content/uploads/fool-me-once-michael-scott-memes-1.jpg",
                             "https://youtu.be/N9Z4vqysxMQ?t=92")
                     },
                     {
@@ -145,6 +159,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://cdn.playbuzz.com/cdn/b0cd9743-c236-4c0e-b468-00f83724f117/e2b08eac-053b-4b06-8538-405852dc865b.jpg",
 #endif
                             4,
+                            Filmos.Ted,
+                            "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/blogs/129003/2014/08/158581-164751.jpg?itok=f7HhI_lo",
                             "https://www.youtube.com/watch?v=jzYzVMcgWhg")
                     },
                     {
@@ -160,6 +176,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://i123.photobucket.com/albums/o320/lucy_edward/moss_pic2.jpg",
 #endif
                             3,
+                            Filmos.Moss,
+                            "https://images1.memedroid.com/images/UPLOADED8/501f9cd68575e.jpeg",
                             "https://youtu.be/NKHyqjHqQLU?t=32")
                     },
                     {
@@ -175,6 +193,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
                             "http://4.bp.blogspot.com/_fMA4vs4kLc0/S0yka8se4NI/AAAAAAAAAtc/chbrVG878_0/s1600/carette+chabat.jpg",
 #endif
                             4,
+                            Filmos.LesNuls,
+                            "https://img.static-rmg.be/a/view/q75/w720/h480/2223699/un-clin-doeil-a-la-cite-de-la-peur-sur-le-site-de-2-24535-1433777643-0-dblbig-jpg.jpg",
                             "https://www.youtube.com/watch?v=lNEpFJYduto")
                     },
                 };

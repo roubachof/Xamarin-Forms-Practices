@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView
-    x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.GridView"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-    xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-    xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
-    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-    xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
+<ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.GridView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
@@ -16,14 +15,6 @@
                         <OnPlatform x:TypeArguments="x:Int32">
                             <On Platform="iOS">120</On>
                             <On Platform="Android">120</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="ItemWidth">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32">
-                            <On Platform="iOS">100</On>
-                            <On Platform="Android">110</On>
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -40,26 +31,22 @@
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <renderedViews:MaterialFrame
-                        Margin="4"
-                        Padding="{StaticResource StandardThickness}"
-                        Elevation="4">
+                    <renderedViews:MaterialFrame Margin="4"
+                                                 Padding="{StaticResource StandardThickness}"
+                                                 Elevation="4">
 
-                        <StackLayout
-                            x:DataType="viewModels:SillyDudeVmo"
-                            Orientation="Vertical"
-                            Spacing="0">
+                        <StackLayout Orientation="Vertical"
+                                     x:DataType="viewModels:SillyDudeVmo"
+                                     Spacing="0">
 
-                            <abstractions:CircleImage
-                                Aspect="AspectFill"
-                                Source="{Binding ImageUrl}"
-                                Style="{StaticResource SmallAvatar}"
-                                VerticalOptions="StartAndExpand" />
-                            <Label
-                                Margin="{StaticResource MediumTopThickness}"
-                                HorizontalTextAlignment="Center"
-                                Style="{StaticResource TextSmallCaption}"
-                                Text="{Binding Name}" />
+                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
+                                                      Style="{StaticResource SmallAvatar}"
+                                                      Aspect="AspectFill"
+                                                      Source="{Binding ImageUrl}" />
+                            <Label Margin="{StaticResource MediumTopThickness}"
+                                   Style="{StaticResource TextSmallCaption}"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding Name}" />
                         </StackLayout>
                     </renderedViews:MaterialFrame>
                 </ViewCell>
@@ -69,21 +56,20 @@
 
     <ContentView.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
-            <pullToRefresh:PullToRefreshLayout
-                IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
-                RefreshColor="Blue"
-                RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">
-                <renderedViews:HorizontalListView
-                    CurrentIndex="{Binding CurrentIndex}"
-                    EnableDragAndDrop="True"
-                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                    ItemTemplate="{StaticResource DudeDataTemplate}"
-                    ItemsSource="{Binding SillyPeople}"
-                    ListLayout="Grid"
-                    ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                    ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                    Style="{StaticResource HorizontalListView}" />
+            <pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+                                               IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
+                                               RefreshColor="Blue"
+                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">
+                <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                                  ColumnCount="3"
+                                                  CurrentIndex="{Binding CurrentIndex}"
+                                                  EnableDragAndDrop="True"
+                                                  InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                  ItemTemplate="{StaticResource DudeDataTemplate}"
+                                                  ItemsSource="{Binding SillyPeople}"
+                                                  ListLayout="Grid"
+                                                  ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}" />
             </pullToRefresh:PullToRefreshLayout>
         </customViews:TaskLoaderView>
     </ContentView.Content>

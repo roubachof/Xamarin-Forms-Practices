@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.Meme"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Image WidthRequest="300"
+               HeightRequest="200"
+               Margin="0,16,0,0"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Aspect="AspectFit"
+               Source="{Binding MemeUrl}" />
+    </ContentView.Content>
+</ContentView>

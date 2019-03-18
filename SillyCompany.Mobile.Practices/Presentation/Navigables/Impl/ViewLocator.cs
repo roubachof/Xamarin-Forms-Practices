@@ -7,8 +7,10 @@
 using System;
 using System.Collections.Generic;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;
 using SillyCompany.Mobile.Practices.Presentation.Views;
+using SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails;
 using SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Navigables.Impl

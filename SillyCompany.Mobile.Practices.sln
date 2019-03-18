@@ -24,6 +24,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stylecop", "Stylecop", "{47
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SillyCompany.Mobile.Practices", "SillyCompany.Mobile.Practices\SillyCompany.Mobile.Practices.csproj", "{CA98E435-09D1-4358-BFAA-77265143095E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuspec", "Nuspec", "{C4FBF1D4-87F0-4BA3-8D9E-AE8CBE13FFE5}"
+	ProjectSection(SolutionItems) = preProject
+		Sharpnado.Presentation.Forms\AssemblyInfo.targets = Sharpnado.Presentation.Forms\AssemblyInfo.targets
+		Sharpnado.Presentation.Forms\Sharpnado.Forms.HorizontalListView.nuspec = Sharpnado.Presentation.Forms\Sharpnado.Forms.HorizontalListView.nuspec
+		Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.nuspec = Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -267,6 +274,7 @@ Global
 		{BEF61BA6-2881-478D-8E49-C7FBC89A0069} = {5C2ABC05-D72C-4BC8-8189-8B26E772B666}
 		{5C880A51-9E8A-42A9-9FA5-10BC7D3E9FFC} = {5C2ABC05-D72C-4BC8-8189-8B26E772B666}
 		{E71F3053-056C-4381-9638-048ED73BDFF6} = {5C2ABC05-D72C-4BC8-8189-8B26E772B666}
+		{C4FBF1D4-87F0-4BA3-8D9E-AE8CBE13FFE5} = {5C2ABC05-D72C-4BC8-8189-8B26E772B666}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C5BF1F5-C9B1-4755-A9D5-0CB86C6019E0}

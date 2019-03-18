@@ -8,6 +8,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
     {
         public SillyBottomTabsPage()
         {
+            SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
         }
     }

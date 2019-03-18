@@ -12,12 +12,13 @@ using System.Threading.Tasks;
 
 using Sharpnado.Presentation.Forms.Commands;
 using Sharpnado.Presentation.Forms.ViewModels;
+
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 
 using Xamarin.Forms;
 
-namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
+namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
 {
     /// <summary>
     /// Class SillyDudeVm.
@@ -28,6 +29,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         /// The front service.
         /// </summary>
         private readonly ISillyDudeService _dudeService;
+
+        private int _selectedViewModelIndex = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SillyDudeVm"/> class.
@@ -52,6 +55,18 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         /// <value>The silly dude task.</value>
         public ViewModelLoader<SillyDudeVmo> SillyDudeLoader { get; }
 
+        public QuoteVmo Quote { get; private set; }
+
+        public FilmoVmo Filmo { get; private set; }
+
+        public MemeVmo Meme { get; private set; }
+
+        public int SelectedViewModelIndex
+        {
+            get => _selectedViewModelIndex;
+            set => SetAndRaise(ref _selectedViewModelIndex, value);
+        }
+
         /// <summary>
         /// Loads the specified parameter.
         /// </summary>
@@ -66,7 +81,18 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         private async Task<SillyDudeVmo> LoadSillyDude(int id)
         {
             var dude = await _dudeService.GetSilly(id);
-            return new SillyDudeVmo(dude, new TapCommand(url => Device.OpenUri(new Uri((string)url))));
+
+            Quote = new QuoteVmo(
+                dude.SourceUrl,
+                dude.Description,
+                new TapCommand(url => Device.OpenUri(new Uri((string)url))));
+            Filmo = new FilmoVmo(dude.FilmoMarkdown);
+            Meme = new MemeVmo(dude.MemeUrl);
+            RaisePropertyChanged(nameof(Quote));
+            RaisePropertyChanged(nameof(Filmo));
+            RaisePropertyChanged(nameof(Meme));
+
+            return new SillyDudeVmo(dude, null);
         }
     }
 }

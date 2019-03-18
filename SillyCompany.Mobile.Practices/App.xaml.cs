@@ -35,6 +35,7 @@ namespace SillyCompany.Mobile.Practices
 #endif
 
             MainPage = new NavigationPage((Page)firstScreenView);
+            NavigationPage.SetHasNavigationBar(MainPage, false);
             var firstScreenVm = (ANavigableViewModel)firstScreenView.BindingContext;
             firstScreenVm.Load(null);
         }

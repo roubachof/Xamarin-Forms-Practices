@@ -18,6 +18,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             Id = dude.Id;
             Name = dude.Name;
+            FullName = dude.FullName;
             Role = dude.Role;
             Description = dude.Description;
             ImageUrl = dude.ImageUrl;
@@ -32,6 +33,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         public int Id { get; }
 
         public string Name { get; }
+
+        public string FullName { get; }
 
         public string Role { get; }
 

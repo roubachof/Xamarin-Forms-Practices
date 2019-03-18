@@ -10,7 +10,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SillyCompany.Mobile.Practices.Presentation.Views
+namespace SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SillyDudePage : ContentPage, IBindablePage
@@ -20,10 +20,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         /// </summary>
         public SillyDudePage()
         {
+            SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
         }
-
-        private NavigationPage NavigationPage => (NavigationPage)Application.Current.MainPage;
 
         protected override void OnAppearing()
         {
@@ -33,6 +32,20 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+        }
+
+        private void ScrollViewOnScrolled(object sender, ScrolledEventArgs e)
+        {
+            if (Image.Height < 1)
+            {
+                return;
+            }
+
+            double alpha = e.ScrollY / Image.Height;
+
+            var accentColor = (Color)Application.Current.Resources["Accent"];
+
+            Toolbar.BackgroundColor = accentColor.MultiplyAlpha(alpha);
         }
     }
 }

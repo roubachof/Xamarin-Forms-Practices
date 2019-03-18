@@ -4,6 +4,7 @@ using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 {
@@ -30,8 +31,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public override void Load(object parameter)
         {
-            SillyDudeLoader.Load(
-                async () => new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand));
+            SillyDudeLoader.Load(InitializationTask);
         }
 
         /// <summary>
@@ -40,6 +40,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
         private void InitCommands()
         {
             GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDudeAsync((SillyDudeVmo)parameter));
+        }
+
+        private async Task<SillyDudeVmo> InitializationTask()
+        {
+            var dude = await _sillyDudeService.GetRandomSilly();
+            return new SillyDudeVmo(dude, GoToSillyDudeCommand);
         }
 
         /// <param name="sillyDude">The silly dude.</param>

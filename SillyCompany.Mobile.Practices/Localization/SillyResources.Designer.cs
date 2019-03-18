@@ -241,6 +241,15 @@ namespace SillyCompany.Mobile.Practices.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FILMOGRAPHY.
+        /// </summary>
+        internal static string Tabs_Filmography {
+            get {
+                return ResourceManager.GetString("Tabs_Filmography", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Grid.
         /// </summary>
         internal static string Tabs_Grid {
@@ -264,6 +273,24 @@ namespace SillyCompany.Mobile.Practices.Localization {
         internal static string Tabs_List {
             get {
                 return ResourceManager.GetString("Tabs_List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MEME.
+        /// </summary>
+        internal static string Tabs_Meme {
+            get {
+                return ResourceManager.GetString("Tabs_Meme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QUOTE.
+        /// </summary>
+        internal static string Tabs_Quote {
+            get {
+                return ResourceManager.GetString("Tabs_Quote", resourceCulture);
             }
         }
     }

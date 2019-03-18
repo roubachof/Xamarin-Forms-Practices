@@ -6,7 +6,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
     {
         private readonly string _realName;
 
-        public SillyDude(int id, string name, string role, string description, string imageUrl, int sillinessDegree, string sourceUrl = null)
+        public SillyDude(int id, string name, string role, string description, string imageUrl, int sillinessDegree, string filmoMarkdown, string memeUrl, string sourceUrl = null)
         {
             if (sillinessDegree > 5 || sillinessDegree < 0)
             {
@@ -20,6 +20,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
             ImageUrl = imageUrl;
             SillinessDegree = sillinessDegree;
             SourceUrl = sourceUrl;
+            FilmoMarkdown = filmoMarkdown;
+            MemeUrl = memeUrl;
         }
 
         public int Id { get; }
@@ -29,6 +31,8 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #else
         public string Name => _realName;
 #endif
+
+        public string FullName => $"{_realName} n°{Id}";
 
         public string Role { get; }
 
@@ -40,9 +44,22 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 
         public string SourceUrl { get; }
 
+        public string FilmoMarkdown { get; set; }
+
+        public string MemeUrl { get; }
+
         public SillyDude Clone(int id)
         {
-            return new SillyDude(id, _realName, Role, Description, ImageUrl, SillinessDegree, SourceUrl);
+            return new SillyDude(
+                id,
+                _realName,
+                Role,
+                Description,
+                ImageUrl,
+                SillinessDegree,
+                FilmoMarkdown,
+                MemeUrl,
+                SourceUrl);
         }
 
         private string TruncateName(int maxChars)

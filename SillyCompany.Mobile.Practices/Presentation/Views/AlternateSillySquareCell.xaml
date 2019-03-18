@@ -11,23 +11,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0"
-               Style="{StaticResource TextBody}"
                Margin="{StaticResource SmallTopThickness}"
+               Style="{StaticResource TextBody}"
                HorizontalTextAlignment="Center"
-               VerticalTextAlignment="End"
-               Text="{Binding Name}" />
+               Text="{Binding FullName}"
+               VerticalTextAlignment="End" />
 
         <Label Grid.Row="1"
                Style="{StaticResource TextCaptionSecondary}"
                HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Start"
-               Text="{Binding Role}" />
+               Text="{Binding Role}"
+               VerticalTextAlignment="Start" />
 
         <ic:CircleImage Grid.Row="2"
-                        Style="{StaticResource MediumAvatar}"
+                        VerticalOptions="Start"
+                        Style="{StaticResource LargeAvatar}"
                         Aspect="AspectFill"
                         Source="{Binding ImageUrl}" />
     </Grid>
