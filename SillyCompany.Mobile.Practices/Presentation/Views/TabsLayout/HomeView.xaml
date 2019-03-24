@@ -14,18 +14,19 @@
             <Grid ColumnSpacing="0" RowSpacing="0">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
+                    <RowDefinition x:Name="SillyOfTheDayHeader" Height="100" />
                     <RowDefinition Height="200" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0"
-                       Margin="0,10,0,0"
+                       VerticalOptions="End"
                        Style="{StaticResource TextHeader}"
-                       Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
+                       Text="{localization:Translate SillyPeople_SillyOfTheDay}"
+                       VerticalTextAlignment="End" />
 
                 <!--  ROW 1: Silly Of The Day  -->
                 <renderedViews:MaterialFrame Grid.Row="1"
-                                             Margin="16,18,16,0"
+                                             Margin="16"
                                              Padding="{StaticResource StandardThickness}"
                                              Elevation="4">
                     <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
@@ -35,19 +36,19 @@
                           ColumnSpacing="0"
                           RowSpacing="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="3*" />
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="136" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <abstractions:CircleImage Grid.Row="0"
                                                   Grid.RowSpan="3"
                                                   Grid.Column="0"
-                                                  Margin="16,0"
+                                                  Margin="16,0,0,0"
                                                   HorizontalOptions="Start"
                                                   Style="{StaticResource LargeAvatar}"
                                                   Aspect="AspectFill"
@@ -59,8 +60,9 @@
                                Grid.Column="1"
                                Margin="0,16,0,0"
                                HorizontalOptions="Start"
+                               VerticalOptions="End"
                                Style="{StaticResource TextBody}"
-                               Text="{Binding Name}" />
+                               Text="{Binding FullName}" />
 
                         <Label Grid.Row="1"
                                Grid.Column="1"
@@ -75,6 +77,7 @@
                                              WidthRequest="100"
                                              HeightRequest="30"
                                              HorizontalOptions="Start"
+                                             VerticalOptions="Start"
                                              ColorOn="Yellow"
                                              Count="5"
                                              OutlineOnColor="Orange"
@@ -82,8 +85,8 @@
                                              StrokeWidth="1"
                                              Value="{Binding SillinessDegree}" />
                     </Grid>
-                </renderedViews:MaterialFrame>
 
+                </renderedViews:MaterialFrame>
             </Grid>
         </customViews:TaskLoaderView>
     </ContentView.Content>

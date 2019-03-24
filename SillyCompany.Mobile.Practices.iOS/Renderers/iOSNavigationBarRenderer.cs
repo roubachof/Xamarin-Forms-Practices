@@ -17,7 +17,7 @@ namespace SillyCompany.Mobile.Practices.iOS.Renderers
                 return;
             }
 
-            iOSMaterialFrameRenderer.AddShadow(NavigationBar.Layer, 4);
+            // iOSMaterialFrameRenderer.AddShadow(NavigationBar.Layer, 4);
         }
     }
 }

@@ -17,6 +17,23 @@
             <converters:ExceptionToImageSourceConverter x:Key="ExceptionToImageSourceConverter" />
             <converters:SizeScalingByScreenConverter x:Key="SizeScalingByScreenConverter" />
 
+            <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">0, 20, 0, 0</On>
+                            <On Platform="Android">0, 0, 0, 0</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <OnPlatform x:Key="ToolbarHeight" x:TypeArguments="GridLength">
+                <On Platform="iOS">70</On>
+                <On Platform="Android">50</On>
+            </OnPlatform>
+
             <Thickness x:Key="StatusBarHeightPadding"
                        Bottom="0"
                        Left="0"
@@ -24,12 +41,11 @@
                 <Thickness.Top>
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="iOS">20</On>
-                        <On Platform="Android">24</On>
+                        <On Platform="Android">0</On>
                     </OnPlatform>
                 </Thickness.Top>
             </Thickness>
 
-            <GridLength x:Key="ToolbarHeight">50</GridLength>
             <GridLength x:Key="BottomBarHeight">65</GridLength>
             <GridLength x:Key="HeaderHeight">40</GridLength>
 

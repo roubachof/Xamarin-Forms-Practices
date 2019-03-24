@@ -92,11 +92,15 @@ namespace SillyCompany.Mobile.Practices.Presentation.CustomViews
                 ShadowBoxView.IsVisible = true;
                 Margin = new Thickness(Margin.Left, Margin.Top, Margin.Right, Margin.Bottom - ShadowHeight);
 
-                var boxView = new BoxView { BackgroundColor = BackgroundColor };
+                var boxView1 = new BoxView { BackgroundColor = BackgroundColor };
+                var boxView2 = new BoxView { BackgroundColor = BackgroundColor };
                 BackgroundColor = Color.Transparent;
-                Grid.Children.Insert(0, boxView);
-                Grid.SetRow(boxView, 0);
-                Grid.SetColumnSpan(boxView, 3);
+                Grid.Children.Insert(0, boxView1);
+                Grid.Children.Insert(1, boxView2);
+                Grid.SetRow(boxView1, 0);
+                Grid.SetColumnSpan(boxView1, 3);
+                Grid.SetRow(boxView2, 1);
+                Grid.SetColumnSpan(boxView2, 3);
             }
             else
             {

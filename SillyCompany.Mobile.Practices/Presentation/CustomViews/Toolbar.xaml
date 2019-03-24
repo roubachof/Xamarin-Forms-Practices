@@ -5,11 +5,43 @@
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              x:Name="RootLayout">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TextTitleStyle"
+                   BasedOn="{StaticResource TextTitle}"
+                   TargetType="Label">
+                <Setter Property="HorizontalOptions">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="LayoutOptions">
+                            <On Platform="iOS">Center</On>
+                            <On Platform="Android">Start</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">0,0,0,0</On>
+                            <On Platform="Android">22,0,0,0</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <OnPlatform x:Key="StatusBarHeight" x:TypeArguments="GridLength">
+                <On Platform="iOS">20</On>
+                <On Platform="Android">0</On>
+            </OnPlatform>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
     <ContentView.Content>
         <Grid x:Name="Grid"
               ColumnSpacing="0"
               RowSpacing="0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource StatusBarHeight}" />
                 <RowDefinition Height="*" />
                 <RowDefinition x:Name="ShadowRowDefinition" Height="0" />
             </Grid.RowDefinitions>
@@ -19,7 +51,10 @@
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
 
+            <!--<BoxView BackgroundColor="{Binding Source={x:Reference RootLayout}, Path=BackgroundColor}"></BoxView>-->
+
             <ContentView x:Name="BackButton"
+                         Grid.Row="1"
                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                          IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}">
                 <Image WidthRequest="24"
@@ -31,16 +66,14 @@
                        Source="back_96" />
             </ContentView>
 
-            <Label Grid.Column="1"
-                   Margin="22,0,0,0"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Center"
-                   Style="{StaticResource TextTitle}"
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Style="{StaticResource TextTitleStyle}"
                    Text="{Binding Source={x:Reference RootLayout}, Path=Title}"
                    TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}" />
 
             <renderedViews:ShadowBoxView x:Name="ShadowBoxView"
-                                         Grid.Row="1"
+                                         Grid.Row="2"
                                          Grid.Column="0"
                                          Grid.ColumnSpan="3"
                                          IsVisible="False"

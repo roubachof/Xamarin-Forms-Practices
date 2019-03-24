@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SillyDudePage : ContentPage, IBindablePage
+    public partial class SillyDudePage : SillyContentPage, IBindablePage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SillyDudePage"/> class.

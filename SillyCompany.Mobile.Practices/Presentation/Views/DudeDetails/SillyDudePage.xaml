@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.SillyDudePage"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
-             xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;assembly=SillyCompany.Mobile.Practices"
-             xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
-             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
-             xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
-             d:DataContext="{d:DesignInstance dudeDetails:SillyDudeVm}"
-             mc:Ignorable="d">
+<views:SillyContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.SillyDudePage"
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
+                        xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+                        xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+                        xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+                        d:DataContext="{d:DesignInstance dudeDetails:SillyDudeVm}"
+                        mc:Ignorable="d">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -33,89 +34,83 @@
                                     AbsoluteLayout.LayoutFlags="All"
                                     BackgroundColor="White"
                                     ViewModelLoader="{Binding SillyDudeLoader}">
-            <pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
-                                               IsRefreshing="{Binding SillyDudeLoader.ShowRefresher}"
-                                               RefreshColor="{StaticResource Accent}"
-                                               RefreshCommand="{Binding SillyDudeLoader.RefreshCommand}">
-                <ScrollView Scrolled="ScrollViewOnScrolled">
-                    <Grid Padding="{StaticResource StandardThickness}"
-                          ColumnSpacing="0"
-                          RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="200" />
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="30" />
-                            <RowDefinition Height="30" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+            <Grid Padding="{StaticResource StandardThickness}"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                        <!--  ROW 1  -->
-                        <Image x:Name="Image"
-                               Grid.RowSpan="4"
-                               Margin="-16,-16,-16,0"
-                               Aspect="AspectFill"
-                               Source="{Binding SillyDudeLoader.Result.ImageUrl}" />
+                <!--  ROW 1  -->
+                <Image x:Name="Image"
+                       Grid.RowSpan="4"
+                       Margin="-16,-16,-16,0"
+                       Aspect="AspectFill"
+                       Source="{Binding SillyDudeLoader.Result.ImageUrl}" />
 
-                        <BoxView Grid.Row="1"
-                                 Grid.RowSpan="3"
-                                 Margin="-16,0"
-                                 BackgroundColor="#99000000" />
+                <BoxView Grid.Row="1"
+                         Grid.RowSpan="3"
+                         Margin="-16,0"
+                         BackgroundColor="#99000000" />
 
-                        <Label Grid.Row="1"
-                               VerticalOptions="End"
-                               Style="{StaticResource TextTitle}"
-                               Text="{Binding SillyDudeLoader.Result.FullName}"
-                               TextColor="White" />
+                <Label Grid.Row="1"
+                       VerticalOptions="End"
+                       Style="{StaticResource TextTitle}"
+                       Text="{Binding SillyDudeLoader.Result.FullName}"
+                       TextColor="White" />
 
-                        <Label Grid.Row="2"
-                               Style="{StaticResource TextSubhead}"
-                               Text="{Binding SillyDudeLoader.Result.Role}"
-                               TextColor="White" />
+                <Label Grid.Row="2"
+                       Style="{StaticResource TextSubhead}"
+                       Text="{Binding SillyDudeLoader.Result.Role}"
+                       TextColor="White" />
 
-                        <skiaRate:RatingView Grid.Row="3"
-                                             WidthRequest="100"
-                                             HeightRequest="30"
-                                             HorizontalOptions="Start"
-                                             ColorOn="Yellow"
-                                             Count="5"
-                                             OutlineOffColor="Transparent"
-                                             OutlineOnColor="Yellow"
-                                             RatingType="Floating"
-                                             StrokeWidth="1"
-                                             Value="{Binding SillyDudeLoader.Result.SillinessDegree}" />
+                <skiaRate:RatingView Grid.Row="3"
+                                     WidthRequest="100"
+                                     HeightRequest="30"
+                                     HorizontalOptions="Start"
+                                     ColorOn="Yellow"
+                                     Count="5"
+                                     OutlineOffColor="Transparent"
+                                     OutlineOnColor="Yellow"
+                                     RatingType="Floating"
+                                     StrokeWidth="1"
+                                     Value="{Binding SillyDudeLoader.Result.SillinessDegree}" />
 
-                        <tabs:TabHostView x:Name="TabHost"
-                                          Grid.Row="4"
-                                          Margin="-16,0"
-                                          BackgroundColor="White"
-                                          SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                                          ShadowType="Bottom">
-                            <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
-                            <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
-                            <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
-                        </tabs:TabHostView>
+                <tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  Margin="-16,0"
+                                  BackgroundColor="White"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                                  ShadowType="Bottom">
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
+                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
+                </tabs:TabHostView>
 
-                        <tabs:ViewSwitcher x:Name="Switcher"
-                                           Grid.Row="5"
-                                           Animate="True"
-                                           SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                            <details:Quote Animate="True" BindingContext="{Binding Quote}" />
-                            <details:Filmo Animate="True" BindingContext="{Binding Filmo}" />
-                            <details:Meme Animate="True" BindingContext="{Binding Meme}" />
-                        </tabs:ViewSwitcher>
+                <ScrollView Grid.Row="5">
+                    <tabs:ViewSwitcher x:Name="Switcher"
+                                       Animate="True"
+                                       SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                        <details:Quote Animate="True" BindingContext="{Binding Quote}" />
+                        <details:Filmo Animate="True" BindingContext="{Binding Filmo}" />
+                        <details:Meme Animate="True" BindingContext="{Binding Meme}" />
+                    </tabs:ViewSwitcher>
 
-                    </Grid>
                 </ScrollView>
-            </pullToRefresh:PullToRefreshLayout>
+            </Grid>
         </customViews:TaskLoaderView>
 
         <tb:Toolbar x:Name="Toolbar"
-                    AbsoluteLayout.LayoutBounds="0, 0, 1, 50"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                     BackgroundColor="{StaticResource TransparentAccent}"
                     ForegroundColor="White"
                     ShowBackButton="True" />
 
     </AbsoluteLayout>
-</ContentPage>
+</views:SillyContentPage>
