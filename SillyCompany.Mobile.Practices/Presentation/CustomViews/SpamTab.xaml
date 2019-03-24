@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<tabs:TabItem x:Class="SillyCompany.Mobile.Practices.Presentation.CustomViews.SpamTab"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+              x:Name="RootLayout">
+    <ContentView.Content>
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Image x:Name="Spam"
+                   VerticalOptions="End"
+                   Aspect="Fill"
+                   Source="{Binding Source={x:Reference RootLayout}, Path=SpamImage}" />
+            <Image x:Name="Foot"
+                   Aspect="Fill"
+                   Source="monty_python_foot" />
+        </Grid>
+
+    </ContentView.Content>
+</tabs:TabItem>

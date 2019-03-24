@@ -39,9 +39,12 @@
                                Grid.Row="1"
                                Animate="False"
                                SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                <customViews:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
+                <tabsLayout:HomeView BindingContext="{Binding HomePageViewModel}" />
+                <tabsLayout:ListView BindingContext="{Binding ListPageViewModel}" />
+                <tabsLayout:GridView BindingContext="{Binding GridPageViewModel}" />
+                <!--<customViews:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
                 <customViews:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
-                <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+                <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />-->
             </tabs:ViewSwitcher>
 
             <tabs:TabHostView x:Name="TabHost"
@@ -49,7 +52,10 @@
                               BackgroundColor="White"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                               ShadowType="Top">
-                <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
+                <tb:SpamTab SpamImage="spam_classic_home" />
+                <tb:SpamTab SpamImage="spam_classic_list" />
+                <tb:SpamTab SpamImage="spam_classic_grid" />
+                <!--<tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
                                     IconImageSource="house_96"
                                     Label="{localization:Translate Tabs_Home}" />
                 <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
@@ -57,7 +63,7 @@
                                     Label="{localization:Translate Tabs_List}" />
                 <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
                                     IconImageSource="grid_view_96"
-                                    Label="{localization:Translate Tabs_Grid}" />
+                                    Label="{localization:Translate Tabs_Grid}" />-->
             </tabs:TabHostView>
 
         </Grid>

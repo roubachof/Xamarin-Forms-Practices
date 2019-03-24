@@ -256,5 +256,26 @@
   <ItemGroup>
     <BundleResource Include="Resources\back_96.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic_grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monty_python_foot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic_tabs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spam_classic_empty.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
