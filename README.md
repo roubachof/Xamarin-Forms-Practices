@@ -45,6 +45,31 @@ If you want to learn how to use the ```Sharpnado.Presentation.Forms``` component
   <img src="__Docs__/task_loader_view.gif" width="250"  />
 </p>
 
+"Pure" ```Xamarin.Forms``` Tabs
+
+<table>
+	<thead>
+		<tr>
+			<th>Top tabs</th>
+			<th>Bottom bar tabs</th>
+      <th>Custom tabs</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+      <td><img src="__Docs__/top_tabs.gif" width="250" /></td>
+  		<td><img src="__Docs__/bottom_tabs.gif" width="250" /></td>
+			<td><img src="__Docs__/spam_tabs.gif" width="250" /></td>
+		</tr>
+    <tr>
+      <td>```UnderlinedTabItem```</td>
+			<td>```BottomTabItem```</td>
+      <td>inherit from ```TabItem```</td>
+    </tr>
+  </tbody>
+</table>
+
+
 you came to the right place :)
 
 The components documentation can be found here: https://github.com/roubachof/Sharpnado.Presentation.Forms.
