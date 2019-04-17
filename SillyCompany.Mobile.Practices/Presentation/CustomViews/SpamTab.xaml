@@ -12,7 +12,7 @@
                    Source="{Binding Source={x:Reference RootLayout}, Path=SpamImage}" />
             <Image x:Name="Foot"
                    Aspect="Fill"
-                   Source="monty_python_foot" />
+                   Source="monty_python_foot.png" />
         </Grid>
 
     </ContentView.Content>

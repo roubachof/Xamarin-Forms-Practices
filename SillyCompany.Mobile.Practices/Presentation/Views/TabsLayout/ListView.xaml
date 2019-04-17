@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView
-    x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-    xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
-    xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-    xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
-    xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-    xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices">
+<ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
+             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices">
     <ContentView.Content>
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Grid
-                Padding="{StaticResource StandardThickness}"
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All"
-                ColumnSpacing="0"
-                RowSpacing="0">
+            <Grid Padding="{StaticResource StandardThickness}"
+                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
@@ -27,39 +25,34 @@
                 </Grid.RowDefinitions>
 
                 <!--  ROW 0: TaskLoaderView Configuration Header  -->
-                <Label
-                    Grid.Row="0"
-                    Style="{StaticResource TextHeader}"
-                    Text="{localization:Translate SillyPeople_TaskLoaderView}" />
+                <Label Grid.Row="0"
+                       Style="{StaticResource TextHeader}"
+                       Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <renderedViews:MaterialFrame
-                    Grid.Row="1"
-                    Margin="0,8"
-                    Padding="16,10"
-                    Elevation="4">
+                <renderedViews:MaterialFrame Grid.Row="1"
+                                             Margin="0,8"
+                                             Padding="16,10"
+                                             Elevation="4">
                     <StackLayout Orientation="Horizontal" Spacing="10">
 
-                        <Label
-                            Style="{StaticResource TextBody}"
-                            Text="{localization:Translate SillyPeople_ErrorEmulation}"
-                            VerticalOptions="Center" />
+                        <Label VerticalOptions="Center"
+                               Style="{StaticResource TextBody}"
+                               Text="{localization:Translate SillyPeople_ErrorEmulation}" />
 
-                        <Picker
-                            FontFamily="{StaticResource FontSemiBold}"
-                            FontSize="Small"
-                            HorizontalOptions="FillAndExpand"
-                            ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
-                            SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
-                            TextColor="{StaticResource Accent}" />
+                        <Picker HorizontalOptions="FillAndExpand"
+                                FontFamily="{StaticResource FontSemiBold}"
+                                FontSize="Small"
+                                ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
+                                SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
+                                TextColor="{StaticResource Accent}" />
                     </StackLayout>
                 </renderedViews:MaterialFrame>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
-                <customViews:TaskLoaderView
-                    Grid.Row="2"
-                    Style="{StaticResource SillyTaskLoader}"
-                    ViewModelLoader="{Binding SillyPeopleLoader}">
+                <customViews:TaskLoaderView Grid.Row="2"
+                                            Style="{StaticResource SillyTaskLoader}"
+                                            ViewModelLoader="{Binding SillyPeopleLoader}">
                     <Grid ColumnSpacing="0" RowSpacing="0">
 
                         <Grid.RowDefinitions>
@@ -68,32 +61,30 @@
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->
-                        <Label
-                            Grid.Row="0"
-                            Margin="16,0,0,0"
-                            HorizontalOptions="Start"
-                            HorizontalTextAlignment="Start"
-                            Style="{StaticResource TextHeader}"
-                            Text="{localization:Translate SillyPeople_InfiniteListView}"
-                            VerticalOptions="End"
-                            VerticalTextAlignment="End" />
+                        <Label Grid.Row="0"
+                               Margin="16,0,0,0"
+                               HorizontalOptions="Start"
+                               VerticalOptions="End"
+                               Style="{StaticResource TextHeader}"
+                               HorizontalTextAlignment="Start"
+                               Text="{localization:Translate SillyPeople_InfiniteListView}"
+                               VerticalTextAlignment="End" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <renderedViews:HorizontalListView
-                            Grid.Row="1"
-                            Margin="-16,8"
-                            CollectionPadding="40,10"
-                            ColumnCount="1"
-                            CurrentIndex="{Binding CurrentIndex}"
-                            EnableDragAndDrop="True"
-                            InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                            ItemSpacing="20"
-                            ItemTemplate="{StaticResource DudeTemplateSelector}"
-                            ItemsSource="{Binding SillyPeople}"
-                            ListLayout="Linear"
-                            ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                            ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                            SnapStyle="Center">
+                        <renderedViews:HorizontalListView Grid.Row="1"
+                                                          Margin="-16,8"
+                                                          CollectionPadding="40,10"
+                                                          ColumnCount="1"
+                                                          CurrentIndex="{Binding CurrentIndex}"
+                                                          EnableDragAndDrop="True"
+                                                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                          ItemSpacing="20"
+                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                                          ItemsSource="{Binding SillyPeople}"
+                                                          ListLayout="Linear"
+                                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                          SnapStyle="Center">
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
@@ -111,32 +102,29 @@
             </Grid>
 
             <!--  Error box displayed when trying to navigate to the knights of ni  -->
-            <renderedViews:MaterialFrame
-                Padding="{StaticResource StandardThickness}"
-                AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                BackgroundColor="#99F57C00"
-                IsVisible="False">
+            <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
+                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                                         AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                         BackgroundColor="#99F57C00"
+                                         IsVisible="False">
 
                 <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
 
                 <Frame.Triggers>
-                    <DataTrigger
-                        Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
-                        TargetType="Frame"
-                        Value="True">
+                    <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
+                                 TargetType="Frame"
+                                 Value="True">
                         <Setter Property="IsVisible" Value="True" />
                     </DataTrigger>
                 </Frame.Triggers>
                 <Frame.Behaviors>
                     <behaviors:TimedVisibilityBehavior />
                 </Frame.Behaviors>
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Style="{StaticResource TextBody}"
-                    Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                    TextColor="White"
-                    VerticalTextAlignment="Center" />
+                <Label Style="{StaticResource TextBody}"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
+                       TextColor="White"
+                       VerticalTextAlignment="Center" />
             </renderedViews:MaterialFrame>
 
         </AbsoluteLayout>

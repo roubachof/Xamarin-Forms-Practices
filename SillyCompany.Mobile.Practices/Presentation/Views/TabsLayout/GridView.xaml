@@ -26,15 +26,12 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="CollectionPadding" Value="8" />
+                <Setter Property="CollectionPadding" Value="16" />
             </Style>
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <renderedViews:MaterialFrame Margin="4"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 Elevation="4">
-
+                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
                         <StackLayout Orientation="Vertical"
                                      x:DataType="viewModels:SillyDudeVmo"
                                      Spacing="0">
@@ -56,21 +53,21 @@
 
     <ContentView.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
-            <pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+            <!--<pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
                                                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
                                                RefreshColor="Blue"
-                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">
-                <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                                  ColumnCount="3"
-                                                  CurrentIndex="{Binding CurrentIndex}"
-                                                  EnableDragAndDrop="True"
-                                                  InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                  ItemTemplate="{StaticResource DudeDataTemplate}"
-                                                  ItemsSource="{Binding SillyPeople}"
-                                                  ListLayout="Grid"
-                                                  ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}" />
-            </pullToRefresh:PullToRefreshLayout>
+                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">-->
+            <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                              ColumnCount="3"
+                                              CurrentIndex="{Binding CurrentIndex}"
+                                              EnableDragAndDrop="True"
+                                              InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                              ItemTemplate="{StaticResource DudeDataTemplate}"
+                                              ItemsSource="{Binding SillyPeople}"
+                                              ListLayout="Grid"
+                                              ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                              ScrollEndedCommand="{Binding OnScrollEndCommand}" />
+            <!--</pullToRefresh:PullToRefreshLayout>-->
         </customViews:TaskLoaderView>
     </ContentView.Content>
 </ContentView>

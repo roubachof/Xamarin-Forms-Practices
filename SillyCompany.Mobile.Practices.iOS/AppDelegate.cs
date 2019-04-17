@@ -45,6 +45,7 @@ namespace SillyCompany.Mobile.Practices.iOS
                 ImageCircleRenderer.Init();
                 PullToRefreshLayoutRenderer.Init();
                 SharpnadoInitializer.Initialize(enableInternalLogger: true);
+                FFImageLoading.FormsHandler.Init(debug: true);
 
                 UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
                 {

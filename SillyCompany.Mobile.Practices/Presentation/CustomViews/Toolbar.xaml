@@ -63,7 +63,7 @@
                        VerticalOptions="Center"
                        effects:ImageEffect.TintColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
                        Aspect="AspectFit"
-                       Source="back_96" />
+                       Source="back_96.png" />
             </ContentView>
 
             <Label Grid.Row="1"

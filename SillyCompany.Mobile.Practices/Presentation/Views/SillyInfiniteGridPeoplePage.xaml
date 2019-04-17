@@ -49,16 +49,16 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
-                                     Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
+                                     x:DataType="viewModels:SillyDudeVmo"
                                      Spacing="0">
 
-                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
-                                                      VerticalOptions="StartAndExpand"
+                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
+                                                      Style="{StaticResource SmallAvatar}"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Style="{StaticResource TextSmallCaption}"
-                                   Margin="{StaticResource MediumTopThickness}"
+                            <Label Margin="{StaticResource MediumTopThickness}"
+                                   Style="{StaticResource TextSmallCaption}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -69,20 +69,20 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
-            <pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
+            <!--<pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
                                                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
                                                RefreshColor="Blue"
-                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">
-                <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                                  CurrentIndex="{Binding CurrentIndex}"
-                                                  EnableDragAndDrop="True"
-                                                  InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                  ItemTemplate="{StaticResource DudeDataTemplate}"
-                                                  ItemsSource="{Binding SillyPeople}"
-                                                  ListLayout="Grid"
-                                                  ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}" />
-            </pullToRefresh:PullToRefreshLayout>
+                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">-->
+            <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                              CurrentIndex="{Binding CurrentIndex}"
+                                              EnableDragAndDrop="True"
+                                              InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                              ItemTemplate="{StaticResource DudeDataTemplate}"
+                                              ItemsSource="{Binding SillyPeople}"
+                                              ListLayout="Grid"
+                                              ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                              ScrollEndedCommand="{Binding OnScrollEndCommand}" />
+            <!--</pullToRefresh:PullToRefreshLayout>-->
         </customViews:TaskLoaderView>
     </ContentPage.Content>
 </ContentPage>

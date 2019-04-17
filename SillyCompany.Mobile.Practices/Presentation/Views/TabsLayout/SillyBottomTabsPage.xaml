@@ -52,18 +52,18 @@
                               BackgroundColor="White"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                               ShadowType="Top">
-                <tb:SpamTab SpamImage="spam_classic_home" />
-                <tb:SpamTab SpamImage="spam_classic_list" />
-                <tb:SpamTab SpamImage="spam_classic_grid" />
-                <!--<tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                    IconImageSource="house_96"
+                <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
+                <tb:SpamTab SpamImage="spam_classic_list.png" />
+                <tb:SpamTab SpamImage="spam_classic_grid.png" />-->
+                <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
+                                    IconImageSource="house_96.png"
                                     Label="{localization:Translate Tabs_Home}" />
                 <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                    IconImageSource="list_96"
+                                    IconImageSource="list_96.png"
                                     Label="{localization:Translate Tabs_List}" />
                 <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                    IconImageSource="grid_view_96"
-                                    Label="{localization:Translate Tabs_Grid}" />-->
+                                    IconImageSource="grid_view_96.png"
+                                    Label="{localization:Translate Tabs_Grid}" />
             </tabs:TabHostView>
 
         </Grid>
