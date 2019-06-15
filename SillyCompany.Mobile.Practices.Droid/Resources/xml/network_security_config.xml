@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="true">10.0.2.2</domain>
+    <domain includeSubdomains="true">www.2oceansvibe.com</domain>
+    <domain includeSubdomains="true">i123.photobucket.com</domain>
+    <domain includeSubdomains="true">images.uncyc.org</domain>
+    <domain includeSubdomains="true">media.popculture.com</domain>
+    <domain includeSubdomains="true">wfmj.images.worldnow.com</domain>
+    <domain includeSubdomains="true">www4.pictures.zimbio.com</domain>
+    <domain includeSubdomains="true">cdn.playbuzz.com</domain>
+    <domain includeSubdomains="true">4.bp.blogspot.com</domain>
+  </domain-config>
+</network-security-config>

@@ -59,8 +59,8 @@
                          BackgroundColor="#99000000" />
 
                 <Label Grid.Row="1"
-                       VerticalOptions="End"
                        Style="{StaticResource TextTitle}"
+                       VerticalOptions="End"
                        Text="{Binding SillyDudeLoader.Result.FullName}"
                        TextColor="White" />
 

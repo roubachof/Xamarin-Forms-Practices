@@ -6,7 +6,8 @@
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms">
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
@@ -31,17 +32,17 @@
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
-                        <StackLayout Orientation="Vertical"
-                                     x:DataType="viewModels:SillyDudeVmo"
+                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4" >
+                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
+                                     Orientation="Vertical"
                                      Spacing="0">
 
-                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
-                                                      Style="{StaticResource SmallAvatar}"
+                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
+                                                      VerticalOptions="StartAndExpand"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Margin="{StaticResource MediumTopThickness}"
-                                   Style="{StaticResource TextSmallCaption}"
+                            <Label Style="{StaticResource TextSmallCaption}"
+                                   Margin="{StaticResource MediumTopThickness}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -60,6 +61,7 @@
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
                                               ColumnCount="3"
                                               CurrentIndex="{Binding CurrentIndex}"
+                                              TapCommand="{Binding GoToSillyDudeCommand}"
                                               EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                               ItemTemplate="{StaticResource DudeDataTemplate}"
