@@ -4,16 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms">
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
                 <Setter Property="ItemHeight">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32">
+                        <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="iOS">120</On>
                             <On Platform="Android">120</On>
                         </OnPlatform>
@@ -27,12 +27,12 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="CollectionPadding" Value="16" />
+                <Setter Property="CollectionPadding" Value="15" />
             </Style>
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4" >
+                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
                         <StackLayout x:DataType="viewModels:SillyDudeVmo"
                                      Orientation="Vertical"
                                      Spacing="0">
@@ -61,14 +61,14 @@
             <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
                                               ColumnCount="3"
                                               CurrentIndex="{Binding CurrentIndex}"
-                                              TapCommand="{Binding GoToSillyDudeCommand}"
                                               EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                               ItemTemplate="{StaticResource DudeDataTemplate}"
                                               ItemsSource="{Binding SillyPeople}"
                                               ListLayout="Grid"
                                               ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                              ScrollEndedCommand="{Binding OnScrollEndCommand}" />
+                                              ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                              TapCommand="{Binding GoToSillyDudeCommand}" />
             <!--</pullToRefresh:PullToRefreshLayout>-->
         </customViews:TaskLoaderView>
     </ContentView.Content>

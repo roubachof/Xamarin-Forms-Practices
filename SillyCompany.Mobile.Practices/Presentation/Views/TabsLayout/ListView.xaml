@@ -12,9 +12,9 @@
     <ContentView.Content>
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Grid Padding="{StaticResource StandardThickness}"
+            <Grid AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                  AbsoluteLayout.LayoutFlags="All"
+                  Padding="{StaticResource StandardThickness}"
                   ColumnSpacing="0"
                   RowSpacing="0">
 
@@ -36,8 +36,8 @@
                                              Elevation="4">
                     <StackLayout Orientation="Horizontal" Spacing="10">
 
-                        <Label VerticalOptions="Center"
-                               Style="{StaticResource TextBody}"
+                        <Label Style="{StaticResource TextBody}"
+                               VerticalOptions="Center"
                                Text="{localization:Translate SillyPeople_ErrorEmulation}" />
 
                         <Picker HorizontalOptions="FillAndExpand"
@@ -62,13 +62,13 @@
 
                         <!--  ROW 0: HorizontalListView Header  -->
                         <Label Grid.Row="0"
+                               Style="{StaticResource TextHeader}"
                                Margin="16,0,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="End"
-                               Style="{StaticResource TextHeader}"
                                HorizontalTextAlignment="Start"
-                               Text="{localization:Translate SillyPeople_InfiniteListView}"
-                               VerticalTextAlignment="End" />
+                               VerticalTextAlignment="End"
+                               Text="{localization:Translate SillyPeople_InfiniteListView}" />
 
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="1"
@@ -102,9 +102,9 @@
             </Grid>
 
             <!--  Error box displayed when trying to navigate to the knights of ni  -->
-            <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}"
+            <renderedViews:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                                          AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                         AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                         Padding="{StaticResource StandardThickness}"
                                          BackgroundColor="#99F57C00"
                                          IsVisible="False">
 
@@ -122,9 +122,9 @@
                 </Frame.Behaviors>
                 <Label Style="{StaticResource TextBody}"
                        HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
                        Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                       TextColor="White"
-                       VerticalTextAlignment="Center" />
+                       TextColor="White" />
             </renderedViews:MaterialFrame>
 
         </AbsoluteLayout>

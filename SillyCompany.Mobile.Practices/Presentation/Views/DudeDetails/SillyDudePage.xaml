@@ -30,8 +30,8 @@
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <customViews:TaskLoaderView AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                                    AbsoluteLayout.LayoutFlags="All"
+        <customViews:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
+                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                                     BackgroundColor="White"
                                     ViewModelLoader="{Binding SillyDudeLoader}">
             <Grid Padding="{StaticResource StandardThickness}"
@@ -87,9 +87,11 @@
                                   BackgroundColor="White"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                                   ShadowType="Bottom">
-                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
-                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
-                    <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
+                    <tabs:TabHostView.Tabs>
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
+                    </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>
 
                 <ScrollView Grid.Row="5">
@@ -106,8 +108,8 @@
         </customViews:TaskLoaderView>
 
         <tb:Toolbar x:Name="Toolbar"
-                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
                     BackgroundColor="{StaticResource TransparentAccent}"
                     ForegroundColor="White"
                     ShowBackButton="True" />

@@ -107,12 +107,20 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             SillyPeople.AddRange(viewModels);
 
             // Uncomment to test CurrentIndex property
-            //NotifyTask.Create(
-            //   async () =>
-            //   {
-            //       await Task.Delay(2000);
-            //       CurrentIndex = 5;
-            //   });
+            NotifyTask.Create(
+               async () =>
+               {
+                   await Task.Delay(5000);
+                   CurrentIndex = 5;
+               });
+
+            NotifyTask.Create(
+                async () =>
+                {
+                    await Task.Delay(10000);
+                    SillyPeople = new ObservableRangeCollection<SillyDudeVmo>(viewModels);
+                    RaisePropertyChanged(nameof(SillyPeople));
+                });
 
             return resultPage;
         }

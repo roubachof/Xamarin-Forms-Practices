@@ -19,10 +19,10 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0"
-                       VerticalOptions="End"
                        Style="{StaticResource TextHeader}"
-                       Text="{localization:Translate SillyPeople_SillyOfTheDay}"
-                       VerticalTextAlignment="End" />
+                       VerticalOptions="End"
+                       VerticalTextAlignment="End"
+                       Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
 
                 <!--  ROW 1: Silly Of The Day  -->
                 <renderedViews:MaterialFrame Grid.Row="1"
@@ -48,9 +48,9 @@
                         <abstractions:CircleImage Grid.Row="0"
                                                   Grid.RowSpan="3"
                                                   Grid.Column="0"
+                                                  Style="{StaticResource LargeAvatar}"
                                                   Margin="16,0,0,0"
                                                   HorizontalOptions="Start"
-                                                  Style="{StaticResource LargeAvatar}"
                                                   Aspect="AspectFill"
                                                   BorderColor="{StaticResource Accent}"
                                                   BorderThickness="2"
@@ -58,18 +58,18 @@
 
                         <Label Grid.Row="0"
                                Grid.Column="1"
+                               Style="{StaticResource TextBody}"
                                Margin="0,16,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="End"
-                               Style="{StaticResource TextBody}"
                                Text="{Binding FullName}" />
 
                         <Label Grid.Row="1"
                                Grid.Column="1"
+                               Style="{StaticResource TextBodySecondary}"
                                Margin="0,4,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="Start"
-                               Style="{StaticResource TextBodySecondary}"
                                Text="{Binding Role}" />
 
                         <skiaRate:RatingView Grid.Row="2"

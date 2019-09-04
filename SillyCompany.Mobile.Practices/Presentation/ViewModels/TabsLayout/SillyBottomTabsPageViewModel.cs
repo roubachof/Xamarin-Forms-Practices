@@ -1,6 +1,9 @@
-﻿using SillyCompany.Mobile.Practices.Domain.Silly;
+﻿using System.Threading.Tasks;
+using Sharpnado.Infrastructure.Tasks;
+using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 {
@@ -31,11 +34,25 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public GridPageViewModel GridPageViewModel { get; }
 
+        public bool IsTabVisible { get; set; } = true;
+
         public override void Load(object parameter)
         {
             HomePageViewModel.Load(parameter);
             ListPageViewModel.Load(parameter);
             GridPageViewModel.Load(parameter);
+
+            // Uncomment to test tab visibility
+            // NotifyTask.Create(
+            //    async () =>
+            //    {
+            //        await Task.Delay(10000);
+            //        Device.BeginInvokeOnMainThread(() =>
+            //        {
+            //            IsTabVisible = false;
+            //            RaisePropertyChanged(nameof(IsTabVisible));
+            //        });
+            //    });
         }
     }
 }
