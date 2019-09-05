@@ -54,34 +54,19 @@
                               BackgroundColor="White"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                               ShadowType="Top"
-                              ShowScrollbar="False"
-                              TabType="Scrollable">
+                              TabType="Fixed">
                 <tabs:TabHostView.Tabs>
                     <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
                 <tb:SpamTab SpamImage="spam_classic_list.png" />
                 <tb:SpamTab SpamImage="spam_classic_grid.png" />-->
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                        WidthRequest="100"
                                         IconImageSource="house_96.png"
                                         Label="{localization:Translate Tabs_Home}" />
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                        WidthRequest="100"
                                         IconImageSource="list_96.png"
-                                        IsVisible="{Binding IsTabVisible}"
                                         Label="{localization:Translate Tabs_List}" />
                     <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                        WidthRequest="100"
                                         IconImageSource="grid_view_96.png"
-                                        Label="{localization:Translate Tabs_Grid}" />
-                    <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                        WidthRequest="100"
-                                        IconImageSource="grid_view_96.png"
-                                        IsVisible="{Binding IsTabVisible}"
-                                        Label="{localization:Translate Tabs_Grid}" />
-                    <tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
-                                        WidthRequest="100"
-                                        IconImageSource="grid_view_96.png"
-                                        IsVisible="{Binding IsTabVisible}"
                                         Label="{localization:Translate Tabs_Grid}" />
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>

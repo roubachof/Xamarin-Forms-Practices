@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Sharpnado.Infrastructure.Services;
+using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain;
@@ -99,6 +100,16 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             //        await Task.Delay(2000);
             //        CurrentIndex = 15;
             //    });
+
+            // Uncomment to test Reset action
+            // NotifyTask.Create(
+            //   async () =>
+            //   {
+            //       await Task.Delay(6000);
+            //       SillyPeople.Clear();
+            //       await Task.Delay(3000);
+            //       SillyPeople = new ObservableRangeCollection<SillyDudeVmo>(viewModels);
+            //   });
 
             return resultPage;
         }

@@ -2,19 +2,19 @@
 <views:SillyContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.SillyDudePage"
                         xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                        xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
-                        xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;assembly=SillyCompany.Mobile.Practices"
-                        xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                        xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+                        mc:Ignorable="d"
+                        xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+                        xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
+                        xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails"
+                        xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         d:DataContext="{d:DesignInstance dudeDetails:SillyDudeVm}"
-                        mc:Ignorable="d">
+                        x:DataType="dudeDetails:SillyDudeVm">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -22,7 +22,8 @@
                 <Setter Property="SelectedTabColor" Value="{StaticResource White}" />
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
                 <Setter Property="LabelSize" Value="14" />
-                <Setter Property="BackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="Padding" Value="20, 0" />
+                <Setter Property="UnderlineAllTab" Value="True" />
                 <Setter Property="UnselectedLabelColor" Value="White" />
             </Style>
         </ResourceDictionary>
@@ -84,13 +85,18 @@
                 <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Margin="-16,0"
-                                  BackgroundColor="White"
+                                  BackgroundColor="{StaticResource Accent}"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                                  ShadowType="Bottom">
+                                  ShadowType="Bottom"
+                                  ShowScrollbar="False"
+                                  TabType="Scrollable">
                     <tabs:TabHostView.Tabs>
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="MORE" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
                     </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>
 
