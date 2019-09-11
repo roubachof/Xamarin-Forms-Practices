@@ -94,7 +94,7 @@
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="MORE" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="SOME MORE" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
                     </tabs:TabHostView.Tabs>

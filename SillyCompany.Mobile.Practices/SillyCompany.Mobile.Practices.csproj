@@ -96,9 +96,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SillyResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Presentation\CustomViews\SpamTab.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Presentation\CustomViews\Toolbar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -136,6 +133,9 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Presentation\CustomViews\SpamTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Presentation\CustomViews\SpamTabText.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Presentation\CustomViews\Toolbar.xaml">

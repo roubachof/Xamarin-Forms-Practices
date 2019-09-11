@@ -282,5 +282,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\spam_classic_empty.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera_96.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
