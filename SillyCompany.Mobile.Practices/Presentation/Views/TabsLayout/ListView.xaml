@@ -74,7 +74,7 @@
                         <renderedViews:HorizontalListView Grid.Row="1"
                                                           Margin="-16,8"
                                                           CollectionPadding="40,10"
-                                                          ColumnCount="1"
+                                                          ColumnCount="2"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
