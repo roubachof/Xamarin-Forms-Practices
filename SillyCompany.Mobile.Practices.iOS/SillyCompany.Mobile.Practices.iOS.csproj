@@ -36,7 +36,7 @@
     <CodesignResourceRules />
     <CodesignEntitlements />
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchSdkVersion>12.2</MtouchSdkVersion>
+    <MtouchSdkVersion>13.0</MtouchSdkVersion>
     <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
