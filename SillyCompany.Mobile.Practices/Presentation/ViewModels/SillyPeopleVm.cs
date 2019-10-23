@@ -35,6 +35,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
             ErrorEmulator = new ErrorEmulatorVm(errorEmulator, () => SillyPeopleLoader.Load(LoadSillyPeopleAsync));
             SillyPeopleLoader = new ViewModelLoader<ObservableCollection<SillyDudeVmo>>(ApplicationExceptions.ToString, SillyResources.Empty_Screen);
+
+            // ErrorEmulator.SelectedIndex = 1;
         }
 
         public ErrorEmulatorVm ErrorEmulator { get; }
@@ -96,9 +98,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
             RaisePropertyChanged(nameof(SillyOfTheDay));
-            return new ObservableCollection<SillyDudeVmo>(
+
+            var result = new ObservableCollection<SillyDudeVmo>(
                 (await _sillyDudeService.GetSillyPeople())
                     .Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)));
+
+            return result;
         }
 
         /// <param name="sillyDude">The silly dude.</param>

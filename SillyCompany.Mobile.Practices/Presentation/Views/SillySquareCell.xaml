@@ -6,7 +6,7 @@
                   xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
                   xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
                   Padding="{StaticResource StandardThickness}"
-                  Elevation="4">
+                  Elevation="8">
     <Grid x:DataType="vm:SillyDudeVmo" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*" />
@@ -14,16 +14,16 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ic:CircleImage Grid.Row="0"
-                        VerticalOptions="End"
                         Style="{StaticResource LargeAvatar}"
+                        VerticalOptions="End"
                         Aspect="AspectFill"
                         Source="{Binding ImageUrl}" />
         <Label Grid.Row="1"
-               Margin="{StaticResource SmallTopThickness}"
                Style="{StaticResource TextBody}"
+               Margin="{StaticResource SmallTopThickness}"
                HorizontalTextAlignment="Center"
-               Text="{Binding FullName}"
-               VerticalTextAlignment="End" />
+               VerticalTextAlignment="End"
+               Text="{Binding FullName}" />
 
         <Label Grid.Row="2"
                Style="{StaticResource TextCaptionSecondary}"

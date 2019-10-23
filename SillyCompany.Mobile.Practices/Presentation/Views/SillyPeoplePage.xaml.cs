@@ -22,10 +22,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         public SillyPeoplePage()
         {
             InitializeComponent();
-
-            TaskLoaderHeader.Height = SizeScalingByScreenConverter.Instance.Convert(TaskLoaderHeader.Height.Value);
-            SillyOfTheDayHeader.Height = SizeScalingByScreenConverter.Instance.Convert(SillyOfTheDayHeader.Height.Value);
-            ListViewHeader.Height = SizeScalingByScreenConverter.Instance.Convert(ListViewHeader.Height.Value);
         }
     }
 }

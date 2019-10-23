@@ -75,7 +75,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "jean_claude_van_damme.jpg",
 #else
-                            "http://media.popculture.com/2017/06/jean-claude-van-damme-predator-20003834-640x480.jpg",
+                            "https://res.cloudinary.com/dibsl9ebc/image/upload/v1444086881/mfj6x2huibllpnnwlcsf.jpg",
 #endif
                             5,
                             Filmos.VanDamme,
