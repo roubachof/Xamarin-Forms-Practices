@@ -38,6 +38,7 @@
                 <RowDefinition Height="{StaticResource ToolbarHeight}" />
                 <RowDefinition Height="*" />
                 <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
+                <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{StaticResource BottomSafeArea}" />
             </Grid.RowDefinitions>
 
             <tb:Toolbar Title="Silly App!"
@@ -54,6 +55,10 @@
                 <customViews:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
                 <customViews:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
                 <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+                <Label Style="{StaticResource TextHeader}"
+                       Margin="64,0"
+                       VerticalOptions="Center"
+                       Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </tabs:ViewSwitcher>
 
             <tabs:TabHostView x:Name="TabHost"
@@ -80,9 +85,11 @@
                                     IconImageSource="camera_96.png" />-->
 
                     <!--  Circle button  -->
-                    <tabs:TabButton ButtonBackgroundColor="{StaticResource Accent}"
+                    <tabs:TabButton x:Name="TabButton"
+                                    ButtonBackgroundColor="{StaticResource Accent}"
                                     ButtonCircleSize="60"
                                     ButtonPadding="15"
+                                    Clicked="TabButtonOnClicked"
                                     IconImageSource="camera_96.png"
                                     Scale="1.3"
                                     TranslationY="-10" />
@@ -95,6 +102,8 @@
                                         Label="{localization:Translate Tabs_Home}" />
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
+
+            <BoxView Grid.Row="3" BackgroundColor="{Binding Source={x:Reference TabHost}, Path=BackgroundColor}" />
 
         </Grid>
     </ContentPage.Content>

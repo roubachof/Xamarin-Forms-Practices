@@ -5,7 +5,7 @@
     <ContentView.Content>
         <Image WidthRequest="300"
                HeightRequest="200"
-               Margin="0,16,0,0"
+               Margin="0,32,0,0"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                Aspect="AspectFit"

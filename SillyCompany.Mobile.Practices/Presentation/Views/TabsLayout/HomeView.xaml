@@ -89,7 +89,6 @@
                                              VerticalOptions="Start"
                                              ColorOn="Yellow"
                                              Count="5"
-                                             OutlineOnColor="Orange"
                                              RatingType="Floating"
                                              StrokeWidth="1"
                                              Value="{Binding SillinessDegree}" />

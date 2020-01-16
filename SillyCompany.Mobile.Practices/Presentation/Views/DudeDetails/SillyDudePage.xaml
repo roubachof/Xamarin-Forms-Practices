@@ -107,6 +107,16 @@
                         <details:Quote Animate="True" BindingContext="{Binding Quote}" />
                         <details:Filmo Animate="True" BindingContext="{Binding Filmo}" />
                         <details:Meme Animate="True" BindingContext="{Binding Meme}" />
+                        <Label Style="{StaticResource TextHeader}"
+                               Margin="60,80"
+                               Text="I'M A SHOOTING STAR ON MY WAY TO MARS ON A COLLISION COURSE I AM A SATELLITE I'M OUT OF CONTROL IM A SEX MACHINE READY TO RELOAD" />
+                        <Label Style="{StaticResource TextHeader}"
+                               Margin="60,80"
+                               Text="Fitter. Happier. More productive. Like a pig. In a cage. On antibiotics." />
+                        <Label Style="{StaticResource TextHeader}"
+                               Margin="60,80"
+                               Text="CONGRATULATIONS! YOU JUST DISCOVERED THE HIDDEN VIEW \o/ Come and ping me on Twitter @Piskariov with a screenshot, and if you're the first, you shall receive...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................nothing." />
+
                     </tabs:ViewSwitcher>
 
                 </ScrollView>
