@@ -28,6 +28,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             OnItemTappedCommand = onItemTappedCommand;
         }
 
+        public bool IsMovable { get; private set; } = true;
+
         public ICommand OnItemTappedCommand { get; set; }
 
         public int Id { get; }
@@ -45,5 +47,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         public int SillinessDegree { get; }
 
         public string SourceUrl { get; }
+
+        public void Lock()
+        {
+            IsMovable = false;
+        }
     }
 }

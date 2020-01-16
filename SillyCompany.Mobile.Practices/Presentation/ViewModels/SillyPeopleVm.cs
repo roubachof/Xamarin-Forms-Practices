@@ -10,11 +10,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.ViewModels;
-using SillyCompany.Mobile.Practices.Domain;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;
-using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
@@ -33,15 +32,15 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             _sillyDudeService = sillyDudeService;
             InitCommands();
 
-            ErrorEmulator = new ErrorEmulatorVm(errorEmulator, () => SillyPeopleLoader.Load(LoadSillyPeopleAsync));
-            SillyPeopleLoader = new ViewModelLoader<ObservableCollection<SillyDudeVmo>>(ApplicationExceptions.ToString, SillyResources.Empty_Screen);
+            ErrorEmulator = new ErrorEmulatorVm(errorEmulator, () => SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync));
+            SillyPeopleLoaderNotifier = new TaskLoaderNotifier<ObservableCollection<SillyDudeVmo>>();
         }
 
         public ErrorEmulatorVm ErrorEmulator { get; }
 
         public SillyDudeVmo SillyOfTheDay { get; private set; }
 
-        public ViewModelLoader<ObservableCollection<SillyDudeVmo>> SillyPeopleLoader { get; }
+        public TaskLoaderNotifier<ObservableCollection<SillyDudeVmo>> SillyPeopleLoaderNotifier { get; }
 
         /// <summary>
         /// Commands accessible directly on screen are declared in the ScreenVm.
@@ -69,7 +68,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
                 return;
             }
 
-            SillyPeopleLoader.Load(LoadSillyPeopleAsync);
+            SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync);
         }
 
         /// <summary>
@@ -96,9 +95,13 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
             RaisePropertyChanged(nameof(SillyOfTheDay));
-            return new ObservableCollection<SillyDudeVmo>(
+            var result = new ObservableCollection<SillyDudeVmo>(
                 (await _sillyDudeService.GetSillyPeople())
                     .Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)));
+
+            result.First().Lock();
+            result.Last().Lock();
+            return result;
         }
 
         /// <param name="sillyDude">The silly dude.</param>
@@ -116,7 +119,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         private Task SortSillyPeopleAsync()
         {
-            return NavigationService.NavigateToAsync<SortSillyPeopleVm>(SillyPeopleLoader.Result);
+            return NavigationService.NavigateToAsync<SortSillyPeopleVm>(SillyPeopleLoaderNotifier.Result);
         }
     }
 }

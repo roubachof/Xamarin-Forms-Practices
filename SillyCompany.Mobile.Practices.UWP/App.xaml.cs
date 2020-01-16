@@ -15,7 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ImageCircle.Forms.Plugin.UWP;
-using Sharpnado.Infrastructure;
+
+using Sharpnado.Presentation.Forms;
 
 namespace SillyCompany.Mobile.Practices.UWP
 {

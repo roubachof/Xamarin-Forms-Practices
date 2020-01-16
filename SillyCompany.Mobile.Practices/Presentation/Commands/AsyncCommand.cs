@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Sharpnado.Infrastructure.Tasks;
+using Sharpnado.Tasks;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Commands
 {
@@ -84,7 +84,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Commands
         private readonly CancelAsyncCommand _cancelCommand;
         private readonly Func<object, bool> _canExecuteFunc;
         private readonly Func<object, CancellationToken, Task<TResult>> _command;
-        private NotifyTask<TResult> _execution;
+        private TaskMonitor<TResult> _execution;
 
         public AsyncCommand(
             Func<object, CancellationToken, Task<TResult>> command,
@@ -107,7 +107,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             _cancelCommand.NotifyCommandStarting();
-            Execution = NotifyTask<TResult>.Create(_command(parameter, _cancelCommand.Token));
+            Execution = TaskMonitor<TResult>.Create(_command(parameter, _cancelCommand.Token));
 
             RaiseCanExecuteChanged();
             await Execution.TaskCompleted;
@@ -115,9 +115,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Commands
             RaiseCanExecuteChanged();
         }
 
-        INotifyTask IAsyncCommand.Execution => Execution;
+        ITaskMonitor IAsyncCommand.Execution => Execution;
 
-        public NotifyTask<TResult> Execution
+        public TaskMonitor<TResult> Execution
         {
             get => _execution;
 

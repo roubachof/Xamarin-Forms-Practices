@@ -4,14 +4,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Sharpnado.Infrastructure.Services;
-using Sharpnado.Infrastructure.Tasks;
+
+using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.Paging;
+using Sharpnado.Presentation.Forms.Services;
 using Sharpnado.Presentation.Forms.ViewModels;
-using SillyCompany.Mobile.Practices.Domain;
+
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;
-using SillyCompany.Mobile.Practices.Localization;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
@@ -30,7 +30,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
         public ListPageViewModel(
             INavigationService navigationService,
             ISillyDudeService sillyDudeService,
-            ErrorEmulator errorEmulator) 
+            ErrorEmulator errorEmulator)
             : base(navigationService)
         {
             _sillyDudeService = sillyDudeService;
@@ -43,9 +43,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
                 LoadSillyPeoplePageAsync,
                 pageSize: PageSize,
                 loadingThreshold: 0.1f);
-            SillyPeopleLoader = new ViewModelLoader<IReadOnlyCollection<SillyDude>>(
-                ApplicationExceptions.ToString,
-                SillyResources.Empty_Screen);
+            SillyPeopleLoaderNotifier = new TaskLoaderNotifier<IReadOnlyCollection<SillyDude>>();
         }
 
         public int CurrentIndex
@@ -56,7 +54,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public ErrorEmulatorVm ErrorEmulator { get; }
 
-        public ViewModelLoader<IReadOnlyCollection<SillyDude>> SillyPeopleLoader { get; }
+        public TaskLoaderNotifier<IReadOnlyCollection<SillyDude>> SillyPeopleLoaderNotifier { get; }
 
         public Paginator<SillyDude> SillyPeoplePaginator { get; }
 
@@ -82,7 +80,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
             RaisePropertyChanged(nameof(SillyPeople));
 
-            SillyPeopleLoader.Load(
+            SillyPeopleLoaderNotifier.Load(
                 async () => (await SillyPeoplePaginator.LoadPage(1)).Items);
         }
 
@@ -94,9 +92,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             GoToSillyDudeCommand = AsyncCommand.Create(parameter => GoToSillyDudeAsync((SillyDudeVmo)parameter));
 
             OnScrollBeginCommand = new Command(
-                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollBeginCommand"));
+                () => System.Diagnostics.Debug.WriteLine("ListPageViewModel: OnScrollBeginCommand"));
             OnScrollEndCommand = new Command(
-                () => System.Diagnostics.Debug.WriteLine("SillyInfinitePeopleVm: OnScrollEndCommand"));
+                () => System.Diagnostics.Debug.WriteLine("ListPageViewModel: OnScrollEndCommand"));
         }
 
         private async Task<PageResult<SillyDude>> LoadSillyPeoplePageAsync(int pageNumber, int pageSize, bool isRefresh)
@@ -107,20 +105,21 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             SillyPeople.AddRange(viewModels);
 
             // Uncomment to test CurrentIndex property
-            NotifyTask.Create(
-               async () =>
-               {
-                   await Task.Delay(5000);
-                   CurrentIndex = 5;
-               });
+            //TaskMonitor.Create(
+            //   async () =>
+            //   {
+            //       await Task.Delay(5000);
+            //       CurrentIndex = 5;
+            //   });
 
-            NotifyTask.Create(
-                async () =>
-                {
-                    await Task.Delay(10000);
-                    SillyPeople = new ObservableRangeCollection<SillyDudeVmo>(viewModels);
-                    RaisePropertyChanged(nameof(SillyPeople));
-                });
+            // Uncomment to test ItemsSource changed
+            //TaskMonitor.Create(
+            //    async () =>
+            //    {
+            //        await Task.Delay(10000);
+            //        SillyPeople = new ObservableRangeCollection<SillyDudeVmo>(viewModels);
+            //        RaisePropertyChanged(nameof(SillyPeople));
+            //    });
 
             return resultPage;
         }

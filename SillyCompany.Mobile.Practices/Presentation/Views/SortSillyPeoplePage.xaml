@@ -2,16 +2,25 @@
 <ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SortSillyPeoplePage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              Title="{loc:Translate SortSillyPeople_Title}">
+
+    <d:ContentPage.BindingContext>
+        <viewModels:SortSillyPeopleVm />
+    </d:ContentPage.BindingContext>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
                 <Setter Property="ItemHeight">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32">
+                        <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="iOS">120</On>
                             <On Platform="Android">120</On>
                         </OnPlatform>
@@ -31,14 +40,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                          ColumnCount="3"
                                           DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           EnableDragAndDrop="True"
-                                          ItemWidth="100"
                                           ItemsSource="{Binding SillyPeople}"
                                           ListLayout="Grid">
             <renderedViews:HorizontalListView.ItemTemplate>
                 <DataTemplate>
-                    <renderedViews:DraggableViewCell x:Name="DraggableViewCell">
+                    <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
                         <renderedViews:MaterialFrame Margin="4"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">
@@ -53,6 +62,7 @@
 
                             <Grid ColumnSpacing="0" RowSpacing="0">
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*" />
                                     <RowDefinition Height="2*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
@@ -61,10 +71,16 @@
                                                           Aspect="AspectFill"
                                                           Source="{Binding ImageUrl}" />
                                 <Label Grid.Row="1"
+                                       Style="{StaticResource TextCaptionSecondary}"
                                        Margin="{StaticResource MediumTopThickness}"
-                                       Style="{StaticResource TextSmallCaption}"
                                        HorizontalTextAlignment="Center"
                                        Text="{Binding Name}" />
+
+                                <Label Grid.Row="2"
+                                       Style="{StaticResource TextSmallCaption}"
+                                       HorizontalTextAlignment="Center"
+                                       MaxLines="1"
+                                       Text="{Binding Role}" />
                             </Grid>
                         </renderedViews:MaterialFrame>
                     </renderedViews:DraggableViewCell>

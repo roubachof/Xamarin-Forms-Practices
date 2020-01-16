@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+
+using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
@@ -18,10 +20,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             _sillyDudeService = sillyDudeService;
             InitCommands();
 
-            SillyDudeLoader = new ViewModelLoader<SillyDudeVmo>();
+            SillyDudeLoaderNotifier = new TaskLoaderNotifier<SillyDudeVmo>();
         }
 
-        public ViewModelLoader<SillyDudeVmo> SillyDudeLoader { get; }
+        public TaskLoaderNotifier<SillyDudeVmo> SillyDudeLoaderNotifier { get; }
 
         /// <summary>
         /// Commands accessible directly on screen are declared in the ScreenVm.
@@ -31,7 +33,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public override void Load(object parameter)
         {
-            SillyDudeLoader.Load(InitializationTask);
+            SillyDudeLoaderNotifier.Load(InitializationTask);
         }
 
         /// <summary>

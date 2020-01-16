@@ -2,12 +2,19 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.GridView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
-             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
+
+    <d:ContentView.BindingContext>
+        <tabsLayout:GridPageViewModel />
+    </d:ContentView.BindingContext>
+
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
@@ -53,7 +60,7 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyPeopleLoader}">
+        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
             <!--<pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
                                                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
                                                RefreshColor="Blue"

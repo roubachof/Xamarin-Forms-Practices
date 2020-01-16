@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Sharpnado.Presentation.Forms.RenderedViews;
+
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;
@@ -25,6 +27,8 @@ namespace SillyCompany.Mobile.Practices
         public App()
         {
             InitializeComponent();
+
+            MaterialFrame.MaterialTheme = MaterialFrame.Theme.Dark;
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 

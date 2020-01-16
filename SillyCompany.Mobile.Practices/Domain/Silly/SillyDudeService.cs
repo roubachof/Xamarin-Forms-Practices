@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sharpnado.Infrastructure;
-using Sharpnado.Infrastructure.Services;
+
+using Sharpnado.Presentation.Forms;
+using Sharpnado.Presentation.Forms.Services;
+
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 
@@ -75,11 +77,11 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "jean_claude_van_damme.jpg",
 #else
-                            "http://media.popculture.com/2017/06/jean-claude-van-damme-predator-20003834-640x480.jpg",
+                            "https://m.media-amazon.com/images/M/MV5BNjU1NzVkOWMtYmJjYy00M2UwLTkxYmEtNmU0YjI5M2ZhYTU3XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
 #endif
                             5,
                             Filmos.VanDamme,
-                            "http://www.quickmeme.com/img/48/485340aeb0d8a432c3f3eb5b33ad9fb2c92b6c2ef17ccc53719474302e51b9de.jpg"
+                            "https://www.planet.fr/files/styles/pano_xxl/public/images/diaporama/5/8/0/1615085/vignette-focus_3.jpg?itok=zMC9zW1c"
                             )
                     },
 //                    {
@@ -110,7 +112,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #endif
                             2,
                             Filmos.Triumph,
-                            "http://2.bp.blogspot.com/-sPduDIOi2-U/UR3Bpkjn0jI/AAAAAAAAGlo/SnSOI-tYyqo/s1600/PoopBoatTriumph.jpg",
+                            "https://i.imgflip.com/xi0tk.jpg",
                             "https://youtu.be/O-253uBJap8?t=315")
                     },
                     {
@@ -173,7 +175,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://i123.photobucket.com/albums/o320/lucy_edward/moss_pic2.jpg",
+                            "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-it-crowd-richard-ayoade.jpg",
 #endif
                             3,
                             Filmos.Moss,

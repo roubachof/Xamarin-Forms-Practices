@@ -1,9 +1,6 @@
-﻿using System.Threading.Tasks;
-using Sharpnado.Infrastructure.Tasks;
-using SillyCompany.Mobile.Practices.Domain.Silly;
+﻿using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
-using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 {
@@ -43,7 +40,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             GridPageViewModel.Load(parameter);
 
             // Uncomment to test tab visibility
-            // NotifyTask.Create(
+            // TaskMonitor.Create(
             //    async () =>
             //    {
             //        await Task.Delay(10000);

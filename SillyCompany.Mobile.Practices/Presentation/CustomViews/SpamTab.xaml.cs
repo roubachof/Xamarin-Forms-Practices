@@ -1,9 +1,9 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-using Sharpnado.Infrastructure.Tasks;
 using Sharpnado.Presentation.Forms.CustomViews.Tabs;
 using Sharpnado.Presentation.Forms.Helpers;
+using Sharpnado.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -68,7 +68,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.CustomViews
 
             double targetHeightSpam = isSelected ? 0 : _height;
 
-            NotifyTask.Create(
+            TaskMonitor.Create(
                 async () =>
                 {
                     Task fadeFootTask = Foot.FadeTo(targetFootOpacity, 500);

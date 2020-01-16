@@ -8,14 +8,14 @@
 
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Sharpnado.Infrastructure.Tasks;
+using Sharpnado.Tasks;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Commands
 {
 
     public interface IAsyncCommand : ICommand
     {
-        INotifyTask Execution { get; }
+        ITaskMonitor Execution { get; }
 
         Task ExecuteAsync(object parameter);
 
@@ -24,6 +24,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.Commands
 
     public interface IAsyncCommand<TResult> : ICommand
     {
-        NotifyTask<TResult> Execution { get; }
+        TaskMonitor<TResult> Execution { get; }
     }
 }

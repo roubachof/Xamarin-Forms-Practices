@@ -2,24 +2,35 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.HomeView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices">
+             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+
+    <d:ContentView.BindingContext>
+        <tabsLayout:HomePageViewModel />
+    </d:ContentView.BindingContext>
 
     <ContentView.Content>
-        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" ViewModelLoader="{Binding SillyDudeLoader}">
+        <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid ColumnSpacing="0" RowSpacing="0">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="SillyOfTheDayHeader" Height="100" />
+                    <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
                     <RowDefinition Height="200" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0"
                        Style="{StaticResource TextHeader}"
+                       Margin="16,0"
+                       HorizontalOptions="Start"
                        VerticalOptions="End"
                        VerticalTextAlignment="End"
                        Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
@@ -32,7 +43,7 @@
                     <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
                           effects:TapCommandEffect.TapParameter="{Binding .}"
                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                          BindingContext="{Binding SillyDudeLoader.Result}"
+                          BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
                           ColumnSpacing="0"
                           RowSpacing="0">
                         <Grid.RowDefinitions>
@@ -52,8 +63,6 @@
                                                   Margin="16,0,0,0"
                                                   HorizontalOptions="Start"
                                                   Aspect="AspectFill"
-                                                  BorderColor="{StaticResource Accent}"
-                                                  BorderThickness="2"
                                                   Source="{Binding ImageUrl}" />
 
                         <Label Grid.Row="0"
@@ -88,6 +97,6 @@
 
                 </renderedViews:MaterialFrame>
             </Grid>
-        </customViews:TaskLoaderView>
+        </loader:TaskLoaderView>
     </ContentView.Content>
 </ContentView>

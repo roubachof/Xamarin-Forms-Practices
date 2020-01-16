@@ -2,9 +2,9 @@
 <resources>
   <color name="background_holo_light">#fff3f3f3</color>
   
-  <color name="primary">#008DA8</color>
-  <color name="primaryDark">#008DA8</color>
-  <color name="accent">#008DA8</color>
+  <color name="primary">#121212</color>
+  <color name="primaryDark">#121212</color>
+  <color name="accent">#FF0266</color>
 
   <color name="grey">#FF979797</color>
   <color name="error_red">#FFF32F21</color>

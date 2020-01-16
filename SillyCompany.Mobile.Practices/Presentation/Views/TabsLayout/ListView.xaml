@@ -2,13 +2,19 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
-             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices">
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+
+    <d:ContentView.BindingContext>
+        <tabsLayout:ListPageViewModel />
+    </d:ContentView.BindingContext>
+
     <ContentView.Content>
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
@@ -19,19 +25,21 @@
                   RowSpacing="0">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
-                    <RowDefinition Height="80" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="100" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!--  ROW 0: TaskLoaderView Configuration Header  -->
                 <Label Grid.Row="0"
                        Style="{StaticResource TextHeader}"
+                       Margin="0"
+                       HorizontalOptions="Start"
                        Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
                 <renderedViews:MaterialFrame Grid.Row="1"
-                                             Margin="0,8"
+                                             Margin="0,16"
                                              Padding="16,10"
                                              Elevation="4">
                     <StackLayout Orientation="Horizontal" Spacing="10">
@@ -41,6 +49,7 @@
                                Text="{localization:Translate SillyPeople_ErrorEmulation}" />
 
                         <Picker HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{StaticResource DarkElevation4dp}"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="Small"
                                 ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
@@ -50,20 +59,20 @@
                 </renderedViews:MaterialFrame>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
-                <customViews:TaskLoaderView Grid.Row="2"
-                                            Style="{StaticResource SillyTaskLoader}"
-                                            ViewModelLoader="{Binding SillyPeopleLoader}">
+                <loader:TaskLoaderView Grid.Row="2"
+                                       Style="{StaticResource SillyTaskLoader}"
+                                       TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
                     <Grid ColumnSpacing="0" RowSpacing="0">
 
                         <Grid.RowDefinitions>
-                            <RowDefinition x:Name="ListViewHeader" Height="{StaticResource HeaderHeight}" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="300" />
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->
                         <Label Grid.Row="0"
                                Style="{StaticResource TextHeader}"
-                               Margin="16,0,0,0"
+                               Margin="0"
                                HorizontalOptions="Start"
                                VerticalOptions="End"
                                HorizontalTextAlignment="Start"
@@ -74,7 +83,7 @@
                         <renderedViews:HorizontalListView Grid.Row="1"
                                                           Margin="-16,8"
                                                           CollectionPadding="40,10"
-                                                          ColumnCount="2"
+                                                          ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
@@ -97,7 +106,7 @@
                         </renderedViews:HorizontalListView.ItemTemplate>-->
                         </renderedViews:HorizontalListView>
                     </Grid>
-                </customViews:TaskLoaderView>
+                </loader:TaskLoaderView>
 
             </Grid>
 

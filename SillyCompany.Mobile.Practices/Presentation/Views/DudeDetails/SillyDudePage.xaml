@@ -5,9 +5,9 @@
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         mc:Ignorable="d"
-                        xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
                         xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails"
+                        xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
                         xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
@@ -19,7 +19,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
-                <Setter Property="SelectedTabColor" Value="{StaticResource White}" />
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
                 <Setter Property="LabelSize" Value="14" />
                 <Setter Property="Padding" Value="20, 0" />
@@ -31,10 +31,11 @@
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-        <customViews:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
-                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                                    BackgroundColor="White"
-                                    ViewModelLoader="{Binding SillyDudeLoader}">
+        <loader:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
+                               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                               AccentColor="{StaticResource Accent}"
+                               BackgroundColor="{StaticResource Primary}"
+                               TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid Padding="{StaticResource StandardThickness}"
                   ColumnSpacing="0"
                   RowSpacing="0">
@@ -52,7 +53,7 @@
                        Grid.RowSpan="4"
                        Margin="-16,-16,-16,0"
                        Aspect="AspectFill"
-                       Source="{Binding SillyDudeLoader.Result.ImageUrl}" />
+                       Source="{Binding SillyDudeLoaderNotifier.Result.ImageUrl}" />
 
                 <BoxView Grid.Row="1"
                          Grid.RowSpan="3"
@@ -62,12 +63,12 @@
                 <Label Grid.Row="1"
                        Style="{StaticResource TextTitle}"
                        VerticalOptions="End"
-                       Text="{Binding SillyDudeLoader.Result.FullName}"
+                       Text="{Binding SillyDudeLoaderNotifier.Result.FullName}"
                        TextColor="White" />
 
                 <Label Grid.Row="2"
                        Style="{StaticResource TextSubhead}"
-                       Text="{Binding SillyDudeLoader.Result.Role}"
+                       Text="{Binding SillyDudeLoaderNotifier.Result.Role}"
                        TextColor="White" />
 
                 <skiaRate:RatingView Grid.Row="3"
@@ -80,14 +81,13 @@
                                      OutlineOnColor="Yellow"
                                      RatingType="Floating"
                                      StrokeWidth="1"
-                                     Value="{Binding SillyDudeLoader.Result.SillinessDegree}" />
+                                     Value="{Binding SillyDudeLoaderNotifier.Result.SillinessDegree}" />
 
                 <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Margin="-16,0"
-                                  BackgroundColor="{StaticResource Accent}"
+                                  BackgroundColor="{StaticResource DarkElevation4dp}"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                                  ShadowType="Bottom"
                                   ShowScrollbar="False"
                                   TabType="Scrollable">
                     <tabs:TabHostView.Tabs>
@@ -111,7 +111,7 @@
 
                 </ScrollView>
             </Grid>
-        </customViews:TaskLoaderView>
+        </loader:TaskLoaderView>
 
         <tb:Toolbar x:Name="Toolbar"
                     AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"

@@ -2,15 +2,22 @@
 <views:SillyContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.SillyBottomTabsPage"
                         xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        mc:Ignorable="d"
                         xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-                        xmlns:debugRainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+                        xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-                        xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-                        debugRainbows:DebugRainbow.IsDebug="False">
+                        xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+
+    <d:ContentPage.BindingContext>
+        <vm:SillyBottomTabsPageViewModel />
+    </d:ContentPage.BindingContext>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
@@ -34,9 +41,8 @@
             </Grid.RowDefinitions>
 
             <tb:Toolbar Title="Silly App!"
-                        BackgroundColor="{StaticResource Accent}"
-                        ForegroundColor="White"
-                        HasShadow="True" />
+                        BackgroundColor="{StaticResource NavigationBarColor}"
+                        ForegroundColor="White" />
 
             <tabs:ViewSwitcher x:Name="Switcher"
                                Grid.Row="1"
@@ -52,9 +58,8 @@
 
             <tabs:TabHostView x:Name="TabHost"
                               Grid.Row="2"
-                              BackgroundColor="White"
+                              BackgroundColor="{StaticResource NavigationBarColor}"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                              ShadowType="Top"
                               TabType="Fixed">
                 <tabs:TabHostView.Tabs>
                     <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
@@ -75,7 +80,7 @@
                                     IconImageSource="camera_96.png" />-->
 
                     <!--  Circle button  -->
-                    <tabs:TabButton ButtonBackgroundColor="Accent"
+                    <tabs:TabButton ButtonBackgroundColor="{StaticResource Accent}"
                                     ButtonCircleSize="60"
                                     ButtonPadding="15"
                                     IconImageSource="camera_96.png"

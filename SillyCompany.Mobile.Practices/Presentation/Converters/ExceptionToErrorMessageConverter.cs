@@ -5,18 +5,31 @@ using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Converters
 {
-    public class ExceptionToErrorMessageConverter : IValueConverter
+    public class ExceptionToImageSourceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var exception = value as Exception;
-
             if (value == null)
             {
                 return null;
             }
 
-            return ApplicationExceptions.ToString(exception);
+            string imageName;
+
+            switch (value)
+            {
+                case ServerException serverException:
+                    imageName = "server.png";
+                    break;
+                case NetworkException networkException:
+                    imageName = "the_internet.png";
+                    break;
+                default:
+                    imageName = "richmond.png";
+                    break;
+            }
+
+            return ImageSource.FromFile(imageName);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

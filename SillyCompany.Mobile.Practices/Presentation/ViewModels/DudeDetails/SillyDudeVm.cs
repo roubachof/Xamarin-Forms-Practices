@@ -10,6 +10,7 @@
 using System;
 using System.Threading.Tasks;
 
+using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.Commands;
 using Sharpnado.Presentation.Forms.ViewModels;
 
@@ -46,14 +47,14 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         {
             _dudeService = sillyDudeService;
 
-            SillyDudeLoader = new ViewModelLoader<SillyDudeVmo>();
+            SillyDudeLoaderNotifier = new TaskLoaderNotifier<SillyDudeVmo>();
         }
 
         /// <summary>
         /// Gets or sets the silly dude task.
         /// </summary>
         /// <value>The silly dude task.</value>
-        public ViewModelLoader<SillyDudeVmo> SillyDudeLoader { get; }
+        public TaskLoaderNotifier<SillyDudeVmo> SillyDudeLoaderNotifier { get; }
 
         public QuoteVmo Quote { get; private set; }
 
@@ -75,7 +76,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         /// </param>
         public override void Load(object parameter)
         {
-            SillyDudeLoader.Load(() => LoadSillyDude((int)parameter));
+            SillyDudeLoaderNotifier.Load(() => LoadSillyDude((int)parameter));
         }
 
         private async Task<SillyDudeVmo> LoadSillyDude(int id)

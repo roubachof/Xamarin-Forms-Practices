@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Sharpnado.Infrastructure.Tasks;
+using Sharpnado.Tasks;
+
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using Xamarin.Forms;
 
@@ -27,7 +28,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
                 return;
             }
 
-            NotifyTask.Create(NavigationService.NavigateBackAsync(typeof(SortSillyPeopleVm)));
+            TaskMonitor.Create(NavigationService.NavigateBackAsync(typeof(SortSillyPeopleVm)));
         }
 
         private void InitCommands()

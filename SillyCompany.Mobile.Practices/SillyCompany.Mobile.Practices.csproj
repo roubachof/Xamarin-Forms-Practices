@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\Sharpnado.Infrastructure\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
     <Configurations>Debug;Release;DebugInfinite</Configurations>
+    <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\StyleCopRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugInfinite|AnyCPU'">
@@ -23,6 +24,8 @@
     <PackageReference Include="LiveXAML" Version="2.1.73" />
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1.1-beta" />
+    <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.0.0" />
+    <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.0" />
     <PackageReference Include="SimpleInjector" Version="4.7.1" />    
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -38,7 +41,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Infrastructure\Sharpnado.Infrastructure.csproj" />
     <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.csproj" />
   </ItemGroup>
 

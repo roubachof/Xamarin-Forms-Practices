@@ -5,7 +5,8 @@
              xmlns:md="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView">
     <ContentView.Content>
         <md:MarkdownView x:Name="MarkdownView"
-                         Padding="0,16,0,0"
+                         Margin="0,16,0,0"
+                         Padding="0,0,0,0"
                          Markdown="{Binding FilmoMarkdown}" />
     </ContentView.Content>
 </ContentView>

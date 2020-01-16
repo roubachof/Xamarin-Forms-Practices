@@ -30,7 +30,7 @@
             </Style>
 
             <OnPlatform x:Key="StatusBarHeight" x:TypeArguments="GridLength">
-                <On Platform="iOS">20</On>
+                <On Platform="iOS">30</On>
                 <On Platform="Android">0</On>
             </OnPlatform>
 
@@ -51,10 +51,13 @@
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
 
-            <!--<BoxView BackgroundColor="{Binding Source={x:Reference RootLayout}, Path=BackgroundColor}"></BoxView>-->
+            <BoxView Grid.Row="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="{Binding Source={x:Reference RootLayout}, Path=BackgroundColor}" />
 
             <ContentView x:Name="BackButton"
                          Grid.Row="1"
+                         Grid.Column="0"
                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                          IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}">
                 <Image WidthRequest="24"
