@@ -129,7 +129,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #endif
                             3,
                             Filmos.Gervais,
-                            "https://cdn.newsapi.com.au/image/v1/e737788003cdba5e51cea05a15d8094a")
+                            "https://pics.me.me/what-can-be-more-arrogant-than-believing-that-the-same-13060011.png")
                     },
                     {
                         ++_peopleCounter,

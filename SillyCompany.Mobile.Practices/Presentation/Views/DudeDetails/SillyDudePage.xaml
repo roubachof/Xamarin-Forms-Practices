@@ -96,6 +96,7 @@
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="SOME MORE" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="AGAIN" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
                     </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>
@@ -109,14 +110,16 @@
                         <details:Meme Animate="True" BindingContext="{Binding Meme}" />
                         <Label Style="{StaticResource TextHeader}"
                                Margin="60,80"
-                               Text="I'M A SHOOTING STAR ON MY WAY TO MARS ON A COLLISION COURSE I AM A SATELLITE I'M OUT OF CONTROL IM A SEX MACHINE READY TO RELOAD" />
-                        <Label Style="{StaticResource TextHeader}"
-                               Margin="60,80"
                                Text="Fitter. Happier. More productive. Like a pig. In a cage. On antibiotics." />
                         <Label Style="{StaticResource TextHeader}"
                                Margin="60,80"
-                               Text="CONGRATULATIONS! YOU JUST DISCOVERED THE HIDDEN VIEW \o/ Come and ping me on Twitter @Piskariov with a screenshot, and if you're the first, you shall receive...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................nothing." />
-
+                               Text="Day 456. Dear Journal, I still couldn't make the cut for MS MVP. Thinking of doing a video of me dancing on a looped windows 95 startup sound. Estimated chance of success 0.2%. May worth a shot." />
+                        <Label Style="{StaticResource TextHeader}"
+                               Margin="60,80"
+                               Text="CONGRATULATIONS! YOU JUST DISCOVERED THE HIDDEN VIEW \o/ Come and ping me on Twitter @Piskariov with a screenshot. And if you're the first, you shall receive...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................nothing." />
+                        <Label Style="{StaticResource TextHeader}"
+                               Margin="60,80"
+                               Text="I'M A SHOOTING STAR ON MY WAY TO MARS ON A COLLISION COURSE I AM A SATELLITE I'M OUT OF CONTROL IM A SEX MACHINE READY TO RELOAD" />
                     </tabs:ViewSwitcher>
 
                 </ScrollView>

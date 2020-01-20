@@ -42,7 +42,7 @@
             </Grid.RowDefinitions>
 
             <tb:Toolbar Title="Silly App!"
-                        BackgroundColor="{StaticResource NavigationBarColor}"
+                        BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
                         ForegroundColor="White" />
 
             <tabs:ViewSwitcher x:Name="Switcher"
@@ -63,7 +63,7 @@
 
             <tabs:TabHostView x:Name="TabHost"
                               Grid.Row="2"
-                              BackgroundColor="{StaticResource NavigationBarColor}"
+                              BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                               TabType="Fixed">
                 <tabs:TabHostView.Tabs>

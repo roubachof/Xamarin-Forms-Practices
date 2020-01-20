@@ -57,15 +57,15 @@
             <Color x:Key="DarkElevation16dp">#353535</Color>
             <Color x:Key="DarkElevation24dp">#373737</Color>
 
-            <Color x:Key="PrimaryColor">#FF7597</Color>
-            <Color x:Key="SecondaryColor">#FF0266</Color>
+            <Color x:Key="PrimaryColor">#FF0266</Color>
+            <Color x:Key="SecondaryColor">#6200EE</Color>
 
             <Color x:Key="OnPrimaryColor">#000000</Color>
             <Color x:Key="OnSecondaryColor">#000000</Color>
 
             <Color x:Key="OnSurfaceColor">#FFFFFF</Color>
 
-            <Color x:Key="NavigationBarColor">#212121</Color>
+            <Color x:Key="NavigationBarColor">#2D2D2D</Color>
             <Color x:Key="BarTextColor">#FFFFFF</Color>
 
             <Color x:Key="TextPrimaryColor">#FFFFFF</Color>
