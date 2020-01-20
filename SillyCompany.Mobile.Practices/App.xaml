@@ -6,6 +6,7 @@
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
     <Application.Resources>
         <ResourceDictionary>
@@ -347,6 +348,16 @@
             <views:SillyDudeTemplateSelector x:Key="DudeTemplateSelector"
                                              AlternateSillySquare="{StaticResource AlternateSillyDataTemplate}"
                                              SillySquare="{StaticResource SillyDataTemplate}" />
+
+            <Style TargetType="tabs:BottomTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+                <Setter Property="UnselectedLabelColor" Value="Gray" />
+                <Setter Property="UnselectedIconColor" Value="LightGray" />
+                <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="IconSize" Value="28" />
+                <Setter Property="IsTextVisible" Value="False" />
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

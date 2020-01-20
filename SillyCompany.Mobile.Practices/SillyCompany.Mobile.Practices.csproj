@@ -35,9 +35,8 @@
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.2.0.815419</Version>
+      <Version>4.4.0.991477</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms.DebugRainbows" Version="1.0.16" />
   </ItemGroup>
 
   <ItemGroup>
