@@ -28,7 +28,7 @@ namespace SillyCompany.Mobile.Practices
         {
             InitializeComponent();
 
-            MaterialFrame.MaterialTheme = MaterialFrame.Theme.Dark;
+            MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 

@@ -38,7 +38,7 @@
                 <RowDefinition Height="{StaticResource ToolbarHeight}" />
                 <RowDefinition Height="*" />
                 <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
-                <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{StaticResource BottomSafeArea}" />
+                <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{DynamicResource BottomSafeArea}" />
             </Grid.RowDefinitions>
 
             <tb:Toolbar Title="Silly App!"
@@ -68,8 +68,9 @@
                               TabType="Fixed">
                 <tabs:TabHostView.Tabs>
                     <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
-                <tb:SpamTab SpamImage="spam_classic_list.png" />
-                <tb:SpamTab SpamImage="spam_classic_grid.png" />-->
+                    <tb:SpamTab SpamImage="spam_classic_list.png" />
+                    <tb:SpamTab SpamImage="spam_classic_grid.png" />-->
+
                     <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
                     <tabs:BottomTabItem IconImageSource="list_96.png" Label="{localization:Translate Tabs_List}" />
 
@@ -87,11 +88,13 @@
                                     ButtonPadding="15"
                                     Clicked="TabButtonOnClicked"
                                     IconImageSource="camera_96.png"
+                                    IsVisible="True"
                                     Scale="1.3"
                                     TranslationY="-10" />
 
                     <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
                     <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
+
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
 

@@ -5,7 +5,10 @@ using Sharpnado.Presentation.Forms.RenderedViews;
 using Sharpnado.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
+using NavigationPage = Xamarin.Forms.NavigationPage;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 {
@@ -18,6 +21,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         {
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
+
+            BottomSafeAreaDefinition.Height = On<iOS>().SafeAreaInsets().Bottom;
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 

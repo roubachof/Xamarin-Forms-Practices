@@ -1,22 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ViewCell x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyCell"
-          xmlns="http://xamarin.com/schemas/2014/forms"
-          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-          xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-          xmlns:vmo="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
+<rv:MaterialFrame x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyCell"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+                  xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+                  xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+                  xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+                  Padding="{StaticResource StandardThickness}"
+                  Elevation="4">
 
-    <StackLayout Orientation="Horizontal"
-                 Padding="16,16,16,16"
-                 x:DataType="vmo:SillyDudeVmo">
+    <StackLayout x:DataType="vm:SillyDudeVmo"
+                 Orientation="Horizontal"
+                 Spacing="16">
 
-        <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
-                                  Aspect="AspectFill"
-                                  Source="{Binding ImageUrl}" />
+        <ic:CircleImage Style="{StaticResource SmallAvatar}"
+                        Margin="0,0,0,0"
+                        VerticalOptions="Start"
+                        Aspect="AspectFill"
+                        Source="{Binding ImageUrl}" />
 
-        <StackLayout Orientation="Vertical" Padding="16,0,0,0">
-            <Label Style="{StaticResource TextSubhead}" Text="{Binding Name}" />
+        <StackLayout VerticalOptions="Center"
+                     Orientation="Vertical"
+                     Spacing="0">
+
+            <Label Style="{StaticResource TextSubhead}"
+                   VerticalOptions="Start"
+                   Text="{Binding Name}" />
+
             <Label Style="{StaticResource TextSubheadSecondary}" Text="{Binding Role}" />
+
+            <skiaRate:RatingView WidthRequest="100"
+                                 HeightRequest="30"
+                                 Margin="0,5,0,0"
+                                 HorizontalOptions="Start"
+                                 ColorOn="{StaticResource Accent}"
+                                 Count="5"
+                                 OutlineOffColor="Transparent"
+                                 RatingType="Full"
+                                 Value="{Binding SillinessDegree}" />
         </StackLayout>
 
     </StackLayout>
-</ViewCell>
+</rv:MaterialFrame>

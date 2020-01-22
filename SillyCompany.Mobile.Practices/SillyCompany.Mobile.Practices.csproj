@@ -74,6 +74,9 @@
     <Compile Update="Presentation\Views\AlternateSillySquareCell.xaml.cs">
       <DependentUpon>AlternateSillySquareCell.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Presentation\Views\SmallSillySquareCell.xaml.cs">
+      <DependentUpon>SmallSillySquareCell.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Presentation\Views\SortSillyPeoplePage.xaml.cs">
       <DependentUpon>SortSillyPeoplePage.xaml</DependentUpon>
     </Compile>

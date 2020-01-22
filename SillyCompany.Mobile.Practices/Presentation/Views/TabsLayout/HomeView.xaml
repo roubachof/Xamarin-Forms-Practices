@@ -5,9 +5,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
@@ -47,50 +46,50 @@
                           ColumnSpacing="0"
                           RowSpacing="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="3*" />
-                            <RowDefinition Height="2*" />
-                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="136" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <abstractions:CircleImage Grid.Row="0"
-                                                  Grid.RowSpan="3"
-                                                  Grid.Column="0"
-                                                  Style="{StaticResource LargeAvatar}"
-                                                  Margin="16,0,0,0"
-                                                  HorizontalOptions="Start"
-                                                  Aspect="AspectFill"
-                                                  Source="{Binding ImageUrl}" />
+                        <ic:CircleImage Grid.Row="0"
+                                        Grid.RowSpan="4"
+                                        Grid.Column="0"
+                                        Style="{StaticResource LargeAvatar}"
+                                        Margin="16,0"
+                                        HorizontalOptions="Start"
+                                        Aspect="AspectFill"
+                                        Source="{Binding ImageUrl}" />
 
                         <Label Grid.Row="0"
                                Grid.Column="1"
                                Style="{StaticResource TextBody}"
-                               Margin="0,16,0,0"
+                               Margin="0,0,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="End"
-                               Text="{Binding FullName}" />
+                               Text="{Binding Name}" />
 
                         <Label Grid.Row="1"
                                Grid.Column="1"
                                Style="{StaticResource TextBodySecondary}"
                                Margin="0,4,0,0"
                                HorizontalOptions="Start"
-                               VerticalOptions="Start"
+                               VerticalOptions="Center"
                                Text="{Binding Role}" />
 
                         <skiaRate:RatingView Grid.Row="2"
                                              Grid.Column="1"
                                              WidthRequest="100"
-                                             HeightRequest="30"
-                                             HorizontalOptions="Start"
-                                             VerticalOptions="Start"
-                                             ColorOn="Yellow"
+                                             HeightRequest="20"
+                                             VerticalOptions="End"
+                                             ColorOn="{StaticResource Accent}"
                                              Count="5"
-                                             RatingType="Floating"
-                                             StrokeWidth="1"
+                                             OutlineOffColor="Transparent"
+                                             RatingType="Full"
                                              Value="{Binding SillinessDegree}" />
                     </Grid>
 

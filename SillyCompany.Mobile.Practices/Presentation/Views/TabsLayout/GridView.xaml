@@ -9,7 +9,8 @@
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices">
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
 
     <d:ContentView.BindingContext>
         <tabsLayout:GridPageViewModel />
@@ -18,14 +19,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
-                <Setter Property="ItemHeight">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS">120</On>
-                            <On Platform="Android">120</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="ItemHeight" Value="100" />
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
@@ -61,22 +55,40 @@
 
     <ContentView.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
-            <!--<pullToRefresh:PullToRefreshLayout IsPullToRefreshEnabled="True"
-                                               IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
-                                               RefreshColor="Blue"
-                                               RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">-->
-            <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                              ColumnCount="3"
-                                              CurrentIndex="{Binding CurrentIndex}"
-                                              EnableDragAndDrop="True"
-                                              InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                              ItemTemplate="{StaticResource DudeDataTemplate}"
-                                              ItemsSource="{Binding SillyPeople}"
-                                              ListLayout="Grid"
-                                              ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                              ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                              TapCommand="{Binding GoToSillyDudeCommand}" />
-            <!--</pullToRefresh:PullToRefreshLayout>-->
+            <RefreshView Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}"
+                         IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
+                         RefreshColor="{StaticResource Accent}">
+                <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                                  ColumnCount="1"
+                                                  CurrentIndex="{Binding CurrentIndex}"
+                                                  EnableDragAndDrop="True"
+                                                  InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                  ItemsSource="{Binding SillyPeople}"
+                                                  ListLayout="Grid"
+                                                  ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                  TapCommand="{Binding GoToSillyDudeCommand}">
+                    <!--  ColumnCount="3"  -->
+                    <!--  ItemTemplate="{StaticResource DudeDataTemplate}"  -->
+                    <renderedViews:HorizontalListView.ItemTemplate>
+                        <DataTemplate>
+                            <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+                                <views:SillyCell Margin="4"
+                                                 Padding="{StaticResource StandardThickness}"
+                                                 Elevation="4">
+                                    <Frame.Triggers>
+                                        <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                                     TargetType="renderedViews:MaterialFrame"
+                                                     Value="True">
+                                            <Setter Property="Elevation" Value="8" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                </views:SillyCell>
+                            </renderedViews:DraggableViewCell>
+                        </DataTemplate>
+                    </renderedViews:HorizontalListView.ItemTemplate>
+                </renderedViews:HorizontalListView>
+            </RefreshView>
         </customViews:TaskLoaderView>
     </ContentView.Content>
 </ContentView>

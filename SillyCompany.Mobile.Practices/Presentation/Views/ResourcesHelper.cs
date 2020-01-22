@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Sharpnado.Presentation.Forms.RenderedViews;
+
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Views
@@ -36,14 +38,21 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             Application.Current.Resources[targetResourceName] = value;
         }
 
+        public static void SetDynamicResource<T>(string targetResourceName, T value)
+        {
+            Application.Current.Resources[targetResourceName] = value;
+        }
+
         public static void SetDarkMode()
         {
-            ResourcesHelper.SetDynamicResource("DynamicNavigationBarColor", "DarkElevation2dp");
+            // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
+            SetDynamicResource("DynamicNavigationBarColor", "DarkElevation2dp");
         }
 
         public static void SetLightMode()
         {
-            ResourcesHelper.SetDynamicResource("DynamicNavigationBarColor", "SecondaryColor");
+            // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Light);
+            SetDynamicResource("DynamicNavigationBarColor", "SecondaryColor");
         }
     }
 }

@@ -7,21 +7,21 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Xamarin.Forms;
+using Sharpnado.Presentation.Forms.RenderedViews;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Views
 {
     /// <summary>
     /// The silly cell.
     /// </summary>
-    public partial class SillyCell : ViewCell
+    public partial class SillyCell : MaterialFrame
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SillyCell"/> class.
         /// </summary>
         public SillyCell()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

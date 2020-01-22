@@ -23,7 +23,7 @@
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
                 <Setter Property="LabelSize" Value="14" />
                 <Setter Property="Padding" Value="20, 0" />
-                <Setter Property="UnderlineAllTab" Value="True" />
+                <Setter Property="UnderlineAllTab" Value="False" />
                 <Setter Property="UnselectedLabelColor" Value="White" />
             </Style>
         </ResourceDictionary>
@@ -75,12 +75,10 @@
                                      WidthRequest="100"
                                      HeightRequest="30"
                                      HorizontalOptions="Start"
-                                     ColorOn="Yellow"
+                                     ColorOn="{StaticResource Accent}"
                                      Count="5"
                                      OutlineOffColor="Transparent"
-                                     OutlineOnColor="Yellow"
                                      RatingType="Floating"
-                                     StrokeWidth="1"
                                      Value="{Binding SillyDudeLoaderNotifier.Result.SillinessDegree}" />
 
                 <tabs:TabHostView x:Name="TabHost"

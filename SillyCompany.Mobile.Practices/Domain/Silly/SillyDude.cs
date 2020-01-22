@@ -27,7 +27,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
         public int Id { get; }
 
 #if INFINITE_LIST
-        public string Name => $"{TruncateName(8)} n°{Id}";
+        public string Name => $"{TruncateName(32)} n°{Id}";
 #else
         public string Name => _realName;
 #endif

@@ -41,11 +41,6 @@
                 <On Platform="Android">65</On>
             </OnPlatform>
 
-            <OnPlatform x:Key="BottomSafeArea" x:TypeArguments="GridLength">
-                <On Platform="iOS">20</On>
-                <On Platform="Android">0</On>
-            </OnPlatform>
-
             <GridLength x:Key="HeaderHeight">40</GridLength>
 
 

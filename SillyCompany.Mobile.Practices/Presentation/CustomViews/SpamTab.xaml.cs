@@ -43,6 +43,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.CustomViews
                 {
                     Foot.TranslationY = -_height;
                     Foot.Opacity = 0;
+                    Spam.HeightRequest = _height;
                 }
                 else
                 {

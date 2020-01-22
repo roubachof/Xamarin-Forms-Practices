@@ -9,6 +9,7 @@
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              Title="{loc:Translate SortSillyPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -18,14 +19,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
-                <Setter Property="ItemHeight">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS">120</On>
-                            <On Platform="Android">120</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="ItemHeight" Value="100" />
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
@@ -40,7 +34,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                          ColumnCount="3"
+                                          ColumnCount="1"
                                           DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           EnableDragAndDrop="True"
                                           ItemsSource="{Binding SillyPeople}"
@@ -48,7 +42,19 @@
             <renderedViews:HorizontalListView.ItemTemplate>
                 <DataTemplate>
                     <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                        <renderedViews:MaterialFrame Margin="4"
+
+                        <views:SillyCell Margin="4"
+                                         Padding="{StaticResource StandardThickness}"
+                                         Elevation="4">
+                            <Frame.Triggers>
+                                <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                             TargetType="renderedViews:MaterialFrame"
+                                             Value="True">
+                                    <Setter Property="Elevation" Value="8" />
+                                </DataTrigger>
+                            </Frame.Triggers>
+                        </views:SillyCell>
+                        <!--<renderedViews:MaterialFrame Margin="4"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">
 
@@ -82,7 +88,7 @@
                                        MaxLines="1"
                                        Text="{Binding Role}" />
                             </Grid>
-                        </renderedViews:MaterialFrame>
+                        </renderedViews:MaterialFrame>-->
                     </renderedViews:DraggableViewCell>
                 </DataTemplate>
             </renderedViews:HorizontalListView.ItemTemplate>

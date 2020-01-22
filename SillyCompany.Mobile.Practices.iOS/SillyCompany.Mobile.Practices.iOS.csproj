@@ -61,11 +61,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer: Jean-Marie Alfonsi (DT4B3W2FC9)</CodesignKey>
+    <CodesignKey>Apple Development: Jean-Marie Alfonsi (DT4B3W2FC9)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>
     </CodesignEntitlements>
-    <CodesignProvision>Wildcard Dev JM</CodesignProvision>
+    <CodesignProvision>JM Catalina dev profile</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <MtouchFastDev>true</MtouchFastDev>

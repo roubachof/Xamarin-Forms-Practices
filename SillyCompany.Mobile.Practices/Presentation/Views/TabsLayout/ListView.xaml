@@ -66,7 +66,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
-                            <RowDefinition Height="300" />
+                            <RowDefinition Height="260" />
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->

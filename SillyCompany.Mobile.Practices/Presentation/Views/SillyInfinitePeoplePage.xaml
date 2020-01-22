@@ -129,11 +129,10 @@
                                                      WidthRequest="100"
                                                      HeightRequest="30"
                                                      HorizontalOptions="Start"
-                                                     ColorOn="Yellow"
+                                                     ColorOn="{StaticResource Accent}"
                                                      Count="5"
-                                                     OutlineOnColor="Orange"
-                                                     RatingType="Floating"
-                                                     StrokeWidth="1"
+                                                     OutlineOffColor="Transparent"
+                                                     RatingType="Full"
                                                      Value="{Binding SillinessDegree}" />
                             </Grid>
                         </renderedViews:MaterialFrame>
