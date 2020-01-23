@@ -6,13 +6,14 @@
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         mc:Ignorable="d"
                         xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-                        xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                        xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-                        xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+                        xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+                        ios:Page.UseSafeArea="true">
 
     <d:ContentPage.BindingContext>
         <vm:SillyBottomTabsPageViewModel />

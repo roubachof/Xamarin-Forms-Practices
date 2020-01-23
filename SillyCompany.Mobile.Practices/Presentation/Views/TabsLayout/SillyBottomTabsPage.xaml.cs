@@ -22,8 +22,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
 
-            BottomSafeAreaDefinition.Height = On<iOS>().SafeAreaInsets().Bottom;
-
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
             _currentTheme = Theme.Dark;
@@ -34,6 +32,15 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         {
             Light = 0,
             Dark,
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var safeArea = On<iOS>().SafeAreaInsets();
+            BottomSafeAreaDefinition.Height = safeArea.Bottom;
+            Padding = 0;
         }
 
         private void ApplyTheme()
