@@ -243,9 +243,9 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
             return _repository[id];
         }
 
-        public async Task<SillyDude> GetRandomSilly()
+        public async Task<SillyDude> GetRandomSilly(int waitTime = 2)
         {
-            await Task.Delay(TimeSpan.FromSeconds(2));
+            await Task.Delay(TimeSpan.FromSeconds(waitTime));
 
             int minId = _repository.Keys.Min();
             int maxId = _repository.Keys.Max();

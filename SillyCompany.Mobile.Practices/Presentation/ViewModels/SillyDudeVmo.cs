@@ -16,19 +16,22 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
     {
         public SillyDudeVmo(SillyDude dude, ICommand onItemTappedCommand)
         {
-            Id = dude.Id;
-            Name = dude.Name;
-            FullName = dude.FullName;
-            Role = dude.Role;
-            Description = dude.Description;
-            ImageUrl = dude.ImageUrl;
-            SillinessDegree = dude.SillinessDegree;
-            SourceUrl = dude.SourceUrl;
+            if (dude != null)
+            {
+                Id = dude.Id;
+                Name = dude.Name;
+                FullName = dude.FullName;
+                Role = dude.Role;
+                Description = dude.Description;
+                ImageUrl = dude.ImageUrl;
+                SillinessDegree = dude.SillinessDegree;
+                SourceUrl = dude.SourceUrl;
+            }
 
             OnItemTappedCommand = onItemTappedCommand;
         }
 
-        public bool IsMovable { get; private set; } = true;
+        public bool IsMovable { get; protected set; } = true;
 
         public ICommand OnItemTappedCommand { get; set; }
 
@@ -51,6 +54,14 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         public void Lock()
         {
             IsMovable = false;
+        }
+    }
+
+    public class AddSillyDudeVmo : SillyDudeVmo
+    {
+        public AddSillyDudeVmo(ICommand onItemTappedCommand)
+            : base(null, onItemTappedCommand)
+        {
         }
     }
 }

@@ -99,8 +99,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
                 (await _sillyDudeService.GetSillyPeople())
                     .Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)));
 
-            result.First().Lock();
-            result.Last().Lock();
+            // Test the drag and drop lock
+            // result.First().Lock();
+            // result.Last().Lock();
             return result;
         }
 

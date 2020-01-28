@@ -28,8 +28,91 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="CollectionPadding" Value="8" />
+                <Setter Property="CollectionPadding" Value="8,8,8,128" />
             </Style>
+
+            <DataTemplate x:Key="ThreeLinesListItem">
+                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+
+                    <views:SillyCell Margin="4"
+                                     Padding="{StaticResource StandardThickness}"
+                                     Elevation="4">
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                         TargetType="renderedViews:MaterialFrame"
+                                         Value="True">
+                                <Setter Property="Elevation" Value="8" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                    </views:SillyCell>
+                </renderedViews:DraggableViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AddSillyDudeItem">
+                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False">
+                    <renderedViews:MaterialFrame Elevation="4">
+                        <Button HeightRequest="40"
+                                Padding="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                Command="{Binding OnItemTappedCommand}"
+                                FontFamily="{StaticResource FontSemiBold}"
+                                FontSize="15"
+                                Text="ADD A DUDE"
+                                TextColor="{StaticResource Accent}" />
+                    </renderedViews:MaterialFrame>
+                </renderedViews:DraggableViewCell>
+            </DataTemplate>
+
+
+            <DataTemplate x:Key="SortGridItem">
+                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+                    <d:ViewCell.BindingContext>
+                        <viewModels:SillyDudeVmo />
+                    </d:ViewCell.BindingContext>
+                    <renderedViews:MaterialFrame Margin="4"
+                                                 Padding="{StaticResource StandardThickness}"
+                                                 Elevation="4">
+
+                        <Frame.Triggers>
+                            <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                         TargetType="renderedViews:MaterialFrame"
+                                         Value="True">
+                                <Setter Property="Elevation" Value="8" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+
+                        <Grid ColumnSpacing="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <abstractions:CircleImage Grid.Row="0"
+                                                      Style="{StaticResource SmallAvatar}"
+                                                      Aspect="AspectFill"
+                                                      Source="{Binding ImageUrl}" />
+                            <Label Grid.Row="1"
+                                   Style="{StaticResource TextCaptionSecondary}"
+                                   Margin="{StaticResource MediumTopThickness}"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding Name}" />
+
+                            <Label Grid.Row="2"
+                                   Style="{StaticResource TextSmallCaption}"
+                                   HorizontalTextAlignment="Center"
+                                   MaxLines="1"
+                                   Text="{Binding Role}" />
+                        </Grid>
+                    </renderedViews:MaterialFrame>
+                </renderedViews:DraggableViewCell>
+            </DataTemplate>
+
+            <views:SortableDudeTemplateSelector x:Key="SortDudeTemplateSelector"
+                                                AddSillyDude="{StaticResource AddSillyDudeItem}"
+                                                SillyDude="{StaticResource ThreeLinesListItem}" />
+
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -37,61 +120,8 @@
                                           ColumnCount="1"
                                           DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           EnableDragAndDrop="True"
+                                          ItemTemplate="{StaticResource SortDudeTemplateSelector}"
                                           ItemsSource="{Binding SillyPeople}"
-                                          ListLayout="Grid">
-            <renderedViews:HorizontalListView.ItemTemplate>
-                <DataTemplate>
-                    <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-
-                        <views:SillyCell Margin="4"
-                                         Padding="{StaticResource StandardThickness}"
-                                         Elevation="4">
-                            <Frame.Triggers>
-                                <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                             TargetType="renderedViews:MaterialFrame"
-                                             Value="True">
-                                    <Setter Property="Elevation" Value="8" />
-                                </DataTrigger>
-                            </Frame.Triggers>
-                        </views:SillyCell>
-                        <!--<renderedViews:MaterialFrame Margin="4"
-                                                     Padding="{StaticResource StandardThickness}"
-                                                     Elevation="4">
-
-                            <Frame.Triggers>
-                                <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                             TargetType="renderedViews:MaterialFrame"
-                                             Value="True">
-                                    <Setter Property="Elevation" Value="8" />
-                                </DataTrigger>
-                            </Frame.Triggers>
-
-                            <Grid ColumnSpacing="0" RowSpacing="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="4*" />
-                                    <RowDefinition Height="2*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <abstractions:CircleImage Grid.Row="0"
-                                                          Style="{StaticResource SmallAvatar}"
-                                                          Aspect="AspectFill"
-                                                          Source="{Binding ImageUrl}" />
-                                <Label Grid.Row="1"
-                                       Style="{StaticResource TextCaptionSecondary}"
-                                       Margin="{StaticResource MediumTopThickness}"
-                                       HorizontalTextAlignment="Center"
-                                       Text="{Binding Name}" />
-
-                                <Label Grid.Row="2"
-                                       Style="{StaticResource TextSmallCaption}"
-                                       HorizontalTextAlignment="Center"
-                                       MaxLines="1"
-                                       Text="{Binding Role}" />
-                            </Grid>
-                        </renderedViews:MaterialFrame>-->
-                    </renderedViews:DraggableViewCell>
-                </DataTemplate>
-            </renderedViews:HorizontalListView.ItemTemplate>
-        </renderedViews:HorizontalListView>
+                                          ListLayout="Grid" />
     </ContentPage.Content>
 </ContentPage>

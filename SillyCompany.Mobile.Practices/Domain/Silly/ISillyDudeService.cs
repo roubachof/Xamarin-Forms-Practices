@@ -12,6 +12,6 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 
         Task<SillyDude> GetSilly(int id);
 
-        Task<SillyDude> GetRandomSilly();
+        Task<SillyDude> GetRandomSilly(int waitTime = 2);
     }
 }
