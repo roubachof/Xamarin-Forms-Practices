@@ -134,6 +134,11 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
                 throw new InvalidOperationException("The knights demand...... A SACRIFICE!");
             }
 
+            if (PlatformService.IsFoldingScreen)
+            {
+                return;
+            }
+
             await NavigationService.NavigateToAsync<SillyDudeVm>(sillyDude.Id);
         }
     }

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SurfaceDuo.TwoPanePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:customViews="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
+             xmlns:customViews1="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:customViews2="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
+             xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails;assembly=SillyCompany.Mobile.Practices"
+             xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:samples="clr-namespace:Xamarin.Duo.Forms.Samples;assembly=SillyCompany.Mobile.Practices"
+             xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
+             xmlns:surfaceDuo="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.SurfaceDuo;assembly=SillyCompany.Mobile.Practices"
+             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+
+
+    <d:ContentPage.BindingContext>
+        <surfaceDuo:TwoPanePageViewModel />
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="Padding" Value="20, 0" />
+                <Setter Property="UnderlineAllTab" Value="False" />
+                <Setter Property="UnselectedLabelColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <samples:TwoPaneView>
+
+            <!--  LeftPane  -->
+            <Grid BindingContext="{Binding SillyBottomTabsPageViewModel}"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource ToolbarHeight}" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
+                    <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{DynamicResource BottomSafeArea}" />
+                </Grid.RowDefinitions>
+
+                <customViews:Toolbar Title="Silly App!"
+                                     BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                                     ForegroundColor="White" />
+
+                <tabs:ViewSwitcher x:Name="Switcher"
+                                   Grid.Row="1"
+                                   Animate="False"
+                                   SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                    <customViews1:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
+                    <customViews1:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
+                    <customViews1:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+                    <Label Style="{StaticResource TextHeader}"
+                           Margin="64,0"
+                           VerticalOptions="Center"
+                           Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
+                </tabs:ViewSwitcher>
+
+                <tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="2"
+                                  BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                                  TabType="Fixed">
+                    <tabs:TabHostView.Tabs>
+
+                        <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
+                        <tabs:BottomTabItem IconImageSource="list_96.png" Label="{localization:Translate Tabs_List}" />
+
+                        <!--  Circle button  -->
+                        <tabs:TabButton x:Name="TabButton"
+                                        ButtonBackgroundColor="{StaticResource Accent}"
+                                        ButtonCircleSize="60"
+                                        ButtonPadding="15"
+                                        Clicked="TabButtonOnClicked"
+                                        IconImageSource="camera_96.png"
+                                        IsVisible="True"
+                                        Scale="1.3"
+                                        TranslationY="-10" />
+
+                        <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
+                        <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
+
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>
+
+                <BoxView Grid.Row="3" BackgroundColor="{Binding Source={x:Reference TabHost}, Path=BackgroundColor}" />
+
+            </Grid>
+
+            <!--  RightPane  -->
+            <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BindingContext="{Binding SillyDudeViewModel}">
+
+                <customViews2:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
+                                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                             AccentColor="{StaticResource Accent}"
+                                             BackgroundColor="{StaticResource Primary}"
+                                             TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
+                    <Grid Padding="{StaticResource StandardThickness}"
+                          ColumnSpacing="0"
+                          RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  ROW 1  -->
+                        <Image x:Name="Image"
+                               Grid.RowSpan="4"
+                               Margin="-16,-16,-16,0"
+                               Aspect="AspectFill"
+                               Source="{Binding SillyDudeLoaderNotifier.Result.ImageUrl}" />
+
+                        <BoxView Grid.Row="1"
+                                 Grid.RowSpan="3"
+                                 Margin="-16,0"
+                                 BackgroundColor="#99000000" />
+
+                        <Label Grid.Row="1"
+                               Style="{StaticResource TextTitle}"
+                               VerticalOptions="End"
+                               Text="{Binding SillyDudeLoaderNotifier.Result.FullName}"
+                               TextColor="White" />
+
+                        <Label Grid.Row="2"
+                               Style="{StaticResource TextSubhead}"
+                               Text="{Binding SillyDudeLoaderNotifier.Result.Role}"
+                               TextColor="White" />
+
+                        <skiaRate:RatingView Grid.Row="3"
+                                             WidthRequest="100"
+                                             HeightRequest="30"
+                                             HorizontalOptions="Start"
+                                             ColorOn="{StaticResource Accent}"
+                                             Count="5"
+                                             OutlineOffColor="Transparent"
+                                             RatingType="Floating"
+                                             Value="{Binding SillyDudeLoaderNotifier.Result.SillinessDegree}" />
+
+                        <tabs:TabHostView x:Name="RightTabHost"
+                                          Grid.Row="4"
+                                          Margin="-16,0"
+                                          BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                                          SelectedIndex="{Binding Source={x:Reference RightSwitcher}, Path=SelectedIndex, Mode=TwoWay}"
+                                          ShowScrollbar="False"
+                                          TabType="Scrollable">
+                            <tabs:TabHostView.Tabs>
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Quote}" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Filmography}" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Meme}" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="SOME MORE" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="AGAIN" />
+                                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
+                            </tabs:TabHostView.Tabs>
+                        </tabs:TabHostView>
+
+                        <ScrollView Grid.Row="5">
+                            <tabs:ViewSwitcher x:Name="RightSwitcher"
+                                               Animate="True"
+                                               SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                                <dudeDetails:Quote Animate="True" BindingContext="{Binding Quote}" />
+                                <dudeDetails:Filmo Animate="True" BindingContext="{Binding Filmo}" />
+                                <dudeDetails:Meme Animate="True" BindingContext="{Binding Meme}" />
+                                <Label Style="{StaticResource TextHeader}"
+                                       Margin="60,80"
+                                       Text="Fitter. Happier. More productive. Like a pig. In a cage. On antibiotics." />
+                                <Label Style="{StaticResource TextHeader}"
+                                       Margin="60,80"
+                                       Text="Day 456. Dear Journal, I still couldn't make the cut for MS MVP. Thinking of doing a video of me dancing on a looped windows 95 startup sound. Estimated chance of success 0.2%. May worth a shot." />
+                                <Label Style="{StaticResource TextHeader}"
+                                       Margin="60,80"
+                                       Text="CONGRATULATIONS! YOU JUST DISCOVERED THE HIDDEN VIEW \o/ Come and ping me on Twitter @Piskariov with a screenshot. And if you're the first, you shall receive...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................nothing." />
+                                <Label Style="{StaticResource TextHeader}"
+                                       Margin="60,80"
+                                       Text="I'M A SHOOTING STAR ON MY WAY TO MARS ON A COLLISION COURSE I AM A SATELLITE I'M OUT OF CONTROL IM A SEX MACHINE READY TO RELOAD" />
+                            </tabs:ViewSwitcher>
+
+                        </ScrollView>
+                    </Grid>
+                </customViews2:TaskLoaderView>
+
+            </AbsoluteLayout>
+
+
+        </samples:TwoPaneView>
+    </ContentPage.Content>
+</ContentPage>

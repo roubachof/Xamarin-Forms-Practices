@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
@@ -19,7 +20,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
-                <Setter Property="ItemHeight" Value="100" />
+                <Setter Property="ItemHeight" Value="110" />
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32">
@@ -66,24 +67,28 @@
                                                   ItemsSource="{Binding SillyPeople}"
                                                   ListLayout="Grid"
                                                   ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                  TapCommand="{Binding GoToSillyDudeCommand}">
+                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}">
+                    <!--  TapCommand="{Binding GoToSillyDudeCommand}">  -->
                     <!--  ColumnCount="3"  -->
                     <!--  ItemTemplate="{StaticResource DudeDataTemplate}"  -->
                     <renderedViews:HorizontalListView.ItemTemplate>
                         <DataTemplate>
                             <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                                <views:SillyCell Margin="4"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 Elevation="4">
-                                    <Frame.Triggers>
-                                        <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                                     TargetType="renderedViews:MaterialFrame"
-                                                     Value="True">
-                                            <Setter Property="Elevation" Value="8" />
-                                        </DataTrigger>
-                                    </Frame.Triggers>
-                                </views:SillyCell>
+                                <ContentView effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                             effects:TapCommandEffect.TapParameter="{Binding .}"
+                                             effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
+                                    <views:SillyCell Margin="4"
+                                                     Padding="{StaticResource StandardThickness}"
+                                                     Elevation="4">
+                                        <Frame.Triggers>
+                                            <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                                         TargetType="renderedViews:MaterialFrame"
+                                                         Value="True">
+                                                <Setter Property="Elevation" Value="8" />
+                                            </DataTrigger>
+                                        </Frame.Triggers>
+                                    </views:SillyCell>
+                                </ContentView>
                             </renderedViews:DraggableViewCell>
                         </DataTemplate>
                     </renderedViews:HorizontalListView.ItemTemplate>

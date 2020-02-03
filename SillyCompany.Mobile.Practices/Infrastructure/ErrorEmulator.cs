@@ -1,4 +1,6 @@
-﻿namespace SillyCompany.Mobile.Practices.Infrastructure
+﻿using System;
+
+namespace SillyCompany.Mobile.Practices.Infrastructure
 {
     public enum ErrorType
     {
@@ -12,5 +14,7 @@
     public class ErrorEmulator
     {
         public ErrorType ErrorType { get; set; }
+
+        public TimeSpan DefaultLoadingTime => PlatformService.IsFoldingScreen ? TimeSpan.Zero : TimeSpan.FromSeconds(2);
     }
 }

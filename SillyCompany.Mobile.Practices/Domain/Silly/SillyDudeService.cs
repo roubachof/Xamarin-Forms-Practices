@@ -141,7 +141,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://www4.pictures.zimbio.com/mp/8q1mIIQGkXHm.jpg",
+                            "https://pixel.nymag.com/imgs/daily/vulture/2018/12/22/23-brick.w330.h330.jpg",
 #endif
                             3,
                             Filmos.Carell,
@@ -210,7 +210,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 
         public async Task<IReadOnlyCollection<SillyDude>> GetSillyPeople()
         {
-            await Task.Delay(TimeSpan.FromSeconds(3));
+            await Task.Delay(_errorEmulator.DefaultLoadingTime);
             if (ProcessErrorEmulator())
             {
                 return new List<SillyDude>();
@@ -237,15 +237,20 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 
         public async Task<SillyDude> GetSilly(int id)
         {
-            await Task.Delay(TimeSpan.FromSeconds(2));
+            await Task.Delay(_errorEmulator.DefaultLoadingTime);
             ProcessErrorEmulator();
 
             return _repository[id];
         }
 
-        public async Task<SillyDude> GetRandomSilly(int waitTime = 2)
+        public async Task<SillyDude> GetRandomSilly(int waitTime = -1)
         {
-            await Task.Delay(TimeSpan.FromSeconds(waitTime));
+            await Task.Delay(waitTime > -1 ? TimeSpan.FromSeconds(waitTime) : _errorEmulator.DefaultLoadingTime);
+
+            if (PlatformService.IsFoldingScreen)
+            {
+                return _repository[6];
+            }
 
             int minId = _repository.Keys.Min();
             int maxId = _repository.Keys.Max();

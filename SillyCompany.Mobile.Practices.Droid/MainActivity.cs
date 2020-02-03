@@ -8,6 +8,13 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
+
+using Microsoft.Device.Display;
+
+using SillyCompany.Mobile.Practices.Infrastructure;
+
+using Xamarin.Duo.Forms.Samples;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 namespace SillyCompany.Mobile.Practices.Droid
@@ -24,9 +31,17 @@ namespace SillyCompany.Mobile.Practices.Droid
 
             base.OnCreate(bundle);
 
-            Xamarin.Forms.Forms.Init(this, bundle);
+            var screenHelper = new ScreenHelper();
+            bool isDuo = screenHelper.Initialize(this);
 
-            LoadApplication(new App());
+            PlatformService.InitializeFoldingScreen(isDuo);
+
+            HingeService.MainActivity = this;
+
+            Forms.Init(this, bundle);
+            Android.Glide.Forms.Init(this);
+
+            this.LoadApplication(new App());
         }
     }
 }

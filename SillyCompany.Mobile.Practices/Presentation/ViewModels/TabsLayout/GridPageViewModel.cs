@@ -9,6 +9,7 @@ using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.Services;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
+using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
@@ -25,6 +26,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
         private ObservableRangeCollection<SillyDudeVmo> _sillyPeople;
 
         private int _currentIndex = -1;
+
+        private int? _selectedDudeId;
 
         public GridPageViewModel(INavigationService navigationService, ISillyDudeService sillyDudeService)
             : base(navigationService)
@@ -60,6 +63,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             set => SetAndRaise(ref _sillyPeople, value);
         }
 
+        public int? SelectedDudeId
+        {
+            get => _selectedDudeId;
+            set => SetAndRaise(ref _selectedDudeId, value);
+        }
+
         public override void Load(object parameter)
         {
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
@@ -70,7 +79,16 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
         private void InitCommands()
         {
             GoToSillyDudeCommand = AsyncCommand.Create(
-                parameter => NavigationService.NavigateToAsync<SillyDudeVm>(((SillyDudeVmo)parameter).Id));
+                parameter =>
+                {
+                    SelectedDudeId = ((SillyDudeVmo)parameter).Id;
+                    if (PlatformService.IsFoldingScreen)
+                    {
+                        return Task.CompletedTask;
+                    }
+
+                    return NavigationService.NavigateToAsync<SillyDudeVm>(((SillyDudeVmo)parameter).Id);
+                });
 
             OnScrollBeginCommand = new Command(
                 () => System.Diagnostics.Debug.WriteLine("SillyInfiniteGridPeopleVm: OnScrollBeginCommand"));

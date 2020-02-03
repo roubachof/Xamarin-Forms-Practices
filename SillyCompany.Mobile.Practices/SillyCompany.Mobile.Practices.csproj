@@ -35,7 +35,7 @@
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991477</Version>
+      <Version>4.4.0.991537</Version>
     </PackageReference>
   </ItemGroup>
 
@@ -80,6 +80,9 @@
     <Compile Update="Presentation\Views\SortSillyPeoplePage.xaml.cs">
       <DependentUpon>SortSillyPeoplePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Presentation\Views\SurfaceDuo\TwoPanePage.xaml.cs">
+      <DependentUpon>TwoPanePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Presentation\Views\TabsLayout\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Presentation\Views\SortSillyPeoplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Presentation\Views\SurfaceDuo\TwoPanePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Presentation\Views\TabsLayout\GridView.xaml">

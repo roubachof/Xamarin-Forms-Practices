@@ -21,6 +21,8 @@ namespace SillyCompany.Mobile.Practices.Infrastructure
 
         public static Size MainSize { get; private set; }
 
+        public static bool IsFoldingScreen { get; private set; }
+
         public static ScreenSize ScreenSize
         {
             get
@@ -67,6 +69,11 @@ namespace SillyCompany.Mobile.Practices.Infrastructure
             }
 
             MainSize = new Size(width, height);
+        }
+
+        public static void InitializeFoldingScreen(bool isFoldingScreen)
+        {
+            IsFoldingScreen = isFoldingScreen;
         }
 
         public static int DpToPixels(int dp) => (int)(DisplayScaleFactor * dp);

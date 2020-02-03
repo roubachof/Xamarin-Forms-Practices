@@ -67,7 +67,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="glidex.forms">
-      <Version>1.0.4</Version>
+      <Version>2.0.1.394</Version>
     </PackageReference>
     <PackageReference Include="MetroLog">
       <Version>1.0.1</Version>
@@ -89,8 +89,11 @@
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
       <Version>3.0.0.5</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.DuoSdk">
+      <Version>0.0.3.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991477</Version>
+      <Version>4.4.0.991537</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DroidEntryPointSingleton.cs" />
+    <Compile Include="FoldingScreen\HingeService.cs" />
+    <Compile Include="FoldingScreen\LayoutService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

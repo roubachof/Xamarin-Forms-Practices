@@ -9,9 +9,13 @@
 
 using Sharpnado.Presentation.Forms.RenderedViews;
 
+using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
+using SillyCompany.Mobile.Practices.Presentation.ViewModels.SurfaceDuo;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;
+using SillyCompany.Mobile.Practices.Presentation.Views;
+
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices
@@ -32,11 +36,19 @@ namespace SillyCompany.Mobile.Practices
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 
+            IBindablePage firstScreenView;
+            if (PlatformService.IsFoldingScreen)
+            {
+                firstScreenView = viewLocator.GetViewFor<TwoPanePageViewModel>();
+            }
+            else
+            {
 #if INFINITE_LIST
-            var firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
+            firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #else
-            var firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
+            firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
 #endif
+            }
 
             MainPage = new NavigationPage((Page)firstScreenView);
             NavigationPage.SetHasNavigationBar(MainPage, false);
