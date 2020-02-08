@@ -13,8 +13,8 @@
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-                        d:DataContext="{d:DesignInstance dudeDetails:SillyDudeVm}"
-                        x:DataType="dudeDetails:SillyDudeVm">
+                        x:DataType="dudeDetails:SillyDudeVm"
+                        d:DataContext="{d:DesignInstance dudeDetails:SillyDudeVm}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -33,12 +33,12 @@
 
         <loader:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                               AccentColor="{StaticResource Accent}"
                                BackgroundColor="{StaticResource Primary}"
+                               AccentColor="{StaticResource Accent}"
                                TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-            <Grid Padding="{StaticResource StandardThickness}"
+            <Grid RowSpacing="0"
                   ColumnSpacing="0"
-                  RowSpacing="0">
+                  Padding="{StaticResource StandardThickness}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
                     <RowDefinition Height="40" />
@@ -63,13 +63,13 @@
                 <Label Grid.Row="1"
                        Style="{StaticResource TextTitle}"
                        VerticalOptions="End"
-                       Text="{Binding SillyDudeLoaderNotifier.Result.FullName}"
-                       TextColor="White" />
+                       TextColor="White"
+                       Text="{Binding SillyDudeLoaderNotifier.Result.FullName}" />
 
                 <Label Grid.Row="2"
                        Style="{StaticResource TextSubhead}"
-                       Text="{Binding SillyDudeLoaderNotifier.Result.Role}"
-                       TextColor="White" />
+                       TextColor="White"
+                       Text="{Binding SillyDudeLoaderNotifier.Result.Role}" />
 
                 <skiaRate:RatingView Grid.Row="3"
                                      WidthRequest="100"
@@ -85,9 +85,9 @@
                                   Grid.Row="4"
                                   Margin="-16,0"
                                   BackgroundColor="{StaticResource DarkElevation4dp}"
-                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                                   ShowScrollbar="False"
-                                  TabType="Scrollable">
+                                  TabType="Scrollable"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
@@ -103,9 +103,9 @@
                     <tabs:ViewSwitcher x:Name="Switcher"
                                        Animate="True"
                                        SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                        <details:Quote Animate="True" BindingContext="{Binding Quote}" />
-                        <details:Filmo Animate="True" BindingContext="{Binding Filmo}" />
-                        <details:Meme Animate="True" BindingContext="{Binding Meme}" />
+                        <details:Quote BindingContext="{Binding Quote}" Animate="True" />
+                        <details:Filmo BindingContext="{Binding Filmo}" Animate="True" />
+                        <details:Meme BindingContext="{Binding Meme}" Animate="True" />
                         <Label Style="{StaticResource TextHeader}"
                                Margin="60,80"
                                Text="Fitter. Happier. More productive. Like a pig. In a cage. On antibiotics." />

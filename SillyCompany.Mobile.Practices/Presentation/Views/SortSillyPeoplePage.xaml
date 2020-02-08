@@ -56,11 +56,11 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 BackgroundColor="Transparent"
-                                Command="{Binding OnItemTappedCommand}"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="15"
-                                Text="ADD A DUDE"
-                                TextColor="{StaticResource Accent}" />
+                                TextColor="{StaticResource Accent}"
+                                Command="{Binding OnItemTappedCommand}"
+                                Text="ADD A DUDE" />
                     </renderedViews:MaterialFrame>
                 </renderedViews:DraggableViewCell>
             </DataTemplate>
@@ -83,7 +83,7 @@
                             </DataTrigger>
                         </Frame.Triggers>
 
-                        <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*" />
                                 <RowDefinition Height="2*" />
@@ -118,10 +118,10 @@
     <ContentPage.Content>
         <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
                                           ColumnCount="1"
-                                          DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           EnableDragAndDrop="True"
+                                          ListLayout="Grid"
+                                          DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
                                           ItemTemplate="{StaticResource SortDudeTemplateSelector}"
-                                          ItemsSource="{Binding SillyPeople}"
-                                          ListLayout="Grid" />
+                                          ItemsSource="{Binding SillyPeople}" />
     </ContentPage.Content>
 </ContentPage>

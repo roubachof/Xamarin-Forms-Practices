@@ -36,8 +36,8 @@
                 <ViewCell>
                     <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
                         <StackLayout x:DataType="viewModels:SillyDudeVmo"
-                                     Orientation="Vertical"
-                                     Spacing="0">
+                                     Spacing="0"
+                                     Orientation="Vertical">
 
                             <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
                                                       VerticalOptions="StartAndExpand"
@@ -56,18 +56,18 @@
 
     <ContentView.Content>
         <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
-            <RefreshView Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}"
-                         IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
-                         RefreshColor="{StaticResource Accent}">
+            <RefreshView IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
+                         RefreshColor="{StaticResource Accent}"
+                         Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}">
                 <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
                                                   ColumnCount="1"
                                                   CurrentIndex="{Binding CurrentIndex}"
                                                   EnableDragAndDrop="True"
                                                   InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                  ItemsSource="{Binding SillyPeople}"
                                                   ListLayout="Grid"
                                                   ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}">
+                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                  ItemsSource="{Binding SillyPeople}">
                     <!--  TapCommand="{Binding GoToSillyDudeCommand}">  -->
                     <!--  ColumnCount="3"  -->
                     <!--  ItemTemplate="{StaticResource DudeDataTemplate}"  -->

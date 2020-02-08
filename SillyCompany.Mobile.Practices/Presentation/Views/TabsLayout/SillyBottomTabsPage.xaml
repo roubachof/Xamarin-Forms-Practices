@@ -65,8 +65,8 @@
             <tabs:TabHostView x:Name="TabHost"
                               Grid.Row="2"
                               BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                              TabType="Fixed">
+                              TabType="Fixed"
+                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                 <tabs:TabHostView.Tabs>
                     <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
                     <tb:SpamTab SpamImage="spam_classic_list.png" />
@@ -84,14 +84,14 @@
 
                     <!--  Circle button  -->
                     <tabs:TabButton x:Name="TabButton"
+                                    IsVisible="True"
                                     ButtonBackgroundColor="{StaticResource Accent}"
                                     ButtonCircleSize="60"
                                     ButtonPadding="15"
-                                    Clicked="TabButtonOnClicked"
                                     IconImageSource="camera_96.png"
-                                    IsVisible="True"
                                     Scale="1.3"
-                                    TranslationY="-10" />
+                                    TranslationY="-10"
+                                    Clicked="TabButtonOnClicked" />
 
                     <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
                     <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />

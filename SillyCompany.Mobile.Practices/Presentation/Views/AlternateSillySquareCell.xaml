@@ -8,10 +8,10 @@
                   Padding="{StaticResource StandardThickness}"
                   Elevation="4">
 
-    <StackLayout VerticalOptions="Center"
-                 x:DataType="vm:SillyDudeVmo"
-                 Orientation="Vertical"
-                 Spacing="0">
+    <StackLayout x:DataType="vm:SillyDudeVmo"
+                 Spacing="0"
+                 VerticalOptions="Center"
+                 Orientation="Vertical">
         <Label Style="{StaticResource TextBody}"
                Margin="{StaticResource SmallTopThickness}"
                HorizontalTextAlignment="Center"

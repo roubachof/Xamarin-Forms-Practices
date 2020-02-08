@@ -70,8 +70,8 @@
                 <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="2"
                                   BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                                  TabType="Fixed">
+                                  TabType="Fixed"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
 
                         <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
@@ -79,14 +79,14 @@
 
                         <!--  Circle button  -->
                         <tabs:TabButton x:Name="TabButton"
+                                        IsVisible="True"
                                         ButtonBackgroundColor="{StaticResource Accent}"
                                         ButtonCircleSize="60"
                                         ButtonPadding="15"
-                                        Clicked="TabButtonOnClicked"
                                         IconImageSource="camera_96.png"
-                                        IsVisible="True"
                                         Scale="1.3"
-                                        TranslationY="-10" />
+                                        TranslationY="-10"
+                                        Clicked="TabButtonOnClicked" />
 
                         <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
                         <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
@@ -105,8 +105,8 @@
 
                 <customViews2:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
                                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                                             AccentColor="{StaticResource Accent}"
                                              BackgroundColor="{StaticResource Primary}"
+                                             AccentColor="{StaticResource Accent}"
                                              TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
                     <Grid Padding="{StaticResource StandardThickness}"
                           ColumnSpacing="0"
@@ -135,13 +135,13 @@
                         <Label Grid.Row="1"
                                Style="{StaticResource TextTitle}"
                                VerticalOptions="End"
-                               Text="{Binding SillyDudeLoaderNotifier.Result.FullName}"
-                               TextColor="White" />
+                               TextColor="White"
+                               Text="{Binding SillyDudeLoaderNotifier.Result.FullName}" />
 
                         <Label Grid.Row="2"
                                Style="{StaticResource TextSubhead}"
-                               Text="{Binding SillyDudeLoaderNotifier.Result.Role}"
-                               TextColor="White" />
+                               TextColor="White"
+                               Text="{Binding SillyDudeLoaderNotifier.Result.Role}" />
 
                         <skiaRate:RatingView Grid.Row="3"
                                              WidthRequest="100"
@@ -157,9 +157,9 @@
                                           Grid.Row="4"
                                           Margin="-16,0"
                                           BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                                          SelectedIndex="{Binding Source={x:Reference RightSwitcher}, Path=SelectedIndex, Mode=TwoWay}"
                                           ShowScrollbar="False"
-                                          TabType="Scrollable">
+                                          TabType="Scrollable"
+                                          SelectedIndex="{Binding Source={x:Reference RightSwitcher}, Path=SelectedIndex, Mode=TwoWay}">
                             <tabs:TabHostView.Tabs>
                                 <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Quote}" />
                                 <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Filmography}" />

@@ -10,10 +10,10 @@
                   xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
                   Padding="{StaticResource StandardThickness}"
                   Elevation="4">
-    <StackLayout VerticalOptions="Center"
-                 x:DataType="vm:SillyDudeVmo"
-                 Orientation="Vertical"
-                 Spacing="0">
+    <StackLayout x:DataType="vm:SillyDudeVmo"
+                 Spacing="0"
+                 VerticalOptions="Center"
+                 Orientation="Vertical">
         <ic:CircleImage Style="{StaticResource LargeAvatar}"
                         Margin="0,0,0,20"
                         VerticalOptions="Center"

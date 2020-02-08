@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Diagnostics;
+
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Infrastructure
 {
@@ -17,6 +20,9 @@ namespace SillyCompany.Mobile.Practices.Infrastructure
 
     public static class PlatformService
     {
+        private static string _stopWatchMessage;
+        private static Stopwatch _stopwatch = new Stopwatch();
+
         public static double DisplayScaleFactor { get; private set; }
 
         public static Size MainSize { get; private set; }
@@ -74,6 +80,26 @@ namespace SillyCompany.Mobile.Practices.Infrastructure
         public static void InitializeFoldingScreen(bool isFoldingScreen)
         {
             IsFoldingScreen = isFoldingScreen;
+        }
+
+        public static void StartWatch(string message)
+        {
+            _stopWatchMessage = message;
+            _stopwatch.Start();
+        }
+
+        public static TimeSpan StopWatch()
+        {
+            _stopwatch.Stop();
+            var result = _stopwatch.Elapsed;
+            _stopwatch.Reset();
+            return result;
+        }
+
+        public static void StopWatchAndDisplay()
+        {
+            var result = StopWatch();
+            Trace.WriteLine($"{_stopWatchMessage} completed in {result.TotalMilliseconds:000} ms");
         }
 
         public static int DpToPixels(int dp) => (int)(DisplayScaleFactor * dp);

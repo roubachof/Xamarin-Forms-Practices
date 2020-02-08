@@ -10,8 +10,8 @@
                   Elevation="4">
 
     <StackLayout x:DataType="vm:SillyDudeVmo"
-                 Orientation="Horizontal"
-                 Spacing="16">
+                 Spacing="16"
+                 Orientation="Horizontal">
 
         <ic:CircleImage Style="{StaticResource SmallAvatar}"
                         Margin="0,0,0,0"
@@ -19,9 +19,9 @@
                         Aspect="AspectFill"
                         Source="{Binding ImageUrl}" />
 
-        <StackLayout VerticalOptions="Center"
-                     Orientation="Vertical"
-                     Spacing="0">
+        <StackLayout Spacing="0"
+                     VerticalOptions="Center"
+                     Orientation="Vertical">
 
             <Label Style="{StaticResource TextSubhead}"
                    VerticalOptions="Start"

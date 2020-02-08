@@ -6,10 +6,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              Title="{loc:Translate SillyInfiniteGridPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -52,16 +52,16 @@
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
-                        <StackLayout Orientation="Vertical"
-                                     x:DataType="viewModels:SillyDudeVmo"
+                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
+                                     Orientation="Vertical"
                                      Spacing="0">
 
-                            <abstractions:CircleImage VerticalOptions="StartAndExpand"
-                                                      Style="{StaticResource SmallAvatar}"
+                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
+                                                      VerticalOptions="StartAndExpand"
                                                       Aspect="AspectFill"
                                                       Source="{Binding ImageUrl}" />
-                            <Label Margin="{StaticResource MediumTopThickness}"
-                                   Style="{StaticResource TextSmallCaption}"
+                            <Label Style="{StaticResource TextSmallCaption}"
+                                   Margin="{StaticResource MediumTopThickness}"
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
@@ -80,11 +80,11 @@
                                               CurrentIndex="{Binding CurrentIndex}"
                                               EnableDragAndDrop="True"
                                               InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                              ItemTemplate="{StaticResource DudeDataTemplate}"
-                                              ItemsSource="{Binding SillyPeople}"
                                               ListLayout="Grid"
                                               ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                              ScrollEndedCommand="{Binding OnScrollEndCommand}" />
+                                              ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                              ItemTemplate="{StaticResource DudeDataTemplate}"
+                                              ItemsSource="{Binding SillyPeople}" />
             <!--</pullToRefresh:PullToRefreshLayout>-->
         </loader:TaskLoaderView>
     </ContentPage.Content>

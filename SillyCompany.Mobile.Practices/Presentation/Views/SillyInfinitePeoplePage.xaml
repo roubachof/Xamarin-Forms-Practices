@@ -25,9 +25,9 @@
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid Padding="{StaticResource StandardThickness}"
-                  ColumnSpacing="0"
-                  RowSpacing="0">
+            <Grid ColumnSpacing="0"
+                  RowSpacing="0"
+                  Padding="{StaticResource StandardThickness}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="TaskLoaderHeader" Height="30" />
@@ -55,9 +55,9 @@
                                 BackgroundColor="{StaticResource DarkElevation4dp}"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="Small"
-                                ItemsSource="{Binding ErrorEmulator.ErrorTypes}"
+                                TextColor="{StaticResource Accent}"
                                 SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
-                                TextColor="{StaticResource Accent}" />
+                                ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                     </StackLayout>
                 </renderedViews:MaterialFrame>
 
@@ -84,12 +84,12 @@
                                                      Margin="0,8,0,0"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">
-                            <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                            <Grid ColumnSpacing="0"
+                                  RowSpacing="0"
+                                  effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
                                   effects:TapCommandEffect.TapParameter="{Binding .}"
                                   effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                  BindingContext="{Binding SillyOfTheDay}"
-                                  ColumnSpacing="0"
-                                  RowSpacing="0">
+                                  BindingContext="{Binding SillyOfTheDay}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
@@ -154,13 +154,13 @@
                                VerticalOptions="End"
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="End"
+                               BackgroundColor="Transparent"
                                effects:TapCommandEffect.Tap="{Binding GoToSillyInfiniteGridPeopleCommand}"
                                effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                               BackgroundColor="Transparent"
                                FontFamily="{StaticResource FontSemiBold}"
                                FontSize="15"
-                               Text="{loc:Translate SillyPeople_GoToGrid}"
-                               TextColor="{StaticResource Accent}" />
+                               TextColor="{StaticResource Accent}"
+                               Text="{loc:Translate SillyPeople_GoToGrid}" />
 
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="3"
@@ -171,12 +171,12 @@
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                                           ItemSpacing="20"
-                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
-                                                          ItemsSource="{Binding SillyPeople}"
                                                           ListLayout="Linear"
                                                           ScrollBeganCommand="{Binding OnScrollBeginCommand}"
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                          SnapStyle="Center">
+                                                          SnapStyle="Center"
+                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                                          ItemsSource="{Binding SillyPeople}">
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
@@ -198,8 +198,8 @@
         <renderedViews:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                                      AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
                                      Padding="{StaticResource StandardThickness}"
-                                     BackgroundColor="#99F57C00"
-                                     IsVisible="False">
+                                     IsVisible="False"
+                                     BackgroundColor="#99F57C00">
 
             <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
 
@@ -216,8 +216,8 @@
             <Label Style="{StaticResource TextBody}"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
-                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}"
-                   TextColor="White" />
+                   TextColor="White"
+                   Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
         </renderedViews:MaterialFrame>
 
     </AbsoluteLayout>

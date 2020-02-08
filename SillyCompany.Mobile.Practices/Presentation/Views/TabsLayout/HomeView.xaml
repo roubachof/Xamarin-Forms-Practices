@@ -19,7 +19,7 @@
 
     <ContentView.Content>
         <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-            <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid RowSpacing="0" ColumnSpacing="0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
@@ -39,12 +39,12 @@
                                              Margin="16"
                                              Padding="{StaticResource StandardThickness}"
                                              Elevation="4">
-                    <Grid effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                          effects:TapCommandEffect.TapParameter="{Binding .}"
-                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                          BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
+                    <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
+                          RowSpacing="0"
                           ColumnSpacing="0"
-                          RowSpacing="0">
+                          effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                          effects:TapCommandEffect.TapParameter="{Binding .}"
+                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40" />
                             <RowDefinition Height="20" />
