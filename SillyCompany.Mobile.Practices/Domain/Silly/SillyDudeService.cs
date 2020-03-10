@@ -43,7 +43,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "will_ferrell.jpg",
 #else
-                            "http://www.2oceansvibe.com/wp-content/uploads/2017/10/willlferell.jpg",
+                            "https://news.usc.edu/files/2017/03/Will-Ferrell-Step-Brothers_Horizontal_web-824x549.jpg",
 #endif
                             4,
                             Filmos.Ferrell,
@@ -60,11 +60,11 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "knights_of_ni.jpg",
 #else
-                            "http://images.uncyc.org/commons/d/dd/The_leader_of_the_Knights_Who_Say_Ni.jpg",
+                            "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Knightni.jpg/400px-Knightni.jpg",
 #endif
                             5,
                             "ni!",
-                            "http://www.quickmeme.com/img/e8/e835352f2b7cd21efc12eba56c0d5a3e00c411965b029126cb5eb360fcfa6eb5.jpg",
+                            "https://i.imgflip.com/1fyfpo.jpg",
                             "https://www.youtube.com/watch?v=zIV4poUZAQo")
                     },
                     {
@@ -125,7 +125,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://wfmj.images.worldnow.com/images/6382251_G.jpg?auto=webp&disable=upscale&width=800",
+                            "https://resize-parismatch.lanmedia.fr/rcrop/250,250/img/var/news/storage/images/paris-match/people-a-z/ricky-gervais/6126908-7-fre-FR/Ricky-Gervais.jpg",
 #endif
                             3,
                             Filmos.Gervais,
@@ -158,7 +158,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://cdn.playbuzz.com/cdn/b0cd9743-c236-4c0e-b468-00f83724f117/e2b08eac-053b-4b06-8538-405852dc865b.jpg",
+                            "https://vignette.wikia.nocookie.net/fatherted/images/b/b2/Ted.jpg",
 #endif
                             4,
                             Filmos.Ted,
@@ -192,7 +192,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "http://4.bp.blogspot.com/_fMA4vs4kLc0/S0yka8se4NI/AAAAAAAAAtc/chbrVG878_0/s1600/carette+chabat.jpg",
+                            "https://www.jokeme.fr/images/les-nuls-JTN.jpg",
 #endif
                             4,
                             Filmos.LesNuls,
