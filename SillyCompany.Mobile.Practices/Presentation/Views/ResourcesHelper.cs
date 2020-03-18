@@ -8,6 +8,20 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 {
     public static class ResourcesHelper
     {
+        public const string DynamicPrimaryTextColor = nameof(DynamicPrimaryTextColor);
+        public const string DynamicSecondaryTextColor = nameof(DynamicSecondaryTextColor);
+
+        public const string DynamicNavigationBarColor = nameof(DynamicNavigationBarColor);
+        public const string DynamicBackgroundColor = nameof(DynamicBackgroundColor);
+        public const string DynamicBarTextColor = nameof(DynamicBarTextColor);
+
+        public const string DynamicTopShadow = nameof(DynamicTopShadow);
+        public const string DynamicBottomShadow = nameof(DynamicBottomShadow);
+
+        public const string DynamicHasShadow = nameof(DynamicHasShadow);
+
+        public const string Elevation4dpColor = nameof(Elevation4dpColor);
+
         public static T GetResource<T>(string key)
         {
             if (Application.Current.Resources.TryGetValue(key, out var value))
@@ -45,14 +59,38 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
         public static void SetDarkMode()
         {
-            // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
-            SetDynamicResource("DynamicNavigationBarColor", "DarkElevation2dp");
+            MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
+            SetDynamicResource(DynamicNavigationBarColor, "DarkElevation2dp");
+            SetDynamicResource(DynamicBarTextColor, "TextPrimaryDarkColor");
+
+            SetDynamicResource(DynamicTopShadow, ShadowType.None);
+            SetDynamicResource(DynamicBottomShadow, ShadowType.None);
+            SetDynamicResource(DynamicHasShadow, false);
+
+            SetDynamicResource(DynamicPrimaryTextColor, "TextPrimaryDarkColor");
+            SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryDarkColor");
+
+            SetDynamicResource(DynamicBackgroundColor, "DarkSurface");
+
+            SetDynamicResource(Elevation4dpColor, "DarkElevation4dp");
         }
 
         public static void SetLightMode()
         {
-            // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Light);
-            SetDynamicResource("DynamicNavigationBarColor", "SecondaryColor");
+            MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Light);
+            SetDynamicResource(DynamicNavigationBarColor, "Accent");
+            SetDynamicResource(DynamicBarTextColor, "TextPrimaryDarkColor");
+
+            SetDynamicResource(DynamicTopShadow, ShadowType.Top);
+            SetDynamicResource(DynamicBottomShadow, ShadowType.Bottom);
+            SetDynamicResource(DynamicHasShadow, true);
+
+            SetDynamicResource(DynamicPrimaryTextColor, "TextPrimaryLightColor");
+            SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryLightColor");
+
+            SetDynamicResource(DynamicBackgroundColor, "LightSurface");
+
+            SetDynamicResource(Elevation4dpColor, "OnSurfaceColor");
         }
     }
 }

@@ -8,12 +8,12 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="TextTitleStyle"
-                   BasedOn="{StaticResource TextTitle}"
+                   BasedOn="{StaticResource TextHeadline}"
                    TargetType="Label">
                 <Setter Property="HorizontalOptions">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="LayoutOptions">
-                            <On Platform="iOS">Center</On>
+                            <On Platform="iOS">Start</On>
                             <On Platform="Android">Start</On>
                         </OnPlatform>
                     </Setter.Value>
@@ -21,12 +21,12 @@
                 <Setter Property="Margin">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS">0,0,0,0</On>
-                            <On Platform="Android">22,0,0,0</On>
+                            <On Platform="iOS">30,30,30,10</On>
+                            <On Platform="Android">30,30,30,10</On>
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="End" />
             </Style>
 
             <OnPlatform x:Key="StatusBarHeight" x:TypeArguments="GridLength">
@@ -38,15 +38,16 @@
     </ContentView.Resources>
     <ContentView.Content>
         <Grid x:Name="Grid"
-              ColumnSpacing="0"
-              RowSpacing="0">
+              RowSpacing="0"
+              ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="{StaticResource StatusBarHeight}" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition x:Name="SubtitleRowDefinition" Height="0" />
                 <RowDefinition x:Name="ShadowRowDefinition" Height="0" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition x:Name="ButtonColumnDefinition" Width="0" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
@@ -58,8 +59,8 @@
             <ContentView x:Name="BackButton"
                          Grid.Row="1"
                          Grid.Column="0"
-                         effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                         IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}">
+                         IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}"
+                         effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
                 <Image WidthRequest="24"
                        HeightRequest="24"
                        HorizontalOptions="Center"
@@ -72,11 +73,18 @@
             <Label Grid.Row="1"
                    Grid.Column="1"
                    Style="{StaticResource TextTitleStyle}"
-                   Text="{Binding Source={x:Reference RootLayout}, Path=Title}"
-                   TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}" />
+                   TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
+                   Text="{Binding Source={x:Reference RootLayout}, Path=Title}" />
+
+            <Label Grid.Row="2"
+                   Grid.Column="1"
+                   Style="{StaticResource TextBody}"
+                   Margin="30,0,30,30"
+                   TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
+                   Text="{Binding Source={x:Reference RootLayout}, Path=Subtitle}" />
 
             <renderedViews:ShadowBoxView x:Name="ShadowBoxView"
-                                         Grid.Row="2"
+                                         Grid.Row="3"
                                          Grid.Column="0"
                                          Grid.ColumnSpan="3"
                                          IsVisible="False"

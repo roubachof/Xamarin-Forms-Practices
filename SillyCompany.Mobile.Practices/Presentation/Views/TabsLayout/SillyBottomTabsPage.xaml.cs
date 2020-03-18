@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using Sharpnado.Presentation.Forms.Helpers;
 using Sharpnado.Presentation.Forms.RenderedViews;
 using Sharpnado.Tasks;
 
@@ -26,6 +27,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             _currentTheme = Theme.Dark;
             ApplyTheme();
+
+            GridContainer.RaiseChild(Toolbar);
+            GridContainer.RaiseChild(TabHost);
         }
 
         private enum Theme
@@ -48,28 +52,50 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
             if (_currentTheme == Theme.Light)
             {
                 ResourcesHelper.SetLightMode();
-                TabHost.ShadowType = ShadowType.None;
                 return;
             }
 
             ResourcesHelper.SetDarkMode();
-            TabHost.ShadowType = ShadowType.None;
         }
 
         private void TabButtonOnClicked(object sender, EventArgs e)
         {
             TaskMonitor.Create(AnimateTabButton);
-
-            _currentTheme = _currentTheme == Theme.Light ? Theme.Dark : Theme.Light;
-            ApplyTheme();
         }
 
         private async Task AnimateTabButton()
         {
-            await TabButton.ScaleTo(2);
-            await TabButton.ScaleTo(1);
-            await TabButton.ScaleTo(2);
-            await TabButton.ScaleTo(1);
+            double sourceScale = TabButton.Scale;
+            Color sourceColor = TabButton.ButtonBackgroundColor;
+            Color targetColor = _currentTheme == Theme.Light
+                ? ResourcesHelper.GetResourceColor("DarkSurface")
+                : Color.White;
+
+            await TabButton.ScaleTo(3);
+            await TabButton.ScaleTo(sourceScale);
+            TabButton.IconImageSource = null;
+
+            var bigScaleTask = TabButton.ScaleTo(30, length: 500);
+            var colorChangeTask = TabButton.ColorTo(
+                sourceColor,
+                targetColor,
+                callback: c => TabButton.ButtonBackgroundColor = c,
+                length: 500);
+            await Task.WhenAll(bigScaleTask, colorChangeTask);
+
+            _currentTheme = _currentTheme == Theme.Light ? Theme.Dark : Theme.Light;
+            ApplyTheme();
+
+            var reverseBigScaleTask = TabButton.ScaleTo(sourceScale, length: 500);
+            var reverseColorChangeTask = TabButton.ColorTo(
+                targetColor,
+                sourceColor,
+                c => TabButton.ButtonBackgroundColor = c,
+                length: 500);
+
+            await Task.WhenAll(reverseBigScaleTask, reverseColorChangeTask);
+
+            TabButton.IconImageSource = "theme_96.png";
         }
     }
 }

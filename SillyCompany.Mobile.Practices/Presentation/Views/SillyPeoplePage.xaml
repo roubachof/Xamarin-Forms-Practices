@@ -50,7 +50,8 @@
                                VerticalOptions="Center"
                                Text="{loc:Translate SillyPeople_ErrorEmulation}" />
 
-                        <Picker HorizontalOptions="FillAndExpand"
+                        <Picker x:Name="Picker"
+                                HorizontalOptions="FillAndExpand"
                                 BackgroundColor="{StaticResource DarkElevation4dp}"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="Small"

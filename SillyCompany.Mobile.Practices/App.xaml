@@ -20,8 +20,8 @@
             <converters:SizeScalingByScreenConverter x:Key="SizeScalingByScreenConverter" />
 
             <OnPlatform x:Key="ToolbarHeight" x:TypeArguments="GridLength">
-                <On Platform="iOS">80</On>
-                <On Platform="Android">60</On>
+                <On Platform="iOS">140</On>
+                <On Platform="Android">120</On>
             </OnPlatform>
 
             <Thickness x:Key="StatusBarHeightPadding"
@@ -43,8 +43,8 @@
 
             <GridLength x:Key="HeaderHeight">40</GridLength>
 
-
             <Color x:Key="DarkSurface">#121212</Color>
+            <Color x:Key="LightSurface">#00FF0266</Color>
 
             <Color x:Key="DarkElevation2dp">#212121</Color>
             <Color x:Key="DarkElevation4dp">#272727</Color>
@@ -61,12 +61,8 @@
 
             <Color x:Key="OnSurfaceColor">#FFFFFF</Color>
 
-            <Color x:Key="NavigationBarColor">#2D2D2D</Color>
+            <Color x:Key="NavigationBarLightColor">#FFFFFF</Color>
             <Color x:Key="BarTextColor">#FFFFFF</Color>
-
-            <Color x:Key="TextPrimaryColor">#FFFFFF</Color>
-            <Color x:Key="TextSecondaryColor">#C0C0C0</Color>
-            <Color x:Key="TextTernaryColor">#A0A0A0</Color>
 
             <Color x:Key="BlackC90">#414142</Color>
             <Color x:Key="BlackC50">#939598</Color>
@@ -82,10 +78,6 @@
             <Color x:Key="Accent">#FF0266</Color>
             <Color x:Key="TransparentAccent">#00121212</Color>
 
-            <!--<Color x:Key="Primary">#008DA8</Color>
-            <Color x:Key="Accent">#008DA8</Color>
-            <Color x:Key="TransparentAccent">#00008DA8</Color>-->
-
             <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
                 <Setter Property="Padding">
                     <Setter.Value>
@@ -95,12 +87,12 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BackgroundColor" Value="{StaticResource DarkSurface}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource DynamicBackgroundColor}" />
             </Style>
 
             <Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationBarColor}" />
-                <Setter Property="BarTextColor" Value="{StaticResource BarTextColor}" />
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource DynamicNavigationBarColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource DynamicBarTextColor}" />
             </Style>
 
             <x:Double x:Key="SmallPadding">4</x:Double>
@@ -142,9 +134,13 @@
             <x:Double x:Key="TextSizeCaption">12</x:Double>
             <x:Double x:Key="TextSizeSmallCaption">11</x:Double>
 
-            <!--<Color x:Key="TextPrimaryColor">#B0000000</Color>
-            <Color x:Key="TextSecondaryColor">#80000000</Color>
-            <Color x:Key="TextTernaryColor">#C8C8C8</Color>-->
+            <Color x:Key="TextPrimaryDarkColor">#FFFFFF</Color>
+            <Color x:Key="TextSecondaryDarkColor">#C0C0C0</Color>
+            <Color x:Key="TextTernaryDarkColor">#A0A0A0</Color>
+
+            <Color x:Key="TextPrimaryLightColor">#B0000000</Color>
+            <Color x:Key="TextSecondaryLightColor">#80000000</Color>
+            <Color x:Key="TextTernaryLightColor">#C8C8C8</Color>
 
             <x:Double x:Key="ListViewSingleLineHeight">48</x:Double>
             <x:Double x:Key="ListViewTwoLinesHeight">72</x:Double>
@@ -181,43 +177,49 @@
 
             <Style x:Key="TextHeadline" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontExtraBold}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeHeadline}" />
             </Style>
 
             <Style x:Key="TextTitle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontBold}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeTitle}" />
+            </Style>
+
+            <Style x:Key="TextSubheadline" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource FontExtraBold}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource TextSizeSubhead}" />
             </Style>
 
             <Style x:Key="TextSubhead" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeSubhead}" />
             </Style>
 
             <Style x:Key="TextSubheadSecondary" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
-                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicSecondaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeSubhead}" />
             </Style>
 
             <Style x:Key="TextBody" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontRegular}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeBody}" />
             </Style>
 
             <Style x:Key="TextBodySecondary" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeBody}" />
             </Style>
 
             <Style x:Key="TextCaption" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontRegular}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeCaption}" />
             </Style>
 
@@ -229,7 +231,7 @@
 
             <Style x:Key="TextCaptionSecondary" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource TextSizeCaption}" />
             </Style>
 
@@ -258,7 +260,7 @@
                    BasedOn="{StaticResource TextCenter}"
                    TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="TextColor" Value="{StaticResource TextSecondaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicSecondaryTextColor}" />
                 <Setter Property="LineBreakMode" Value="CharacterWrap" />
             </Style>
 
@@ -271,7 +273,7 @@
             </Style>
 
             <Style x:Key="TextHeader"
-                   BasedOn="{StaticResource TextSubhead}"
+                   BasedOn="{StaticResource TextSubheadline}"
                    TargetType="Label">
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="End" />
@@ -319,24 +321,24 @@
                 <Setter Property="EmptyStateMessage" Value="{localization:Translate Empty_Screen}" />
                 <Setter Property="EmptyStateImageSource" Value="dougal.png" />
                 <Setter Property="RetryButtonText" Value="{localization:Translate ErrorButton_Retry}" />
-                <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicPrimaryTextColor}" />
                 <Setter Property="ErrorImageConverter" Value="{StaticResource ExceptionToImageSourceConverter}" />
                 <Setter Property="ErrorMessageConverter" Value="{StaticResource ExceptionToErrorMessageConverter}" />
             </Style>
 
             <DataTemplate x:Key="SillyDataTemplate">
                 <ViewCell>
-                    <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                           effects:TapCommandEffect.TapParameter="{Binding .}"
-                                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                    <views:SillySquareCell effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                           effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                           effects:TapCommandEffect.TapParameter="{Binding .}" />
                 </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="AlternateSillyDataTemplate">
                 <ViewCell>
-                    <views:AlternateSillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                                    effects:TapCommandEffect.TapParameter="{Binding .}"
-                                                    effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                    <views:AlternateSillySquareCell effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                                    effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                    effects:TapCommandEffect.TapParameter="{Binding .}" />
                 </ViewCell>
             </DataTemplate>
 

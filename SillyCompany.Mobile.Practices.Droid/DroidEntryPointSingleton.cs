@@ -3,7 +3,6 @@
 //   The Silly Company 2016. All rights reserved.
 // </copyright>
 // <summary>
-//   
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +11,6 @@ using System.Threading.Tasks;
 using Android.Util;
 using ImageCircle.Forms.Plugin.Droid;
 using Refractored.XamForms.PullToRefresh.Droid;
-using SillyCompany.Mobile.Practices.Infrastructure;
 
 namespace SillyCompany.Mobile.Practices.Droid
 {

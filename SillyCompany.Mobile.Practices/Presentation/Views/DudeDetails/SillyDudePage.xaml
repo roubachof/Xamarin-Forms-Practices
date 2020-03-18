@@ -24,7 +24,7 @@
                 <Setter Property="LabelSize" Value="14" />
                 <Setter Property="Padding" Value="20, 0" />
                 <Setter Property="UnderlineAllTab" Value="False" />
-                <Setter Property="UnselectedLabelColor" Value="White" />
+                <Setter Property="UnselectedLabelColor" Value="Gray" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -33,10 +33,11 @@
 
         <loader:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                               BackgroundColor="{StaticResource Primary}"
+                               BackgroundColor="{DynamicResource DynamicBackgroundColor}"
                                AccentColor="{StaticResource Accent}"
                                TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-            <Grid RowSpacing="0"
+            <Grid x:Name="GridContainer"
+                  RowSpacing="0"
                   ColumnSpacing="0"
                   Padding="{StaticResource StandardThickness}">
                 <Grid.RowDefinitions>
@@ -84,7 +85,8 @@
                 <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Margin="-16,0"
-                                  BackgroundColor="{StaticResource DarkElevation4dp}"
+                                  BackgroundColor="{DynamicResource Elevation4dpColor}"
+                                  ShadowType="{DynamicResource DynamicBottomShadow}"
                                   ShowScrollbar="False"
                                   TabType="Scrollable"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">

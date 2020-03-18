@@ -9,7 +9,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
@@ -17,7 +16,6 @@ using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
-
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
@@ -26,13 +24,18 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
     {
         private readonly ISillyDudeService _sillyDudeService;
 
-        public SillyPeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService, ErrorEmulator errorEmulator)
+        public SillyPeopleVm(
+            INavigationService navigationService,
+            ISillyDudeService sillyDudeService,
+            ErrorEmulator errorEmulator)
             : base(navigationService)
         {
             _sillyDudeService = sillyDudeService;
             InitCommands();
 
-            ErrorEmulator = new ErrorEmulatorVm(errorEmulator, () => SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync));
+            ErrorEmulator = new ErrorEmulatorVm(
+                errorEmulator,
+                () => SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync));
             SillyPeopleLoaderNotifier = new TaskLoaderNotifier<ObservableCollection<SillyDudeVmo>>();
         }
 
@@ -96,8 +99,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
             RaisePropertyChanged(nameof(SillyOfTheDay));
             var result = new ObservableCollection<SillyDudeVmo>(
-                (await _sillyDudeService.GetSillyPeople())
-                    .Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)));
+                (await _sillyDudeService.GetSillyPeople()).Select(
+                    dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)));
 
             // Test the drag and drop lock
             // result.First().Lock();

@@ -11,10 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.Services;
-
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 
@@ -32,174 +30,150 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
         {
             _errorEmulator = errorEmulator;
             _repository = new Dictionary<int, SillyDude>
+            {
                 {
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Will Ferrell",
-                            "Actor",
-                            "Hey.\nThey laughed at Louis Armstrong when he said he was gonna go to the moon.\nNow he’s up there, laughing at them.",
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Will Ferrell",
+                        "Actor",
+                        "Hey.\nThey laughed at Louis Armstrong when he said he was gonna go to the moon.\nNow he’s up there, laughing at them.",
 #if LOCAL_DATA
                             "will_ferrell.jpg",
 #else
-                            "https://news.usc.edu/files/2017/03/Will-Ferrell-Step-Brothers_Horizontal_web-824x549.jpg",
+                        "https://news.usc.edu/files/2017/03/Will-Ferrell-Step-Brothers_Horizontal_web-824x549.jpg",
 #endif
-                            4,
-                            Filmos.Ferrell,
-                            "https://sayingimages.com/wp-content/uploads/dear-monday-will-ferrell-memes.jpg",
-                            "https://youtu.be/sPFRZP4qY7I?t=26")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Knights of Ni",
-                            "Knights",
-                            "Keepers of the sacred words 'Ni', 'Peng', and 'Neee-Wom'",
+                        4,
+                        Filmos.Ferrell,
+                        "https://sayingimages.com/wp-content/uploads/dear-monday-will-ferrell-memes.jpg",
+                        "https://youtu.be/sPFRZP4qY7I?t=26")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Knights of Ni",
+                        "Knights",
+                        "Keepers of the sacred words 'Ni', 'Peng', and 'Neee-Wom'",
 #if LOCAL_DATA
                             "knights_of_ni.jpg",
 #else
-                            "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Knightni.jpg/400px-Knightni.jpg",
+                        "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Knightni.jpg/400px-Knightni.jpg",
 #endif
-                            5,
-                            "ni!",
-                            "https://i.imgflip.com/1fyfpo.jpg",
-                            "https://www.youtube.com/watch?v=zIV4poUZAQo")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Jean-Claude",
-                            "Actor",
-                            "J’adore les cacahuètes.\nTu bois une bière et tu en as marre du goût. Alors tu manges des cacahuètes.\nLes cacahuètes, c’est doux et salé, fort et tendre, comme une femme. Manger des cacahuètes. It’s a really strong feeling.\nEt après tu as de nouveau envie de boire une bière.\nLes cacahuètes, c’est le mouvement perpétuel à la portée de l’homme.",
+                        5,
+                        "ni!",
+                        "https://i.imgflip.com/1fyfpo.jpg",
+                        "https://www.youtube.com/watch?v=zIV4poUZAQo")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Jean-Claude",
+                        "Actor",
+                        "J’adore les cacahuètes.\nTu bois une bière et tu en as marre du goût. Alors tu manges des cacahuètes.\nLes cacahuètes, c’est doux et salé, fort et tendre, comme une femme. Manger des cacahuètes. It’s a really strong feeling.\nEt après tu as de nouveau envie de boire une bière.\nLes cacahuètes, c’est le mouvement perpétuel à la portée de l’homme.",
 #if LOCAL_DATA
                             "jean_claude_van_damme.jpg",
 #else
-                            "https://m.media-amazon.com/images/M/MV5BNjU1NzVkOWMtYmJjYy00M2UwLTkxYmEtNmU0YjI5M2ZhYTU3XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
+                        "https://m.media-amazon.com/images/M/MV5BNjU1NzVkOWMtYmJjYy00M2UwLTkxYmEtNmU0YjI5M2ZhYTU3XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
 #endif
-                            5,
-                            Filmos.VanDamme,
-                            "https://www.planet.fr/files/styles/pano_xxl/public/images/diaporama/5/8/0/1615085/vignette-focus_3.jpg?itok=zMC9zW1c"
-                            )
-                    },
-//                    {
-//                        ++_peopleCounter,
-//                        new SillyDude(
-//                            _peopleCounter,
-//                            "Louis C.K.",
-//                            "Comedian",
-//                            "There are people that really live by doing the right thing, but I don't know what that is, I'm really curious about that.\nI'm really curious about what people think they're doing when they're doing something evil, casually.\nI think it's really interesting, that we benefit from suffering so much, and we excuse ourselves from it.",
-//#if LOCAL_DATA
-//                            "louis_ck.jpg",
-//#else
-//                            "http://pixel.nymag.com/imgs/daily/vulture/2016/04/21/21-louis-ck.w529.h529.jpg",
-//#endif
-//                            2)
-//                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Triumph",
-                            "Insult Comic Dog",
-                            "Occupy Wall Street, talking to a trader with a Fox News mustache on.\nThese protesters with their whining and crying right?\nDon't they realize that their public education are being funded from the taxes you evade each year?\nI don't want to keep you, you're a good man! You better hurry back from lunch so you can collect your hurry back from lunch bonus.",
+                        5,
+                        Filmos.VanDamme,
+                        "https://www.planet.fr/files/styles/pano_xxl/public/images/diaporama/5/8/0/1615085/vignette-focus_3.jpg?itok=zMC9zW1c")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Triumph",
+                        "Insult Comic Dog",
+                        "Occupy Wall Street, talking to a trader with a Fox News mustache on.\nThese protesters with their whining and crying right?\nDon't they realize that their public education are being funded from the taxes you evade each year?\nI don't want to keep you, you're a good man! You better hurry back from lunch so you can collect your hurry back from lunch bonus.",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://jnxz07-a.akamaihd.net/wp-content/uploads/2015/03/triumph-e1425247855563.jpeg",
+                        "https://jnxz07-a.akamaihd.net/wp-content/uploads/2015/03/triumph-e1425247855563.jpeg",
 #endif
-                            2,
-                            Filmos.Triumph,
-                            "https://i.imgflip.com/xi0tk.jpg",
-                            "https://youtu.be/O-253uBJap8?t=315")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Ricky Gervais",
-                            "Comedian",
-                            "Science seeks the truth. And it does not discriminate. For better or worse it finds things out.\nScience is humble.\nIt knows what it knows and it knows what it doesn’t know. It bases its conclusions and beliefs on hard evidence -­- evidence that is constantly updated and upgraded.\nIt doesn’t get offended when new facts come along. It embraces the body of knowledge.\nIt doesn’t hold on to medieval practices because they are tradition.",
+                        2,
+                        Filmos.Triumph,
+                        "https://i.imgflip.com/xi0tk.jpg",
+                        "https://youtu.be/O-253uBJap8?t=315")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Ricky Gervais",
+                        "Comedian",
+                        "Science seeks the truth. And it does not discriminate. For better or worse it finds things out.\nScience is humble.\nIt knows what it knows and it knows what it doesn’t know. It bases its conclusions and beliefs on hard evidence -­- evidence that is constantly updated and upgraded.\nIt doesn’t get offended when new facts come along. It embraces the body of knowledge.\nIt doesn’t hold on to medieval practices because they are tradition.",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://resize-parismatch.lanmedia.fr/rcrop/250,250/img/var/news/storage/images/paris-match/people-a-z/ricky-gervais/6126908-7-fre-FR/Ricky-Gervais.jpg",
+                        "https://resize-parismatch.lanmedia.fr/rcrop/250,250/img/var/news/storage/images/paris-match/people-a-z/ricky-gervais/6126908-7-fre-FR/Ricky-Gervais.jpg",
 #endif
-                            3,
-                            Filmos.Gervais,
-                            "https://pics.me.me/what-can-be-more-arrogant-than-believing-that-the-same-13060011.png")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Steve Carell",
-                            "Comedian",
-                            "Vincent van Gogh. Everyone told him: \"You only have one ear. You cannot be a great artist.\"\nAnd you know what he said?\n\"I can\'t hear you.",
+                        3,
+                        Filmos.Gervais,
+                        "https://pics.me.me/what-can-be-more-arrogant-than-believing-that-the-same-13060011.png")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Steve Carell",
+                        "Comedian",
+                        "Vincent van Gogh. Everyone told him: \"You only have one ear. You cannot be a great artist.\"\nAnd you know what he said?\n\"I can\'t hear you.",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://pixel.nymag.com/imgs/daily/vulture/2018/12/22/23-brick.w330.h330.jpg",
+                        "https://pixel.nymag.com/imgs/daily/vulture/2018/12/22/23-brick.w330.h330.jpg",
 #endif
-                            3,
-                            Filmos.Carell,
-                            "https://sayingimages.com/wp-content/uploads/fool-me-once-michael-scott-memes-1.jpg",
-                            "https://youtu.be/N9Z4vqysxMQ?t=92")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Father Ted",
-                            "Priest",
-                            "My Lovely Horse,\r\nRunning through the field,\r\nWhere are you going,\r\nWith your fetlocks blowing,\r\nIn the wind.\r\n\r\n“I want to shower you with sugar lumps,\r\nAnd ride you over fences,\r\nI want to polish your hooves every single day,\r\nAnd bring you to the horse dentist.\r\n\r\n“My lovely horse,\r\nYou’re a pony no more,\r\nRunning around,\r\nWith a man on your back,\r\nLike a train in the night,\r\nLike a train in the night!”",
+                        3,
+                        Filmos.Carell,
+                        "https://sayingimages.com/wp-content/uploads/fool-me-once-michael-scott-memes-1.jpg",
+                        "https://youtu.be/N9Z4vqysxMQ?t=92")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Father Ted",
+                        "Priest",
+                        "My Lovely Horse,\r\nRunning through the field,\r\nWhere are you going,\r\nWith your fetlocks blowing,\r\nIn the wind.\r\n\r\n“I want to shower you with sugar lumps,\r\nAnd ride you over fences,\r\nI want to polish your hooves every single day,\r\nAnd bring you to the horse dentist.\r\n\r\n“My lovely horse,\r\nYou’re a pony no more,\r\nRunning around,\r\nWith a man on your back,\r\nLike a train in the night,\r\nLike a train in the night!”",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://vignette.wikia.nocookie.net/fatherted/images/b/b2/Ted.jpg",
+                        "https://vignette.wikia.nocookie.net/fatherted/images/b/b2/Ted.jpg",
 #endif
-                            4,
-                            Filmos.Ted,
-                            "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/blogs/129003/2014/08/158581-164751.jpg?itok=f7HhI_lo",
-                            "https://www.youtube.com/watch?v=jzYzVMcgWhg")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Moss",
-                            "IT Guy",
-                            "Did you see that ludicrous display last night?\nThe thing about Arsenal is, they always try to walk it in!",
+                        4,
+                        Filmos.Ted,
+                        "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/blogs/129003/2014/08/158581-164751.jpg?itok=f7HhI_lo",
+                        "https://www.youtube.com/watch?v=jzYzVMcgWhg")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Moss",
+                        "IT Guy",
+                        "Did you see that ludicrous display last night?\nThe thing about Arsenal is, they always try to walk it in!",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-it-crowd-richard-ayoade.jpg",
+                        "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-it-crowd-richard-ayoade.jpg",
 #endif
-                            3,
-                            Filmos.Moss,
-                            "https://images1.memedroid.com/images/UPLOADED8/501f9cd68575e.jpeg",
-                            "https://youtu.be/NKHyqjHqQLU?t=32")
-                    },
-                    {
-                        ++_peopleCounter,
-                        new SillyDude(
-                            _peopleCounter,
-                            "Les Nuls",
-                            "Crétins Fabuleux",
-                            "Agad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors.\n",
+                        3,
+                        Filmos.Moss,
+                        "https://images1.memedroid.com/images/UPLOADED8/501f9cd68575e.jpeg",
+                        "https://youtu.be/NKHyqjHqQLU?t=32")
+                },
+                {
+                    ++_peopleCounter, new SillyDude(
+                        _peopleCounter,
+                        "Les Nuls",
+                        "Crétins Fabuleux",
+                        "Agad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors!\nAgad la té'évision é pis dors.\nAgad la té'évision é pis dors.\n",
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                            "https://www.jokeme.fr/images/les-nuls-JTN.jpg",
+                        "https://www.jokeme.fr/images/les-nuls-JTN.jpg",
 #endif
-                            4,
-                            Filmos.LesNuls,
-                            "https://img.static-rmg.be/a/view/q75/w720/h480/2223699/un-clin-doeil-a-la-cite-de-la-peur-sur-le-site-de-2-24535-1433777643-0-dblbig-jpg.jpg",
-                            "https://www.youtube.com/watch?v=lNEpFJYduto")
-                    },
-                };
+                        4,
+                        Filmos.LesNuls,
+                        "https://img.static-rmg.be/a/view/q75/w720/h480/2223699/un-clin-doeil-a-la-cite-de-la-peur-sur-le-site-de-2-24535-1433777643-0-dblbig-jpg.jpg",
+                        "https://www.youtube.com/watch?v=lNEpFJYduto")
+                },
+            };
 
             for (int id = 1; id < 200; id++)
             {

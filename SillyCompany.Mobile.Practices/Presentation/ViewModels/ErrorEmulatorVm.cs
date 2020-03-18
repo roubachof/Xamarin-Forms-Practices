@@ -18,14 +18,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             _errorEmulator = errorEmulator;
             _onErrorTypeChanged = onErrorTypeChanged;
 
-            ErrorTypes = new List<string>
-            {
-                SillyResources.ErrorType_None,
-                SillyResources.ErrorType_Unknown,
-                SillyResources.ErrorType_Network,
-                SillyResources.ErrorType_Server,
-                SillyResources.ErrorType_NoData,
-            };
+            ErrorTypes = ErrorEmulator.ErrorLabels;
         }
 
         public IReadOnlyList<string> ErrorTypes { get; }

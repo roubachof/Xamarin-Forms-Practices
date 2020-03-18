@@ -24,7 +24,6 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         public ICommand OnSillyDudeAddedCommand { get; private set; }
 
-
         public ObservableCollection<SillyDudeVmo> SillyPeople { get; set; }
 
         public override void Load(object parameter)

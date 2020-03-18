@@ -72,7 +72,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
             if (!(expression is LambdaExpression lamda))
             {
-                throw new NotSupportedException("Getting property name form expression is not supported for this type.");
+                throw new NotSupportedException(
+                    "Getting property name form expression is not supported for this type.");
             }
 
             if (lamda.Body is MemberExpression memberExpression)

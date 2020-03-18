@@ -7,6 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Converters;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,6 +23,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         public SillyInfinitePeoplePage()
         {
             InitializeComponent();
+
+            Picker.ItemsSource = ErrorEmulator.ErrorLabels;
 
             TaskLoaderHeader.Height = SizeScalingByScreenConverter.Instance.Convert(TaskLoaderHeader.Height.Value);
             SillyOfTheDayHeader.Height = SizeScalingByScreenConverter.Instance.Convert(SillyOfTheDayHeader.Height.Value);

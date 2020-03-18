@@ -48,8 +48,9 @@
                                VerticalOptions="Center"
                                Text="{localization:Translate SillyPeople_ErrorEmulation}" />
 
-                        <Picker HorizontalOptions="FillAndExpand"
-                                BackgroundColor="{StaticResource DarkElevation4dp}"
+                        <Picker x:Name="Picker"
+                                HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{DynamicResource Elevation4dpColor}"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="Small"
                                 TextColor="{StaticResource Accent}"
@@ -113,8 +114,8 @@
             <!--  Error box displayed when trying to navigate to the knights of ni  -->
             <renderedViews:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                                          AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                         Padding="{StaticResource StandardThickness}"
                                          IsVisible="False"
+                                         Padding="{StaticResource StandardThickness}"
                                          BackgroundColor="#99F57C00">
 
                 <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->

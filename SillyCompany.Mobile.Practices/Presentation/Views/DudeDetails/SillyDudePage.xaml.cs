@@ -22,6 +22,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails
         {
             SetValue(NavigationPage.HasNavigationBarProperty, false);
             InitializeComponent();
+
+            GridContainer.RaiseChild(TabHost);
         }
 
         protected override void OnAppearing()

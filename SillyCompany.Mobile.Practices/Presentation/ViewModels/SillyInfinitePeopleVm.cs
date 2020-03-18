@@ -10,7 +10,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using Sharpnado.Presentation.Forms;
 using Sharpnado.Presentation.Forms.Paging;
 using Sharpnado.Presentation.Forms.Services;
@@ -20,7 +19,6 @@ using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails;
-
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
@@ -32,7 +30,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
         private int _currentIndex = -1;
 
-        public SillyInfinitePeopleVm(INavigationService navigationService, ISillyDudeService sillyDudeService, ErrorEmulator errorEmulator)
+        public SillyInfinitePeopleVm(
+            INavigationService navigationService,
+            ISillyDudeService sillyDudeService,
+            ErrorEmulator errorEmulator)
             : base(navigationService)
         {
             _sillyDudeService = sillyDudeService;
@@ -41,7 +42,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             ErrorEmulator = new ErrorEmulatorVm(errorEmulator, Load);
 
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
-            SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize, loadingThreshold: 0.1f);
+            SillyPeoplePaginator = new Paginator<SillyDude>(
+                LoadSillyPeoplePageAsync,
+                pageSize: PageSize,
+                loadingThreshold: 0.1f);
             SillyPeopleLoaderNotifier = new TaskLoaderNotifier<IReadOnlyCollection<SillyDude>>();
         }
 
@@ -83,13 +87,14 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
             RaisePropertyChanged(nameof(SillyPeople));
 
-            SillyPeopleLoaderNotifier.Load(async () =>
-            {
-                SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
-                RaisePropertyChanged(nameof(SillyOfTheDay));
+            SillyPeopleLoaderNotifier.Load(
+                async () =>
+                {
+                    SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
+                    RaisePropertyChanged(nameof(SillyOfTheDay));
 
-                return (await SillyPeoplePaginator.LoadPage(1)).Items;
-            });
+                    return (await SillyPeoplePaginator.LoadPage(1)).Items;
+                });
         }
 
         /// <summary>

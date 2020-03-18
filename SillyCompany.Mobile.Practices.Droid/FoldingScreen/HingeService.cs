@@ -18,13 +18,13 @@ namespace Xamarin.Duo.Forms.Samples
     {
         private static ScreenHelper helper;
 
-        private int _hingeAngle;
-
-        private Rectangle _hingeLocation;
-
         private readonly HingeSensor hingeSensor;
 
         private readonly bool isDuo;
+
+        private int _hingeAngle;
+
+        private Rectangle _hingeLocation;
 
         public HingeService()
         {
