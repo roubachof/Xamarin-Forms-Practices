@@ -14,6 +14,4 @@ Sample app for the https://github.com/roubachof/Sharpnado.Presentation.Forms lib
 * TaskLoaderView 2.0
 * Paginator
 
-|   |   |
-|---|---|
-| <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/android_silly_app.gif" width="320"  /> | <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/dark_mode_ios.gif" width="320"  /> |
+<img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/android_silly_app.gif" width="320"  />  <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/dark_mode_ios.gif" width="320"  /> 
