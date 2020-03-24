@@ -30,7 +30,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.SurfaceDuo
         private enum Theme
         {
             Light = 0,
-            Dark,
+            Dark = 1,
+            Acrylic = 2,
         }
 
         protected override void OnAppearing()
@@ -44,15 +45,13 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.SurfaceDuo
 
         private void ApplyTheme()
         {
-            if (_currentTheme == Theme.Light)
+            if (_currentTheme == Theme.Light || _currentTheme == Theme.Acrylic)
             {
-                ResourcesHelper.SetLightMode();
-                TabHost.ShadowType = ShadowType.None;
+                ResourcesHelper.SetLightMode(_currentTheme == Theme.Acrylic);
                 return;
             }
 
             ResourcesHelper.SetDarkMode();
-            TabHost.ShadowType = ShadowType.None;
         }
 
         private void TabButtonOnClicked(object sender, EventArgs e)

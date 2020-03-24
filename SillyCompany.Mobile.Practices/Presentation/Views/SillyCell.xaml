@@ -7,17 +7,24 @@
                   xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
                   xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
                   Padding="{StaticResource StandardThickness}"
-                  Elevation="4">
+                  Elevation="4"
+                  LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
 
     <StackLayout x:DataType="vm:SillyDudeVmo"
                  Spacing="16"
                  Orientation="Horizontal">
 
-        <ic:CircleImage Style="{StaticResource SmallAvatar}"
-                        Margin="0,0,0,0"
-                        VerticalOptions="Start"
-                        Aspect="AspectFill"
-                        Source="{Binding ImageUrl}" />
+        <Frame WidthRequest="50"
+               HeightRequest="50"
+               Padding="0"
+               VerticalOptions="Start"
+               CornerRadius="25"
+               HasShadow="{DynamicResource DynamicHasShadow}"
+               IsClippedToBounds="True">
+            <Image Style="{StaticResource SmallAvatar}"
+                   Aspect="AspectFill"
+                   Source="{Binding ImageUrl}" />
+        </Frame>
 
         <StackLayout Spacing="0"
                      VerticalOptions="Center"

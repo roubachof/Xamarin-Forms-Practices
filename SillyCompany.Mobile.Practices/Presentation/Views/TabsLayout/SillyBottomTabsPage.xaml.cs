@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 
 using Sharpnado.Presentation.Forms.Helpers;
-using Sharpnado.Presentation.Forms.RenderedViews;
 using Sharpnado.Tasks;
 
 using Xamarin.Forms;
@@ -35,7 +34,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         private enum Theme
         {
             Light = 0,
-            Dark,
+            Dark = 1,
+            Acrylic = 2,
         }
 
         protected override void OnAppearing()
@@ -49,9 +49,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
         private void ApplyTheme()
         {
-            if (_currentTheme == Theme.Light)
+            if (_currentTheme == Theme.Light || _currentTheme == Theme.Acrylic)
             {
-                ResourcesHelper.SetLightMode();
+                ResourcesHelper.SetLightMode(_currentTheme == Theme.Acrylic);
                 return;
             }
 
@@ -83,7 +83,15 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
                 length: 500);
             await Task.WhenAll(bigScaleTask, colorChangeTask);
 
-            _currentTheme = _currentTheme == Theme.Light ? Theme.Dark : Theme.Light;
+            if (_currentTheme == Theme.Acrylic)
+            {
+                _currentTheme = Theme.Light;
+            }
+            else
+            {
+                _currentTheme += 1;
+            }
+
             ApplyTheme();
 
             var reverseBigScaleTask = TabButton.ScaleTo(sourceScale, length: 500);

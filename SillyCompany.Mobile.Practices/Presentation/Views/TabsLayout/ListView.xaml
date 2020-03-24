@@ -41,7 +41,8 @@
                 <renderedViews:MaterialFrame Grid.Row="1"
                                              Margin="0,16"
                                              Padding="16,10"
-                                             Elevation="4">
+                                             Elevation="4"
+                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
                     <StackLayout Spacing="10" Orientation="Horizontal">
 
                         <Label Style="{StaticResource TextBody}"
@@ -67,7 +68,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
-                            <RowDefinition Height="260" />
+                            <RowDefinition Height="270" />
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->
@@ -81,22 +82,23 @@
                                Text="{localization:Translate SillyPeople_InfiniteListView}" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <renderedViews:HorizontalListView Grid.Row="1"
+                        <!--<renderedViews:HorizontalListView Grid.Row="1"
                                                           Margin="-16,8"
-                                                          CollectionPadding="40,10"
+                                                          CollectionPadding="30,10,30,0"
                                                           ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                          ItemSpacing="20"
+                                                          ItemSpacing="10"
                                                           ListLayout="Linear"
                                                           SnapStyle="Center"
                                                           ScrollBeganCommand="{Binding OnScrollBeginCommand}"
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
                                                           ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                           ItemsSource="{Binding SillyPeople}">
-                            <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
-                            <!--<renderedViews:HorizontalListView.ItemTemplate>
+                        -->
+                        <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
+                        <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
@@ -105,37 +107,12 @@
                                 </ViewCell>
                             </DataTemplate>
                         </renderedViews:HorizontalListView.ItemTemplate>-->
-                        </renderedViews:HorizontalListView>
+                        <!--
+                        </renderedViews:HorizontalListView>-->
                     </Grid>
                 </loader:TaskLoaderView>
 
             </Grid>
-
-            <!--  Error box displayed when trying to navigate to the knights of ni  -->
-            <renderedViews:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                         IsVisible="False"
-                                         Padding="{StaticResource StandardThickness}"
-                                         BackgroundColor="#99F57C00">
-
-                <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
-
-                <Frame.Triggers>
-                    <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
-                                 TargetType="Frame"
-                                 Value="True">
-                        <Setter Property="IsVisible" Value="True" />
-                    </DataTrigger>
-                </Frame.Triggers>
-                <Frame.Behaviors>
-                    <behaviors:TimedVisibilityBehavior />
-                </Frame.Behaviors>
-                <Label Style="{StaticResource TextBody}"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       TextColor="White"
-                       Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
-            </renderedViews:MaterialFrame>
 
         </AbsoluteLayout>
     </ContentView.Content>

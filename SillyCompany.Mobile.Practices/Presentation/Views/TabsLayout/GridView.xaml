@@ -20,37 +20,9 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
-                <Setter Property="ItemHeight" Value="110" />
-                <Setter Property="ItemSpacing">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32">
-                            <On Platform="iOS">8</On>
-                            <On Platform="Android">8</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="CollectionPadding" Value="15" />
+                <Setter Property="ItemHeight" Value="130" />
+                <Setter Property="CollectionPadding" Value="10,15" />
             </Style>
-
-            <DataTemplate x:Key="DudeDataTemplate">
-                <ViewCell>
-                    <renderedViews:MaterialFrame Padding="{StaticResource StandardThickness}" Elevation="4">
-                        <StackLayout x:DataType="viewModels:SillyDudeVmo"
-                                     Spacing="0"
-                                     Orientation="Vertical">
-
-                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
-                                                      VerticalOptions="StartAndExpand"
-                                                      Aspect="AspectFill"
-                                                      Source="{Binding ImageUrl}" />
-                            <Label Style="{StaticResource TextSmallCaption}"
-                                   Margin="{StaticResource MediumTopThickness}"
-                                   HorizontalTextAlignment="Center"
-                                   Text="{Binding Name}" />
-                        </StackLayout>
-                    </renderedViews:MaterialFrame>
-                </ViewCell>
-            </DataTemplate>
         </ResourceDictionary>
     </ContentView.Resources>
 
@@ -70,13 +42,13 @@
                                                   ItemsSource="{Binding SillyPeople}">
                     <!--  TapCommand="{Binding GoToSillyDudeCommand}">  -->
                     <!--  ColumnCount="3"  -->
-                    <!--  ItemTemplate="{StaticResource DudeDataTemplate}"  -->
                     <renderedViews:HorizontalListView.ItemTemplate>
                         <DataTemplate>
                             <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                                <ContentView effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                             effects:TapCommandEffect.TapParameter="{Binding .}"
-                                             effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
+                                <ContentView Padding="5,5,5,10"
+                                             effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                             effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                             effects:TapCommandEffect.TapParameter="{Binding .}">
                                     <views:SillyCell Margin="4"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">

@@ -6,7 +6,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
-             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
@@ -23,7 +22,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
-                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0"
@@ -37,46 +36,49 @@
                 <!--  ROW 1: Silly Of The Day  -->
                 <renderedViews:MaterialFrame Grid.Row="1"
                                              Margin="16"
-                                             Padding="{StaticResource StandardThickness}"
-                                             Elevation="4">
+                                             Padding="16,32"
+                                             Elevation="4"
+                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
                     <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
                           RowSpacing="0"
                           ColumnSpacing="0"
+                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                           effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                          effects:TapCommandEffect.TapParameter="{Binding .}"
-                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
+                          effects:TapCommandEffect.TapParameter="{Binding .}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="40" />
+                            <RowDefinition Height="25" />
                             <RowDefinition Height="20" />
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="35" />
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="136" />
+                            <ColumnDefinition Width="112" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <ic:CircleImage Grid.Row="0"
-                                        Grid.RowSpan="4"
-                                        Grid.Column="0"
-                                        Style="{StaticResource LargeAvatar}"
-                                        Margin="16,0"
-                                        HorizontalOptions="Start"
-                                        Aspect="AspectFill"
-                                        Source="{Binding ImageUrl}" />
+
+                        <Frame Grid.Row="0"
+                               Grid.RowSpan="3"
+                               Grid.Column="0"
+                               HeightRequest="80"
+                               Margin="16,0"
+                               Padding="0"
+                               CornerRadius="40"
+                               HasShadow="{DynamicResource DynamicHasShadow}"
+                               IsClippedToBounds="True">
+                            <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                        </Frame>
 
                         <Label Grid.Row="0"
                                Grid.Column="1"
                                Style="{StaticResource TextBody}"
-                               Margin="0,0,0,0"
+                               Margin="0"
                                HorizontalOptions="Start"
-                               VerticalOptions="End"
+                               VerticalOptions="Center"
                                Text="{Binding Name}" />
 
                         <Label Grid.Row="1"
                                Grid.Column="1"
                                Style="{StaticResource TextBodySecondary}"
-                               Margin="0,4,0,0"
                                HorizontalOptions="Start"
                                VerticalOptions="Center"
                                Text="{Binding Role}" />
@@ -85,7 +87,7 @@
                                              Grid.Column="1"
                                              WidthRequest="100"
                                              HeightRequest="20"
-                                             VerticalOptions="End"
+                                             VerticalOptions="Center"
                                              ColorOn="{StaticResource Accent}"
                                              Count="5"
                                              OutlineOffColor="Transparent"

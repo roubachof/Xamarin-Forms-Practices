@@ -22,6 +22,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
         public const string Elevation4dpColor = nameof(Elevation4dpColor);
 
+        public const string DynamicLightThemeColor = nameof(DynamicLightThemeColor);
+
         public static T GetResource<T>(string key)
         {
             if (Application.Current.Resources.TryGetValue(key, out var value))
@@ -60,6 +62,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
         public static void SetDarkMode()
         {
             MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
+
             SetDynamicResource(DynamicNavigationBarColor, "DarkElevation2dp");
             SetDynamicResource(DynamicBarTextColor, "TextPrimaryDarkColor");
 
@@ -75,22 +78,25 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(Elevation4dpColor, "DarkElevation4dp");
         }
 
-        public static void SetLightMode()
+        public static void SetLightMode(bool isAcrylic)
         {
-            MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Light);
+            MaterialFrame.ChangeGlobalTheme(isAcrylic ? MaterialFrame.Theme.Acrylic : MaterialFrame.Theme.Light);
+
             SetDynamicResource(DynamicNavigationBarColor, "Accent");
             SetDynamicResource(DynamicBarTextColor, "TextPrimaryDarkColor");
 
-            SetDynamicResource(DynamicTopShadow, ShadowType.Top);
+            SetDynamicResource(DynamicTopShadow,  isAcrylic ? ShadowType.AcrylicTop : ShadowType.Top);
             SetDynamicResource(DynamicBottomShadow, ShadowType.Bottom);
             SetDynamicResource(DynamicHasShadow, true);
 
             SetDynamicResource(DynamicPrimaryTextColor, "TextPrimaryLightColor");
             SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryLightColor");
 
-            SetDynamicResource(DynamicBackgroundColor, "LightSurface");
+            SetDynamicResource(DynamicBackgroundColor, isAcrylic ? "AcrylicSurface" : "LightSurface");
 
-            SetDynamicResource(Elevation4dpColor, "OnSurfaceColor");
+            SetDynamicResource(Elevation4dpColor, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
+
+            SetDynamicResource(DynamicLightThemeColor, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
         }
     }
 }

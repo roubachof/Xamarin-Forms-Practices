@@ -45,6 +45,7 @@
 
             <Color x:Key="DarkSurface">#121212</Color>
             <Color x:Key="LightSurface">#00FF0266</Color>
+            <Color x:Key="AcrylicSurface">#E4E4E4</Color>
 
             <Color x:Key="DarkElevation2dp">#212121</Color>
             <Color x:Key="DarkElevation4dp">#272727</Color>
@@ -60,6 +61,8 @@
             <Color x:Key="OnSecondaryColor">#000000</Color>
 
             <Color x:Key="OnSurfaceColor">#FFFFFF</Color>
+
+            <Color x:Key="AcrylicFrameBackgroundColor">#F1F1F1</Color>
 
             <Color x:Key="NavigationBarLightColor">#FFFFFF</Color>
             <Color x:Key="BarTextColor">#FFFFFF</Color>
@@ -302,8 +305,8 @@
                    TargetType="Image">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HeightRequest" Value="60" />
-                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="WidthRequest" Value="80" />
             </Style>
 
             <Style x:Key="LargeAvatar"
@@ -311,8 +314,8 @@
                    TargetType="Image">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HeightRequest" Value="120" />
-                <Setter Property="WidthRequest" Value="120" />
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="100" />
             </Style>
 
             <Style x:Key="SillyTaskLoader" TargetType="loader:TaskLoaderView">
