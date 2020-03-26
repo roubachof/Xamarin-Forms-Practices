@@ -61,6 +61,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         private void TabButtonOnClicked(object sender, EventArgs e)
         {
             TaskMonitor.Create(AnimateTabButton);
+
+            ((HomeView)HomeLazyView.Content).LogMaterialFrameContent();
         }
 
         private async Task AnimateTabButton()

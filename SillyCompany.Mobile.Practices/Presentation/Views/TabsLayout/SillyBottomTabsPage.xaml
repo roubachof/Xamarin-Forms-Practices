@@ -58,7 +58,9 @@
                 <!--<tabsLayout:HomeView BindingContext="{Binding HomePageViewModel}" />
                 <tabsLayout:ListView BindingContext="{Binding ListPageViewModel}" />
                 <tabsLayout:GridView BindingContext="{Binding GridPageViewModel}" />-->
-                <customViews:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
+                <customViews:LazyView x:Name="HomeLazyView"
+                                      x:TypeArguments="tabsLayout:HomeView"
+                                      BindingContext="{Binding HomePageViewModel}" />
                 <customViews:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
                 <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
                 <Label Style="{StaticResource TextHeader}"

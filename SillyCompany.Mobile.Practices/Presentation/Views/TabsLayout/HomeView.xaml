@@ -34,7 +34,8 @@
                        Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
 
                 <!--  ROW 1: Silly Of The Day  -->
-                <renderedViews:MaterialFrame Grid.Row="1"
+                <renderedViews:MaterialFrame x:Name="MaterialFrame"
+                                             Grid.Row="1"
                                              Margin="16"
                                              Padding="16,32"
                                              Elevation="4"
