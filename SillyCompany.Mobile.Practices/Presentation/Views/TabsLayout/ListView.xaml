@@ -68,7 +68,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
-                            <RowDefinition Height="270" />
+                            <RowDefinition Height="280" />
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->
@@ -82,9 +82,9 @@
                                Text="{localization:Translate SillyPeople_InfiniteListView}" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <!--<renderedViews:HorizontalListView Grid.Row="1"
+                        <renderedViews:HorizontalListView Grid.Row="1"
                                                           Margin="-16,8"
-                                                          CollectionPadding="30,10,30,0"
+                                                          CollectionPadding="30,10,30,10"
                                                           ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
@@ -96,19 +96,19 @@
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
                                                           ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                           ItemsSource="{Binding SillyPeople}">
-                        -->
-                        <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
-                        <!--<renderedViews:HorizontalListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                                           effects:TapCommandEffect.TapParameter="{Binding .}"
-                                                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
-                                </ViewCell>
-                            </DataTemplate>
-                        </renderedViews:HorizontalListView.ItemTemplate>-->
-                        <!--
-                        </renderedViews:HorizontalListView>-->
+
+                            <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
+                            <!--<renderedViews:HorizontalListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <views:SillySquareCell effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                               effects:TapCommandEffect.TapParameter="{Binding .}"
+                                                               effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}" />
+                                    </ViewCell>
+                                </DataTemplate>
+                            </renderedViews:HorizontalListView.ItemTemplate>-->
+
+                        </renderedViews:HorizontalListView>
                     </Grid>
                 </loader:TaskLoaderView>
 

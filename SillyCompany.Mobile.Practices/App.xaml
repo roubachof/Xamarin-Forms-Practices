@@ -62,7 +62,7 @@
 
             <Color x:Key="OnSurfaceColor">#FFFFFF</Color>
 
-            <Color x:Key="AcrylicFrameBackgroundColor">#F1F1F1</Color>
+            <Color x:Key="AcrylicFrameBackgroundColor">#F4F4F4</Color>
 
             <Color x:Key="NavigationBarLightColor">#FFFFFF</Color>
             <Color x:Key="BarTextColor">#FFFFFF</Color>
