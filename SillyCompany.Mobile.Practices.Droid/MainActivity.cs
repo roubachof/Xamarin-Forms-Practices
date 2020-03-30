@@ -27,7 +27,7 @@ namespace SillyCompany.Mobile.Practices.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            ToolbarResource = Resource.Layout.toolbar;
+            ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
 
