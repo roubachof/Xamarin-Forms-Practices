@@ -31,9 +31,6 @@ namespace SillyCompany.Mobile.Practices
         public App()
         {
             InitializeComponent();
-
-            MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
-
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 
             IBindablePage firstScreenView;
@@ -44,9 +41,10 @@ namespace SillyCompany.Mobile.Practices
             else
             {
 #if INFINITE_LIST
-            firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
+                MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
+                firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #else
-            firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
+                firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
 #endif
             }
 

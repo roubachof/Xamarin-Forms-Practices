@@ -6,6 +6,7 @@
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
     <Application.Resources>
@@ -44,7 +45,7 @@
             <GridLength x:Key="HeaderHeight">40</GridLength>
 
             <Color x:Key="DarkSurface">#121212</Color>
-            <Color x:Key="LightSurface">#00FF0266</Color>
+            <Color x:Key="LightSurface">#02FF0266</Color>
             <Color x:Key="AcrylicSurface">#E4E4E4</Color>
 
             <Color x:Key="DarkElevation2dp">#212121</Color>

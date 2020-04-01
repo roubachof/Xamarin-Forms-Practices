@@ -18,6 +18,14 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <ResourceDictionary>
+                <Style ApplyToDerivedTypes="True" TargetType="renderedViews:MaterialFrame">
+                    <Setter Property="MaterialTheme" Value="Acrylic" />
+                    <Setter Property="LightThemeBackgroundColor" Value="{StaticResource AcrylicFrameBackgroundColor}" />
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </ResourceDictionary>
+
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
                 <Setter Property="ItemHeight" Value="100" />
                 <Setter Property="ItemSpacing">
