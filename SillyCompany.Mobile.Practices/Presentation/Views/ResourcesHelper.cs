@@ -24,6 +24,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
         public const string DynamicLightThemeColor = nameof(DynamicLightThemeColor);
 
+        public const string DynamicCornerRadius = nameof(DynamicCornerRadius);
+
         public static T GetResource<T>(string key)
         {
             if (Application.Current.Resources.TryGetValue(key, out var value))
@@ -76,6 +78,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicBackgroundColor, "DarkSurface");
 
             SetDynamicResource(Elevation4dpColor, "DarkElevation4dp");
+
+            SetDynamicResource(DynamicCornerRadius, 5);
         }
 
         public static void SetLightMode(bool isAcrylic)
@@ -97,6 +101,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(Elevation4dpColor, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
 
             SetDynamicResource(DynamicLightThemeColor, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
+
+            SetDynamicResource(DynamicCornerRadius, isAcrylic ? 10 : 5);
         }
     }
 }

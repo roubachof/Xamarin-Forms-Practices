@@ -360,6 +360,10 @@
                 <Setter Property="IsTextVisible" Value="False" />
             </Style>
 
+            <Style TargetType="rv:MaterialFrame">
+                <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
