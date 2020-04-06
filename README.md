@@ -11,6 +11,7 @@ Sample app for the https://github.com/roubachof/Sharpnado.Presentation.Forms lib
 
 * HorizontalListView
 * Tabs
+* MaterialFrame
 * TaskLoaderView 2.0
 * Paginator
 
