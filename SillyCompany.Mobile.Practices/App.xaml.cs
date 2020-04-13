@@ -40,7 +40,7 @@ namespace SillyCompany.Mobile.Practices
             }
             else
             {
-#if INFINITE_LIST
+#if INFINITE_LIST || RELEASE
                 firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #else
                 firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();

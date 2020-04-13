@@ -46,12 +46,16 @@
                 <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{DynamicResource BottomSafeArea}" />
             </Grid.RowDefinitions>
 
-            <tb:Toolbar x:Name="Toolbar"
-                        Title="Silly App!"
-                        BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                        ForegroundColor="White"
-                        HasShadow="{DynamicResource DynamicHasShadow}"
-                        Subtitle="The Official sample app for the Sharpnado's components" />
+            <renderedViews:MaterialFrame Padding="0"
+                                         IsClippedToBounds="True"
+                                         MaterialTheme="AcrylicBlur">
+                <tb:Toolbar x:Name="Toolbar"
+                            Title="Silly App!"
+                            BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                            ForegroundColor="White"
+                            HasShadow="{DynamicResource DynamicHasShadow}"
+                            Subtitle="The Official sample app for the Sharpnado's components" />
+            </renderedViews:MaterialFrame>
 
             <tabs:ViewSwitcher x:Name="Switcher"
                                Grid.Row="1"
