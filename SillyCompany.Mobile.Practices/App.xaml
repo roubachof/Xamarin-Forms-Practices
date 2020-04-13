@@ -361,6 +361,7 @@
             </Style>
 
             <Style TargetType="rv:MaterialFrame">
+                <Setter Property="MaterialTheme" Value="AcrylicBlur" />
                 <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
             </Style>
 

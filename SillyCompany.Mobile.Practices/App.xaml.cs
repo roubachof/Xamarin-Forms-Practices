@@ -41,7 +41,6 @@ namespace SillyCompany.Mobile.Practices
             else
             {
 #if INFINITE_LIST
-                MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.Dark);
                 firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #else
                 firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();

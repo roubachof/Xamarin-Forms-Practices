@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using Sharpnado.Presentation.Forms.Helpers;
+using Sharpnado.Presentation.Forms.RenderedViews;
 using Sharpnado.Tasks;
 
 using Xamarin.Forms;
@@ -24,8 +25,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
-            _currentTheme = Theme.Dark;
-            ApplyTheme();
+            _currentTheme = Theme.Acrylic;
+            // ApplyTheme();
 
             GridContainer.RaiseChild(Toolbar);
             GridContainer.RaiseChild(TabHost);
@@ -52,6 +53,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
             if (_currentTheme == Theme.Light || _currentTheme == Theme.Acrylic)
             {
                 ResourcesHelper.SetLightMode(_currentTheme == Theme.Acrylic);
+                // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.AcrylicBlur);
                 return;
             }
 
@@ -60,7 +62,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
         private void TabButtonOnClicked(object sender, EventArgs e)
         {
-            TaskMonitor.Create(AnimateTabButton);
+            // TaskMonitor.Create(AnimateTabButton);
 
             ((HomeView)HomeLazyView.Content).LogMaterialFrameContent();
         }

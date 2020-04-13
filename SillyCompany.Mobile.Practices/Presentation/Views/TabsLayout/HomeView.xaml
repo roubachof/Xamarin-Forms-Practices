@@ -39,10 +39,12 @@
                                              Margin="16"
                                              Padding="16,32"
                                              Elevation="4"
+                                             MaterialTheme="AcrylicBlur"
                                              LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
                     <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
                           RowSpacing="0"
                           ColumnSpacing="0"
+                          Margin="5"
                           effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                           effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
                           effects:TapCommandEffect.TapParameter="{Binding .}">

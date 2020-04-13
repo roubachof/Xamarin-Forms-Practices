@@ -39,7 +39,7 @@ namespace SillyCompany.Mobile.Practices.Droid
             HingeService.MainActivity = this;
 
             Forms.Init(this, bundle);
-            Android.Glide.Forms.Init(this);
+            // Android.Glide.Forms.Init(this);
 
             this.LoadApplication(new App());
         }
