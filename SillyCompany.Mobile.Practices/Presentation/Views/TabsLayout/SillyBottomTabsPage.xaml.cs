@@ -13,10 +13,19 @@ using NavigationPage = Xamarin.Forms.NavigationPage;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 {
+    public enum AppTheme
+    {
+        Light = 0,
+        Dark = 1,
+        Acrylic = 2,
+        Mixed = 3,
+        AcrylicBlur = 4,
+    }
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SillyBottomTabsPage : SillyContentPage, IBindablePage
     {
-        private Theme _currentTheme;
+        private AppTheme _currentAppTheme;
 
         public SillyBottomTabsPage()
         {
@@ -25,18 +34,11 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
-            _currentTheme = Theme.Acrylic;
-            // ApplyTheme();
+            _currentAppTheme = AppTheme.Acrylic;
+            ApplyTheme();
 
             GridContainer.RaiseChild(Toolbar);
             GridContainer.RaiseChild(TabHost);
-        }
-
-        private enum Theme
-        {
-            Light = 0,
-            Dark = 1,
-            Acrylic = 2,
         }
 
         protected override void OnAppearing()
@@ -50,19 +52,29 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
         private void ApplyTheme()
         {
-            if (_currentTheme == Theme.Light || _currentTheme == Theme.Acrylic)
+            switch (_currentAppTheme)
             {
-                ResourcesHelper.SetLightMode(_currentTheme == Theme.Acrylic);
-                // MaterialFrame.ChangeGlobalTheme(MaterialFrame.Theme.AcrylicBlur);
-                return;
+                case AppTheme.Acrylic:
+                    ResourcesHelper.SetLightMode(true);
+                    break;
+                case AppTheme.Mixed:
+                    ResourcesHelper.SetDarkBlur();
+                    break;
+                case AppTheme.AcrylicBlur:
+                    ResourcesHelper.SetLightBlur();
+                    break;
+                case AppTheme.Light:
+                    ResourcesHelper.SetLightMode(false);
+                    break;
+                case AppTheme.Dark:
+                    ResourcesHelper.SetDarkMode();
+                    break;
             }
-
-            ResourcesHelper.SetDarkMode();
         }
 
         private void TabButtonOnClicked(object sender, EventArgs e)
         {
-            // TaskMonitor.Create(AnimateTabButton);
+            TaskMonitor.Create(AnimateTabButton);
 
             ((HomeView)HomeLazyView.Content).LogMaterialFrameContent();
         }
@@ -71,7 +83,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         {
             double sourceScale = TabButton.Scale;
             Color sourceColor = TabButton.ButtonBackgroundColor;
-            Color targetColor = _currentTheme == Theme.Light
+            Color targetColor = _currentAppTheme == AppTheme.Light
                 ? ResourcesHelper.GetResourceColor("DarkSurface")
                 : Color.White;
 
@@ -80,25 +92,28 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
             TabButton.IconImageSource = null;
 
             var bigScaleTask = TabButton.ScaleTo(30, length: 500);
+
             var colorChangeTask = TabButton.ColorTo(
                 sourceColor,
                 targetColor,
                 callback: c => TabButton.ButtonBackgroundColor = c,
                 length: 500);
+
             await Task.WhenAll(bigScaleTask, colorChangeTask);
 
-            if (_currentTheme == Theme.Acrylic)
+            if (_currentAppTheme == AppTheme.AcrylicBlur)
             {
-                _currentTheme = Theme.Light;
+                _currentAppTheme = AppTheme.Light;
             }
             else
             {
-                _currentTheme += 1;
+                _currentAppTheme += 1;
             }
 
             ApplyTheme();
 
             var reverseBigScaleTask = TabButton.ScaleTo(sourceScale, length: 500);
+
             var reverseColorChangeTask = TabButton.ColorTo(
                 targetColor,
                 sourceColor,

@@ -11,6 +11,8 @@ using Android.Views;
 
 using Microsoft.Device.Display;
 
+using Sharpnado.Presentation.Forms.Droid.Renderers.MaterialFrame;
+
 using SillyCompany.Mobile.Practices.Infrastructure;
 
 using Xamarin.Duo.Forms.Samples;
@@ -39,7 +41,8 @@ namespace SillyCompany.Mobile.Practices.Droid
             HingeService.MainActivity = this;
 
             Forms.Init(this, bundle);
-            // Android.Glide.Forms.Init(this);
+            Android.Glide.Forms.Init(this);
+            AndroidMaterialFrameRenderer.ThrowStopExceptionOnDraw = false;
 
             this.LoadApplication(new App());
         }

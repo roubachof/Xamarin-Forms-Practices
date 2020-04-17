@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\BorderlessPickerRenderer.cs" />
     <Compile Include="Renderers\iOSNavigationBarRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
@@ -302,6 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\bliss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vista.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

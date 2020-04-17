@@ -7,6 +7,10 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
+using MetroLog;
+
 using Sharpnado.Presentation.Forms.RenderedViews;
 
 using SillyCompany.Mobile.Practices.Infrastructure;
@@ -25,12 +29,17 @@ namespace SillyCompany.Mobile.Practices
     /// </summary>
     public partial class App : Application
     {
+        private static readonly ILogger Logger = LoggerFactory.GetLogger(nameof(App));
+
         /// <summary>
         /// Initializes a new instance of the <see cref="App"/> class.
         /// </summary>
         public App()
         {
             InitializeComponent();
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
+
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 
             IBindablePage firstScreenView;
@@ -51,6 +60,11 @@ namespace SillyCompany.Mobile.Practices
             NavigationPage.SetHasNavigationBar(MainPage, false);
             var firstScreenVm = (ANavigableViewModel)firstScreenView.BindingContext;
             firstScreenVm.Load(null);
+        }
+
+        private void CurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Logger.Error($"Unhandled exception: {e}");
         }
 
         /// <summary>

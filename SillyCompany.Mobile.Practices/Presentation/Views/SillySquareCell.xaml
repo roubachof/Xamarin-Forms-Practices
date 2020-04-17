@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              Padding="10,0,10,20">
     <rv:MaterialFrame Padding="{StaticResource StandardThickness}"
-                      Elevation="4"
+                      Elevation="{DynamicResource DynamicElevation}"
                       LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
         <StackLayout x:DataType="vm:SillyDudeVmo"
                      Spacing="0"

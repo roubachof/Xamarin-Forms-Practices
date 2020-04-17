@@ -15,7 +15,7 @@
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         ios:Page.UseSafeArea="true"
-                        BackgroundImageSource="bliss.jpg">
+                        BackgroundImageSource="{DynamicResource DynamicBackgroundImageSource}">
 
     <d:ContentPage.BindingContext>
         <vm:SillyBottomTabsPageViewModel />
@@ -46,19 +46,9 @@
                 <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{DynamicResource BottomSafeArea}" />
             </Grid.RowDefinitions>
 
-            <renderedViews:MaterialFrame Padding="0"
-                                         IsClippedToBounds="True"
-                                         MaterialTheme="AcrylicBlur">
-                <tb:Toolbar x:Name="Toolbar"
-                            Title="Silly App!"
-                            BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                            ForegroundColor="White"
-                            HasShadow="{DynamicResource DynamicHasShadow}"
-                            Subtitle="The Official sample app for the Sharpnado's components" />
-            </renderedViews:MaterialFrame>
-
             <tabs:ViewSwitcher x:Name="Switcher"
-                               Grid.Row="1"
+                               Grid.Row="0"
+                               Grid.RowSpan="3"
                                Animate="False"
                                SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                 <!--<tabsLayout:HomeView BindingContext="{Binding HomePageViewModel}" />
@@ -75,21 +65,33 @@
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </tabs:ViewSwitcher>
 
-
-            <!--
-                BackgroundColor="{DynamicResource Elevation4dpColor}"
-                ShadowType="{DynamicResource DynamicTopShadow}"
-            -->
+            <renderedViews:MaterialFrame Grid.Row="0"
+                                         Padding="0"
+                                         CornerRadius="0"
+                                         IsClippedToBounds="True"
+                                         MaterialTheme="{DynamicResource DynamicBlurTheme}"
+                                         StyleId="1111">
+                <tb:Toolbar x:Name="Toolbar"
+                            Title="Silly App!"
+                            BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                            ForegroundColor="{DynamicResource DynamicBarTextColor}"
+                            HasShadow="{DynamicResource DynamicHasShadow}"
+                            Subtitle="The Official sample app for the Sharpnado's components" />
+            </renderedViews:MaterialFrame>
 
             <renderedViews:MaterialFrame Grid.Row="2"
+                                         IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                          Padding="0"
+                                         CornerRadius="0"
                                          IsClippedToBounds="False"
-                                         MaterialTheme="AcrylicBlur" />
+                                         MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
+                                         MaterialTheme="AcrylicBlur"
+                                         StyleId="9999" />
 
             <tabs:TabHostView x:Name="TabHost"
                               Grid.Row="2"
-                              BackgroundColor="Transparent"
-                              ShadowType="None"
+                              BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
+                              ShadowType="{DynamicResource DynamicTopShadow}"
                               TabType="Fixed"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                 <tabs:TabHostView.Tabs>
@@ -124,6 +126,15 @@
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
 
+
+            <renderedViews:MaterialFrame Grid.Row="3"
+                                         IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
+                                         Padding="0"
+                                         CornerRadius="0"
+                                         IsClippedToBounds="False"
+                                         MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
+                                         MaterialTheme="AcrylicBlur"
+                                         StyleId="909090909" />
 
             <BoxView Grid.Row="3" BackgroundColor="{Binding Source={x:Reference TabHost}, Path=BackgroundColor}" />
 

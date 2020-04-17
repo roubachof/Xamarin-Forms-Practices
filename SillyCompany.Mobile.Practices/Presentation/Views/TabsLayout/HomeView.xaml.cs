@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using Sharpnado.Presentation.Forms.RenderedViews;
-using Sharpnado.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,7 +23,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             System.Diagnostics.Debug.WriteLine(dumpedFrame);
 
-            TaskMonitor.Create(Animate);
+            // TaskMonitor.Create(Animate);
         }
 
         private async Task Animate()

@@ -283,6 +283,7 @@
                 <Setter Property="VerticalTextAlignment" Value="End" />
                 <Setter Property="VerticalOptions" Value="End" />
                 <Setter Property="Margin" Value="0, 0, 0, 8" />
+                <Setter Property="TextColor" Value="{DynamicResource DynamicHeaderTextColor}" />
             </Style>
 
             <Style TargetType="Button">
@@ -360,8 +361,11 @@
                 <Setter Property="IsTextVisible" Value="False" />
             </Style>
 
-            <Style TargetType="rv:MaterialFrame">
-                <Setter Property="MaterialTheme" Value="AcrylicBlur" />
+            <Style ApplyToDerivedTypes="True" TargetType="rv:MaterialFrame">
+                <!--<Setter Property="MaterialTheme" Value="AcrylicBlur" />
+                <Setter Property="AndroidBlurRadius" Value="10" />-->
+                <Setter Property="MaterialBlurStyle" Value="{DynamicResource DynamicBlurStyle}" />
+                <Setter Property="MaterialTheme" Value="{DynamicResource DynamicMaterialTheme}" />
                 <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
             </Style>
 

@@ -9,6 +9,7 @@
                         xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails"
                         xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
                         xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
@@ -56,10 +57,22 @@
                        Aspect="AspectFill"
                        Source="{Binding SillyDudeLoaderNotifier.Result.ImageUrl}" />
 
-                <BoxView Grid.Row="1"
+                <!--<BoxView Grid.Row="1"
                          Grid.RowSpan="3"
                          Margin="-16,0"
-                         BackgroundColor="#99000000" />
+                         BackgroundColor="#99000000" />-->
+
+
+                <renderedViews:MaterialFrame Grid.Row="1"
+                                             Grid.RowSpan="3"
+                                             Margin="-16,0"
+                                             Padding="0"
+                                             AndroidBlurRootElement="{Binding Source={x:Reference GridContainer}}"
+                                             CornerRadius="0"
+                                             IsClippedToBounds="False"
+                                             MaterialBlurStyle="Dark"
+                                             MaterialTheme="AcrylicBlur"
+                                             StyleId="7777" />
 
                 <Label Grid.Row="1"
                        Style="{StaticResource TextTitle}"

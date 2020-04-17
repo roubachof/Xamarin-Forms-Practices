@@ -18,7 +18,9 @@
 
     <ContentView.Content>
         <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-            <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid RowSpacing="0"
+                  ColumnSpacing="0"
+                  Margin="0,120,0,0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
@@ -38,9 +40,10 @@
                                              Grid.Row="1"
                                              Margin="16"
                                              Padding="16,32"
-                                             Elevation="4"
-                                             MaterialTheme="AcrylicBlur"
-                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
+                                             Elevation="{DynamicResource DynamicElevation}"
+                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}"
+                                             MaterialTheme="{DynamicResource DynamicBlurTheme}"
+                                             StyleId="5555">
                     <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
                           RowSpacing="0"
                           ColumnSpacing="0"
@@ -66,7 +69,7 @@
                                Margin="16,0"
                                Padding="0"
                                CornerRadius="40"
-                               HasShadow="{DynamicResource DynamicHasShadow}"
+                               HasShadow="False"
                                IsClippedToBounds="True">
                             <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
                         </Frame>

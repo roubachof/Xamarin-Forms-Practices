@@ -22,6 +22,7 @@
                   ColumnSpacing="0"
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                  Margin="0,120,0,0"
                   Padding="{StaticResource StandardThickness}">
 
                 <Grid.RowDefinitions>
@@ -41,7 +42,7 @@
                 <renderedViews:MaterialFrame Grid.Row="1"
                                              Margin="0,16"
                                              Padding="16,10"
-                                             Elevation="4"
+                                             Elevation="{DynamicResource DynamicElevation}"
                                              LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
                     <StackLayout Spacing="10" Orientation="Horizontal">
 
@@ -51,7 +52,7 @@
 
                         <Picker x:Name="Picker"
                                 HorizontalOptions="FillAndExpand"
-                                BackgroundColor="{DynamicResource Elevation4dpColor}"
+                                BackgroundColor="Transparent"
                                 FontFamily="{StaticResource FontSemiBold}"
                                 FontSize="Small"
                                 TextColor="{StaticResource Accent}"

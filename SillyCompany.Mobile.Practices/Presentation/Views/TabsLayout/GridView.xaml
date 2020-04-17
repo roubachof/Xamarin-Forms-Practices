@@ -21,7 +21,7 @@
         <ResourceDictionary>
             <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
                 <Setter Property="ItemHeight" Value="130" />
-                <Setter Property="CollectionPadding" Value="10,15" />
+                <Setter Property="CollectionPadding" Value="10,145,10,75" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -51,7 +51,7 @@
                                              effects:TapCommandEffect.TapParameter="{Binding .}">
                                     <views:SillyCell Margin="4"
                                                      Padding="{StaticResource StandardThickness}"
-                                                     Elevation="4">
+                                                     Elevation="{DynamicResource DynamicElevation}">
                                         <Frame.Triggers>
                                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
                                                          TargetType="renderedViews:MaterialFrame"
