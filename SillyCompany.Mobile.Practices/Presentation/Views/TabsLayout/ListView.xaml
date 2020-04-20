@@ -22,8 +22,13 @@
                   ColumnSpacing="0"
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                  Margin="0,120,0,0"
                   Padding="{StaticResource StandardThickness}">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0,140,0,0</On>
+                        <On Platform="Android">0,120,0,0</On>
+                    </OnPlatform>
+                </Grid.Margin>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60" />

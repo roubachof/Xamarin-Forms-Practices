@@ -27,7 +27,7 @@ namespace SillyCompany.Mobile.Practices.Droid
                 (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density),
                 (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density));
 
-            SharpnadoInitializer.Initialize(enableInternalLogger: true, enableInternalDebugLogger: false);
+            SharpnadoInitializer.Initialize(enableInternalLogger: false, enableInternalDebugLogger: false);
 
             RegisterActivityLifecycleCallbacks(this);
         }

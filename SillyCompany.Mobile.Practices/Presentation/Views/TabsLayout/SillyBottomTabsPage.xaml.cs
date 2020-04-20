@@ -18,7 +18,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         Light = 0,
         Dark = 1,
         Acrylic = 2,
-        Mixed = 3,
+        AcrylicDarkBlur = 3,
         AcrylicBlur = 4,
     }
 
@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
-            _currentAppTheme = AppTheme.Acrylic;
+            _currentAppTheme = AppTheme.AcrylicDarkBlur;
             ApplyTheme();
 
             GridContainer.RaiseChild(Toolbar);
@@ -57,7 +57,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
                 case AppTheme.Acrylic:
                     ResourcesHelper.SetLightMode(true);
                     break;
-                case AppTheme.Mixed:
+                case AppTheme.AcrylicDarkBlur:
                     ResourcesHelper.SetDarkBlur();
                     break;
                 case AppTheme.AcrylicBlur:

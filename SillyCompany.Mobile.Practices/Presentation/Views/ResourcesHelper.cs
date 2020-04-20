@@ -148,10 +148,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
         public static void SetDarkBlur()
         {
-            SetDynamicResource(DynamicMaterialTheme, MaterialFrame.Theme.AcrylicBlur);
-            SetDynamicResource(DynamicBlurTheme, MaterialFrame.Theme.AcrylicBlur);
-
-            SetDynamicResource(DynamicBlurStyle, MaterialFrame.BlurStyle.Dark);
+            SetDynamicResource(DynamicBackgroundImageSource, new FileImageSource { File = "vista_portrait_2.jpg" });
 
             SetDynamicResource(DynamicNavigationBarColor, Color.Transparent);
 
@@ -175,15 +172,14 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicBottomTabBlurStyle, MaterialFrame.BlurStyle.Dark);
             SetDynamicResource(DynamicBottomBarBackground, Color.Transparent);
 
-            SetDynamicResource(DynamicBackgroundImageSource, new FileImageSource { File = "vista.jpg" });
+            SetDynamicResource(DynamicMaterialTheme, MaterialFrame.Theme.AcrylicBlur);
+            SetDynamicResource(DynamicBlurTheme, MaterialFrame.Theme.AcrylicBlur);
+            SetDynamicResource(DynamicBlurStyle, MaterialFrame.BlurStyle.Dark);
         }
 
         public static void SetLightBlur()
         {
-            SetDynamicResource(DynamicMaterialTheme, MaterialFrame.Theme.AcrylicBlur);
-            SetDynamicResource(DynamicBlurTheme, MaterialFrame.Theme.AcrylicBlur);
-
-            SetDynamicResource(DynamicBlurStyle, MaterialFrame.BlurStyle.Light);
+            SetDynamicResource(DynamicBackgroundImageSource, new FileImageSource { File = "bliss_portrait.jpg" });
 
             SetDynamicResource(DynamicNavigationBarColor, Color.Transparent);
 
@@ -209,7 +205,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicBottomTabBlurStyle, MaterialFrame.BlurStyle.Light);
             SetDynamicResource(DynamicBottomBarBackground, Color.Transparent);
 
-            SetDynamicResource(DynamicBackgroundImageSource, new FileImageSource { File = "bliss.jpg" });
+            SetDynamicResource(DynamicMaterialTheme, MaterialFrame.Theme.AcrylicBlur);
+            SetDynamicResource(DynamicBlurTheme, MaterialFrame.Theme.AcrylicBlur);
+            SetDynamicResource(DynamicBlurStyle, MaterialFrame.BlurStyle.Light);
         }
     }
 }

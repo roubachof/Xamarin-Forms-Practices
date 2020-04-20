@@ -307,5 +307,14 @@
   <ItemGroup>
     <BundleResource Include="Resources\vista.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bliss_portrait.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vista_portrait.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vista_portrait_2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

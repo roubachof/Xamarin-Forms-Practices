@@ -18,9 +18,13 @@
 
     <ContentView.Content>
         <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-            <Grid RowSpacing="0"
-                  ColumnSpacing="0"
-                  Margin="0,120,0,0">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0,140,0,0</On>
+                        <On Platform="Android">0,120,0,0</On>
+                    </OnPlatform>
+                </Grid.Margin>
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
