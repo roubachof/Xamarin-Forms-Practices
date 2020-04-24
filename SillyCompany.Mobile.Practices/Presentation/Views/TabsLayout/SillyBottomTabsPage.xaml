@@ -8,6 +8,7 @@
                         xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
                         xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
@@ -65,7 +66,7 @@
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </tabs:ViewSwitcher>
 
-            <renderedViews:MaterialFrame Grid.Row="0"
+            <materialFrame:MaterialFrame Grid.Row="0"
                                          Padding="0"
                                          CornerRadius="0"
                                          IsClippedToBounds="True"
@@ -77,9 +78,9 @@
                             ForegroundColor="{DynamicResource DynamicBarTextColor}"
                             HasShadow="{DynamicResource DynamicHasShadow}"
                             Subtitle="The Official sample app for the Sharpnado's components" />
-            </renderedViews:MaterialFrame>
+            </materialFrame:MaterialFrame>
 
-            <renderedViews:MaterialFrame Grid.Row="2"
+            <materialFrame:MaterialFrame Grid.Row="2"
                                          IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                          Padding="0"
                                          CornerRadius="0"
@@ -127,7 +128,7 @@
             </tabs:TabHostView>
 
 
-            <renderedViews:MaterialFrame Grid.Row="3"
+            <materialFrame:MaterialFrame Grid.Row="3"
                                          IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                          Padding="0"
                                          CornerRadius="0"

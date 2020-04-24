@@ -6,7 +6,7 @@
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:mf="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
     <Application.Resources>
@@ -361,7 +361,7 @@
                 <Setter Property="IsTextVisible" Value="False" />
             </Style>
 
-            <Style ApplyToDerivedTypes="True" TargetType="rv:MaterialFrame">
+            <Style ApplyToDerivedTypes="True" TargetType="mf:MaterialFrame">
                 <!--<Setter Property="MaterialTheme" Value="AcrylicBlur" />
                 <Setter Property="AndroidBlurRadius" Value="10" />-->
                 <Setter Property="MaterialBlurStyle" Value="{DynamicResource DynamicBlurStyle}" />

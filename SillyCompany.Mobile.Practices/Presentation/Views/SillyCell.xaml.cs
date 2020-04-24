@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Sharpnado.Presentation.Forms.RenderedViews;
+using Sharpnado.MaterialFrame;
 
 namespace SillyCompany.Mobile.Practices.Presentation.Views
 {

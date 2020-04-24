@@ -8,6 +8,7 @@
              xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
@@ -40,7 +41,7 @@
                        Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
 
                 <!--  ROW 1: Silly Of The Day  -->
-                <renderedViews:MaterialFrame x:Name="MaterialFrame"
+                <materialFrame:MaterialFrame x:Name="MaterialFrame"
                                              Grid.Row="1"
                                              Margin="16"
                                              Padding="16,32"
@@ -105,7 +106,7 @@
                                              Value="{Binding SillinessDegree}" />
                     </Grid>
 
-                </renderedViews:MaterialFrame>
+                </materialFrame:MaterialFrame>
             </Grid>
         </loader:TaskLoaderView>
     </ContentView.Content>

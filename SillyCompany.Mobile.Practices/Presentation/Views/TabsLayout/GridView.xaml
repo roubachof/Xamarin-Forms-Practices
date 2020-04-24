@@ -11,7 +11,8 @@
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame">
 
     <d:ContentView.BindingContext>
         <tabsLayout:GridPageViewModel />
@@ -54,7 +55,7 @@
                                                      Elevation="{DynamicResource DynamicElevation}">
                                         <Frame.Triggers>
                                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                                         TargetType="renderedViews:MaterialFrame"
+                                                         TargetType="materialFrame:MaterialFrame"
                                                          Value="True">
                                                 <Setter Property="Elevation" Value="8" />
                                             </DataTrigger>

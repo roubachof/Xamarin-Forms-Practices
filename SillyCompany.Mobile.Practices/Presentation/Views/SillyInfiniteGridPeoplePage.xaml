@@ -10,6 +10,7 @@
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              Title="{loc:Translate SillyInfiniteGridPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -48,7 +49,7 @@
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <renderedViews:MaterialFrame Margin="4"
+                    <materialFrame:MaterialFrame Margin="4"
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
@@ -65,7 +66,7 @@
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
-                    </renderedViews:MaterialFrame>
+                    </materialFrame:MaterialFrame>
                 </ViewCell>
             </DataTemplate>
         </ResourceDictionary>

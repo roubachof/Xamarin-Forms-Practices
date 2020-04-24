@@ -16,6 +16,7 @@
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              Title="{loc:Translate SillyPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -41,7 +42,7 @@
                        Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <renderedViews:MaterialFrame Grid.Row="1"
+                <materialFrame:MaterialFrame Grid.Row="1"
                                              Margin="0,8"
                                              Padding="16,10"
                                              Elevation="4">
@@ -60,7 +61,7 @@
                                 SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                 ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                     </StackLayout>
-                </renderedViews:MaterialFrame>
+                </materialFrame:MaterialFrame>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
                 <loader:TaskLoaderView Grid.Row="2"
@@ -81,7 +82,7 @@
                                Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                         <!--  ROW 1: Silly Of The Day  -->
-                        <renderedViews:MaterialFrame Grid.Row="1"
+                        <materialFrame:MaterialFrame Grid.Row="1"
                                                      Margin="0,8,0,0"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">
@@ -136,7 +137,7 @@
                                                      RatingType="Full"
                                                      Value="{Binding SillinessDegree}" />
                             </Grid>
-                        </renderedViews:MaterialFrame>
+                        </materialFrame:MaterialFrame>
 
                         <!--  ROW 2: HorizontalListView Header  -->
                         <Label Grid.Row="2"
@@ -196,7 +197,7 @@
         </ScrollView>
 
         <!--  Error box displayed when trying to navigate to the knights of ni  -->
-        <renderedViews:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+        <materialFrame:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                                      AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
                                      Padding="{StaticResource StandardThickness}"
                                      IsVisible="False"
@@ -219,7 +220,7 @@
                    VerticalTextAlignment="Center"
                    TextColor="White"
                    Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
-        </renderedViews:MaterialFrame>
+        </materialFrame:MaterialFrame>
 
     </AbsoluteLayout>
 </ContentPage>

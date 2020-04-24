@@ -8,6 +8,7 @@
              xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
 
@@ -44,7 +45,7 @@
                        Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <renderedViews:MaterialFrame Grid.Row="1"
+                <materialFrame:MaterialFrame Grid.Row="1"
                                              Margin="0,16"
                                              Padding="16,10"
                                              Elevation="{DynamicResource DynamicElevation}"
@@ -64,7 +65,7 @@
                                 SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                 ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                     </StackLayout>
-                </renderedViews:MaterialFrame>
+                </materialFrame:MaterialFrame>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
                 <loader:TaskLoaderView Grid.Row="2"

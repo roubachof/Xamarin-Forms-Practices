@@ -11,6 +11,7 @@
              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
@@ -24,7 +25,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style ApplyToDerivedTypes="True" TargetType="rv:MaterialFrame">
+            <Style ApplyToDerivedTypes="True" TargetType="materialFrame:MaterialFrame">
                 <Setter Property="MaterialTheme" Value="Acrylic" />
                 <Setter Property="LightThemeBackgroundColor" Value="{StaticResource AcrylicFrameBackgroundColor}" />
                 <Setter Property="CornerRadius" Value="5" />
@@ -52,10 +53,10 @@
                            Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
                     <!--  ROW 1: TaskLoaderView Configuration  -->
-                    <rv:MaterialFrame Grid.Row="1"
-                                      Margin="0,8"
-                                      Padding="16,10"
-                                      Elevation="4">
+                    <materialFrame:MaterialFrame Grid.Row="1"
+                                                 Margin="0,8"
+                                                 Padding="16,10"
+                                                 Elevation="4">
                         <StackLayout Spacing="10" Orientation="Horizontal">
 
                             <Label Style="{StaticResource TextBody}"
@@ -71,7 +72,7 @@
                                     SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                     ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                         </StackLayout>
-                    </rv:MaterialFrame>
+                    </materialFrame:MaterialFrame>
 
                     <!--  ROW 2: TaskLoaderView Container  -->
                     <loader:TaskLoaderView Grid.Row="2"
@@ -92,7 +93,7 @@
                                    Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                             <!--  ROW 1: Silly Of The Day  -->
-                            <rv:MaterialFrame Grid.Row="1"
+                            <materialFrame:MaterialFrame Grid.Row="1"
                                                          Margin="0,8,0,0"
                                                          Padding="{StaticResource StandardThickness}"
                                                          Elevation="4">
@@ -149,7 +150,7 @@
                                                          RatingType="Full"
                                                          Value="{Binding SillinessDegree}" />
                                 </Grid>
-                            </rv:MaterialFrame>
+                            </materialFrame:MaterialFrame>
 
                             <!--  ROW 2: HorizontalListView Header  -->
                             <Label Grid.Row="2"
@@ -205,11 +206,11 @@
             </ScrollView>
 
             <!--  Error box displayed when trying to navigate to the knights of ni  -->
-            <rv:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                              AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                              IsVisible="False"
-                              Padding="{StaticResource StandardThickness}"
-                              BackgroundColor="#99F57C00">
+            <materialFrame:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                                         IsVisible="False"
+                                         Padding="{StaticResource StandardThickness}"
+                                         BackgroundColor="#99F57C00">
                 <Frame.Triggers>
                     <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
                                  TargetType="Frame"
@@ -225,7 +226,7 @@
                        VerticalTextAlignment="Center"
                        TextColor="White"
                        Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
-            </rv:MaterialFrame>
+            </materialFrame:MaterialFrame>
 
         </AbsoluteLayout>
     </ContentPage.Content>

@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Sharpnado.MaterialFrame;
 using Sharpnado.Presentation.Forms.RenderedViews;
 
 using SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;
@@ -17,6 +18,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
         public const string DynamicNavigationBarColor = nameof(DynamicNavigationBarColor);
         public const string DynamicBackgroundColor = nameof(DynamicBackgroundColor);
+
+        public const string DynamicDudeBackgroundColor = nameof(DynamicDudeBackgroundColor);
 
         public const string DynamicBarTextColor = nameof(DynamicBarTextColor);
         public const string DynamicHeaderTextColor = nameof(DynamicHeaderTextColor);
@@ -95,6 +98,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryDarkColor");
 
             SetDynamicResource(DynamicBackgroundColor, "DarkSurface");
+            SetDynamicResource(DynamicDudeBackgroundColor, "DarkSurface");
 
             SetDynamicResource(Elevation4dpColor, "DarkElevation4dp");
 
@@ -126,6 +130,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryLightColor");
 
             SetDynamicResource(DynamicBackgroundColor, isAcrylic ? "AcrylicSurface" : "LightSurface");
+            SetDynamicResource(DynamicDudeBackgroundColor, isAcrylic ? "AcrylicSurface" : "LightSurface");
 
             SetDynamicResource(Elevation4dpColor, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
 
@@ -158,6 +163,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryDarkColor");
 
             SetDynamicResource(DynamicBackgroundColor, Color.Transparent);
+            SetDynamicResource(DynamicDudeBackgroundColor, "DarkSurface");
 
             SetDynamicResource(DynamicCornerRadius, 5);
             SetDynamicResource(DynamicElevation, 0);
@@ -189,6 +195,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
             SetDynamicResource(DynamicSecondaryTextColor, "TextSecondaryLightColor");
 
             SetDynamicResource(DynamicBackgroundColor, Color.Transparent);
+            SetDynamicResource(DynamicDudeBackgroundColor, Color.Transparent);
 
             SetDynamicResource(Elevation4dpColor, Color.Transparent);
 

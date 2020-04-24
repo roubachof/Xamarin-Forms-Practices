@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
@@ -19,7 +20,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary>
-                <Style ApplyToDerivedTypes="True" TargetType="renderedViews:MaterialFrame">
+                <Style ApplyToDerivedTypes="True" TargetType="materialFrame:MaterialFrame">
                     <Setter Property="MaterialTheme" Value="Acrylic" />
                     <Setter Property="LightThemeBackgroundColor" Value="{StaticResource AcrylicFrameBackgroundColor}" />
                     <Setter Property="CornerRadius" Value="5" />
@@ -47,7 +48,7 @@
                                      Elevation="4">
                         <Frame.Triggers>
                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                         TargetType="renderedViews:MaterialFrame"
+                                         TargetType="materialFrame:MaterialFrame"
                                          Value="True">
                                 <Setter Property="Elevation" Value="8" />
                             </DataTrigger>
@@ -58,7 +59,7 @@
 
             <DataTemplate x:Key="AddSillyDudeItem">
                 <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False">
-                    <renderedViews:MaterialFrame Elevation="4">
+                    <materialFrame:MaterialFrame Elevation="4">
                         <Button HeightRequest="40"
                                 Padding="0"
                                 HorizontalOptions="Center"
@@ -69,7 +70,7 @@
                                 TextColor="{StaticResource Accent}"
                                 Command="{Binding OnItemTappedCommand}"
                                 Text="ADD A DUDE" />
-                    </renderedViews:MaterialFrame>
+                    </materialFrame:MaterialFrame>
                 </renderedViews:DraggableViewCell>
             </DataTemplate>
 
@@ -79,13 +80,13 @@
                     <d:ViewCell.BindingContext>
                         <viewModels:SillyDudeVmo />
                     </d:ViewCell.BindingContext>
-                    <renderedViews:MaterialFrame Margin="4"
+                    <materialFrame:MaterialFrame Margin="4"
                                                  Padding="{StaticResource StandardThickness}"
                                                  Elevation="4">
 
                         <Frame.Triggers>
                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                         TargetType="renderedViews:MaterialFrame"
+                                         TargetType="materialFrame:MaterialFrame"
                                          Value="True">
                                 <Setter Property="Elevation" Value="8" />
                             </DataTrigger>
@@ -113,7 +114,7 @@
                                    MaxLines="1"
                                    Text="{Binding Role}" />
                         </Grid>
-                    </renderedViews:MaterialFrame>
+                    </materialFrame:MaterialFrame>
                 </renderedViews:DraggableViewCell>
             </DataTemplate>
 
