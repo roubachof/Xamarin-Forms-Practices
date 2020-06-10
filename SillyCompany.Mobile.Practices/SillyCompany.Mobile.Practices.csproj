@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1.1-beta" />
-    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.0.0" />
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.0" />
     <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.0.0" />
     <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.0" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />    
@@ -65,19 +65,19 @@
     <Compile Update="Presentation\Views\DudeDetails\Filmo.xaml.cs">
       <DependentUpon>Filmo.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\SillyInfiniteGridPeoplePage.xaml.cs">
+    <Compile Update="Presentation\Views\OldLayout\SillyInfiniteGridPeoplePage.xaml.cs">
       <DependentUpon>SillyInfiniteGridPeoplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\SillyInfinitePeoplePage.xaml.cs">
+    <Compile Update="Presentation\Views\OldLayout\SillyInfinitePeoplePage.xaml.cs">
       <DependentUpon>SillyInfinitePeoplePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Presentation\Views\AlternateSillySquareCell.xaml.cs">
       <DependentUpon>AlternateSillySquareCell.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\SmallSillySquareCell.xaml.cs">
+    <Compile Update="Presentation\Views\OldLayout\SmallSillySquareCell.xaml.cs">
       <DependentUpon>SmallSillySquareCell.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\SortSillyPeoplePage.xaml.cs">
+    <Compile Update="Presentation\Views\OldLayout\SortSillyPeoplePage.xaml.cs">
       <DependentUpon>SortSillyPeoplePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Presentation\Views\SurfaceDuo\TwoPanePage.xaml.cs">
@@ -118,7 +118,7 @@
     <EmbeddedResource Update="Presentation\Views\SillySquareCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Presentation\Views\SortSillyPeoplePage.xaml">
+    <EmbeddedResource Update="Presentation\Views\OldLayout\SortSillyPeoplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Presentation\Views\SurfaceDuo\TwoPanePage.xaml">
