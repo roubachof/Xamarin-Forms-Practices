@@ -11,6 +11,7 @@
                         xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
                         xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                         xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
@@ -26,6 +27,14 @@
                 <Setter Property="LabelSize" Value="14" />
                 <Setter Property="Padding" Value="20, 0" />
                 <Setter Property="UnderlineAllTab" Value="False" />
+                <Setter Property="UnselectedLabelColor" Value="Gray" />
+            </Style>
+
+            <Style x:Key="SegmentedTabStyle" TargetType="tabs:SegmentedTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="SelectedLabelColor" Value="{DynamicResource DynamicDudeBackgroundColor}" />
                 <Setter Property="UnselectedLabelColor" Value="Gray" />
             </Style>
         </ResourceDictionary>
@@ -47,7 +56,7 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="30" />
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="70" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
@@ -90,11 +99,10 @@
                                      RatingType="Floating"
                                      Value="{Binding SillyDudeLoaderNotifier.Result.SillinessDegree}" />
 
-                <tabs:TabHostView x:Name="TabHost"
+                <!--<tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Margin="-16,0"
                                   BackgroundColor="{DynamicResource Elevation4dpColor}"
-                                  ShadowType="{DynamicResource DynamicBottomShadow}"
                                   ShowScrollbar="False"
                                   TabType="Scrollable"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
@@ -106,6 +114,29 @@
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="AGAIN" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>-->
+
+                <tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  HeightRequest="40"
+                                  Margin="10,20,10,0"
+                                  VerticalOptions="Start"
+                                  BackgroundColor="{DynamicResource DynamicDudeBackgroundColor}"
+                                  CornerRadius="20"
+                                  IsSegmented="True"
+                                  SegmentedHasSeparator="True"
+                                  SegmentedOutlineColor="{StaticResource Accent}"
+                                  Shades="{sh:SingleShade Offset='0,10',
+                                                          BlurRadius=10,
+                                                          Color=Accent,
+                                                          Opacity=0.2}"
+                                  TabType="Fixed"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                    <tabs:TabHostView.Tabs>
+                        <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Quote" />
+                        <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Movies" />
+                        <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Meme" />
                     </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>
 

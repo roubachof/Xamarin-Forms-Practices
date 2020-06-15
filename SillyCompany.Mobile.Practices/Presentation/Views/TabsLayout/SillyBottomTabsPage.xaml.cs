@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
-            _currentAppTheme = AppTheme.AcrylicDarkBlur;
+            _currentAppTheme = AppTheme.Light;
             ApplyTheme();
 
             GridContainer.RaiseChild(Toolbar);

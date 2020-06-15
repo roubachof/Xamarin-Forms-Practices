@@ -107,8 +107,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
             SetDynamicResource(DynamicIsVisible, false);
 
-            SetDynamicResource(DynamicTopShadow, ShadowType.None);
-            SetDynamicResource(DynamicBottomShadow, ShadowType.None);
+            //SetDynamicResource(DynamicTopShadow, ShadowType.None);
+            //SetDynamicResource(DynamicBottomShadow, ShadowType.None);
             SetDynamicResource(DynamicHasShadow, false);
 
             SetDynamicResource(DynamicIsTabBlurVisible, false);
@@ -141,12 +141,12 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
             SetDynamicResource(DynamicIsVisible, false);
 
-            SetDynamicResource(DynamicTopShadow,  isAcrylic ? ShadowType.AcrylicTop : ShadowType.Top);
-            SetDynamicResource(DynamicBottomShadow, ShadowType.Bottom);
+            //SetDynamicResource(DynamicTopShadow,  isAcrylic ? ShadowType.AcrylicTop : ShadowType.Top);
+            //SetDynamicResource(DynamicBottomShadow, ShadowType.Bottom);
             SetDynamicResource(DynamicHasShadow, true);
 
             SetDynamicResource(DynamicIsTabBlurVisible, false);
-            SetDynamicResource(DynamicBottomBarBackground, "AcrylicFrameBackgroundColor");
+            SetDynamicResource(DynamicBottomBarBackground, isAcrylic ? "AcrylicFrameBackgroundColor" : "OnSurfaceColor");
 
             SetDynamicResource(DynamicBackgroundImageSource, new FileImageSource());
         }
@@ -170,8 +170,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
             SetDynamicResource(DynamicIsVisible, false);
 
-            SetDynamicResource(DynamicTopShadow, ShadowType.None);
-            SetDynamicResource(DynamicBottomShadow, ShadowType.None);
+            //SetDynamicResource(DynamicTopShadow, ShadowType.None);
+            //SetDynamicResource(DynamicBottomShadow, ShadowType.None);
             SetDynamicResource(DynamicHasShadow, true);
 
             SetDynamicResource(DynamicIsTabBlurVisible, true);
@@ -204,8 +204,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views
 
             SetDynamicResource(DynamicIsVisible, true);
 
-            SetDynamicResource(DynamicTopShadow, ShadowType.None);
-            SetDynamicResource(DynamicBottomShadow, ShadowType.None);
+            //SetDynamicResource(DynamicTopShadow, ShadowType.None);
+            //SetDynamicResource(DynamicBottomShadow, ShadowType.None);
             SetDynamicResource(DynamicHasShadow, false);
 
             SetDynamicResource(DynamicIsTabBlurVisible, true);

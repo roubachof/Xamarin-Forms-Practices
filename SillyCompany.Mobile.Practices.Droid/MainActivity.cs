@@ -43,7 +43,7 @@ namespace SillyCompany.Mobile.Practices.Droid
 
             Forms.Init(this, bundle);
 
-            SharpnadoInitializer.Initialize(enableInternalLogger: false, enableInternalDebugLogger: false);
+            SharpnadoInitializer.Initialize(enableInternalLogger: true, enableInternalDebugLogger: true);
             Android.Glide.Forms.Init(this);
             AndroidMaterialFrameRenderer.ThrowStopExceptionOnDraw = false;
             AndroidMaterialFrameRenderer.BlurAutoUpdateDelayMilliseconds = 200;

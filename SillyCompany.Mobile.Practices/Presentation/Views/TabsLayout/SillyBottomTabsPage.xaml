@@ -76,7 +76,6 @@
                             Title="Silly App!"
                             BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
                             ForegroundColor="{DynamicResource DynamicBarTextColor}"
-                            HasShadow="{DynamicResource DynamicHasShadow}"
                             Subtitle="The Official sample app for the Sharpnado's components" />
             </materialFrame:MaterialFrame>
 
@@ -92,7 +91,6 @@
             <tabs:TabHostView x:Name="TabHost"
                               Grid.Row="2"
                               BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
-                              ShadowType="{DynamicResource DynamicTopShadow}"
                               TabType="Fixed"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                 <tabs:TabHostView.Tabs>

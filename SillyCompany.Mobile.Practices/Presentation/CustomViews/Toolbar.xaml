@@ -44,7 +44,6 @@
                 <RowDefinition Height="{StaticResource StatusBarHeight}" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition x:Name="SubtitleRowDefinition" Height="0" />
-                <RowDefinition x:Name="ShadowRowDefinition" Height="0" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="ButtonColumnDefinition" Width="0" />
@@ -82,14 +81,6 @@
                    Margin="30,0,30,30"
                    TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
                    Text="{Binding Source={x:Reference RootLayout}, Path=Subtitle}" />
-
-            <renderedViews:ShadowBoxView x:Name="ShadowBoxView"
-                                         Grid.Row="3"
-                                         Grid.Column="0"
-                                         Grid.ColumnSpan="3"
-                                         IsVisible="False"
-                                         ShadowType="Bottom" />
-
         </Grid>
     </ContentView.Content>
 </ContentView>
