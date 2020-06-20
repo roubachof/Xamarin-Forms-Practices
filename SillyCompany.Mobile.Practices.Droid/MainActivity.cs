@@ -47,6 +47,7 @@ namespace SillyCompany.Mobile.Practices.Droid
             Android.Glide.Forms.Init(this);
             AndroidMaterialFrameRenderer.ThrowStopExceptionOnDraw = false;
             AndroidMaterialFrameRenderer.BlurAutoUpdateDelayMilliseconds = 200;
+            AndroidMaterialFrameRenderer.BlurProcessingDelayMilliseconds = 100;
 
             this.LoadApplication(new App());
         }

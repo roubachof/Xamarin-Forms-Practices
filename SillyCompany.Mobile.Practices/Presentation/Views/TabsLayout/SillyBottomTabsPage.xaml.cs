@@ -16,8 +16,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
     public enum AppTheme
     {
         Light = 0,
-        Dark = 1,
-        Acrylic = 2,
+        Acrylic = 1,
+        Dark = 2,
         AcrylicDarkBlur = 3,
         AcrylicBlur = 4,
     }

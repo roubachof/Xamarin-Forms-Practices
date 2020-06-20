@@ -69,12 +69,11 @@
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </tabs:ViewSwitcher>
 
-            <sh:Shadows Grid.Row="0" Shades="{DynamicResource DynamicToolbarShadow}">
+            <sh:Shadows Grid.Row="0" Shades="{DynamicResource DynamicToolbarShadow}" StyleId="1111">
                 <materialFrame:MaterialFrame Padding="0"
                                              CornerRadius="0"
                                              IsClippedToBounds="True"
-                                             MaterialTheme="{DynamicResource DynamicBlurTheme}"
-                                             StyleId="1111">
+                                             MaterialTheme="{DynamicResource DynamicBlurTheme}">
                     <tb:Toolbar x:Name="Toolbar"
                                 Title="Silly App!"
                                 BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
@@ -166,11 +165,9 @@
                               Shades="{DynamicResource DynamicBottomTabsShadow}"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                 <tabs:TabHostView.Tabs>
-
                     <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
                     <tabs:BottomTabItem IconImageSource="list_96.png" Label="{localization:Translate Tabs_List}" />
                     <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
-
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
 

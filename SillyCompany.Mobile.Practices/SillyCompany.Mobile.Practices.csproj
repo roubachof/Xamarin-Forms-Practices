@@ -24,7 +24,7 @@
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1.1-beta" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.1" />
-    <PackageReference Include="Sharpnado.Shadows" Version="1.0.0" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.0.1" />
     <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.0.0" />
     <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.0" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />    
