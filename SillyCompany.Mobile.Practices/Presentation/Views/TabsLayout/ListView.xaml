@@ -26,7 +26,7 @@
                   Padding="{StaticResource StandardThickness}">
                 <Grid.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">0,140,0,0</On>
+                        <On Platform="iOS">0,170,0,0</On>
                         <On Platform="Android">0,120,0,0</On>
                     </OnPlatform>
                 </Grid.Margin>
@@ -75,7 +75,14 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
-                            <RowDefinition Height="280" />
+                            <RowDefinition>
+                                <RowDefinition.Height>
+                                    <OnPlatform x:TypeArguments="GridLength">
+                                        <On Platform="iOS">320</On>
+                                        <On Platform="Android">280</On>
+                                    </OnPlatform>
+                                </RowDefinition.Height>
+                            </RowDefinition>
                         </Grid.RowDefinitions>
 
                         <!--  ROW 0: HorizontalListView Header  -->
@@ -91,7 +98,6 @@
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="1"
                                                           Margin="-16,8"
-                                                          CollectionPadding="30,10,30,10"
                                                           ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
@@ -103,6 +109,12 @@
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
                                                           ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                           ItemsSource="{Binding SillyPeople}">
+                            <renderedViews:HorizontalListView.CollectionPadding>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS">50,10</On>
+                                    <On Platform="Android">60,10</On>
+                                </OnPlatform>
+                            </renderedViews:HorizontalListView.CollectionPadding>
 
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>

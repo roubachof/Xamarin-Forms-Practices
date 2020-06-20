@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <views:SillyContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.SillyBottomTabsPage"
                         xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,12 +10,12 @@
                         xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-                        xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
                         xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                         ios:Page.UseSafeArea="true"
                         BackgroundImageSource="{DynamicResource DynamicBackgroundImageSource}">
 
@@ -43,7 +44,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
+                <RowDefinition Height="95" />
                 <RowDefinition x:Name="BottomSafeAreaDefinition" Height="{DynamicResource BottomSafeArea}" />
             </Grid.RowDefinitions>
 
@@ -58,42 +59,56 @@
                 <customViews:LazyView x:Name="HomeLazyView"
                                       x:TypeArguments="tabsLayout:HomeView"
                                       BindingContext="{Binding HomePageViewModel}" />
-                <customViews:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
-                <customViews:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+                <customViews:LazyView x:TypeArguments="tabsLayout:ListView"
+                                      BindingContext="{Binding ListPageViewModel}" />
+                <customViews:LazyView x:TypeArguments="tabsLayout:GridView"
+                                      BindingContext="{Binding GridPageViewModel}" />
                 <Label Style="{StaticResource TextHeader}"
                        Margin="64,0"
                        VerticalOptions="Center"
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </tabs:ViewSwitcher>
 
-            <materialFrame:MaterialFrame Grid.Row="0"
-                                         Padding="0"
-                                         CornerRadius="0"
-                                         IsClippedToBounds="True"
-                                         MaterialTheme="{DynamicResource DynamicBlurTheme}"
-                                         StyleId="1111">
-                <tb:Toolbar x:Name="Toolbar"
-                            Title="Silly App!"
-                            BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
-                            ForegroundColor="{DynamicResource DynamicBarTextColor}"
-                            Subtitle="The Official sample app for the Sharpnado's components" />
-            </materialFrame:MaterialFrame>
+            <sh:Shadows Grid.Row="0" Shades="{DynamicResource DynamicToolbarShadow}">
+                <materialFrame:MaterialFrame Padding="0"
+                                             CornerRadius="0"
+                                             IsClippedToBounds="True"
+                                             MaterialTheme="{DynamicResource DynamicBlurTheme}"
+                                             StyleId="1111">
+                    <tb:Toolbar x:Name="Toolbar"
+                                Title="Silly App!"
+                                BackgroundColor="{DynamicResource DynamicNavigationBarColor}"
+                                ForegroundColor="{DynamicResource DynamicBarTextColor}"
+                                Subtitle="The Official sample app for the Sharpnado's components">
+                        <tb:Toolbar.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ToolbarOnTapped" />
+                        </tb:Toolbar.GestureRecognizers>
+                    </tb:Toolbar>
+                </materialFrame:MaterialFrame>
+            </sh:Shadows>
 
-            <materialFrame:MaterialFrame Grid.Row="2"
+            <!-- This Blur background goes with the underneath classic bottom bar -->
+            <!-- <materialFrame:MaterialFrame Grid.Row="2"
                                          IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                          Padding="0"
                                          CornerRadius="0"
                                          IsClippedToBounds="False"
                                          MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
                                          MaterialTheme="AcrylicBlur"
-                                         StyleId="9999" />
+                                         StyleId="9999" /> -->
 
+            <!-- Example of classic bottom bar.
+                 Change IsVisible="True" and do the opposite for segmented tabs to try them. -->
             <tabs:TabHostView x:Name="TabHost"
+                              IsVisible="False"
                               Grid.Row="2"
                               BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
                               TabType="Fixed"
+                              Shades="{DynamicResource DynamicBottomTabsShadow}"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                 <tabs:TabHostView.Tabs>
+
+                    <!-- Uncomment these and comment the others TabItem to try custom tabs -->
                     <!--<tb:SpamTab SpamImage="spam_classic_home.png" />
                     <tb:SpamTab SpamImage="spam_classic_list.png" />
                     <tb:SpamTab SpamImage="spam_classic_grid.png" />-->
@@ -125,17 +140,39 @@
                 </tabs:TabHostView.Tabs>
             </tabs:TabHostView>
 
-
-            <materialFrame:MaterialFrame Grid.Row="3"
+            <!-- This Blur background goes with the underneath segmented tab bar -->
+            <materialFrame:MaterialFrame Grid.Row="2"
+                                         HorizontalOptions="Center"
+                                         WidthRequest="280"
                                          IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                          Padding="0"
-                                         CornerRadius="0"
+                                         CornerRadius="30"
+                                         Margin="15"
                                          IsClippedToBounds="False"
                                          MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
                                          MaterialTheme="AcrylicBlur"
-                                         StyleId="909090909" />
+                                         StyleId="9999" />
 
-            <BoxView Grid.Row="3" BackgroundColor="{Binding Source={x:Reference TabHost}, Path=BackgroundColor}" />
+            <!-- Example of segmented tab bar (rounded floating tabs) -->
+            <tabs:TabHostView Grid.Row="2"
+                              IsVisible="True"
+                              HorizontalOptions="Center"
+                              WidthRequest="280"
+                              BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
+                              TabType="Fixed"
+                              IsSegmented="True"
+                              CornerRadius="30"
+                              Margin="15"
+                              Shades="{DynamicResource DynamicBottomTabsShadow}"
+                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                <tabs:TabHostView.Tabs>
+
+                    <tabs:BottomTabItem IconImageSource="house_96.png" Label="{localization:Translate Tabs_Home}" />
+                    <tabs:BottomTabItem IconImageSource="list_96.png" Label="{localization:Translate Tabs_List}" />
+                    <tabs:BottomTabItem IconImageSource="grid_view_96.png" Label="{localization:Translate Tabs_Grid}" />
+
+                </tabs:TabHostView.Tabs>
+            </tabs:TabHostView>
 
         </Grid>
     </ContentPage.Content>

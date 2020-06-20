@@ -8,7 +8,9 @@
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:mf="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
-             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+             xmlns:gen="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
     <Application.Resources>
         <ResourceDictionary>
 
@@ -36,11 +38,6 @@
                     </OnPlatform>
                 </Thickness.Top>
             </Thickness>
-
-            <OnPlatform x:Key="BottomBarHeight" x:TypeArguments="GridLength">
-                <On Platform="iOS">65</On>
-                <On Platform="Android">65</On>
-            </OnPlatform>
 
             <GridLength x:Key="HeaderHeight">40</GridLength>
 
@@ -369,6 +366,23 @@
                 <Setter Property="MaterialTheme" Value="{DynamicResource DynamicMaterialTheme}" />
                 <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
             </Style>
+
+            <sh:SingleShade x:Key="LightTopShadow" Offset="0,-8" Color="Black" Opacity="0.1" BlurRadius="10" />
+
+            <sh:ImmutableShades x:Key="AcrylicTopShadow">
+                <sh:Shade Offset="0,-2" Color="White" Opacity="1" BlurRadius="0" />
+                <sh:Shade Offset="0,8" Color="Black" Opacity="0.1" BlurRadius="10" />
+            </sh:ImmutableShades>
+
+            <sh:SingleShade x:Key="LightBottomShadow" Offset="0,8" Color="Black" Opacity="0.1" BlurRadius="10" />
+
+            <sh:SingleShade x:Key="SegmentedBottomShadow"
+                            Offset="0,8"
+                            BlurRadius="10"
+                            Color="{StaticResource Accent}"
+                            Opacity="0.2" />
+
+            <sh:ImmutableShades x:Key="NoShadow" />
 
         </ResourceDictionary>
     </Application.Resources>

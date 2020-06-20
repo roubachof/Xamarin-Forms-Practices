@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -118,175 +118,117 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Carell" xml:space="preserve">
-    <value>#### 2018
-##### Vice 
+    <value>##### 2018 - Vice
 Donald Rumsfeld
-
-#### 2015
-##### The Big Short
+#####
+##### 2015 - The Big Short
 Mark Baum
-
-#### 2014
-##### Foxcatcher 
+#####
+##### 2014 - Foxcatcher
 John du Pont
-
-#### The Office (2005-2013)
-##### BoJack Horseman (TV Series) 
+#####
+##### 2005-2013 - The Office
 Michael Scott
-
-#### 2005
-##### The 40 Year Old Virgin
+#####
+##### 2005 - The 40 Year Old Virgin
 Andy
-
-#### 2004
-##### Anchorman: The Legend of Ron Burgundy
-Anchorman: The Legend of Ron Burgundy
-
-#### 2003
-##### Bruce Almighty
+#####
+##### 2004 - Anchorman: The Legend of Ron Burgundy
+Brick Tamland
+#####
+##### 2003 - Bruce Almighty
 Evan Baxter</value>
   </data>
   <data name="Ferrell" xml:space="preserve">
-    <value>#### 2017
-##### Daddy's Home Two 
+    <value>##### 2017 - Daddy's Home Two
 Brad
-
-#### 2015
-##### Very Bad Dads 
+#####
+##### 2015 - Very Bad Dads
 Brad Whitaker
-
-##### Get Hard 
+#####
+##### 2015 - Get Hard
 James
-
-#### 2013
-##### Anchorman 2: The Legend Continues
+#####
+##### 2013 - Anchorman 2: The Legend Continues
 Ron Burgundy
-
-#### 2010
-##### Very Bad Cops 
+#####
+##### 2010 - Very Bad Cops
 Allen Gamble
-
-
-#### 2009
-##### Land of the Lost
+#####
+##### 2009 - Land of the Lost
 Dr. Rick Marshall
-
-
-#### 2008
-##### Semi-Pro 
-#### 2017
-##### Daddy's Home Two 
-Brad
-
-#### 2015
-##### Very Bad Dads 
-Brad Whitaker
-
-##### Get Hard 
-James
-
-#### 2013
-##### Anchorman 2: The Legend Continues
-Ron Burgundy
-
-#### 2010
-##### Very Bad Cops 
-Allen Gamble
-
-
-#### 2009
-##### Land of the Lost
-Dr. Rick Marshall
-
-
-#### 2008
-##### Semi-Pro 
+#####
+##### 2008 - Semi-Pro
 Jackie Moon</value>
   </data>
   <data name="Gervais" xml:space="preserve">
-    <value>#### 2015
-##### BoJack Horseman (TV Series) 
+    <value>##### 2015 - BoJack Horseman (TV Series)
 Hedgehog at Orphanage
-
-#### 2009
-##### The Invention of Lying 
+#####
+##### 2009 - The Invention of Lying
 Mark Bellison
-
-#### 2006
-##### Night at the Museum 
+#####
+##### 2006 - Night at the Museum
 Dr. McPhee
-
-#### 2001-2003
-##### The Office
+#####
+##### 2001-2003 - The Office
 David Brent</value>
   </data>
   <data name="LesNuls" xml:space="preserve">
-    <value>#### 1994
-##### La cité de la peur
+    <value>##### 1994 - La cité de la peur
 Les Nuls
-
-#### 1990
-##### Les nuls, l'émission
-Les Nuls</value>
+#####
+##### 1990 - Les nuls, l'émission
+Les Nuls
+#####
+##### 1987 - Objectif Nul
+Les Nuls
+    </value>
   </data>
   <data name="Moss" xml:space="preserve">
-    <value>#### 2019
-##### The Souvenir 
+    <value>##### 2019 - The Souvenir
 Patrick
-
-#### 2017
-##### Paddington 2 
+#####
+##### 2017 - Paddington 2
 Forensic Investigator
-
-#### 2006-2013
-##### The IT Crowd (TV Movie) 
+#####
+##### 2006-2013 - The IT Crowd (TV Movie)
 Maurice Moss</value>
   </data>
   <data name="Ted" xml:space="preserve">
-    <value>#### 1998
-##### The First Snow of Winter (Short) 
+    <value>##### 1998 - The First Snow of Winter (Short)
 Voley (voice)
-
-#### 1995-1998
-##### Father Ted (TV Series) 
+#####
+##### 1995-1998 - Father Ted (TV Series)
 Father Ted Crilly
-
-#### 1988
-##### Taffin 
+#####
+##### 1988 - Taffin
 Micky Guest</value>
   </data>
   <data name="Triumph" xml:space="preserve">
-    <value>#### 2004
-##### Late Night with Conan O'Brien
+    <value>##### 2004 - Late Night with Conan O'Brien
 Triumph The Insult Comic Dog</value>
   </data>
   <data name="VanDamme" xml:space="preserve">
-    <value>#### 1996
-##### Friends (TV Series) 
+    <value>##### 1996 - Friends (TV Series)
 Jean-Claude Van Damme
-
-#### 1993
-##### Last Action Hero 
+#####
+##### 1993 - Last Action Hero
 Jean-Claude Van Damme
-
-#### 1992
-##### Universal Soldier 
+#####
+##### 1992 - Universal Soldier
 Luc Deveraux / GR44
-
-#### 1991
-##### Double Impact 
+#####
+##### 1991 - Double Impact
 Alex / Chad Wagner
-
-#### 1990
-##### Full Contact 
+#####
+##### 1990 - Full Contact
 Lyon
-
-#### 1989
-##### Kickboxer 
+#####
+##### 1989 - Kickboxer
 Kurt Sloane
-
-#### 1988
-##### Bloodsport
+#####
+##### 1988 - Bloodsport
 Frank Dux</value>
   </data>
 </root>

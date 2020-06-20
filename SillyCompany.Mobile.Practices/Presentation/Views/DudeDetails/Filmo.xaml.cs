@@ -39,7 +39,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails
 
                 Paragraph.FontFamily = Application.Current.Resources["FontSemiBold"] as string;
                 Paragraph.ForegroundColor = (Color)Application.Current.Resources["DynamicPrimaryTextColor"];
-                Paragraph.FontSize = 16;
+                Paragraph.FontSize = 14;
             }
         }
     }

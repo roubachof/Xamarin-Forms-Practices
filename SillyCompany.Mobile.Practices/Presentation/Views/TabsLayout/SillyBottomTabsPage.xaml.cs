@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
 
             TabButton.TapCommand = new Command(() => System.Diagnostics.Debug.WriteLine("TapButton tapped!"));
 
-            _currentAppTheme = AppTheme.Light;
+            _currentAppTheme = AppTheme.Acrylic;
             ApplyTheme();
 
             GridContainer.RaiseChild(Toolbar);
@@ -70,6 +70,20 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
                     ResourcesHelper.SetDarkMode();
                     break;
             }
+        }
+
+        private void ToolbarOnTapped(object sender, EventArgs e)
+        {
+            if (_currentAppTheme == AppTheme.AcrylicBlur)
+            {
+                _currentAppTheme = AppTheme.Light;
+            }
+            else
+            {
+                _currentAppTheme += 1;
+            }
+
+            ApplyTheme();
         }
 
         private void TabButtonOnClicked(object sender, EventArgs e)

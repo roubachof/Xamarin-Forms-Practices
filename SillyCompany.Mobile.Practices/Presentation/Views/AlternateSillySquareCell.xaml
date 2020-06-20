@@ -3,7 +3,6 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              Padding="10,0,10,20">
     <materialFrame:MaterialFrame Padding="{StaticResource StandardThickness}"
@@ -32,7 +31,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    CornerRadius="50"
-                   HasShadow="{DynamicResource DynamicHasShadow}"
+                   HasShadow="False"
                    IsClippedToBounds="True">
                 <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
             </Frame>

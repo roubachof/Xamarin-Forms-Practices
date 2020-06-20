@@ -49,10 +49,10 @@ namespace SillyCompany.Mobile.Practices
             }
             else
             {
-#if INFINITE_LIST || RELEASE
-                firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
-#else
+#if OLD
                 firstScreenView = viewLocator.GetViewFor<SillyPeopleVm>();
+#else
+                firstScreenView = viewLocator.GetViewFor<SillyBottomTabsPageViewModel>();
 #endif
             }
 

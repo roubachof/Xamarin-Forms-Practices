@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
-    <Configurations>Debug;Release;DebugInfinite</Configurations>
+    <Configurations>Debug;Release;DebugOld</Configurations>
     <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\StyleCopRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugInfinite|AnyCPU'">
-    <Optimize>false</Optimize>
-    <DefineConstants>TRACE;INFINITE_LIST;DEBUG</DefineConstants>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'DebugOld' ">
+    <DefineConstants>TRACE;OLD</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
