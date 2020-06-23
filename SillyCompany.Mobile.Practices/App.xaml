@@ -45,6 +45,7 @@
             <!--  Very light accent color  -->
             <Color x:Key="LightSurface">#FAF8F9</Color>
             <Color x:Key="AcrylicSurface">#E4E4E4</Color>
+            <Color x:Key="NeumorphismSurface">#F0F0F3</Color>
 
             <Color x:Key="DarkElevation2dp">#212121</Color>
             <Color x:Key="DarkElevation4dp">#272727</Color>
@@ -384,6 +385,9 @@
 
             <sh:ImmutableShades x:Key="NoShadow" />
 
+            <sh:NeumorphismShades x:Key="NeumorphismShadow" />
+
+            <sh:NeumorphismShades x:Key="ThinNeumorphismShadow" UpperOffset="-8,-6" LowerOffset="8, 6" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

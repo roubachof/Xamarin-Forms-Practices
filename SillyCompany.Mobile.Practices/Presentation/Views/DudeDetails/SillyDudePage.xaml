@@ -154,7 +154,7 @@
                                   CornerRadius="20"
                                   IsSegmented="True"
                                   SegmentedHasSeparator="True"
-                                  SegmentedOutlineColor="{StaticResource Accent}"
+                                  SegmentedOutlineColor="{DynamicResource DynamicOutlineColor}"
                                   TabType="Fixed"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>

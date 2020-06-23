@@ -18,8 +18,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
         Light = 0,
         Acrylic = 1,
         Dark = 2,
-        AcrylicDarkBlur = 3,
-        AcrylicBlur = 4,
+        Neumorphism = 3,
+        AcrylicDarkBlur = 4,
+        AcrylicBlur = 5,
     }
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -65,6 +66,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
                     break;
                 case AppTheme.Light:
                     ResourcesHelper.SetLightMode(false);
+                    break;
+                case AppTheme.Neumorphism:
+                    ResourcesHelper.SetNeumorphicMode();
                     break;
                 case AppTheme.Dark:
                     ResourcesHelper.SetDarkMode();

@@ -1,43 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillySquareCell"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             Padding="10,0,10,20">
-    <materialFrame:MaterialFrame Padding="{StaticResource StandardThickness}"
-                                 Elevation="{DynamicResource DynamicElevation}"
-                                 LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
-        <StackLayout x:DataType="vm:SillyDudeVmo"
-                     Spacing="0"
-                     VerticalOptions="Center"
-                     Orientation="Vertical">
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             Padding="20">
+    <shades:Shadows Shades="{DynamicResource DynamicShadow}" CornerRadius="{DynamicResource DynamicCornerRadius}">
+        <materialFrame:MaterialFrame Padding="{StaticResource StandardThickness}"
+                                     Elevation="{DynamicResource DynamicElevation}"
+                                     LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
+            <StackLayout x:DataType="vm:SillyDudeVmo"
+                         Spacing="0"
+                         VerticalOptions="Center"
+                         Orientation="Vertical">
 
-            <Frame WidthRequest="100"
-                   HeightRequest="100"
-                   Margin="0,0,0,20"
-                   Padding="0"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   CornerRadius="50"
-                   HasShadow="False"
-                   IsClippedToBounds="True">
-                <Image Style="{StaticResource LargeAvatar}"
-                       Aspect="AspectFill"
-                       Source="{Binding ImageUrl}" />
-            </Frame>
+                <Frame WidthRequest="100"
+                       HeightRequest="100"
+                       Margin="0,0,0,20"
+                       Padding="0"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       CornerRadius="50"
+                       HasShadow="False"
+                       IsClippedToBounds="True">
+                    <Image Style="{StaticResource LargeAvatar}"
+                           Aspect="AspectFill"
+                           Source="{Binding ImageUrl}" />
+                </Frame>
 
-            <Label Style="{StaticResource TextBody}"
-                   Margin="{StaticResource SmallTopThickness}"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="End"
-                   Text="{Binding FullName}" />
+                <Label Style="{StaticResource TextBody}"
+                       Margin="{StaticResource SmallTopThickness}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="End"
+                       Text="{Binding FullName}" />
 
-            <Label Style="{StaticResource TextCaptionSecondary}"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Start"
-                   Text="{Binding Role}" />
-        </StackLayout>
+                <Label Style="{StaticResource TextCaptionSecondary}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"
+                       Text="{Binding Role}" />
+            </StackLayout>
 
-    </materialFrame:MaterialFrame>
+        </materialFrame:MaterialFrame>
+    </shades:Shadows>
 </ContentView>

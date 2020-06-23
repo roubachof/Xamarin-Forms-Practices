@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.HomeView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -11,14 +12,16 @@
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <d:ContentView.BindingContext>
         <tabsLayout:HomePageViewModel />
     </d:ContentView.BindingContext>
 
     <ContentView.Content>
-        <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
+        <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}"
+                               TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -41,72 +44,74 @@
                        Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
 
                 <!--  ROW 1: Silly Of The Day  -->
-                <materialFrame:MaterialFrame x:Name="MaterialFrame"
-                                             Grid.Row="1"
-                                             Margin="16"
-                                             Padding="16,32"
-                                             Elevation="{DynamicResource DynamicElevation}"
-                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}"
-                                             MaterialTheme="{DynamicResource DynamicBlurTheme}"
-                                             StyleId="5555">
-                    <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
-                          RowSpacing="0"
-                          ColumnSpacing="0"
-                          Margin="5"
-                          effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                          effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                          effects:TapCommandEffect.TapParameter="{Binding .}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="20" />
-                            <RowDefinition Height="35" />
-                        </Grid.RowDefinitions>
+                <shades:Shadows Grid.Row="1" Shades="{DynamicResource DynamicShadow}"
+                                CornerRadius="{DynamicResource DynamicCornerRadius}">
+                    <materialFrame:MaterialFrame x:Name="MaterialFrame"
+                                                 Margin="16"
+                                                 Padding="16,32"
+                                                 Elevation="{DynamicResource DynamicElevation}"
+                                                 LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}"
+                                                 MaterialTheme="{DynamicResource DynamicBlurTheme}"
+                                                 StyleId="5555">
+                        <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
+                              RowSpacing="0"
+                              ColumnSpacing="0"
+                              Margin="5"
+                              effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                              effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                              effects:TapCommandEffect.TapParameter="{Binding .}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="35" />
+                            </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="112" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="112" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Frame Grid.Row="0"
-                               Grid.RowSpan="3"
-                               Grid.Column="0"
-                               HeightRequest="80"
-                               Margin="16,0"
-                               Padding="0"
-                               CornerRadius="40"
-                               HasShadow="False"
-                               IsClippedToBounds="True">
-                            <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
-                        </Frame>
+                            <Frame Grid.Row="0"
+                                   Grid.RowSpan="3"
+                                   Grid.Column="0"
+                                   HeightRequest="80"
+                                   Margin="16,0"
+                                   Padding="0"
+                                   CornerRadius="40"
+                                   HasShadow="False"
+                                   IsClippedToBounds="True">
+                                <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                            </Frame>
 
-                        <Label Grid.Row="0"
-                               Grid.Column="1"
-                               Style="{StaticResource TextBody}"
-                               Margin="0"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Text="{Binding Name}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource TextBody}"
+                                   Margin="0"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Name}" />
 
-                        <Label Grid.Row="1"
-                               Grid.Column="1"
-                               Style="{StaticResource TextBodySecondary}"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Text="{Binding Role}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource TextBodySecondary}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Role}" />
 
-                        <skiaRate:RatingView Grid.Row="2"
-                                             Grid.Column="1"
-                                             WidthRequest="100"
-                                             HeightRequest="20"
-                                             VerticalOptions="Center"
-                                             ColorOn="{StaticResource Accent}"
-                                             Count="5"
-                                             OutlineOffColor="Transparent"
-                                             RatingType="Full"
-                                             Value="{Binding SillinessDegree}" />
-                    </Grid>
+                            <skiaRate:RatingView Grid.Row="2"
+                                                 Grid.Column="1"
+                                                 WidthRequest="100"
+                                                 HeightRequest="20"
+                                                 VerticalOptions="Center"
+                                                 ColorOn="{StaticResource Accent}"
+                                                 Count="5"
+                                                 OutlineOffColor="Transparent"
+                                                 RatingType="Full"
+                                                 Value="{Binding SillinessDegree}" />
+                        </Grid>
 
-                </materialFrame:MaterialFrame>
+                    </materialFrame:MaterialFrame>
+                </shades:Shadows>
             </Grid>
         </loader:TaskLoaderView>
     </ContentView.Content>

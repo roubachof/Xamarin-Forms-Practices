@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,7 +11,8 @@
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <d:ContentView.BindingContext>
         <tabsLayout:ListPageViewModel />
@@ -45,27 +47,28 @@
                        Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <materialFrame:MaterialFrame Grid.Row="1"
-                                             Margin="0,16"
-                                             Padding="16,10"
-                                             Elevation="{DynamicResource DynamicElevation}"
-                                             LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
-                    <StackLayout Spacing="10" Orientation="Horizontal">
+                <shades:Shadows Grid.Row="1" Shades="{DynamicResource DynamicShadow}" CornerRadius="{DynamicResource DynamicCornerRadius}">
+                    <materialFrame:MaterialFrame Margin="0,16"
+                                                 Padding="16,10"
+                                                 Elevation="{DynamicResource DynamicElevation}"
+                                                 LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
+                        <StackLayout Spacing="10" Orientation="Horizontal">
 
-                        <Label Style="{StaticResource TextBody}"
-                               VerticalOptions="Center"
-                               Text="{localization:Translate SillyPeople_ErrorEmulation}" />
+                            <Label Style="{StaticResource TextBody}"
+                                   VerticalOptions="Center"
+                                   Text="{localization:Translate SillyPeople_ErrorEmulation}" />
 
-                        <Picker x:Name="Picker"
-                                HorizontalOptions="FillAndExpand"
-                                BackgroundColor="Transparent"
-                                FontFamily="{StaticResource FontSemiBold}"
-                                FontSize="Small"
-                                TextColor="{StaticResource Accent}"
-                                SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
-                                ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
-                    </StackLayout>
-                </materialFrame:MaterialFrame>
+                            <Picker x:Name="Picker"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="{StaticResource FontSemiBold}"
+                                    FontSize="Small"
+                                    TextColor="{StaticResource Accent}"
+                                    SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
+                                    ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
+                        </StackLayout>
+                    </materialFrame:MaterialFrame>
+                </shades:Shadows>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
                 <loader:TaskLoaderView Grid.Row="2"
@@ -97,12 +100,12 @@
 
                         <!--  ROW 3: HorizontalListView  -->
                         <renderedViews:HorizontalListView Grid.Row="1"
-                                                          Margin="-16,8"
+                                                          Margin="-16,0"
                                                           ColumnCount="1"
                                                           CurrentIndex="{Binding CurrentIndex}"
                                                           EnableDragAndDrop="True"
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                          ItemSpacing="10"
+                                                          ItemSpacing="0"
                                                           ListLayout="Linear"
                                                           SnapStyle="Center"
                                                           ScrollBeganCommand="{Binding OnScrollBeginCommand}"

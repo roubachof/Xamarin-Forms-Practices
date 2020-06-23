@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.GridView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -12,7 +13,8 @@
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame">
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <d:ContentView.BindingContext>
         <tabsLayout:GridPageViewModel />
@@ -28,7 +30,8 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
+        <customViews:TaskLoaderView Style="{StaticResource SillyTaskLoader}"
+                                    TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
             <RefreshView IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
                          RefreshColor="{StaticResource Accent}"
                          Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}">
@@ -45,22 +48,26 @@
                     <!--  ColumnCount="3"  -->
                     <renderedViews:HorizontalListView.ItemTemplate>
                         <DataTemplate>
-                            <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                                <ContentView Padding="5,5,5,10"
-                                             effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                            <renderedViews:DraggableViewCell x:Name="DraggableViewCell"
+                                                             IsDraggable="{Binding IsMovable}">
+                                <ContentView effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                                              effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
                                              effects:TapCommandEffect.TapParameter="{Binding .}">
-                                    <views:SillyCell Margin="4"
-                                                     Padding="{StaticResource StandardThickness}"
-                                                     Elevation="{DynamicResource DynamicElevation}">
-                                        <Frame.Triggers>
-                                            <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                                         TargetType="materialFrame:MaterialFrame"
-                                                         Value="True">
-                                                <Setter Property="Elevation" Value="8" />
-                                            </DataTrigger>
-                                        </Frame.Triggers>
-                                    </views:SillyCell>
+                                    <shades:Shadows Shades="{DynamicResource DynamicShadow}"
+                                                    CornerRadius="{DynamicResource DynamicCornerRadius}">
+                                        <views:SillyCell Margin="16,10"
+                                                         Padding="{StaticResource StandardThickness}"
+                                                         Elevation="{DynamicResource DynamicElevation}">
+                                            <Frame.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
+                                                    TargetType="materialFrame:MaterialFrame"
+                                                    Value="True">
+                                                    <Setter Property="Elevation" Value="8" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                        </views:SillyCell>
+                                    </shades:Shadows>
                                 </ContentView>
                             </renderedViews:DraggableViewCell>
                         </DataTemplate>

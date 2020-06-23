@@ -70,7 +70,7 @@
             </tabs:ViewSwitcher>
 
             <sh:Shadows Grid.Row="0" Shades="{DynamicResource DynamicToolbarShadow}" StyleId="1111">
-                <materialFrame:MaterialFrame Padding="0"
+                <materialFrame:MaterialFrame Grid.Row="0" Padding="0"
                                              CornerRadius="0"
                                              IsClippedToBounds="True"
                                              MaterialTheme="{DynamicResource DynamicBlurTheme}">
@@ -87,20 +87,24 @@
             </sh:Shadows>
 
             <!-- This Blur background goes with the underneath classic bottom bar -->
-            <!-- <materialFrame:MaterialFrame Grid.Row="2"
-                                         IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
-                                         Padding="0"
-                                         CornerRadius="0"
-                                         IsClippedToBounds="False"
-                                         MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
-                                         MaterialTheme="AcrylicBlur"
-                                         StyleId="9999" /> -->
+            <!-- <materialFrame:MaterialFrame Grid.Row="2" -->
+            <!--                              VerticalOptions="End" -->
+            <!--                              HeightRequest="65" -->
+            <!--                              IsVisible="{DynamicResource DynamicIsTabBlurVisible}" -->
+            <!--                              Padding="0" -->
+            <!--                              CornerRadius="0" -->
+            <!--                              IsClippedToBounds="False" -->
+            <!--                              MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}" -->
+            <!--                              MaterialTheme="AcrylicBlur" -->
+            <!--                              StyleId="9999" /> -->
 
             <!-- Example of classic bottom bar.
                  Change IsVisible="True" and do the opposite for segmented tabs to try them. -->
             <tabs:TabHostView x:Name="TabHost"
                               IsVisible="False"
                               Grid.Row="2"
+                              VerticalOptions="End"
+                              HeightRequest="65"
                               BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
                               TabType="Fixed"
                               Shades="{DynamicResource DynamicBottomTabsShadow}"
@@ -154,8 +158,9 @@
 
             <!-- Example of segmented tab bar (rounded floating tabs) -->
             <tabs:TabHostView Grid.Row="2"
-                              IsVisible="True"
                               HorizontalOptions="Center"
+                              VerticalOptions="Start"
+                              HeightRequest="60"
                               WidthRequest="280"
                               BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
                               TabType="Fixed"
