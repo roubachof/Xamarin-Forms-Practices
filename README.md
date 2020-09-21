@@ -15,4 +15,11 @@ Sample app for the https://github.com/roubachof/Sharpnado.Presentation.Forms lib
 * TaskLoaderView 2.0
 * Paginator
 
+**Important**
+
+The `Sharpnado.Presentation.Forms` is added as a git submodule.
+Run the following command after cloning the repository to be up and running:
+
+`git submodule update --init`
+
 <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/android_silly_app.gif" width="320"  />  <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/dynamic_themes.gif" width="320"  /> 
