@@ -1,6 +1,9 @@
 # Sharpnado's Silly Sample App!
 
-Sample app for the https://github.com/roubachof/Sharpnado.Presentation.Forms library.
+Sample app for the following libraries:
+
+* https://github.com/roubachof/Sharpnado.Presentation.Forms
+* https://github.com/roubachof/Sharpnado.Tabs
 
 | Platform | Build Status                                                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,7 +20,7 @@ Sample app for the https://github.com/roubachof/Sharpnado.Presentation.Forms lib
 
 **Important**
 
-The `Sharpnado.Presentation.Forms` is added as a git submodule.
+The `Sharpnado.Presentation.Forms` and `Sharpnado.Tabs` are added as git submodules.
 Run the following command after cloning the repository to be up and running:
 
 `git submodule update --init`

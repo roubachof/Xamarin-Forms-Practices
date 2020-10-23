@@ -23,25 +23,26 @@
   <ItemGroup>
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1.1-beta" />
-    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.3" />
     <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
     <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.0.0" />
     <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.1" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />    
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.6.0.847</Version>
+      <Version>4.7.0.1351</Version>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame\MaterialFrame.csproj" />
     <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.csproj" />
+    <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs\Tabs.csproj" />
   </ItemGroup>
 
   <ItemGroup>

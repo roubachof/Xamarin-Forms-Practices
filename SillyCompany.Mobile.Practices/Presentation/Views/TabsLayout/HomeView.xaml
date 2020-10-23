@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.HomeView"
              xmlns="http://xamarin.com/schemas/2014/forms"
@@ -6,29 +6,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
 
     <d:ContentView.BindingContext>
         <tabsLayout:HomePageViewModel />
     </d:ContentView.BindingContext>
 
     <ContentView.Content>
-        <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}"
-                               TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
+        <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid RowSpacing="0" ColumnSpacing="0">
-                <Grid.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">0,170,0,0</On>
-                        <On Platform="Android">0,140,0,0</On>
-                    </OnPlatform>
-                </Grid.Margin>
 
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="SillyOfTheDayHeader" Height="80" />
@@ -44,8 +37,9 @@
                        Text="{localization:Translate SillyPeople_SillyOfTheDay}" />
 
                 <!--  ROW 1: Silly Of The Day  -->
-                <shades:Shadows Grid.Row="1" Shades="{DynamicResource DynamicShadow}"
-                                CornerRadius="{DynamicResource DynamicCornerRadius}">
+                <shades:Shadows Grid.Row="1"
+                                CornerRadius="{DynamicResource DynamicCornerRadius}"
+                                Shades="{DynamicResource DynamicShadow}">
                     <materialFrame:MaterialFrame x:Name="MaterialFrame"
                                                  Margin="16"
                                                  Padding="16,32"
@@ -57,9 +51,9 @@
                               RowSpacing="0"
                               ColumnSpacing="0"
                               Margin="5"
-                              effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                              effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                              effects:TapCommandEffect.TapParameter="{Binding .}">
+                              sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                              sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                              sho:TapCommandEffect.TapParameter="{Binding .}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
                                 <RowDefinition Height="20" />

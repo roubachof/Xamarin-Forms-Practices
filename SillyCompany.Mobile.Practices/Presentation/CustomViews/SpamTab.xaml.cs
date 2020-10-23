@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-using Sharpnado.Presentation.Forms.CustomViews.Tabs;
 using Sharpnado.Presentation.Forms.Helpers;
+using Sharpnado.Tabs;
 using Sharpnado.Tasks;
 
 using Xamarin.Forms;
@@ -60,6 +60,11 @@ namespace SillyCompany.Mobile.Practices.Presentation.CustomViews
             {
                 Animate(IsSelected);
             }
+        }
+
+        protected override void OnBadgeChanged(BadgeView oldBadge)
+        {
+            throw new System.NotImplementedException();
         }
 
         private void Animate(bool isSelected)

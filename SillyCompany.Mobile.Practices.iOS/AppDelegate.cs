@@ -45,7 +45,11 @@ namespace SillyCompany.Mobile.Practices.iOS
                 new CoreEntryPoint().RegisterDependencies();
                 ImageCircleRenderer.Init();
                 PullToRefreshLayoutRenderer.Init();
+
                 SharpnadoInitializer.Initialize(enableInternalLogger: true);
+                iOSMaterialFrameRenderer.Init();
+                Sharpnado.Tabs.iOS.Preserver.Preserve();
+
                 Xamarin.Forms.Nuke.FormsHandler.Init(debug: true);
 
                 UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes

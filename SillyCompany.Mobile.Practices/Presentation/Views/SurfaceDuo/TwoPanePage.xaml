@@ -13,8 +13,8 @@
              xmlns:samples="clr-namespace:Xamarin.Duo.Forms.Samples;assembly=SillyCompany.Mobile.Practices"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:surfaceDuo="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.SurfaceDuo;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices">
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+             xmlns:tabs="http://sharpnado.com">
 
 
     <d:ContentPage.BindingContext>
@@ -58,9 +58,9 @@
                                    Grid.Row="1"
                                    Animate="False"
                                    SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                    <customViews1:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
-                    <customViews1:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
-                    <customViews1:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
+                    <tabs:LazyView x:TypeArguments="tabsLayout:HomeView" BindingContext="{Binding HomePageViewModel}" />
+                    <tabs:LazyView x:TypeArguments="tabsLayout:ListView" BindingContext="{Binding ListPageViewModel}" />
+                    <tabs:LazyView x:TypeArguments="tabsLayout:GridView" BindingContext="{Binding GridPageViewModel}" />
                     <Label Style="{StaticResource TextHeader}"
                            Margin="64,0"
                            VerticalOptions="Center"

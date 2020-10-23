@@ -6,17 +6,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
-             xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
+             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             xmlns:sho="http://sharpnado.com"
+             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
              Title="{loc:Translate SillyPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -26,8 +24,8 @@
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid ColumnSpacing="0"
-                  RowSpacing="0"
+            <Grid RowSpacing="0"
+                  ColumnSpacing="0"
                   Padding="{StaticResource StandardThickness}">
 
                 <Grid.RowDefinitions>
@@ -46,7 +44,7 @@
                                              Margin="0,8"
                                              Padding="16,10"
                                              Elevation="4">
-                    <StackLayout Orientation="Horizontal" Spacing="10">
+                    <StackLayout Spacing="10" Orientation="Horizontal">
 
                         <Label Style="{StaticResource TextBody}"
                                VerticalOptions="Center"
@@ -67,7 +65,7 @@
                 <loader:TaskLoaderView Grid.Row="2"
                                        Style="{StaticResource SillyTaskLoader}"
                                        TaskLoaderNotifier="{Binding SillyPeopleLoaderNotifier}">
-                    <Grid ColumnSpacing="0" RowSpacing="0">
+                    <Grid RowSpacing="0" ColumnSpacing="0">
 
                         <Grid.RowDefinitions>
                             <RowDefinition x:Name="SillyOfTheDayHeader" Height="{StaticResource HeaderHeight}" />
@@ -86,12 +84,12 @@
                                                      Margin="0,8,0,0"
                                                      Padding="{StaticResource StandardThickness}"
                                                      Elevation="4">
-                            <Grid ColumnSpacing="0"
+                            <Grid BindingContext="{Binding SillyOfTheDay}"
                                   RowSpacing="0"
-                                  effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                  effects:TapCommandEffect.TapParameter="{Binding .}"
-                                  effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                  BindingContext="{Binding SillyOfTheDay}">
+                                  ColumnSpacing="0"
+                                  sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                  sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                  sho:TapCommandEffect.TapParameter="{Binding .}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
@@ -157,11 +155,11 @@
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="End"
                                BackgroundColor="Transparent"
-                               effects:TapCommandEffect.Tap="{Binding GoToSillyInfiniteGridPeopleCommand}"
-                               effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                               sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                                FontFamily="{StaticResource FontSemiBold}"
                                FontSize="15"
                                TextColor="{StaticResource Accent}"
+                               sho:TapCommandEffect.Tap="{Binding GoToSillyInfiniteGridPeopleCommand}"
                                Text="{loc:Translate SillyPeople_GoToGrid}" />
 
                         <!--  ROW 3: HorizontalListView  -->
@@ -174,9 +172,9 @@
                                                           InfiniteListLoader="{Binding SillyPeoplePaginator}"
                                                           ItemSpacing="20"
                                                           ListLayout="Linear"
+                                                          SnapStyle="Center"
                                                           ScrollBeganCommand="{Binding OnScrollBeginCommand}"
                                                           ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                          SnapStyle="Center"
                                                           ItemTemplate="{StaticResource DudeTemplateSelector}"
                                                           ItemsSource="{Binding SillyPeople}">
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
@@ -199,8 +197,8 @@
         <!--  Error box displayed when trying to navigate to the knights of ni  -->
         <materialFrame:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                                      AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                     Padding="{StaticResource StandardThickness}"
                                      IsVisible="False"
+                                     Padding="{StaticResource StandardThickness}"
                                      BackgroundColor="#99F57C00">
 
             <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->

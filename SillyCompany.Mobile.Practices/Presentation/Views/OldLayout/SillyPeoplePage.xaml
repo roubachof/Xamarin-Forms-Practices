@@ -7,12 +7,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
@@ -100,9 +100,9 @@
                                 <Grid BindingContext="{Binding SillyOfTheDay}"
                                       RowSpacing="0"
                                       ColumnSpacing="0"
-                                      effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                      effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                      effects:TapCommandEffect.TapParameter="{Binding .}">
+                                      sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                      sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                      sho:TapCommandEffect.TapParameter="{Binding .}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="25" />
                                         <RowDefinition Height="20" />
@@ -191,9 +191,9 @@
                                 <rv:HorizontalListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <views:SmallSillySquareCell effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                                                        effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                                                        effects:TapCommandEffect.TapParameter="{Binding .}" />
+                                            <views:SmallSillySquareCell sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                                                        sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                                        sho:TapCommandEffect.TapParameter="{Binding .}" />
                                         </ViewCell>
                                     </DataTemplate>
                                 </rv:HorizontalListView.ItemTemplate>

@@ -2,36 +2,22 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.CustomViews.Toolbar"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:sho="http://sharpnado.com"
              x:Name="RootLayout">
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="TextTitleStyle"
                    BasedOn="{StaticResource TextHeadline}"
                    TargetType="Label">
-                <Setter Property="HorizontalOptions">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="LayoutOptions">
-                            <On Platform="iOS">Start</On>
-                            <On Platform="Android">Start</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Margin">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS">30,30,30,10</On>
-                            <On Platform="Android">30,30,30,10</On>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="30,30,30,10" />
                 <Setter Property="VerticalOptions" Value="End" />
             </Style>
 
             <OnPlatform x:Key="StatusBarHeight" x:TypeArguments="GridLength">
                 <On Platform="iOS">30</On>
                 <On Platform="Android">0</On>
+                <On Platform="UWP">0</On>
             </OnPlatform>
 
         </ResourceDictionary>
@@ -59,12 +45,12 @@
                          Grid.Row="1"
                          Grid.Column="0"
                          IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}"
-                         effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
+                         sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
                 <Image WidthRequest="24"
                        HeightRequest="24"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       effects:ImageEffect.TintColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
+                       sho:ImageEffect.TintColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
                        Aspect="AspectFit"
                        Source="back_96.png" />
             </ContentView>

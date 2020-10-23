@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-using Sharpnado.Presentation.Forms.Effects;
+using Sharpnado.Tabs.Effects;
 
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;

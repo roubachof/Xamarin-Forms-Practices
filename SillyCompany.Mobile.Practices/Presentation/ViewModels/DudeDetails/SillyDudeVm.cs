@@ -8,11 +8,12 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 using Sharpnado.Presentation.Forms;
-using Sharpnado.Presentation.Forms.Commands;
-using Sharpnado.Presentation.Forms.ViewModels;
+using Sharpnado.Tabs;
+using Sharpnado.Tasks;
 
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
@@ -30,6 +31,10 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         /// The front service.
         /// </summary>
         private readonly ISillyDudeService _dudeService;
+
+        private readonly Random _randomizer = new Random();
+
+        private int _addedTabCount = 0;
 
         private int _selectedViewModelIndex = 0;
 
@@ -55,6 +60,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         /// </summary>
         /// <value>The silly dude task.</value>
         public TaskLoaderNotifier<SillyDudeVmo> SillyDudeLoaderNotifier { get; }
+
+        public ObservableCollection<string> TabTitles { get; set;  }
 
         public QuoteVmo Quote { get; private set; }
 
@@ -93,7 +100,55 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
             RaisePropertyChanged(nameof(Filmo));
             RaisePropertyChanged(nameof(Meme));
 
+            TabTitles = new ObservableCollection<string>
+            {
+                "Quote",
+                "Movies",
+                "Fun",
+                "Well",
+                "How",
+                "About",
+                "That",
+            };
+
+            RaisePropertyChanged(nameof(TabTitles));
+
+            TaskMonitor.Create(TestTabsItemsSourceNotifications);
+
             return new SillyDudeVmo(dude, null);
+        }
+
+        private async Task TestTabsItemsSourceNotifications()
+        {
+            while (true)
+            {
+                await Task.Delay(5000);
+                bool remove = _randomizer.Next(0, 2) == 1;
+                int index;
+
+                if (TabTitles.Count == 0)
+                {
+                    remove = false;
+                    index = 0;
+                }
+                else
+                {
+                    index = _randomizer.Next(0, TabTitles.Count - 1);
+                }
+
+                if (remove)
+                {
+                    string name = TabTitles[index];
+                    System.Diagnostics.Debug.WriteLine($"Removing tab at index {index}: {name}");
+                    TabTitles.RemoveAt(index);
+                }
+                else
+                {
+                    string name = $"Pipo n°{++_addedTabCount}";
+                    System.Diagnostics.Debug.WriteLine($"Adding tab at index {index}: {name}");
+                    TabTitles.Insert(index, name);
+                }
+            }
         }
     }
 }

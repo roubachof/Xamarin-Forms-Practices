@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
              xmlns="http://xamarin.com/schemas/2014/forms"
@@ -11,8 +11,8 @@
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
 
     <d:ContentView.BindingContext>
         <tabsLayout:ListPageViewModel />
@@ -26,12 +26,6 @@
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                   Padding="{StaticResource StandardThickness}">
-                <Grid.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">0,170,0,0</On>
-                        <On Platform="Android">0,120,0,0</On>
-                    </OnPlatform>
-                </Grid.Margin>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60" />
@@ -47,7 +41,9 @@
                        Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <shades:Shadows Grid.Row="1" Shades="{DynamicResource DynamicShadow}" CornerRadius="{DynamicResource DynamicCornerRadius}">
+                <shades:Shadows Grid.Row="1"
+                                CornerRadius="{DynamicResource DynamicCornerRadius}"
+                                Shades="{DynamicResource DynamicShadow}">
                     <materialFrame:MaterialFrame Margin="0,16"
                                                  Padding="16,10"
                                                  Elevation="{DynamicResource DynamicElevation}"

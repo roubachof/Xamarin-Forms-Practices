@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Converters;assembly=SillyCompany.Mobile.Practices"
              xmlns:convertersSharpnado="clr-namespace:Sharpnado.Presentation.Forms.Converters;assembly=Sharpnado.Presentation.Forms"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:gen="clr-namespace:System.Collections.Generic;assembly=netstandard"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:mf="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
-             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-             xmlns:gen="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:sho="http://sharpnado.com"
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
     <Application.Resources>
         <ResourceDictionary>
 
@@ -332,17 +331,17 @@
 
             <DataTemplate x:Key="SillyDataTemplate">
                 <ViewCell>
-                    <views:SillySquareCell effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                           effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                           effects:TapCommandEffect.TapParameter="{Binding .}" />
+                    <views:SillySquareCell sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                           sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                           sho:TapCommandEffect.TapParameter="{Binding .}" />
                 </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="AlternateSillyDataTemplate">
                 <ViewCell>
-                    <views:AlternateSillySquareCell effects:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                                    effects:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                                    effects:TapCommandEffect.TapParameter="{Binding .}" />
+                    <views:AlternateSillySquareCell sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
+                                                    sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
+                                                    sho:TapCommandEffect.TapParameter="{Binding .}" />
                 </ViewCell>
             </DataTemplate>
 
@@ -350,7 +349,7 @@
                                              AlternateSillySquare="{StaticResource AlternateSillyDataTemplate}"
                                              SillySquare="{StaticResource SillyDataTemplate}" />
 
-            <Style TargetType="tabs:BottomTabItem">
+            <Style TargetType="sho:BottomTabItem">
                 <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
                 <Setter Property="UnselectedLabelColor" Value="Gray" />
                 <Setter Property="UnselectedIconColor" Value="LightGray" />
@@ -368,26 +367,42 @@
                 <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
             </Style>
 
-            <sh:SingleShade x:Key="LightTopShadow" Offset="0,-8" Color="Black" Opacity="0.1" BlurRadius="10" />
+            <sh:SingleShade x:Key="LightTopShadow"
+                            BlurRadius="10"
+                            Opacity="0.1"
+                            Offset="0,-8"
+                            Color="Black" />
 
             <sh:ImmutableShades x:Key="AcrylicTopShadow">
-                <sh:Shade Offset="0,-2" Color="White" Opacity="1" BlurRadius="0" />
-                <sh:Shade Offset="0,8" Color="Black" Opacity="0.1" BlurRadius="10" />
+                <sh:Shade BlurRadius="0"
+                          Opacity="1"
+                          Offset="0,-2"
+                          Color="White" />
+                <sh:Shade BlurRadius="10"
+                          Opacity="0.1"
+                          Offset="0,8"
+                          Color="Black" />
             </sh:ImmutableShades>
 
-            <sh:SingleShade x:Key="LightBottomShadow" Offset="0,8" Color="Black" Opacity="0.1" BlurRadius="10" />
+            <sh:SingleShade x:Key="LightBottomShadow"
+                            BlurRadius="10"
+                            Opacity="0.1"
+                            Offset="0,8"
+                            Color="Black" />
 
             <sh:SingleShade x:Key="SegmentedBottomShadow"
-                            Offset="0,8"
                             BlurRadius="10"
-                            Color="{StaticResource Accent}"
-                            Opacity="0.2" />
+                            Opacity="0.2"
+                            Offset="0,8"
+                            Color="{StaticResource Accent}" />
 
             <sh:ImmutableShades x:Key="NoShadow" />
 
             <sh:NeumorphismShades x:Key="NeumorphismShadow" />
 
-            <sh:NeumorphismShades x:Key="ThinNeumorphismShadow" UpperOffset="-8,-6" LowerOffset="8, 6" />
+            <sh:NeumorphismShades x:Key="ThinNeumorphismShadow"
+                                  LowerOffset="8, 6"
+                                  UpperOffset="-8,-6" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

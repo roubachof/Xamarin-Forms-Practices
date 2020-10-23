@@ -57,7 +57,6 @@ namespace SillyCompany.Mobile.Practices.UWP
 
                 new CoreEntryPoint().RegisterDependencies();
                 ImageCircleRenderer.Init();
-                InternalLogger.EnableLogging = true;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

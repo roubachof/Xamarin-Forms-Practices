@@ -60,6 +60,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public ObservableRangeCollection<SillyDudeVmo> SillyPeople { get; set; }
 
+        public int SillyCount => SillyPeople.Count;
+
         /// <summary>
         /// Commands accessible directly on screen are declared in the ScreenVm.
         /// Here, it is a command to navigate to the second screen.
@@ -103,6 +105,8 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             var viewModels = resultPage.Items.Select(dude => new SillyDudeVmo(dude, GoToSillyDudeCommand)).ToList();
 
             SillyPeople.AddRange(viewModels);
+
+            RaisePropertyChanged(nameof(SillyCount));
 
             // Uncomment to test CurrentIndex property
             //TaskMonitor.Create(

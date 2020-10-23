@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sharpnado.Presentation.Forms.CustomViews;
+using Sharpnado.Tabs;
+
 using Xam.Forms.Markdown;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

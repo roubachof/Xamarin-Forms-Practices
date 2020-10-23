@@ -67,9 +67,6 @@
     <PackageReference Include="glidex.forms">
       <Version>2.0.1.394</Version>
     </PackageReference>
-    <PackageReference Include="Sharpnado.MaterialFrame">
-      <Version>1.1.3</Version>
-    </PackageReference>
     <PackageReference Include="Sharpnado.Shadows">
       <Version>1.2.0</Version>
     </PackageReference>
@@ -89,7 +86,7 @@
       <Version>1.68.1.1</Version>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers">
-      <Version>1.2.0-beta.113</Version>
+      <Version>1.2.0-beta.164</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -106,7 +103,7 @@
       <Version>0.0.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.6.0.847</Version>
+      <Version>4.7.0.1351</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +148,17 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.Android\MaterialFrame.Android.csproj">
+      <Project>{f6719964-727a-4c81-9c32-fa0b08ca8ae6}</Project>
+      <Name>MaterialFrame.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.Droid\Sharpnado.Presentation.Forms.Droid.csproj">
       <Project>{5c880a51-9e8a-42a9-9fa5-10bc7d3e9ffc}</Project>
       <Name>Sharpnado.Presentation.Forms.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs.Droid\Tabs.Droid.csproj">
+      <Project>{9d599240-c5cf-4d6c-bdd4-4c40949cbbaa}</Project>
+      <Name>Tabs.Droid</Name>
     </ProjectReference>
     <ProjectReference Include="..\SillyCompany.Mobile.Practices\SillyCompany.Mobile.Practices.csproj">
       <Name>SillyCompany.Mobile.Practices</Name>

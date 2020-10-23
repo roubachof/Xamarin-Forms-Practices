@@ -8,9 +8,10 @@
                         xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
                         xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails"
                         xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
+                        xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
                         xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-                        xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+                        xmlns:tabs="http://sharpnado.com"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         x:DataType="dudeDetails:SillyDudeVm">
@@ -97,11 +98,10 @@
 
 
 
-                <ScrollView Grid.Row="4"
-                            Grid.RowSpan="2">
+                <ScrollView Grid.Row="4" Grid.RowSpan="2">
                     <tabs:ViewSwitcher x:Name="Switcher"
-                                       Animate="True"
                                        Padding="0,80,0,0"
+                                       Animate="True"
                                        SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
                         <details:Quote BindingContext="{Binding Quote}" Animate="True" />
                         <details:Filmo BindingContext="{Binding Filmo}" Animate="True" />
@@ -121,21 +121,21 @@
                     </tabs:ViewSwitcher>
                 </ScrollView>
 
-                <!-- Tabs are above the view switcher -->
+                <!--  Tabs are above the view switcher  -->
 
-                <!-- Uncomment these to test classic scrollable underlined tabs -->
+                <!--  Uncomment these to test classic scrollable underlined tabs  -->
                 <!--<tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
-                                  Margin="-16,0"
-                                  BackgroundColor="{DynamicResource Elevation4dpColor}"
                                   Style="{DynamicResource DynamicBottomShadow}"
+                                  Margin="-16,10"
+                                  BackgroundColor="{DynamicResource Elevation4dpColor}"
                                   ShowScrollbar="False"
                                   TabType="Scrollable"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Quote}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Filmography}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{loc:Translate Tabs_Meme}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Quote}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Filmography}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Meme}" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="SOME MORE" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
                         <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="AGAIN" />
@@ -143,18 +143,102 @@
                     </tabs:TabHostView.Tabs>
                 </tabs:TabHostView>-->
 
-                <!-- Uncomment these to test segmented tabs -->
+                <!--  Uncomment these to test scrollable underlined tabs with ItemsSource and static array  -->
+                <!--<tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  Style="{DynamicResource DynamicBottomShadow}"
+                                  Margin="-16,10"
+                                  BackgroundColor="{DynamicResource Elevation4dpColor}"
+                                  TabType="Scrollable"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                    <tabs:TabHostView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Quote</x:String>
+                            <x:String>Movies</x:String>
+                            <x:String>Fun</x:String>
+                            <x:String>Well</x:String>
+                            <x:String>How</x:String>
+                            <x:String>About</x:String>
+                            <x:String>That</x:String>
+                        </x:Array>
+                    </tabs:TabHostView.ItemsSource>
+                    <tabs:TabHostView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{Binding}" />
+                        </DataTemplate>
+                    </tabs:TabHostView.ItemTemplate>
+                </tabs:TabHostView>-->
+
+                <!--  Uncomment these to test scrollable underlined tabs with ItemsSource and ObservableCollection  -->
+                <!--<tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  Style="{DynamicResource DynamicBottomShadow}"
+                                  Margin="-16,0,-16,20"
+                                  BackgroundColor="{DynamicResource Elevation4dpColor}"
+                                  IsSegmented="True"
+                                  TabType="Scrollable"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                                  ItemsSource="{Binding TabTitles}">
+                    <tabs:TabHostView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{Binding}" />
+                        </DataTemplate>
+                    </tabs:TabHostView.ItemTemplate>
+                </tabs:TabHostView>-->
+
+
+                <!--  Uncomment these to test fixed tabs with badges  -->
                 <tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  Margin="-16,0,-16,30"
+                                  BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
+                                  CornerRadius="20"
+                                  Shades="{DynamicResource DynamicTabsShadow}"
+                                  TabType="Fixed"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                    <tabs:TabHostView.Tabs>
+                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Quote">
+                            <tabs:UnderlinedTabItem.Badge>
+                                <tabs:BadgeView BackgroundColor="{StaticResource Accent}"
+                                                BadgePadding="6,2"
+                                                FontFamily="{StaticResource FontExtraBold}"
+                                                TextSize="12"
+                                                Text="9" />
+                            </tabs:UnderlinedTabItem.Badge>
+                        </tabs:UnderlinedTabItem>
+                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Movies">
+                            <tabs:UnderlinedTabItem.Badge>
+                                <tabs:BadgeView BackgroundColor="DodgerBlue"
+                                                BadgePadding="6,1,6,2"
+                                                Text="new" />
+                            </tabs:UnderlinedTabItem.Badge>
+                        </tabs:UnderlinedTabItem>
+                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Meme">
+                            <tabs:UnderlinedTabItem.Badge>
+                                <tabs:BadgeView Margin="20,0"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"
+                                                BackgroundColor="White"
+                                                BorderColor="{StaticResource Accent}"
+                                                TextColor="{StaticResource Accent}"
+                                                Text="14" />
+                            </tabs:UnderlinedTabItem.Badge>
+                        </tabs:UnderlinedTabItem>
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>
+
+                <!--  Uncomment these to test segmented tabs  -->
+                <!--<tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   HeightRequest="40"
                                   Margin="20,15,20,0"
                                   VerticalOptions="Center"
                                   BackgroundColor="{DynamicResource DynamicDudeBackgroundColor}"
-                                  Shades="{DynamicResource DynamicTabsShadow}"
                                   CornerRadius="20"
                                   IsSegmented="True"
                                   SegmentedHasSeparator="True"
                                   SegmentedOutlineColor="{DynamicResource DynamicOutlineColor}"
+                                  Shades="{DynamicResource DynamicTabsShadow}"
                                   TabType="Fixed"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
@@ -162,7 +246,7 @@
                         <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Movies" />
                         <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Meme" />
                     </tabs:TabHostView.Tabs>
-                </tabs:TabHostView>
+                </tabs:TabHostView>-->
             </Grid>
         </loader:TaskLoaderView>
 
