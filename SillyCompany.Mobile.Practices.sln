@@ -68,6 +68,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		Sharpnado.Tabs\Sharpnado.Tabs.nuspec = Sharpnado.Tabs\Sharpnado.Tabs.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{8D8D0F84-E873-4F56-951A-6BC75813E677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -1463,6 +1465,7 @@ Global
 		{29B1C798-02D7-4732-ACC5-0FD2E4BBEC8B} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
 		{1E904232-AE2E-4D45-95F3-0C9F4D12831C} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
 		{66A88E33-C1F8-41E3-A49F-328312AD3F38} = {B7857602-7624-4C84-82F4-3535A3105483}
+		{8D8D0F84-E873-4F56-951A-6BC75813E677} = {5BF4C4DE-5077-45B1-AA60-B1B2CF28AD25}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C5BF1F5-C9B1-4755-A9D5-0CB86C6019E0}

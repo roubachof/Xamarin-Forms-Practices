@@ -20,9 +20,14 @@ Sample app for the following libraries:
 
 **Important**
 
-The `Sharpnado.Presentation.Forms` and `Sharpnado.Tabs` are added as git submodules.
+The `Sharpnado.Presentation.Forms`, `Sharpnado.Tabs` and `Sharpnado.MaterialFrame` are added as git submodules.
 Run the following command after cloning the repository to be up and running:
 
 `git submodule update --init`
 
-<img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/android_silly_app.gif" width="320"  />  <img src="https://raw.githubusercontent.com/roubachof/Xamarin-Forms-Practices/master/__Docs__/dynamic_themes.gif" width="320"  /> 
+
+<img src="__Docs__/ios_segmented_neu.png" width="320"  />  
+<img src="__Docs__/bottom_tabs_uwp.png" width="320"  />  
+<br />
+<img src="__Docs__/dark_mode_ios.gif" width="320"  />  
+<img src="__Docs__/dynamic_themes.gif" width="320"  /> 
