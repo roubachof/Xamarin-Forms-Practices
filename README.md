@@ -4,6 +4,9 @@ Sample app for the following libraries:
 
 * https://github.com/roubachof/Sharpnado.Presentation.Forms
 * https://github.com/roubachof/Sharpnado.Tabs
+* https://github.com/roubachof/Sharpnado.MaterialFrame
+* https://github.com/roubachof/Sharpnado.TaskLoaderView
+* https://github.com/roubachof/Sharpnado.Shadows
 
 | Platform | Build Status                                                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,9 +28,32 @@ Run the following command after cloning the repository to be up and running:
 
 `git submodule update --init`
 
+<table>
+  <thead>
+    <tr>
+      <th>iOS Neumorphism</th>
+      <th>UWP Neumorphism badges</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="__Docs__/ios_segmented_neu.png" width="320" /></td>
+      <td><img src="__Docs__/bottom_tabs_uwp.png" width="320" /></td>
+    </tr>
+  </tbody>
+</table>
 
-<img src="__Docs__/ios_segmented_neu.png" width="320"  />  
-<img src="__Docs__/bottom_tabs_uwp.png" width="320"  />  
-<br />
-<img src="__Docs__/dark_mode_ios.gif" width="320"  />  
-<img src="__Docs__/dynamic_themes.gif" width="320"  /> 
+<table>
+  <thead>
+    <tr>
+      <th>iOS Theming </th>
+      <th>Android Theming</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="__Docs__/dark_mode_ios.gif" width="320" /></td>
+      <td><img src="__Docs__/dynamic_themes.gif" width="320" /></td>
+    </tr>
+  </tbody>
+</table>
