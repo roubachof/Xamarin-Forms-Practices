@@ -60,6 +60,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialFrame.iOS", "Sharpn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialFrame.UWP", "Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.UWP\MaterialFrame.UWP.csproj", "{1E904232-AE2E-4D45-95F3-0C9F4D12831C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{66A88E33-C1F8-41E3-A49F-328312AD3F38}"
+	ProjectSection(SolutionItems) = preProject
+		Sharpnado.Tabs\Tabs\AssemblyInfo.targets = Sharpnado.Tabs\Tabs\AssemblyInfo.targets
+		Sharpnado.Tabs\make-package.ps1 = Sharpnado.Tabs\make-package.ps1
+		Sharpnado.Tabs\README.md = Sharpnado.Tabs\README.md
+		Sharpnado.Tabs\Sharpnado.Tabs.nuspec = Sharpnado.Tabs\Sharpnado.Tabs.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -1454,6 +1462,7 @@ Global
 		{F6719964-727A-4C81-9C32-FA0B08CA8AE6} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
 		{29B1C798-02D7-4732-ACC5-0FD2E4BBEC8B} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
 		{1E904232-AE2E-4D45-95F3-0C9F4D12831C} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
+		{66A88E33-C1F8-41E3-A49F-328312AD3F38} = {B7857602-7624-4C84-82F4-3535A3105483}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C5BF1F5-C9B1-4755-A9D5-0CB86C6019E0}
