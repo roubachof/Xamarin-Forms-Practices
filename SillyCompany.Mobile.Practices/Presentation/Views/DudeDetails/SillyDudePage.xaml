@@ -121,7 +121,7 @@
                     </tabs:ViewSwitcher>
                 </ScrollView>
 
-                <!--  Tabs are above the view switcher  -->
+                <!--  Tabs are above the view switcher: so same row number but declared after them in grid hierarchy  -->
 
                 <!--  Uncomment these to test classic scrollable underlined tabs  -->
                 <!--<tabs:TabHostView x:Name="TabHost"
@@ -237,7 +237,7 @@
                                   CornerRadius="20"
                                   IsSegmented="True"
                                   SegmentedHasSeparator="True"
-                                  SegmentedOutlineColor="{DynamicResource DynamicOutlineColor}"
+                                  SegmentedOutlineColor="{StaticResource Accent}"
                                   Shades="{DynamicResource DynamicTabsShadow}"
                                   TabType="Fixed"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
@@ -246,6 +246,29 @@
                         <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Movies" />
                         <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Meme" />
                     </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>-->
+
+
+                <!--  Uncomment these to test segmented tabs with ItemsSource binding  -->
+                <!--<tabs:TabHostView x:Name="TabHost"
+                                  Grid.Row="4"
+                                  HeightRequest="40"
+                                  Margin="20,15,20,0"
+                                  VerticalOptions="Center"
+                                  BackgroundColor="{DynamicResource DynamicDudeBackgroundColor}"
+                                  CornerRadius="20"
+                                  IsSegmented="True"
+                                  SegmentedHasSeparator="True"
+                                  SegmentedOutlineColor="{StaticResource Accent}"
+                                  Shades="{DynamicResource DynamicTabsShadow}"
+                                  TabType="Fixed"
+                                  SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                                  ItemsSource="{Binding TabTitles}">
+                    <tabs:TabHostView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="{Binding}" />
+                        </DataTemplate>
+                    </tabs:TabHostView.ItemTemplate>
                 </tabs:TabHostView>-->
             </Grid>
         </loader:TaskLoaderView>

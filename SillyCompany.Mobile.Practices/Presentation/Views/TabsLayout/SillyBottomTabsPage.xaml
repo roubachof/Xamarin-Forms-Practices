@@ -8,7 +8,6 @@
                         mc:Ignorable="d"
                         xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-                        xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                         xmlns:sho="http://sharpnado.com"
                         xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
@@ -65,9 +64,9 @@
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </sho:ViewSwitcher>
 
-            <shades:Shadows Grid.Row="0"
-                            Shades="{DynamicResource DynamicToolbarShadow}"
-                            StyleId="1111">
+            <sho:Shadows Grid.Row="0"
+                         Shades="{DynamicResource DynamicToolbarShadow}"
+                         StyleId="1111">
                 <sho:MaterialFrame Grid.Row="0"
                                    Padding="0"
                                    CornerRadius="0"
@@ -83,7 +82,7 @@
                         </tb:Toolbar.GestureRecognizers>
                     </tb:Toolbar>
                 </sho:MaterialFrame>
-            </shades:Shadows>
+            </sho:Shadows>
 
             <!--  This Blur background goes with the underneath classic bottom bar  -->
             <!--  <materialFrame:MaterialFrame Grid.Row="2"  -->
@@ -217,15 +216,22 @@
                     <sho:BottomTabItem BackgroundColor="{StaticResource Accent}"
                                        IconSize="48"
                                        Label="{localization:Translate Tabs_Home}"
+                                       SelectedTabColor="{StaticResource Accent}"
                                        UnselectedIconColor="{StaticResource NeumorphismSurface}">
                         <sho:BottomTabItem.IconImageSource>
                             <FontImageSource FontFamily="{StaticResource FontExtraBold}"
                                              Glyph="T"
                                              Size="52" />
                         </sho:BottomTabItem.IconImageSource>
+                        <sho:BottomTabItem.Triggers>
+                            <Trigger TargetType="sho:BottomTabItem" Property="IsSelected" Value="true">
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </Trigger>
+                        </sho:BottomTabItem.Triggers>
                     </sho:BottomTabItem>
                     <sho:BottomTabItem IconSize="48"
                                        Label="{localization:Translate Tabs_List}"
+                                       SelectedTabColor="{StaticResource Accent}"
                                        UnselectedIconColor="{StaticResource DarkElevation24dp}">
                         <sho:BottomTabItem.IconImageSource>
                             <FontImageSource FontFamily="{StaticResource FontExtraBold}"
@@ -246,6 +252,7 @@
                                            UnselectedLabelColor="{StaticResource DarkElevation24dp}" />
                     <sho:BottomTabItem IconSize="48"
                                        Label="{localization:Translate Tabs_Grid}"
+                                       SelectedTabColor="{StaticResource Accent}"
                                        UnselectedIconColor="{StaticResource DarkElevation24dp}">
                         <sho:BottomTabItem.IconImageSource>
                             <FontImageSource FontFamily="{StaticResource FontExtraBold}"

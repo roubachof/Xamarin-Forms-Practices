@@ -106,9 +106,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
                 "Movies",
                 "Fun",
                 "Well",
-                "How",
-                "About",
-                "That",
+                "Yo!",
             };
 
             RaisePropertyChanged(nameof(TabTitles));

@@ -40,6 +40,7 @@ namespace SillyCompany.Mobile.Practices
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
 
+            Sharpnado.Shades.Initializer.Initialize(false);
             Sharpnado.Tabs.Initializer.Initialize(true, true);
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
