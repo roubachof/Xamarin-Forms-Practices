@@ -2,7 +2,7 @@
 
 Sample app for the following libraries:
 
-* https://github.com/roubachof/Sharpnado.Presentation.Forms
+* https://github.com/roubachof/Sharpnado.HorizontalListView
 * https://github.com/roubachof/Sharpnado.Tabs
 * https://github.com/roubachof/Sharpnado.MaterialFrame
 * https://github.com/roubachof/Sharpnado.TaskLoaderView
@@ -18,15 +18,18 @@ Sample app for the following libraries:
 * HorizontalListView
 * Tabs
 * MaterialFrame
-* TaskLoaderView 2.0
+* TaskLoaderView
 * Paginator
 
-## Important
+## Installation
 
-The `Sharpnado.Presentation.Forms`, `Sharpnado.Tabs` and `Sharpnado.MaterialFrame` are added as git submodules.
-Run the following command after cloning the repository to be up and running:
+The `Sharpnado.HorizontalListView`, `Sharpnado.Tabs` and `Sharpnado.MaterialFrame` are added as git submodules.
+Run the submodule update command after cloning the repository to be up and running:
 
-`git submodule update --init`
+```bash
+git clone https://github.com/roubachof/Xamarin-Forms-Practices.git
+git submodule update --init
+```
 
 ## Screenshots
 
