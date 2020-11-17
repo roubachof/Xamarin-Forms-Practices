@@ -2,7 +2,6 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails.Quote"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices">
     <ContentView.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">

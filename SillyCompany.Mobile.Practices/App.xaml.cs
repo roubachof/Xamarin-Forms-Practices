@@ -11,8 +11,6 @@ using System;
 
 using MetroLog;
 
-using Sharpnado.Presentation.Forms.RenderedViews;
-
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.ViewModels;
@@ -40,8 +38,10 @@ namespace SillyCompany.Mobile.Practices
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
 
+            Sharpnado.HorizontalListView.Initializer.Initialize(true, false);
             Sharpnado.Shades.Initializer.Initialize(false);
-            Sharpnado.Tabs.Initializer.Initialize(true, true);
+            Sharpnado.Tabs.Initializer.Initialize(true, false);
+            Sharpnado.MaterialFrame.Initializer.Initialize(true, false);
 
             var viewLocator = DependencyContainer.Instance.GetInstance<IViewLocator>();
 

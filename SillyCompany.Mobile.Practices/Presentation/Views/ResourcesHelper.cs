@@ -1,9 +1,6 @@
 ﻿using System;
 
 using Sharpnado.MaterialFrame;
-using Sharpnado.Presentation.Forms.RenderedViews;
-
-using SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;
 
 using Xamarin.Forms;
 

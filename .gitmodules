@@ -1,9 +1,9 @@
-[submodule "Sharpnado.Presentation.Forms"]
-	path = Sharpnado.Presentation.Forms
-	url = https://github.com/roubachof/Sharpnado.Presentation.Forms.git
 [submodule "Sharpnado.Tabs"]
 	path = Sharpnado.Tabs
 	url = git@github.com:roubachof/Sharpnado.Tabs.git
 [submodule "Sharpnado.MaterialFrame"]
 	path = Sharpnado.MaterialFrame
 	url = git@github.com:roubachof/Sharpnado.MaterialFrame.git
+[submodule "Sharpnado.HorizontalListView"]
+	path = Sharpnado.HorizontalListView
+	url = git@github.com:roubachof/Sharpnado.HorizontalListView.git

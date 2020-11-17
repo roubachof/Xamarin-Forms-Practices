@@ -17,7 +17,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
-    <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\StyleCopRules.ruleset</CodeAnalysisRuleSet>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -103,7 +103,7 @@
       <Version>0.0.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1351</Version>
+      <Version>4.8.0.1687</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -148,13 +148,13 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.Droid\Sharpnado.HorizontalListView.Droid.csproj">
+      <Project>{92e0ecfc-c8c0-4c03-ba61-a2701390d7de}</Project>
+      <Name>Sharpnado.HorizontalListView.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.Android\MaterialFrame.Android.csproj">
       <Project>{f6719964-727a-4c81-9c32-fa0b08ca8ae6}</Project>
       <Name>MaterialFrame.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.Droid\Sharpnado.Presentation.Forms.Droid.csproj">
-      <Project>{5c880a51-9e8a-42a9-9fa5-10bc7d3e9ffc}</Project>
-      <Name>Sharpnado.Presentation.Forms.Droid</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs.Droid\Tabs.Droid.csproj">
       <Project>{9d599240-c5cf-4d6c-bdd4-4c40949cbbaa}</Project>
@@ -281,7 +281,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadUnhandledDeviceExceptionSillyCompanyMobilePracticesDroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionSillyCompanyMobilePracticesDroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

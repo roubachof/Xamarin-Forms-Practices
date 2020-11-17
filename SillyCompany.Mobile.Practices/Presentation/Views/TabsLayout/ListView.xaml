@@ -6,12 +6,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-             xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:sho="http://sharpnado.com"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
 
     <d:ContentView.BindingContext>
@@ -41,13 +38,13 @@
                        Text="{localization:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <shades:Shadows Grid.Row="1"
-                                CornerRadius="{DynamicResource DynamicCornerRadius}"
-                                Shades="{DynamicResource DynamicShadow}">
-                    <materialFrame:MaterialFrame Margin="0,16"
-                                                 Padding="16,10"
-                                                 Elevation="{DynamicResource DynamicElevation}"
-                                                 LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
+                <sho:Shadows Grid.Row="1"
+                             CornerRadius="{DynamicResource DynamicCornerRadius}"
+                             Shades="{DynamicResource DynamicShadow}">
+                    <sho:MaterialFrame Margin="0,16"
+                                       Padding="16,10"
+                                       Elevation="{DynamicResource DynamicElevation}"
+                                       LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}">
                         <StackLayout Spacing="10" Orientation="Horizontal">
 
                             <Label Style="{StaticResource TextBody}"
@@ -63,8 +60,8 @@
                                     SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                     ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                         </StackLayout>
-                    </materialFrame:MaterialFrame>
-                </shades:Shadows>
+                    </sho:MaterialFrame>
+                </sho:Shadows>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
                 <loader:TaskLoaderView Grid.Row="2"
@@ -95,25 +92,25 @@
                                Text="{localization:Translate SillyPeople_InfiniteListView}" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <renderedViews:HorizontalListView Grid.Row="1"
-                                                          Margin="-16,0"
-                                                          ColumnCount="1"
-                                                          CurrentIndex="{Binding CurrentIndex}"
-                                                          EnableDragAndDrop="True"
-                                                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                          ItemSpacing="0"
-                                                          ListLayout="Linear"
-                                                          SnapStyle="Center"
-                                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
-                                                          ItemsSource="{Binding SillyPeople}">
-                            <renderedViews:HorizontalListView.CollectionPadding>
+                        <sho:HorizontalListView Grid.Row="1"
+                                                Margin="-16,0"
+                                                ColumnCount="1"
+                                                CurrentIndex="{Binding CurrentIndex}"
+                                                EnableDragAndDrop="True"
+                                                InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                ItemSpacing="0"
+                                                ListLayout="Linear"
+                                                SnapStyle="Center"
+                                                ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                                ItemsSource="{Binding SillyPeople}">
+                            <sho:HorizontalListView.CollectionPadding>
                                 <OnPlatform x:TypeArguments="Thickness">
                                     <On Platform="iOS">50,10</On>
                                     <On Platform="Android">60,10</On>
                                 </OnPlatform>
-                            </renderedViews:HorizontalListView.CollectionPadding>
+                            </sho:HorizontalListView.CollectionPadding>
 
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
@@ -126,7 +123,7 @@
                                 </DataTemplate>
                             </renderedViews:HorizontalListView.ItemTemplate>-->
 
-                        </renderedViews:HorizontalListView>
+                        </sho:HorizontalListView>
                     </Grid>
                 </loader:TaskLoaderView>
 

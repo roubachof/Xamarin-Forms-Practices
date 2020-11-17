@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Sharpnado.Presentation.Forms;
-using Sharpnado.Presentation.Forms.Services;
+
+using Sharpnado.HorizontalListView;
+using Sharpnado.HorizontalListView.Services;
+
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
 
@@ -87,7 +89,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                        "https://jnxz07-a.akamaihd.net/wp-content/uploads/2015/03/triumph-e1425247855563.jpeg",
+                        "https://tonyhellerakastevengoddardisnotasociopath.files.wordpress.com/2014/09/triumph-the-insult-comic-dog.jpg",
 #endif
                         2,
                         Filmos.Triumph,

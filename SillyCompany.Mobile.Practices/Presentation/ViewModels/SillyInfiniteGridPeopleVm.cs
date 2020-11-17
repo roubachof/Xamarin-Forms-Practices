@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+using Sharpnado.HorizontalListView.Paging;
+using Sharpnado.HorizontalListView.Services;
+using Sharpnado.HorizontalListView.ViewModels;
 using Sharpnado.Presentation.Forms;
-using Sharpnado.Presentation.Forms.Paging;
-using Sharpnado.Presentation.Forms.Services;
-using Sharpnado.Presentation.Forms.ViewModels;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;

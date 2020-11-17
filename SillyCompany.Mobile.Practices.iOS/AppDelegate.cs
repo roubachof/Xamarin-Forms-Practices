@@ -5,9 +5,8 @@ using ImageCircle.Forms.Plugin.iOS;
 using ObjCRuntime;
 using Refractored.XamForms.PullToRefresh.iOS;
 
+using Sharpnado.HorizontalListView.iOS;
 using Sharpnado.MaterialFrame.iOS;
-using Sharpnado.Presentation.Forms.iOS;
-using Sharpnado.Presentation.Forms.iOS.Renderers.HorizontalList;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using UIKit;
 

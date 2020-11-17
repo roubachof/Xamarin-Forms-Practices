@@ -2,19 +2,15 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Converters;assembly=SillyCompany.Mobile.Practices"
-             xmlns:convertersSharpnado="clr-namespace:Sharpnado.Presentation.Forms.Converters;assembly=Sharpnado.Presentation.Forms"
-             xmlns:gen="clr-namespace:System.Collections.Generic;assembly=netstandard"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:mf="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
              xmlns:sho="http://sharpnado.com"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
     <Application.Resources>
         <ResourceDictionary>
 
-            <convertersSharpnado:IsNotNullConverter x:Key="IsNotNullConverter" />
-            <convertersSharpnado:IsNullConverter x:Key="IsNullConverter" />
+            <converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+            <converters:IsNullConverter x:Key="IsNullConverter" />
             <converters:NullToValueConverter x:Key="NullToValueConverter" />
             <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
             <converters:ExceptionToImageSourceConverter x:Key="ExceptionToImageSourceConverter" />
@@ -359,7 +355,7 @@
                 <Setter Property="IsTextVisible" Value="False" />
             </Style>
 
-            <Style ApplyToDerivedTypes="True" TargetType="mf:MaterialFrame">
+            <Style ApplyToDerivedTypes="True" TargetType="sho:MaterialFrame">
                 <!--<Setter Property="MaterialTheme" Value="AcrylicBlur" />
                 <Setter Property="AndroidBlurRadius" Value="10" />-->
                 <Setter Property="MaterialBlurStyle" Value="{DynamicResource DynamicBlurStyle}" />
@@ -367,42 +363,42 @@
                 <Setter Property="CornerRadius" Value="{DynamicResource DynamicCornerRadius}" />
             </Style>
 
-            <sh:SingleShade x:Key="LightTopShadow"
-                            BlurRadius="10"
-                            Opacity="0.1"
-                            Offset="0,-8"
-                            Color="Black" />
+            <sho:SingleShade x:Key="LightTopShadow"
+                             BlurRadius="10"
+                             Opacity="0.1"
+                             Offset="0,-8"
+                             Color="Black" />
 
-            <sh:ImmutableShades x:Key="AcrylicTopShadow">
-                <sh:Shade BlurRadius="0"
-                          Opacity="1"
-                          Offset="0,-2"
-                          Color="White" />
-                <sh:Shade BlurRadius="10"
-                          Opacity="0.1"
-                          Offset="0,8"
-                          Color="Black" />
-            </sh:ImmutableShades>
+            <sho:ImmutableShades x:Key="AcrylicTopShadow">
+                <sho:Shade BlurRadius="0"
+                           Opacity="1"
+                           Offset="0,-2"
+                           Color="White" />
+                <sho:Shade BlurRadius="10"
+                           Opacity="0.1"
+                           Offset="0,8"
+                           Color="Black" />
+            </sho:ImmutableShades>
 
-            <sh:SingleShade x:Key="LightBottomShadow"
-                            BlurRadius="10"
-                            Opacity="0.1"
-                            Offset="0,8"
-                            Color="Black" />
+            <sho:SingleShade x:Key="LightBottomShadow"
+                             BlurRadius="10"
+                             Opacity="0.1"
+                             Offset="0,8"
+                             Color="Black" />
 
-            <sh:SingleShade x:Key="SegmentedBottomShadow"
-                            BlurRadius="10"
-                            Opacity="0.2"
-                            Offset="0,8"
-                            Color="{StaticResource Accent}" />
+            <sho:SingleShade x:Key="SegmentedBottomShadow"
+                             BlurRadius="10"
+                             Opacity="0.2"
+                             Offset="0,8"
+                             Color="{StaticResource Accent}" />
 
-            <sh:ImmutableShades x:Key="NoShadow" />
+            <sho:ImmutableShades x:Key="NoShadow" />
 
-            <sh:NeumorphismShades x:Key="NeumorphismShadow" />
+            <sho:NeumorphismShades x:Key="NeumorphismShadow" />
 
-            <sh:NeumorphismShades x:Key="ThinNeumorphismShadow"
-                                  LowerOffset="8, 6"
-                                  UpperOffset="-8,-6" />
+            <sho:NeumorphismShades x:Key="ThinNeumorphismShadow"
+                                   LowerOffset="8, 6"
+                                   UpperOffset="-8,-6" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

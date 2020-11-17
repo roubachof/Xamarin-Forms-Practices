@@ -4,8 +4,6 @@ using Android.App;
 using Android.OS;
 using Android.Runtime;
 
-using Sharpnado.Presentation.Forms.Droid;
-
 using SillyCompany.Mobile.Practices.Infrastructure;
 
 namespace SillyCompany.Mobile.Practices.Droid

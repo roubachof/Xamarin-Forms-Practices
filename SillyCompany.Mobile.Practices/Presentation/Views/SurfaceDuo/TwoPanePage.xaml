@@ -6,15 +6,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:customViews="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
-             xmlns:customViews1="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:customViews2="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails;assembly=SillyCompany.Mobile.Practices"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:samples="clr-namespace:Xamarin.Duo.Forms.Samples;assembly=SillyCompany.Mobile.Practices"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:surfaceDuo="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.SurfaceDuo;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabs="http://sharpnado.com">
+             xmlns:tabs="http://sharpnado.com"
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout;assembly=SillyCompany.Mobile.Practices">
 
 
     <d:ContentPage.BindingContext>
@@ -40,8 +39,8 @@
 
             <!--  LeftPane  -->
             <Grid BindingContext="{Binding SillyBottomTabsPageViewModel}"
-                  ColumnSpacing="0"
-                  RowSpacing="0">
+                  RowSpacing="0"
+                  ColumnSpacing="0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="{StaticResource ToolbarHeight}" />
@@ -99,18 +98,18 @@
             </Grid>
 
             <!--  RightPane  -->
-            <AbsoluteLayout HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand"
-                            BindingContext="{Binding SillyDudeViewModel}">
+            <AbsoluteLayout BindingContext="{Binding SillyDudeViewModel}"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
 
                 <customViews2:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
                                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                                              BackgroundColor="{StaticResource Primary}"
                                              AccentColor="{StaticResource Accent}"
                                              TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
-                    <Grid Padding="{StaticResource StandardThickness}"
+                    <Grid RowSpacing="0"
                           ColumnSpacing="0"
-                          RowSpacing="0">
+                          Padding="{StaticResource StandardThickness}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="200" />
                             <RowDefinition Height="40" />
@@ -175,9 +174,9 @@
                             <tabs:ViewSwitcher x:Name="RightSwitcher"
                                                Animate="True"
                                                SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                                <dudeDetails:Quote Animate="True" BindingContext="{Binding Quote}" />
-                                <dudeDetails:Filmo Animate="True" BindingContext="{Binding Filmo}" />
-                                <dudeDetails:Meme Animate="True" BindingContext="{Binding Meme}" />
+                                <dudeDetails:Quote BindingContext="{Binding Quote}" Animate="True" />
+                                <dudeDetails:Filmo BindingContext="{Binding Filmo}" Animate="True" />
+                                <dudeDetails:Meme BindingContext="{Binding Meme}" Animate="True" />
                                 <Label Style="{StaticResource TextHeader}"
                                        Margin="60,80"
                                        Text="Fitter. Happier. More productive. Like a pig. In a cage. On antibiotics." />

@@ -1,5 +1,4 @@
-﻿using Sharpnado.Presentation.Forms.iOS.Renderers;
-using SillyCompany.Mobile.Practices.iOS.Renderers;
+﻿using SillyCompany.Mobile.Practices.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 

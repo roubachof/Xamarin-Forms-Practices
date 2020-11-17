@@ -189,10 +189,14 @@
       <Version>3.0.0.5</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1351</Version>
+      <Version>4.8.0.1687</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.csproj">
+      <Project>{79de7a82-af0b-4738-a620-30b549141f4a}</Project>
+      <Name>Sharpnado.HorizontalListView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.UWP\MaterialFrame.UWP.csproj">
       <Project>{1e904232-ae2e-4d45-95f3-0c9f4d12831c}</Project>
       <Name>MaterialFrame.UWP</Name>
@@ -200,10 +204,6 @@
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame\MaterialFrame.csproj">
       <Project>{fbff5834-924a-4685-b423-c5a35fa34353}</Project>
       <Name>MaterialFrame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.csproj">
-      <Project>{bef61ba6-2881-478d-8e49-c7fbc89a0069}</Project>
-      <Name>Sharpnado.Presentation.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs.UWP\Tabs.UWP.csproj">
       <Project>{e27d52b3-c1f1-49cf-9dda-f4faa384b455}</Project>

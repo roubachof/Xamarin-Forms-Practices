@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
     <Configurations>Debug;Release;DebugOld</Configurations>
-    <CodeAnalysisRuleSet>..\Sharpnado.Presentation.Forms\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\StyleCopRules.ruleset</CodeAnalysisRuleSet>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
@@ -35,13 +35,13 @@
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1351</Version>
+      <Version>4.8.0.1687</Version>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.csproj" />
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame\MaterialFrame.csproj" />
-    <ProjectReference Include="..\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.csproj" />
     <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs\Tabs.csproj" />
   </ItemGroup>
 

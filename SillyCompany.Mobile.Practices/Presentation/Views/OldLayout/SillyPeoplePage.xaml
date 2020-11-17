@@ -6,12 +6,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
+             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.TaskLoaderView"
              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:rv="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
@@ -25,7 +23,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style ApplyToDerivedTypes="True" TargetType="materialFrame:MaterialFrame">
+            <Style ApplyToDerivedTypes="True" TargetType="sho:MaterialFrame">
                 <Setter Property="MaterialTheme" Value="Acrylic" />
                 <Setter Property="LightThemeBackgroundColor" Value="{StaticResource AcrylicFrameBackgroundColor}" />
                 <Setter Property="CornerRadius" Value="5" />
@@ -53,10 +51,10 @@
                            Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
                     <!--  ROW 1: TaskLoaderView Configuration  -->
-                    <materialFrame:MaterialFrame Grid.Row="1"
-                                                 Margin="0,8"
-                                                 Padding="16,10"
-                                                 Elevation="4">
+                    <sho:MaterialFrame Grid.Row="1"
+                                       Margin="0,8"
+                                       Padding="16,10"
+                                       Elevation="4">
                         <StackLayout Spacing="10" Orientation="Horizontal">
 
                             <Label Style="{StaticResource TextBody}"
@@ -72,7 +70,7 @@
                                     SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                     ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                         </StackLayout>
-                    </materialFrame:MaterialFrame>
+                    </sho:MaterialFrame>
 
                     <!--  ROW 2: TaskLoaderView Container  -->
                     <loader:TaskLoaderView Grid.Row="2"
@@ -93,10 +91,10 @@
                                    Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                             <!--  ROW 1: Silly Of The Day  -->
-                            <materialFrame:MaterialFrame Grid.Row="1"
-                                                         Margin="0,8,0,0"
-                                                         Padding="{StaticResource StandardThickness}"
-                                                         Elevation="4">
+                            <sho:MaterialFrame Grid.Row="1"
+                                               Margin="0,8,0,0"
+                                               Padding="{StaticResource StandardThickness}"
+                                               Elevation="4">
                                 <Grid BindingContext="{Binding SillyOfTheDay}"
                                       RowSpacing="0"
                                       ColumnSpacing="0"
@@ -150,7 +148,7 @@
                                                          RatingType="Full"
                                                          Value="{Binding SillinessDegree}" />
                                 </Grid>
-                            </materialFrame:MaterialFrame>
+                            </sho:MaterialFrame>
 
                             <!--  ROW 2: HorizontalListView Header  -->
                             <Label Grid.Row="2"
@@ -176,19 +174,19 @@
                                     Text="SORT" />
 
                             <!--  ROW 3: HorizontalListView  -->
-                            <rv:HorizontalListView Grid.Row="3"
-                                                   Margin="-16,8"
-                                                   VerticalOptions="Start"
-                                                   CollectionPadding="8,8"
-                                                   ColumnCount="3"
-                                                   ItemHeight="144"
-                                                   ItemSpacing="10"
-                                                   ListLayout="Linear"
-                                                   SnapStyle="Start"
-                                                   ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                   ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                   ItemsSource="{Binding SillyPeopleLoaderNotifier.Result}">
-                                <rv:HorizontalListView.ItemTemplate>
+                            <sho:HorizontalListView Grid.Row="3"
+                                                    Margin="-16,8"
+                                                    VerticalOptions="Start"
+                                                    CollectionPadding="8,8"
+                                                    ColumnCount="3"
+                                                    ItemHeight="144"
+                                                    ItemSpacing="10"
+                                                    ListLayout="Linear"
+                                                    SnapStyle="Start"
+                                                    ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                    ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                    ItemsSource="{Binding SillyPeopleLoaderNotifier.Result}">
+                                <sho:HorizontalListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <views:SmallSillySquareCell sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
@@ -196,8 +194,8 @@
                                                                         sho:TapCommandEffect.TapParameter="{Binding .}" />
                                         </ViewCell>
                                     </DataTemplate>
-                                </rv:HorizontalListView.ItemTemplate>
-                            </rv:HorizontalListView>
+                                </sho:HorizontalListView.ItemTemplate>
+                            </sho:HorizontalListView>
 
                         </Grid>
                     </loader:TaskLoaderView>
@@ -206,11 +204,11 @@
             </ScrollView>
 
             <!--  Error box displayed when trying to navigate to the knights of ni  -->
-            <materialFrame:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                         IsVisible="False"
-                                         Padding="{StaticResource StandardThickness}"
-                                         BackgroundColor="#99F57C00">
+            <sho:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                               AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                               IsVisible="False"
+                               Padding="{StaticResource StandardThickness}"
+                               BackgroundColor="#99F57C00">
                 <Frame.Triggers>
                     <DataTrigger Binding="{Binding GoToSillyDudeCommand.Execution.IsFaulted}"
                                  TargetType="Frame"
@@ -226,7 +224,7 @@
                        VerticalTextAlignment="Center"
                        TextColor="White"
                        Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
-            </materialFrame:MaterialFrame>
+            </sho:MaterialFrame>
 
         </AbsoluteLayout>
     </ContentPage.Content>

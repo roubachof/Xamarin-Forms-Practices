@@ -7,8 +7,7 @@
              mc:Ignorable="d"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:sho="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              Title="{loc:Translate SortSillyPeople_Title}">
@@ -20,14 +19,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary>
-                <Style ApplyToDerivedTypes="True" TargetType="materialFrame:MaterialFrame">
+                <Style ApplyToDerivedTypes="True" TargetType="sho:MaterialFrame">
                     <Setter Property="MaterialTheme" Value="Acrylic" />
                     <Setter Property="LightThemeBackgroundColor" Value="{StaticResource AcrylicFrameBackgroundColor}" />
                     <Setter Property="CornerRadius" Value="5" />
                 </Style>
             </ResourceDictionary>
 
-            <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
+            <Style x:Key="HorizontalListView" TargetType="sho:HorizontalListView">
                 <Setter Property="ItemHeight" Value="100" />
                 <Setter Property="ItemSpacing">
                     <Setter.Value>
@@ -41,25 +40,25 @@
             </Style>
 
             <DataTemplate x:Key="ThreeLinesListItem">
-                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+                <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
 
                     <views:SillyCell Margin="4"
                                      Padding="{StaticResource StandardThickness}"
                                      Elevation="4">
                         <Frame.Triggers>
                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                         TargetType="materialFrame:MaterialFrame"
+                                         TargetType="sho:MaterialFrame"
                                          Value="True">
                                 <Setter Property="Elevation" Value="8" />
                             </DataTrigger>
                         </Frame.Triggers>
                     </views:SillyCell>
-                </renderedViews:DraggableViewCell>
+                </sho:DraggableViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="AddSillyDudeItem">
-                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False">
-                    <materialFrame:MaterialFrame Elevation="4">
+                <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False">
+                    <sho:MaterialFrame Elevation="4">
                         <Button HeightRequest="40"
                                 Padding="0"
                                 HorizontalOptions="Center"
@@ -70,23 +69,23 @@
                                 TextColor="{StaticResource Accent}"
                                 Command="{Binding OnItemTappedCommand}"
                                 Text="ADD A DUDE" />
-                    </materialFrame:MaterialFrame>
-                </renderedViews:DraggableViewCell>
+                    </sho:MaterialFrame>
+                </sho:DraggableViewCell>
             </DataTemplate>
 
 
             <DataTemplate x:Key="SortGridItem">
-                <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+                <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
                     <d:ViewCell.BindingContext>
                         <viewModels:SillyDudeVmo />
                     </d:ViewCell.BindingContext>
-                    <materialFrame:MaterialFrame Margin="4"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 Elevation="4">
+                    <sho:MaterialFrame Margin="4"
+                                       Padding="{StaticResource StandardThickness}"
+                                       Elevation="4">
 
                         <Frame.Triggers>
                             <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}"
-                                         TargetType="materialFrame:MaterialFrame"
+                                         TargetType="sho:MaterialFrame"
                                          Value="True">
                                 <Setter Property="Elevation" Value="8" />
                             </DataTrigger>
@@ -114,8 +113,8 @@
                                    MaxLines="1"
                                    Text="{Binding Role}" />
                         </Grid>
-                    </materialFrame:MaterialFrame>
-                </renderedViews:DraggableViewCell>
+                    </sho:MaterialFrame>
+                </sho:DraggableViewCell>
             </DataTemplate>
 
             <views:SortableDudeTemplateSelector x:Key="SortDudeTemplateSelector"
@@ -125,12 +124,12 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                          ColumnCount="1"
-                                          EnableDragAndDrop="True"
-                                          ListLayout="Grid"
-                                          DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
-                                          ItemTemplate="{StaticResource SortDudeTemplateSelector}"
-                                          ItemsSource="{Binding SillyPeople}" />
+        <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                ColumnCount="1"
+                                EnableDragAndDrop="True"
+                                ListLayout="Grid"
+                                DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
+                                ItemTemplate="{StaticResource SortDudeTemplateSelector}"
+                                ItemsSource="{Binding SillyPeople}" />
     </ContentPage.Content>
 </ContentPage>

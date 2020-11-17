@@ -9,7 +9,6 @@
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
              xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"

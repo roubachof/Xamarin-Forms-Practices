@@ -6,15 +6,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.TaskLoaderView"
              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:sho="http://sharpnado.com"
-             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.Presentation.Forms"
              Title="{loc:Translate SillyPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -40,10 +38,10 @@
                        Text="{loc:Translate SillyPeople_TaskLoaderView}" />
 
                 <!--  ROW 1: TaskLoaderView Configuration  -->
-                <materialFrame:MaterialFrame Grid.Row="1"
-                                             Margin="0,8"
-                                             Padding="16,10"
-                                             Elevation="4">
+                <sho:MaterialFrame Grid.Row="1"
+                                   Margin="0,8"
+                                   Padding="16,10"
+                                   Elevation="4">
                     <StackLayout Spacing="10" Orientation="Horizontal">
 
                         <Label Style="{StaticResource TextBody}"
@@ -59,7 +57,7 @@
                                 SelectedIndex="{Binding ErrorEmulator.SelectedIndex}"
                                 ItemsSource="{Binding ErrorEmulator.ErrorTypes}" />
                     </StackLayout>
-                </materialFrame:MaterialFrame>
+                </sho:MaterialFrame>
 
                 <!--  ROW 2: TaskLoaderView Container  -->
                 <loader:TaskLoaderView Grid.Row="2"
@@ -80,10 +78,10 @@
                                Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                         <!--  ROW 1: Silly Of The Day  -->
-                        <materialFrame:MaterialFrame Grid.Row="1"
-                                                     Margin="0,8,0,0"
-                                                     Padding="{StaticResource StandardThickness}"
-                                                     Elevation="4">
+                        <sho:MaterialFrame Grid.Row="1"
+                                           Margin="0,8,0,0"
+                                           Padding="{StaticResource StandardThickness}"
+                                           Elevation="4">
                             <Grid BindingContext="{Binding SillyOfTheDay}"
                                   RowSpacing="0"
                                   ColumnSpacing="0"
@@ -135,7 +133,7 @@
                                                      RatingType="Full"
                                                      Value="{Binding SillinessDegree}" />
                             </Grid>
-                        </materialFrame:MaterialFrame>
+                        </sho:MaterialFrame>
 
                         <!--  ROW 2: HorizontalListView Header  -->
                         <Label Grid.Row="2"
@@ -163,20 +161,20 @@
                                Text="{loc:Translate SillyPeople_GoToGrid}" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <renderedViews:HorizontalListView Grid.Row="3"
-                                                          Margin="-16,8"
-                                                          CollectionPadding="40,10"
-                                                          ColumnCount="1"
-                                                          CurrentIndex="{Binding CurrentIndex}"
-                                                          EnableDragAndDrop="True"
-                                                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                          ItemSpacing="20"
-                                                          ListLayout="Linear"
-                                                          SnapStyle="Center"
-                                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
-                                                          ItemsSource="{Binding SillyPeople}">
+                        <sho:HorizontalListView Grid.Row="3"
+                                                Margin="-16,8"
+                                                CollectionPadding="40,10"
+                                                ColumnCount="1"
+                                                CurrentIndex="{Binding CurrentIndex}"
+                                                EnableDragAndDrop="True"
+                                                InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                                ItemSpacing="20"
+                                                ListLayout="Linear"
+                                                SnapStyle="Center"
+                                                ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                                ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                                ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                                ItemsSource="{Binding SillyPeople}">
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
                             <DataTemplate>
@@ -187,7 +185,7 @@
                                 </ViewCell>
                             </DataTemplate>
                         </renderedViews:HorizontalListView.ItemTemplate>-->
-                        </renderedViews:HorizontalListView>
+                        </sho:HorizontalListView>
                     </Grid>
                 </loader:TaskLoaderView>
 
@@ -195,11 +193,11 @@
         </ScrollView>
 
         <!--  Error box displayed when trying to navigate to the knights of ni  -->
-        <materialFrame:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                                     AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
-                                     IsVisible="False"
-                                     Padding="{StaticResource StandardThickness}"
-                                     BackgroundColor="#99F57C00">
+        <sho:MaterialFrame AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                           AbsoluteLayout.LayoutBounds="0, 1, 1, 60"
+                           IsVisible="False"
+                           Padding="{StaticResource StandardThickness}"
+                           BackgroundColor="#99F57C00">
 
             <!--  Xamarin forms doesn't support fallback values nor TargetNullValue: https://bugzilla.xamarin.com/show_bug.cgi?id=22720  -->
 
@@ -218,7 +216,7 @@
                    VerticalTextAlignment="Center"
                    TextColor="White"
                    Text="{Binding GoToSillyDudeCommand.Execution.ErrorMessage}" />
-        </materialFrame:MaterialFrame>
+        </sho:MaterialFrame>
 
     </AbsoluteLayout>
 </ContentPage>

@@ -8,7 +8,6 @@
              mc:Ignorable="d"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
              xmlns:sho="http://sharpnado.com"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
@@ -20,7 +19,7 @@
 
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
+            <Style x:Key="HorizontalListView" TargetType="sho:HorizontalListView">
                 <Setter Property="ItemHeight" Value="130" />
                 <Setter Property="CollectionPadding" Value="10,20,10,75" />
             </Style>
@@ -32,23 +31,22 @@
             <RefreshView IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
                          RefreshColor="{StaticResource Accent}"
                          Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}">
-                <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                                  ColumnCount="1"
-                                                  CurrentIndex="{Binding CurrentIndex}"
-                                                  EnableDragAndDrop="True"
-                                                  InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                  ListLayout="Grid"
-                                                  ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                  ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                  ItemsSource="{Binding SillyPeople}">
+                <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                        ColumnCount="1"
+                                        CurrentIndex="{Binding CurrentIndex}"
+                                        EnableDragAndDrop="True"
+                                        InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                        ListLayout="Grid"
+                                        ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                        ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                        TapCommand="{Binding GoToSillyDudeCommand}"
+                                        ItemsSource="{Binding SillyPeople}">
                     <!--  TapCommand="{Binding GoToSillyDudeCommand}">  -->
                     <!--  ColumnCount="3"  -->
-                    <renderedViews:HorizontalListView.ItemTemplate>
+                    <sho:HorizontalListView.ItemTemplate>
                         <DataTemplate>
-                            <renderedViews:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                                <ContentView sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
-                                             sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"
-                                             sho:TapCommandEffect.TapParameter="{Binding .}">
+                            <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
+                                <ContentView>
                                     <shades:Shadows CornerRadius="{DynamicResource DynamicCornerRadius}" Shades="{DynamicResource DynamicShadow}">
                                         <views:SillyCell Margin="16,7,16,13"
                                                          Padding="{StaticResource StandardThickness}"
@@ -63,10 +61,10 @@
                                         </views:SillyCell>
                                     </shades:Shadows>
                                 </ContentView>
-                            </renderedViews:DraggableViewCell>
+                            </sho:DraggableViewCell>
                         </DataTemplate>
-                    </renderedViews:HorizontalListView.ItemTemplate>
-                </renderedViews:HorizontalListView>
+                    </sho:HorizontalListView.ItemTemplate>
+                </sho:HorizontalListView>
             </RefreshView>
         </customViews:TaskLoaderView>
     </ContentView.Content>

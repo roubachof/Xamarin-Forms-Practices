@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-using Sharpnado.Presentation.Forms.RenderedViews;
+using Sharpnado.HorizontalListView.RenderedViews;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

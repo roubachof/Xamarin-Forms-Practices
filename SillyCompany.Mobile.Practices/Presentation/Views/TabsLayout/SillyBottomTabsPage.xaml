@@ -144,7 +144,7 @@
             </sho:TabHostView>
 
             <!--  This Blur background goes with the underneath segmented tab bar  -->
-            <sho:MaterialFrame Grid.Row="2"
+            <!--<sho:MaterialFrame Grid.Row="2"
                                IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                WidthRequest="280"
                                Margin="15"
@@ -154,7 +154,7 @@
                                IsClippedToBounds="False"
                                MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
                                MaterialTheme="AcrylicBlur"
-                               StyleId="9999" />
+                               StyleId="9999" />-->
 
             <!--  Example of segmented tab bar (rounded floating tabs)  -->
             <!--<sho:TabHostView Grid.Row="2"
@@ -199,6 +199,20 @@
             </sho:TabHostView>-->
 
             <!--  Uncomment to see Sharpnado.Tabs Logo  -->
+            <sho:MaterialFrame Grid.Row="2"
+                               IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
+                               WidthRequest="200"
+                               HeightRequest="60"
+                               Margin="15,-15,15,15"
+                               Padding="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               CornerRadius="30"
+                               IsClippedToBounds="False"
+                               MaterialBlurStyle="{DynamicResource DynamicBottomTabBlurStyle}"
+                               MaterialTheme="AcrylicBlur"
+                               StyleId="9999" />
+
             <sho:TabHostView Grid.Row="2"
                              WidthRequest="200"
                              HeightRequest="60"

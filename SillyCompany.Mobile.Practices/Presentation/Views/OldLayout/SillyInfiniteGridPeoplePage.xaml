@@ -8,9 +8,8 @@
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:sho="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              Title="{loc:Translate SillyInfiniteGridPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -19,7 +18,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="HorizontalListView" TargetType="renderedViews:HorizontalListView">
+            <Style x:Key="HorizontalListView" TargetType="sho:HorizontalListView">
                 <Setter Property="ItemHeight">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -49,13 +48,13 @@
 
             <DataTemplate x:Key="DudeDataTemplate">
                 <ViewCell>
-                    <materialFrame:MaterialFrame Margin="4"
-                                                 Padding="{StaticResource StandardThickness}"
-                                                 Elevation="4">
+                    <sho:MaterialFrame Margin="4"
+                                       Padding="{StaticResource StandardThickness}"
+                                       Elevation="4">
 
                         <StackLayout x:DataType="viewModels:SillyDudeVmo"
-                                     Orientation="Vertical"
-                                     Spacing="0">
+                                     Spacing="0"
+                                     Orientation="Vertical">
 
                             <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
                                                       VerticalOptions="StartAndExpand"
@@ -66,7 +65,7 @@
                                    HorizontalTextAlignment="Center"
                                    Text="{Binding Name}" />
                         </StackLayout>
-                    </materialFrame:MaterialFrame>
+                    </sho:MaterialFrame>
                 </ViewCell>
             </DataTemplate>
         </ResourceDictionary>
@@ -77,15 +76,15 @@
                                                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
                                                RefreshColor="Blue"
                                                RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">-->
-            <renderedViews:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                              CurrentIndex="{Binding CurrentIndex}"
-                                              EnableDragAndDrop="True"
-                                              InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                              ListLayout="Grid"
-                                              ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                              ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                              ItemTemplate="{StaticResource DudeDataTemplate}"
-                                              ItemsSource="{Binding SillyPeople}" />
+            <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
+                                    CurrentIndex="{Binding CurrentIndex}"
+                                    EnableDragAndDrop="True"
+                                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                    ListLayout="Grid"
+                                    ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                    ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                    ItemTemplate="{StaticResource DudeDataTemplate}"
+                                    ItemsSource="{Binding SillyPeople}" />
             <!--</pullToRefresh:PullToRefreshLayout>-->
         </loader:TaskLoaderView>
     </ContentPage.Content>
