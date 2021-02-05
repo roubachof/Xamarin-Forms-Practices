@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Sharpnado.HorizontalListView.Helpers;
 using Sharpnado.Tasks;
 
+using SillyCompany.Mobile.Practices.Infrastructure;
+
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -25,7 +27,19 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SillyBottomTabsPage : SillyContentPage, IBindablePage
     {
+        private const double LandscapeToolbarHeight = 80;
+
         private AppTheme _currentAppTheme;
+
+        private double _width;
+
+        private double _height;
+
+        private bool _isLandscape;
+
+        private double _toolbarHeight;
+        private GridLength _topAreaHeight;
+        private Thickness _tabHostMargin;
 
         public SillyBottomTabsPage()
         {
@@ -48,6 +62,75 @@ namespace SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout
             var safeArea = On<iOS>().SafeAreaInsets();
             BottomSafeAreaDefinition.Height = safeArea.Bottom;
             Padding = 0;
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height); //must be called
+            if (_width != width || _height != height)
+            {
+                _width = width;
+                _height = height;
+                bool isLandscape = _width > _height;
+                if (!_isLandscape && isLandscape)
+                {
+                    Grid.SetRow(TabHostLogo, 2);
+                    Grid.SetRowSpan(TabHostLogo, 3);
+
+                    double widthRequest = TabHostLogo.HeightRequest;
+                    double heightRequest = TabHostLogo.WidthRequest;
+
+                    LayoutOptions horizontal = TabHostLogo.VerticalOptions;
+                    LayoutOptions vertical = TabHostLogo.HorizontalOptions;
+
+                    Switcher.Margin = new Thickness(100 + PlatformService.GetSafeArea().Left, 0, 0, 0);
+
+                    _toolbarHeight = Toolbar.Height;
+                    _tabHostMargin = TabHostLogo.Margin;
+                    _topAreaHeight = TopSafeAreaDefinition.Height;
+
+                    Toolbar.HeightRequest = LandscapeToolbarHeight;
+                    Toolbar.UpdateOrientation(true);
+
+                    TabHostLogo.BatchBegin();
+                    TabHostLogo.Margin = new Thickness(PlatformService.GetSafeArea().Left, 0, 0, 0);
+                    TabHostLogo.Orientation = Sharpnado.Tabs.OrientationType.Vertical;
+                    TabHostLogo.WidthRequest = widthRequest;
+                    TabHostLogo.HeightRequest = heightRequest;
+                    TabHostLogo.HorizontalOptions = horizontal;
+                    TabHostLogo.VerticalOptions = vertical;
+                    TabHostLogo.BatchCommit();
+                }
+                else if (_isLandscape && !isLandscape)
+                {
+                    Grid.SetRow(TabHostLogo, 3);
+                    Grid.SetRowSpan(TabHostLogo, 1);
+
+                    double widthRequest = TabHostLogo.HeightRequest;
+                    double heightRequest = TabHostLogo.WidthRequest;
+
+                    LayoutOptions horizontal = TabHostLogo.VerticalOptions;
+                    LayoutOptions vertical = TabHostLogo.HorizontalOptions;
+
+                    Switcher.Margin = new Thickness(0);
+                    // Toolbar.HeightRequest = _toolbarHeight;
+
+                    Toolbar.HeightRequest = -1;
+
+                    Toolbar.UpdateOrientation(false);
+
+                    TabHostLogo.BatchBegin();
+                    TabHostLogo.Margin = _tabHostMargin;
+                    TabHostLogo.Orientation = Sharpnado.Tabs.OrientationType.Horizontal;
+                    TabHostLogo.WidthRequest = widthRequest;
+                    TabHostLogo.HeightRequest = heightRequest;
+                    TabHostLogo.HorizontalOptions = horizontal;
+                    TabHostLogo.VerticalOptions = vertical;
+                    TabHostLogo.BatchCommit();
+                }
+
+                _isLandscape = isLandscape;
+            }
         }
 
         private void ApplyTheme()

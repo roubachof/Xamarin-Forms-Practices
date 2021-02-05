@@ -5,7 +5,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:sho="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
@@ -97,10 +96,17 @@
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <abstractions:CircleImage Grid.Row="0"
-                                                      Style="{StaticResource SmallAvatar}"
-                                                      Aspect="AspectFill"
-                                                      Source="{Binding ImageUrl}" />
+
+                            <Frame Grid.Row="0"
+                                   Style="{StaticResource SmallAvatar}"
+                                   Padding="0"
+                                   CornerRadius="25"
+                                   HasShadow="False"
+                                   IsClippedToBounds="True">
+                                <Image Style="{StaticResource SmallAvatar}"
+                                       Aspect="AspectFill"
+                                       Source="{Binding ImageUrl}" />
+                            </Frame>
                             <Label Grid.Row="1"
                                    Style="{StaticResource TextCaptionSecondary}"
                                    Margin="{StaticResource MediumTopThickness}"

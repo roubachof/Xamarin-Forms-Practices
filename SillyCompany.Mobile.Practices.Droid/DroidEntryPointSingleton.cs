@@ -9,8 +9,6 @@
 using System;
 using System.Threading.Tasks;
 using Android.Util;
-using ImageCircle.Forms.Plugin.Droid;
-using Refractored.XamForms.PullToRefresh.Droid;
 
 namespace SillyCompany.Mobile.Practices.Droid
 {
@@ -53,9 +51,6 @@ namespace SillyCompany.Mobile.Practices.Droid
         public static async Task InitializeApp()
         {
             await EntryPoint.RegisterDependenciesAsync().ConfigureAwait(false);
-
-            ImageCircleRenderer.Init();
-            PullToRefreshLayoutRenderer.Init();
         }
     }
 }

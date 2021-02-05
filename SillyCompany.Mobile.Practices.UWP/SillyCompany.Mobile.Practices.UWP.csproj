@@ -175,7 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.10</Version>
+      <Version>6.2.11</Version>
     </PackageReference>
     <PackageReference Include="Sharpnado.Shadows">
       <Version>1.2.0</Version>
@@ -185,11 +185,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
-      <Version>3.0.0.5</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1687</Version>
+      <Version>5.0.0.1931</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

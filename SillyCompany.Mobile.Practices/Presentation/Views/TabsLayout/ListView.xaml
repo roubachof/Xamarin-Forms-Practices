@@ -16,8 +16,7 @@
     </d:ContentView.BindingContext>
 
     <ContentView.Content>
-        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
+        <ScrollView>
             <Grid RowSpacing="0"
                   ColumnSpacing="0"
                   AbsoluteLayout.LayoutFlags="All"
@@ -129,6 +128,6 @@
 
             </Grid>
 
-        </AbsoluteLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

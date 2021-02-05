@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Text;
 using Foundation;
-using ImageCircle.Forms.Plugin.iOS;
 using ObjCRuntime;
-using Refractored.XamForms.PullToRefresh.iOS;
 
 using Sharpnado.HorizontalListView.iOS;
 using Sharpnado.MaterialFrame.iOS;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using UIKit;
+
+using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices.iOS
 {
@@ -37,13 +37,13 @@ namespace SillyCompany.Mobile.Practices.iOS
             try
             {
                 PlatformService.Initialize(
+                    Runtime.Arch == Arch.SIMULATOR,
                     UIScreen.MainScreen.Scale,
                     (int)UIScreen.MainScreen.Bounds.Width,
-                    (int)UIScreen.MainScreen.Bounds.Height);
+                    (int)UIScreen.MainScreen.Bounds.Height,
+                    SafeAreaGetter);
 
                 new CoreEntryPoint().RegisterDependencies();
-                ImageCircleRenderer.Init();
-                PullToRefreshLayoutRenderer.Init();
 
                 SharpnadoInitializer.Initialize(enableInternalLogger: true);
                 iOSMaterialFrameRenderer.Init();
@@ -62,6 +62,34 @@ namespace SillyCompany.Mobile.Practices.iOS
                 Console.WriteLine($"Exception while initializing app: {exception.Message}");
                 throw;
             }
+        }
+
+        private static Thickness SafeAreaGetter()
+        {
+            UIEdgeInsets safeArea;
+
+            if (!UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            {
+                safeArea = new UIEdgeInsets(UIApplication.SharedApplication.StatusBarFrame.Size.Height, 0, 0, 0);
+            }
+            else if (UIApplication.SharedApplication.KeyWindow != null)
+            {
+                safeArea = UIApplication.SharedApplication.KeyWindow.SafeAreaInsets;
+            }
+            else if (UIApplication.SharedApplication.Windows.Length > 0)
+            {
+                safeArea = UIApplication.SharedApplication.Windows[0].SafeAreaInsets;
+            }
+            else
+            {
+                safeArea = UIEdgeInsets.Zero;
+            }
+
+            return new Thickness(
+                safeArea.Left,
+                safeArea.Top > 10 ? safeArea.Top - 10 : safeArea.Top,
+                safeArea.Right,
+                safeArea.Bottom > 10 ? safeArea.Bottom - 10 : safeArea.Bottom);
         }
     }
 }

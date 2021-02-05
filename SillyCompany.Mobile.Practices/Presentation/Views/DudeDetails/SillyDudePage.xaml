@@ -5,6 +5,7 @@
                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         mc:Ignorable="d"
+                        xmlns:converters="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Converters;assembly=SillyCompany.Mobile.Practices"
                         xmlns:details="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views.DudeDetails"
                         xmlns:dudeDetails="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails"
                         xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
@@ -14,16 +15,26 @@
                         xmlns:tabs="http://sharpnado.com"
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+                        x:Name="Root"
                         x:DataType="dudeDetails:SillyDudeVm">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+            <Style x:Key="ScrollableTabStyle" TargetType="tabs:UnderlinedTabItem">
                 <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
                 <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
                 <Setter Property="LabelSize" Value="14" />
                 <Setter Property="Padding" Value="20, 0" />
-                <Setter Property="UnderlineAllTab" Value="False" />
+                <Setter Property="UnderlineAllTab" Value="True" />
+                <Setter Property="UnderlineHeight" Value="2" />
+                <Setter Property="UnselectedLabelColor" Value="Gray" />
+            </Style>
+
+            <Style x:Key="FixedTabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontSemiBold}" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="UnderlineAllTab" Value="True" />
                 <Setter Property="UnselectedLabelColor" Value="Gray" />
             </Style>
 
@@ -37,12 +48,17 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="TopSafeAreaDefinition" Height="{Binding Source={x:Reference Root}, Path=Height, Converter={converters:TopSafeAreaToGridLengthConverter}}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <loader:TaskLoaderView AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+        <loader:TaskLoaderView Grid.Row="0"
+                               Grid.RowSpan="2"
                                BackgroundColor="{DynamicResource DynamicDudeBackgroundColor}"
                                AccentColor="{StaticResource Accent}"
+                               InputTransparent="True"
                                TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid x:Name="GridContainer"
                   RowSpacing="0"
@@ -68,7 +84,6 @@
                                              Grid.RowSpan="3"
                                              Margin="-16,0"
                                              Padding="0"
-                                             AndroidBlurRootElement="{Binding Source={x:Reference GridContainer}}"
                                              CornerRadius="0"
                                              IsClippedToBounds="False"
                                              MaterialBlurStyle="Dark"
@@ -124,24 +139,24 @@
                 <!--  Tabs are above the view switcher: so same row number but declared after them in grid hierarchy  -->
 
                 <!--  Uncomment these to test classic scrollable underlined tabs  -->
-                <!--<tabs:TabHostView x:Name="TabHost"
+                <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Style="{DynamicResource DynamicBottomShadow}"
-                                  Margin="-16,10"
+                                  Margin="-16,0,-16,20"
                                   BackgroundColor="{DynamicResource Elevation4dpColor}"
                                   ShowScrollbar="False"
                                   TabType="Scrollable"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Quote}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Filmography}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="{localization:Translate Tabs_Meme}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="SOME MORE" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="WUT" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="AGAIN" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="FURTHER MORE" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Quote}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Filmography}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Meme}" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="SOME MORE" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="WUT" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="AGAIN" />
+                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="FURTHER MORE" />
                     </tabs:TabHostView.Tabs>
-                </tabs:TabHostView>-->
+                </tabs:TabHostView>
 
                 <!--  Uncomment these to test scrollable underlined tabs with ItemsSource and static array  -->
                 <!--<tabs:TabHostView x:Name="TabHost"
@@ -188,7 +203,7 @@
 
 
                 <!--  Uncomment these to test fixed tabs with badges  -->
-                <tabs:TabHostView x:Name="TabHost"
+                <!--<tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Margin="-16,0,-16,30"
                                   BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
@@ -197,7 +212,7 @@
                                   TabType="Fixed"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
-                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Quote">
+                        <tabs:UnderlinedTabItem Style="{StaticResource FixedTabStyle}" Label="Quote">
                             <tabs:UnderlinedTabItem.Badge>
                                 <tabs:BadgeView BackgroundColor="{StaticResource Accent}"
                                                 BadgePadding="6,2"
@@ -206,14 +221,14 @@
                                                 Text="9" />
                             </tabs:UnderlinedTabItem.Badge>
                         </tabs:UnderlinedTabItem>
-                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Movies">
+                        <tabs:UnderlinedTabItem Style="{StaticResource FixedTabStyle}" Label="Movies">
                             <tabs:UnderlinedTabItem.Badge>
                                 <tabs:BadgeView BackgroundColor="DodgerBlue"
                                                 BadgePadding="6,1,6,2"
                                                 Text="new" />
                             </tabs:UnderlinedTabItem.Badge>
                         </tabs:UnderlinedTabItem>
-                        <tabs:UnderlinedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Meme">
+                        <tabs:UnderlinedTabItem Style="{StaticResource FixedTabStyle}" Label="Meme">
                             <tabs:UnderlinedTabItem.Badge>
                                 <tabs:BadgeView Margin="20,0"
                                                 HorizontalOptions="Start"
@@ -225,7 +240,7 @@
                             </tabs:UnderlinedTabItem.Badge>
                         </tabs:UnderlinedTabItem>
                     </tabs:TabHostView.Tabs>
-                </tabs:TabHostView>
+                </tabs:TabHostView>-->
 
                 <!--  Uncomment these to test segmented tabs  -->
                 <!--<tabs:TabHostView x:Name="TabHost"
@@ -274,11 +289,9 @@
         </loader:TaskLoaderView>
 
         <tb:Toolbar x:Name="Toolbar"
-                    AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
+                    Grid.Row="1"
                     BackgroundColor="{StaticResource TransparentAccent}"
                     ForegroundColor="White"
                     ShowBackButton="True" />
-
-    </AbsoluteLayout>
+    </Grid>
 </views:SillyContentPage>

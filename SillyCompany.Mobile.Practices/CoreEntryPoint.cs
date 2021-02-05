@@ -18,6 +18,9 @@ using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 using SillyCompany.Mobile.Practices.Presentation.Navigables.Impl;
+
+using SimpleInjector;
+
 using Xamarin.Forms;
 
 namespace SillyCompany.Mobile.Practices
@@ -37,6 +40,9 @@ namespace SillyCompany.Mobile.Practices
         public void RegisterDependencies()
         {
             var container = DependencyContainer.Instance;
+
+            container.Options.EnableAutoVerification = false;
+            container.Options.ResolveUnregisteredConcreteTypes = true;
 
             container.RegisterSingleton(
                 () => new Lazy<NavigationPage>(() => (NavigationPage)Application.Current.MainPage));

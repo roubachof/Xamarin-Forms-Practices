@@ -5,7 +5,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:sho="http://sharpnado.com"
@@ -56,10 +55,16 @@
                                      Spacing="0"
                                      Orientation="Vertical">
 
-                            <abstractions:CircleImage Style="{StaticResource SmallAvatar}"
-                                                      VerticalOptions="StartAndExpand"
-                                                      Aspect="AspectFill"
-                                                      Source="{Binding ImageUrl}" />
+                            <Frame Style="{StaticResource SmallAvatar}"
+                                   Padding="0"
+                                   VerticalOptions="StartAndExpand"
+                                   CornerRadius="25"
+                                   HasShadow="False"
+                                   IsClippedToBounds="True">
+                                <Image Style="{StaticResource SmallAvatar}"
+                                       Aspect="AspectFill"
+                                       Source="{Binding ImageUrl}" />
+                            </Frame>
                             <Label Style="{StaticResource TextSmallCaption}"
                                    Margin="{StaticResource MediumTopThickness}"
                                    HorizontalTextAlignment="Center"

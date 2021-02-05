@@ -76,6 +76,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.HorizontalListVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.HorizontalListView.iOS", "Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.iOS\Sharpnado.HorizontalListView.iOS.csproj", "{798BAFAE-13C4-4E85-A62A-E535403411FE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{C787F171-18F9-402F-AF53-2E35D5AC368D}"
+	ProjectSection(SolutionItems) = preProject
+		Sharpnado.MaterialFrame\MaterialFrame\AssemblyInfo.targets = Sharpnado.MaterialFrame\MaterialFrame\AssemblyInfo.targets
+		Sharpnado.MaterialFrame\make-package.ps1 = Sharpnado.MaterialFrame\make-package.ps1
+		Sharpnado.MaterialFrame\README.md = Sharpnado.MaterialFrame\README.md
+		Sharpnado.MaterialFrame\Sharpnado.MaterialFrame.nuspec = Sharpnado.MaterialFrame\Sharpnado.MaterialFrame.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -1476,6 +1484,7 @@ Global
 		{79DE7A82-AF0B-4738-A620-30B549141F4A} = {5BF4C4DE-5077-45B1-AA60-B1B2CF28AD25}
 		{92E0ECFC-C8C0-4C03-BA61-A2701390D7DE} = {5BF4C4DE-5077-45B1-AA60-B1B2CF28AD25}
 		{798BAFAE-13C4-4E85-A62A-E535403411FE} = {5BF4C4DE-5077-45B1-AA60-B1B2CF28AD25}
+		{C787F171-18F9-402F-AF53-2E35D5AC368D} = {6817E349-7A2F-453C-AB38-DC4A9B35C6F4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C5BF1F5-C9B1-4755-A9D5-0CB86C6019E0}

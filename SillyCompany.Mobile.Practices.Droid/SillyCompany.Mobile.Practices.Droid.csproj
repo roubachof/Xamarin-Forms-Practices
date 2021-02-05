@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
     <Debugger>Xamarin</Debugger>
@@ -65,25 +65,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="glidex.forms">
-      <Version>2.0.1.394</Version>
+      <Version>2.1.0.470</Version>
     </PackageReference>
     <PackageReference Include="Sharpnado.Shadows">
       <Version>1.2.0</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Annotations">
-      <Version>28.0.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Compat">
-      <Version>28.0.0.3</Version>
-    </PackageReference>
     <PackageReference Include="MetroLog">
       <Version>1.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Refractored.XamForms.PullToRefresh">
-      <Version>2.4.1.1-beta</Version>
-    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>1.68.1.1</Version>
+      <Version>2.80.2</Version>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.2.0-beta.164</Version>
@@ -93,17 +84,11 @@
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
     </PackageReference>
-    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
-      <Version>3.0.0.5</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.v4">
-      <Version>28.0.0.3</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.DuoSdk">
       <Version>0.0.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1687</Version>
+      <Version>5.0.0.1931</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

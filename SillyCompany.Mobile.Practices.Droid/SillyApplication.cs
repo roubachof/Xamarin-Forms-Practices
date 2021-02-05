@@ -20,11 +20,6 @@ namespace SillyCompany.Mobile.Practices.Droid
         {
             base.OnCreate();
 
-            PlatformService.Initialize(
-                Resources.DisplayMetrics.Density,
-                (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density),
-                (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density));
-
             RegisterActivityLifecycleCallbacks(this);
         }
 

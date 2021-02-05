@@ -6,6 +6,7 @@
                         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         mc:Ignorable="d"
+                        xmlns:converters="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Converters;assembly=SillyCompany.Mobile.Practices"
                         xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                         xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
                         xmlns:sho="http://sharpnado.com"
@@ -13,32 +14,21 @@
                         xmlns:tb="clr-namespace:SillyCompany.Mobile.Practices.Presentation.CustomViews;assembly=SillyCompany.Mobile.Practices"
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-                        ios:Page.UseSafeArea="true"
+                        x:Name="Root"
+                        ios:Page.UseSafeArea="false"
                         BackgroundImageSource="{DynamicResource DynamicBackgroundImageSource}">
 
     <d:ContentPage.BindingContext>
         <vm:SillyBottomTabsPageViewModel />
     </d:ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!--<Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
-                <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
-                <Setter Property="UnselectedLabelColor" Value="Gray" />
-                <Setter Property="UnselectedIconColor" Value="LightGray" />
-                <Setter Property="FontFamily" Value="{StaticResource FontLight}" />
-                <Setter Property="LabelSize" Value="14" />
-                <Setter Property="IconSize" Value="28" />
-                <Setter Property="IsTextVisible" Value="False" />
-            </Style>-->
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid x:Name="GridContainer"
               RowSpacing="0"
               ColumnSpacing="0">
 
             <Grid.RowDefinitions>
+                <RowDefinition x:Name="TopSafeAreaDefinition" Height="{Binding Source={x:Reference Root}, Path=Height, Converter={converters:TopSafeAreaToGridLengthConverter}}" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="95" />
@@ -46,7 +36,7 @@
             </Grid.RowDefinitions>
 
             <sho:ViewSwitcher x:Name="Switcher"
-                              Grid.Row="1"
+                              Grid.Row="2"
                               Grid.RowSpan="3"
                               Animate="False"
                               SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
@@ -64,11 +54,10 @@
                        Text="HERE WE ARE! BORN TO BE KINGS, WE'RE THE PRINCES OF THE UNIVERSEEEEEEE! Well I'm a fan of Queen didn't I tell you that?" />
             </sho:ViewSwitcher>
 
-            <sho:Shadows Grid.Row="0"
+            <sho:Shadows Grid.Row="1"
                          Shades="{DynamicResource DynamicToolbarShadow}"
                          StyleId="1111">
-                <sho:MaterialFrame Grid.Row="0"
-                                   Padding="0"
+                <sho:MaterialFrame Padding="0"
                                    CornerRadius="0"
                                    IsClippedToBounds="True"
                                    MaterialTheme="{DynamicResource DynamicBlurTheme}">
@@ -83,6 +72,8 @@
                     </tb:Toolbar>
                 </sho:MaterialFrame>
             </sho:Shadows>
+
+            <BoxView Grid.Row="0" Color="{Binding Source={x:Reference Toolbar}, Path=BackgroundColor}" />
 
             <!--  This Blur background goes with the underneath classic bottom bar  -->
             <!--  <materialFrame:MaterialFrame Grid.Row="2"  -->
@@ -101,7 +92,7 @@
                 Change IsVisible="True" and do the opposite for segmented tabs to try them.
             -->
             <sho:TabHostView x:Name="TabHost"
-                             Grid.Row="2"
+                             Grid.Row="3"
                              IsVisible="False"
                              HeightRequest="65"
                              VerticalOptions="End"
@@ -199,7 +190,7 @@
             </sho:TabHostView>-->
 
             <!--  Uncomment to see Sharpnado.Tabs Logo  -->
-            <sho:MaterialFrame Grid.Row="2"
+            <sho:MaterialFrame Grid.Row="3"
                                IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                WidthRequest="200"
                                HeightRequest="60"
@@ -213,16 +204,18 @@
                                MaterialTheme="AcrylicBlur"
                                StyleId="9999" />
 
-            <sho:TabHostView Grid.Row="2"
+            <sho:TabHostView x:Name="TabHostLogo"
+                             Grid.Row="3"
                              WidthRequest="200"
                              HeightRequest="60"
-                             Margin="15,-15,15,15"
+                             Margin="15"
                              Padding="20,0"
                              HorizontalOptions="Center"
                              VerticalOptions="Start"
                              BackgroundColor="{DynamicResource DynamicBottomBarBackground}"
                              CornerRadius="30"
                              IsSegmented="True"
+                             Orientation="Horizontal"
                              Shades="{DynamicResource DynamicBottomTabsShadow}"
                              TabType="Fixed"
                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">

@@ -2,6 +2,7 @@
 
 using Sharpnado.Tabs.Effects;
 
+using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Presentation.Commands;
 using SillyCompany.Mobile.Practices.Presentation.Navigables;
 
@@ -69,6 +70,21 @@ namespace SillyCompany.Mobile.Practices.Presentation.CustomViews
         {
             get => (string)GetValue(SubtitleProperty);
             set => SetValue(SubtitleProperty, value);
+        }
+
+        public void UpdateOrientation(bool isLandscape)
+        {
+            if (isLandscape)
+            {
+                SafeLeftColumnDefinition.Width = new GridLength(PlatformService.GetSafeArea().Left);
+                InnerSubtitle.IsVisible = false;
+            }
+            else
+            {
+                SafeLeftColumnDefinition.Width = new GridLength(0);
+                InnerSubtitle.IsVisible = true;
+                InvalidateLayout();
+            }
         }
 
         protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)

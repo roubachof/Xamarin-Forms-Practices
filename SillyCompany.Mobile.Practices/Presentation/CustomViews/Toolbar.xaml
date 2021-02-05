@@ -14,12 +14,6 @@
                 <Setter Property="VerticalOptions" Value="End" />
             </Style>
 
-            <OnPlatform x:Key="StatusBarHeight" x:TypeArguments="GridLength">
-                <On Platform="iOS">30</On>
-                <On Platform="Android">0</On>
-                <On Platform="UWP">0</On>
-            </OnPlatform>
-
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
@@ -27,23 +21,19 @@
               RowSpacing="0"
               ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="{StaticResource StatusBarHeight}" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition x:Name="SubtitleRowDefinition" Height="0" />
+                <RowDefinition x:Name="SubtitleRowDefinition" Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="SafeLeftColumnDefinition" Width="0" />
                 <ColumnDefinition x:Name="ButtonColumnDefinition" Width="0" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
 
-            <BoxView Grid.Row="0"
-                     Grid.ColumnSpan="3"
-                     BackgroundColor="{Binding Source={x:Reference RootLayout}, Path=BackgroundColor}" />
-
             <ContentView x:Name="BackButton"
-                         Grid.Row="1"
-                         Grid.Column="0"
+                         Grid.Row="0"
+                         Grid.Column="1"
                          IsVisible="{Binding Source={x:Reference RootLayout}, Path=ShowBackButton}"
                          sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}">
                 <Image WidthRequest="24"
@@ -55,14 +45,15 @@
                        Source="back_96.png" />
             </ContentView>
 
-            <Label Grid.Row="1"
-                   Grid.Column="1"
+            <Label Grid.Row="0"
+                   Grid.Column="2"
                    Style="{StaticResource TextTitleStyle}"
                    TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
                    Text="{Binding Source={x:Reference RootLayout}, Path=Title}" />
 
-            <Label Grid.Row="2"
-                   Grid.Column="1"
+            <Label x:Name="InnerSubtitle"
+                   Grid.Row="1"
+                   Grid.Column="2"
                    Style="{StaticResource TextBody}"
                    Margin="30,0,30,30"
                    TextColor="{Binding Source={x:Reference RootLayout}, Path=ForegroundColor}"
