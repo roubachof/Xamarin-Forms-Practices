@@ -83,7 +83,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         /// </param>
         public override void Load(object parameter)
         {
-            SillyDudeLoaderNotifier.Load(() => LoadSillyDude((int)parameter));
+            SillyDudeLoaderNotifier.Load(_ => LoadSillyDude((int)parameter));
         }
 
         private async Task<SillyDudeVmo> LoadSillyDude(int id)

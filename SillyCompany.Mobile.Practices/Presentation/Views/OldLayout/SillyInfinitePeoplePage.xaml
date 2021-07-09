@@ -12,6 +12,7 @@
              xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:forms="clr-namespace:Sharpnado.Presentation.Forms;assembly=Sharpnado.TaskLoaderView"
              Title="{loc:Translate SillyPeople_Title}">
 
     <d:ContentPage.BindingContext>
@@ -215,7 +216,7 @@
                 </DataTrigger>
             </Frame.Triggers>
             <Frame.Behaviors>
-                <behaviors:TimedVisibilityBehavior />
+                <forms:TimedVisibilityBehavior />
             </Frame.Behaviors>
             <Label Style="{StaticResource TextBody}"
                    HorizontalTextAlignment="Center"

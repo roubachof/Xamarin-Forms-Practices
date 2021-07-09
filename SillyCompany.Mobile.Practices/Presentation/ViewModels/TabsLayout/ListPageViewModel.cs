@@ -82,7 +82,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
             RaisePropertyChanged(nameof(SillyPeople));
 
             SillyPeopleLoaderNotifier.Load(
-                async () => (await SillyPeoplePaginator.LoadPage(1)).Items);
+                async _ => (await SillyPeoplePaginator.LoadPage(1)).Items);
         }
 
         /// <summary>

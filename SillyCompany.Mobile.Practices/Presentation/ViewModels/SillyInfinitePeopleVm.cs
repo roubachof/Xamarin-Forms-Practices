@@ -88,7 +88,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
             RaisePropertyChanged(nameof(SillyPeople));
 
             SillyPeopleLoaderNotifier.Load(
-                async () =>
+                async _ =>
                 {
                     SillyOfTheDay = new SillyDudeVmo(await _sillyDudeService.GetRandomSilly(), GoToSillyDudeCommand);
                     RaisePropertyChanged(nameof(SillyOfTheDay));

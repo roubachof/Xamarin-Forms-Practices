@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout
 
         public override void Load(object parameter)
         {
-            SillyDudeLoaderNotifier.Load(InitializationTask);
+            SillyDudeLoaderNotifier.Load(_ => InitializationTask());
         }
 
         /// <summary>

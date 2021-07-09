@@ -63,7 +63,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
         {
             SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
 
-            SillyPeopleLoaderNotifier.Load(async () => (await SillyPeoplePaginator.LoadPage(1)).Items);
+            SillyPeopleLoaderNotifier.Load(async _ => (await SillyPeoplePaginator.LoadPage(1)).Items);
         }
 
         private void InitCommands()

@@ -58,7 +58,6 @@
                                Grid.RowSpan="2"
                                BackgroundColor="{DynamicResource DynamicDudeBackgroundColor}"
                                AccentColor="{StaticResource Accent}"
-                               InputTransparent="True"
                                TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
             <Grid x:Name="GridContainer"
                   RowSpacing="0"
@@ -69,8 +68,8 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="30" />
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="80" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="72" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!--  ROW 1  -->
@@ -111,8 +110,6 @@
                                      RatingType="Floating"
                                      Value="{Binding SillyDudeLoaderNotifier.Result.SillinessDegree}" />
 
-
-
                 <ScrollView Grid.Row="4" Grid.RowSpan="2">
                     <tabs:ViewSwitcher x:Name="Switcher"
                                        Padding="0,80,0,0"
@@ -142,15 +139,38 @@
                 <tabs:TabHostView x:Name="TabHost"
                                   Grid.Row="4"
                                   Style="{DynamicResource DynamicBottomShadow}"
-                                  Margin="-16,0,-16,20"
+                                  Margin="-16,0"
                                   BackgroundColor="{DynamicResource Elevation4dpColor}"
                                   ShowScrollbar="False"
                                   TabType="Scrollable"
                                   SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                     <tabs:TabHostView.Tabs>
-                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Quote}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Filmography}" />
-                        <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="{localization:Translate Tabs_Meme}" />
+                        <tabs:MaterialUnderlinedTabItem Style="{StaticResource ScrollableTabStyle}"
+                                                        IconImageSource="list_96.png"
+                                                        IconOptions="TopIcon"
+                                                        IconSize="24"
+                                                        IconTextSpacing="0"
+                                                        Label="{localization:Translate Tabs_Quote}"
+                                                        UnderlineHeight="2" />
+                        <tabs:MaterialUnderlinedTabItem Style="{StaticResource ScrollableTabStyle}"
+                                                        IconImageSource="theme_96.png"
+                                                        IconOptions="IconOnly"
+                                                        IconSize="24"
+                                                        IconTextSpacing="0"
+                                                        Label="FILMO" />
+                        <tabs:MaterialUnderlinedTabItem Style="{StaticResource ScrollableTabStyle}"
+                                                        IconImageSource="grid_view_96.png"
+                                                        IconOptions="LeadingIcon"
+                                                        IconSize="24"
+                                                        IconTextSpacing="0"
+                                                        Label="{localization:Translate Tabs_Meme}" />
+                        <tabs:MaterialUnderlinedTabItem Style="{StaticResource ScrollableTabStyle}"
+                                                        Padding="10,0"
+                                                        IconImageSource="house_96.png"
+                                                        IconOptions="TextOnly"
+                                                        IconSize="24"
+                                                        IconTextSpacing="0"
+                                                        Label="NONSENSE" />
                         <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="SOME MORE" />
                         <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="WUT" />
                         <tabs:UnderlinedTabItem Style="{StaticResource ScrollableTabStyle}" Label="AGAIN" />
@@ -290,6 +310,7 @@
 
         <tb:Toolbar x:Name="Toolbar"
                     Grid.Row="1"
+                    VerticalOptions="Start"
                     BackgroundColor="{StaticResource TransparentAccent}"
                     ForegroundColor="White"
                     ShowBackButton="True" />

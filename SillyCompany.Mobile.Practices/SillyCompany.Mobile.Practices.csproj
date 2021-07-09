@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="MetroLog" Version="1.0.1" />
     <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
-    <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.2.1" />
+    <PackageReference Include="Sharpnado.TaskLoaderView" Version="2.4.0" />
     <PackageReference Include="Sharpnado.TaskMonitor" Version="1.0.2" />
     <PackageReference Include="SimpleInjector" Version="5.2.1" />    
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
@@ -33,7 +33,7 @@
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.1931</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
   </ItemGroup>
 

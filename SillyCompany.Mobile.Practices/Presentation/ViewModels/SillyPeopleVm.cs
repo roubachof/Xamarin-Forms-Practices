@@ -34,7 +34,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
 
             ErrorEmulator = new ErrorEmulatorVm(
                 errorEmulator,
-                () => SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync));
+                () => SillyPeopleLoaderNotifier.Load(_ => LoadSillyPeopleAsync()));
             SillyPeopleLoaderNotifier = new TaskLoaderNotifier<ObservableCollection<SillyDudeVmo>>();
         }
 
@@ -70,7 +70,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels
                 return;
             }
 
-            SillyPeopleLoaderNotifier.Load(LoadSillyPeopleAsync);
+            SillyPeopleLoaderNotifier.Load(_ => LoadSillyPeopleAsync());
         }
 
         /// <summary>
