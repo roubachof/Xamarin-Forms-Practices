@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Sharpnado.HorizontalListView.ViewModels;
+using Sharpnado.CollectionView.ViewModels;
+
 using SillyCompany.Mobile.Practices.Infrastructure;
 
 namespace SillyCompany.Mobile.Practices.Presentation.ViewModels

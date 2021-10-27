@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-using Sharpnado.HorizontalListView.Helpers;
+using Sharpnado.CollectionView.Helpers;
 using Sharpnado.Tabs;
 using Sharpnado.Tasks;
 

@@ -3,19 +3,14 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.GridView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
              xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
              xmlns:sho="http://sharpnado.com"
              xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
-             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices">
-
-    <d:ContentView.BindingContext>
-        <tabsLayout:GridPageViewModel />
-    </d:ContentView.BindingContext>
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
+             x:DataType="tabsLayout:GridPageViewModel">
 
     <ContentView.Resources>
         <ResourceDictionary>
@@ -31,20 +26,19 @@
             <RefreshView IsRefreshing="{Binding SillyPeopleLoaderNotifier.ShowRefresher}"
                          RefreshColor="{StaticResource Accent}"
                          Command="{Binding SillyPeopleLoaderNotifier.RefreshCommand}">
-                <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                        ColumnCount="1"
-                                        CurrentIndex="{Binding CurrentIndex}"
-                                        EnableDragAndDrop="True"
-                                        InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                        ListLayout="Grid"
-                                        ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                        ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                        TapCommand="{Binding GoToSillyDudeCommand}"
-                                        ItemsSource="{Binding SillyPeople}">
+                <sho:CollectionView Style="{StaticResource HorizontalListView}"
+                                    CollectionLayout="Vertical"
+                                    CurrentIndex="{Binding CurrentIndex}"
+                                    EnableDragAndDrop="True"
+                                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                    ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                    ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                    TapCommand="{Binding GoToSillyDudeCommand}"
+                                    ItemsSource="{Binding SillyPeople}">
                     <!--  TapCommand="{Binding GoToSillyDudeCommand}">  -->
                     <!--  ColumnCount="3"  -->
-                    <sho:HorizontalListView.ItemTemplate>
-                        <DataTemplate>
+                    <sho:CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="viewModels:SillyDudeVmo">
                             <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
                                 <ContentView>
                                     <shades:Shadows CornerRadius="{DynamicResource DynamicCornerRadius}" Shades="{DynamicResource DynamicShadow}">
@@ -63,8 +57,8 @@
                                 </ContentView>
                             </sho:DraggableViewCell>
                         </DataTemplate>
-                    </sho:HorizontalListView.ItemTemplate>
-                </sho:HorizontalListView>
+                    </sho:CollectionView.ItemTemplate>
+                </sho:CollectionView>
             </RefreshView>
         </customViews:TaskLoaderView>
     </ContentView.Content>

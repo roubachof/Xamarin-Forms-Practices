@@ -3,7 +3,7 @@ using System.Text;
 using Foundation;
 using ObjCRuntime;
 
-using Sharpnado.HorizontalListView.iOS;
+using Sharpnado.CollectionView.iOS;
 using Sharpnado.MaterialFrame.iOS;
 using SillyCompany.Mobile.Practices.Infrastructure;
 using UIKit;
@@ -45,7 +45,7 @@ namespace SillyCompany.Mobile.Practices.iOS
 
                 new CoreEntryPoint().RegisterDependencies();
 
-                SharpnadoInitializer.Initialize(enableInternalLogger: true);
+                Initializer.Initialize(enableInternalLogger: true);
                 iOSMaterialFrameRenderer.Init();
                 Sharpnado.Tabs.iOS.Preserver.Preserve();
 

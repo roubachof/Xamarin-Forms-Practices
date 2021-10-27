@@ -11,7 +11,7 @@ using Android.Views;
 
 using Microsoft.Device.Display;
 
-using Sharpnado.HorizontalListView.Droid;
+using Sharpnado.CollectionView.Droid;
 using Sharpnado.MaterialFrame.Droid;
 
 using SillyCompany.Mobile.Practices.Infrastructure;
@@ -73,7 +73,7 @@ namespace SillyCompany.Mobile.Practices.Droid
 
             Forms.Init(this, bundle);
 
-            SharpnadoInitializer.Initialize(enableInternalLogger: true, enableInternalDebugLogger: true);
+            Initializer.Initialize(enableInternalLogger: true, enableInternalDebugLogger: true);
             Android.Glide.Forms.Init(this);
             AndroidMaterialFrameRenderer.ThrowStopExceptionOnDraw = false;
             AndroidMaterialFrameRenderer.BlurAutoUpdateDelayMilliseconds = 200;

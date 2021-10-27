@@ -12,8 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Sharpnado.HorizontalListView;
-using Sharpnado.HorizontalListView.Services;
+using Sharpnado.CollectionView;
+using Sharpnado.CollectionView.Services;
 
 using SillyCompany.Mobile.Practices.Infrastructure;
 using SillyCompany.Mobile.Practices.Localization;
@@ -58,7 +58,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "knights_of_ni.jpg",
 #else
-                        "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Knightni.jpg/400px-Knightni.jpg",
+                        "https://upload.wikimedia.org/wikipedia/en/e/eb/Knightni.jpg",
 #endif
                         5,
                         "ni!",
@@ -152,7 +152,7 @@ namespace SillyCompany.Mobile.Practices.Domain.Silly
 #if LOCAL_DATA
                             "louis_ck.jpg",
 #else
-                        "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-it-crowd-richard-ayoade.jpg",
+                        "https://i.ytimg.com/vi/DJMr-mLjL1s/hqdefault.jpg",
 #endif
                         3,
                         Filmos.Moss,

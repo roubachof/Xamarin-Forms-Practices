@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-using Sharpnado.HorizontalListView.Helpers;
+using Sharpnado.CollectionView.Helpers;
 using Sharpnado.Tasks;
 
 using SillyCompany.Mobile.Practices.Infrastructure;

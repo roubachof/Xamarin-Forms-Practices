@@ -12,11 +12,9 @@
              xmlns:shades="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
              xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
-
-    <d:ContentView.BindingContext>
-        <tabsLayout:HomePageViewModel />
-    </d:ContentView.BindingContext>
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+             xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
+             x:DataType="tabsLayout:HomePageViewModel">
 
     <ContentView.Content>
         <loader:TaskLoaderView Style="{StaticResource SillyTaskLoader}" TaskLoaderNotifier="{Binding SillyDudeLoaderNotifier}">
@@ -41,12 +39,13 @@
                                 Shades="{DynamicResource DynamicShadow}">
                     <materialFrame:MaterialFrame x:Name="MaterialFrame"
                                                  Margin="16"
+                                                 BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
                                                  Padding="16,32"
                                                  Elevation="{DynamicResource DynamicElevation}"
                                                  LightThemeBackgroundColor="{DynamicResource DynamicLightThemeColor}"
                                                  MaterialTheme="{DynamicResource DynamicBlurTheme}"
                                                  StyleId="5555">
-                        <Grid BindingContext="{Binding SillyDudeLoaderNotifier.Result}"
+                        <Grid x:DataType="viewModels:SillyDudeVmo"
                               RowSpacing="0"
                               ColumnSpacing="0"
                               Margin="5"

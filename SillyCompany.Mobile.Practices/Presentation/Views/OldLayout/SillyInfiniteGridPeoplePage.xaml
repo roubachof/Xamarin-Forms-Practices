@@ -9,11 +9,8 @@
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:sho="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             Title="{loc:Translate SillyInfiniteGridPeople_Title}">
-
-    <d:ContentPage.BindingContext>
-        <viewModels:SillyInfiniteGridPeopleVm />
-    </d:ContentPage.BindingContext>
+             Title="{loc:Translate SillyInfiniteGridPeople_Title}"
+             x:DataType="viewModels:SillyInfiniteGridPeopleVm">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -81,15 +78,14 @@
                                                IsRefreshing="{Binding SillyPeopleLoader.ShowRefresher}"
                                                RefreshColor="Blue"
                                                RefreshCommand="{Binding SillyPeopleLoader.RefreshCommand}">-->
-            <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                    CurrentIndex="{Binding CurrentIndex}"
-                                    EnableDragAndDrop="True"
-                                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                    ListLayout="Grid"
-                                    ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                    ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                    ItemTemplate="{StaticResource DudeDataTemplate}"
-                                    ItemsSource="{Binding SillyPeople}" />
+            <sho:GridView Style="{StaticResource HorizontalListView}"
+                          CurrentIndex="{Binding CurrentIndex}"
+                          EnableDragAndDrop="True"
+                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                          ItemTemplate="{StaticResource DudeDataTemplate}"
+                          ItemsSource="{Binding SillyPeople}" />
             <!--</pullToRefresh:PullToRefreshLayout>-->
         </loader:TaskLoaderView>
     </ContentPage.Content>

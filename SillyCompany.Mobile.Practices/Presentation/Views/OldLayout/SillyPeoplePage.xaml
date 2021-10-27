@@ -3,23 +3,15 @@
 <ContentPage x:Class="SillyCompany.Mobile.Practices.Presentation.Views.SillyPeoplePage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:behaviors="clr-namespace:Sharpnado.Presentation.Forms.Behaviors;assembly=Sharpnado.TaskLoaderView"
+             xmlns:forms="clr-namespace:Sharpnado.Presentation.Forms;assembly=Sharpnado.TaskLoaderView"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:loc="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:sho="http://sharpnado.com"
              xmlns:skiaRate="clr-namespace:SkiaRate;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
              xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
-             xmlns:forms="clr-namespace:Sharpnado.Presentation.Forms;assembly=Sharpnado.TaskLoaderView"
-             Title="{loc:Translate SillyPeople_Title}">
-
-    <d:ContentPage.BindingContext>
-        <vm:SillyPeopleVm />
-    </d:ContentPage.BindingContext>
-
+             Title="{loc:Translate SillyPeople_Title}"
+             x:DataType="vm:SillyPeopleVm">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -91,11 +83,12 @@
                                    Text="{loc:Translate SillyPeople_SillyOfTheDay}" />
 
                             <!--  ROW 1: Silly Of The Day  -->
-                            <sho:MaterialFrame Grid.Row="1"
+                            <sho:MaterialFrame BindingContext="{Binding SillyOfTheDay}"
+                                               Grid.Row="1"
                                                Margin="0,8,0,0"
                                                Padding="{StaticResource StandardThickness}"
                                                Elevation="4">
-                                <Grid BindingContext="{Binding SillyOfTheDay}"
+                                <Grid x:DataType="vm:SillyDudeVmo"
                                       RowSpacing="0"
                                       ColumnSpacing="0"
                                       sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
@@ -189,13 +182,12 @@
                                                     ColumnCount="3"
                                                     ItemHeight="144"
                                                     ItemSpacing="10"
-                                                    ListLayout="Linear"
                                                     SnapStyle="Start"
                                                     ScrollBeganCommand="{Binding OnScrollBeginCommand}"
                                                     ScrollEndedCommand="{Binding OnScrollEndCommand}"
                                                     ItemsSource="{Binding SillyPeopleLoaderNotifier.Result}">
                                 <sho:HorizontalListView.ItemTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:DataType="vm:SillyDudeVmo">
                                         <ViewCell>
                                             <views:SmallSillySquareCell sho:ViewEffect.TouchFeedbackColor="{StaticResource Accent}"
                                                                         sho:TapCommandEffect.Tap="{Binding OnItemTappedCommand}"

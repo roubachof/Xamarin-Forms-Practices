@@ -47,6 +47,7 @@
     <MandroidI18n />
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidLinkTool>r8</AndroidLinkTool>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -65,7 +66,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="glidex.forms">
-      <Version>2.1.0.470</Version>
+      <Version>2.1.1.648</Version>
     </PackageReference>
     <PackageReference Include="Sharpnado.Shadows">
       <Version>1.2.0</Version>
@@ -73,11 +74,17 @@
     <PackageReference Include="MetroLog">
       <Version>1.0.1</Version>
     </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>2.80.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views">
+      <Version>2.80.3</Version>
+    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>2.80.2</Version>
+      <Version>2.80.3</Version>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers">
-      <Version>1.2.0-beta.164</Version>
+      <Version>1.2.0-beta.354</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -85,10 +92,10 @@
       <Version>0.6.1-pre</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.DuoSdk">
-      <Version>0.0.3.2</Version>
+      <Version>0.0.3.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2012</Version>
+      <Version>5.0.0.2196</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +140,9 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.Droid\Sharpnado.HorizontalListView.Droid.csproj">
-      <Project>{92e0ecfc-c8c0-4c03-ba61-a2701390d7de}</Project>
-      <Name>Sharpnado.HorizontalListView.Droid</Name>
+    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj">
+      <Project>{f2d4f3e6-cb34-4d17-92ca-0a9bfde9c811}</Project>
+      <Name>Sharpnado.CollectionView.Droid</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.Android\MaterialFrame.Android.csproj">
       <Project>{f6719964-727a-4c81-9c32-fa0b08ca8ae6}</Project>

@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-using Sharpnado.HorizontalListView.Paging;
-using Sharpnado.HorizontalListView.Services;
-using Sharpnado.HorizontalListView.ViewModels;
+using Sharpnado.CollectionView.Paging;
+using Sharpnado.CollectionView.Services;
+using Sharpnado.CollectionView.ViewModels;
 using Sharpnado.Presentation.Forms;
 using SillyCompany.Mobile.Practices.Domain.Silly;
 using SillyCompany.Mobile.Practices.Infrastructure;

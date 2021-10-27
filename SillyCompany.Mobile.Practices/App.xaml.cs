@@ -38,7 +38,7 @@ namespace SillyCompany.Mobile.Practices
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
 
-            Sharpnado.HorizontalListView.Initializer.Initialize(true, false);
+            Sharpnado.CollectionView.Initializer.Initialize(true, false);
             Sharpnado.Shades.Initializer.Initialize(false);
             Sharpnado.Tabs.Initializer.Initialize(true, false);
             Sharpnado.MaterialFrame.Initializer.Initialize(true, false);

@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// Copyright (c) 2017 Clovis Nicolas
+// Copyright (c) 2017 Clovis Nicolas, fixed by JM Alfonsi
 // https://github.com/clovisnicolas/SkiaRate
 // ****************************************************************************
 // This file isn't generated, but this comment is necessary to exclude it from StyleCop analysis.
@@ -175,8 +175,6 @@ namespace SkiaRate
 
         private static void OnValueChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var view = bindable as RatingView;
-            view.Value = view.ClampValue((double)newValue);
             OnPropertyChanged(bindable, oldValue, newValue);
         }
 

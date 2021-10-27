@@ -3,17 +3,11 @@
 <ContentView x:Class="SillyCompany.Mobile.Practices.Presentation.Views.TabsLayout.ListView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              xmlns:loader="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.TaskLoaderView"
              xmlns:localization="clr-namespace:SillyCompany.Mobile.Practices.Localization;assembly=SillyCompany.Mobile.Practices"
              xmlns:sho="http://sharpnado.com"
-             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices">
-
-    <d:ContentView.BindingContext>
-        <tabsLayout:ListPageViewModel />
-    </d:ContentView.BindingContext>
+             xmlns:tabsLayout="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
+             x:DataType="tabsLayout:ListPageViewModel">
 
     <ContentView.Content>
         <ScrollView>
@@ -91,25 +85,24 @@
                                Text="{localization:Translate SillyPeople_InfiniteListView}" />
 
                         <!--  ROW 3: HorizontalListView  -->
-                        <sho:HorizontalListView Grid.Row="1"
-                                                Margin="-16,0"
-                                                ColumnCount="1"
-                                                CurrentIndex="{Binding CurrentIndex}"
-                                                EnableDragAndDrop="True"
-                                                InfiniteListLoader="{Binding SillyPeoplePaginator}"
-                                                ItemSpacing="0"
-                                                ListLayout="Linear"
-                                                SnapStyle="Center"
-                                                ScrollBeganCommand="{Binding OnScrollBeginCommand}"
-                                                ScrollEndedCommand="{Binding OnScrollEndCommand}"
-                                                ItemTemplate="{StaticResource DudeTemplateSelector}"
-                                                ItemsSource="{Binding SillyPeople}">
-                            <sho:HorizontalListView.CollectionPadding>
+                        <sho:CarouselView Grid.Row="1"
+                                          Margin="-16,0"
+                                          ColumnCount="1"
+                                          CurrentIndex="{Binding CurrentIndex}"
+                                          EnableDragAndDrop="True"
+                                          InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                                          ItemSpacing="0"
+                                          SnapStyle="Center"
+                                          ScrollBeganCommand="{Binding OnScrollBeginCommand}"
+                                          ScrollEndedCommand="{Binding OnScrollEndCommand}"
+                                          ItemTemplate="{StaticResource DudeTemplateSelector}"
+                                          ItemsSource="{Binding SillyPeople}">
+                            <sho:CarouselView.CollectionPadding>
                                 <OnPlatform x:TypeArguments="Thickness">
                                     <On Platform="iOS">50,10</On>
                                     <On Platform="Android">60,10</On>
                                 </OnPlatform>
-                            </sho:HorizontalListView.CollectionPadding>
+                            </sho:CarouselView.CollectionPadding>
 
                             <!--  ItemHeight="144" ItemWidth="144" SnapStyle="Center"  -->
                             <!--<renderedViews:HorizontalListView.ItemTemplate>
@@ -122,7 +115,7 @@
                                 </DataTemplate>
                             </renderedViews:HorizontalListView.ItemTemplate>-->
 
-                        </sho:HorizontalListView>
+                        </sho:CarouselView>
                     </Grid>
                 </loader:TaskLoaderView>
 

@@ -9,11 +9,8 @@
              xmlns:sho="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels;assembly=SillyCompany.Mobile.Practices"
              xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
-             Title="{loc:Translate SortSillyPeople_Title}">
-
-    <d:ContentPage.BindingContext>
-        <viewModels:SortSillyPeopleVm />
-    </d:ContentPage.BindingContext>
+             Title="{loc:Translate SortSillyPeople_Title}"
+             x:DataType="viewModels:SortSillyPeopleVm">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -38,7 +35,7 @@
                 <Setter Property="CollectionPadding" Value="8,8,8,128" />
             </Style>
 
-            <DataTemplate x:Key="ThreeLinesListItem">
+            <DataTemplate x:Key="ThreeLinesListItem" x:DataType="viewModels:SillyDudeVmo">
                 <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
 
                     <views:SillyCell Margin="4"
@@ -56,7 +53,7 @@
             </DataTemplate>
 
             <DataTemplate x:Key="AddSillyDudeItem">
-                <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False">
+                <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="False" x:DataType="viewModels:SillyDudeVmo">
                     <sho:MaterialFrame Elevation="4">
                         <Button HeightRequest="40"
                                 Padding="0"
@@ -73,11 +70,8 @@
             </DataTemplate>
 
 
-            <DataTemplate x:Key="SortGridItem">
+            <DataTemplate x:Key="SortGridItem" x:DataType="viewModels:SillyDudeVmo">
                 <sho:DraggableViewCell x:Name="DraggableViewCell" IsDraggable="{Binding IsMovable}">
-                    <d:ViewCell.BindingContext>
-                        <viewModels:SillyDudeVmo />
-                    </d:ViewCell.BindingContext>
                     <sho:MaterialFrame Margin="4"
                                        Padding="{StaticResource StandardThickness}"
                                        Elevation="4">
@@ -130,12 +124,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <sho:HorizontalListView Style="{StaticResource HorizontalListView}"
-                                ColumnCount="1"
-                                EnableDragAndDrop="True"
-                                ListLayout="Grid"
-                                DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
-                                ItemTemplate="{StaticResource SortDudeTemplateSelector}"
-                                ItemsSource="{Binding SillyPeople}" />
+        <sho:CollectionView Style="{StaticResource HorizontalListView}"
+                            EnableDragAndDrop="True"
+                            DragAndDropEndedCommand="{Binding OnDragAndDropEndCommand}"
+                            ItemTemplate="{StaticResource SortDudeTemplateSelector}"
+                            ItemsSource="{Binding SillyPeople}" />
     </ContentPage.Content>
 </ContentPage>
