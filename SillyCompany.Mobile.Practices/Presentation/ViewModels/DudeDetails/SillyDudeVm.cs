@@ -50,6 +50,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         public SillyDudeVm(INavigationService navigationService, ISillyDudeService sillyDudeService)
             : base(navigationService)
         {
+            Console.WriteLine("Building SillyDudeVm...");
             _dudeService = sillyDudeService;
 
             SillyDudeLoaderNotifier = new TaskLoaderNotifier<SillyDudeVmo>();
@@ -83,6 +84,7 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
         /// </param>
         public override void Load(object parameter)
         {
+            Console.WriteLine($"SillyDudeVm|Load( id: {parameter} )");
             SillyDudeLoaderNotifier.Load(_ => LoadSillyDude((int)parameter));
         }
 
@@ -111,7 +113,9 @@ namespace SillyCompany.Mobile.Practices.Presentation.ViewModels.DudeDetails
 
             RaisePropertyChanged(nameof(TabTitles));
 
-            TaskMonitor.Create(TestTabsItemsSourceNotifications);
+            Console.WriteLine($"SillyDudeVm|LoadSillyDude(): {dude.FullName} loaded)");
+
+            // TaskMonitor.Create(TestTabsItemsSourceNotifications);
 
             return new SillyDudeVmo(dude, null);
         }

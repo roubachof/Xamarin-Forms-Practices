@@ -11,7 +11,7 @@
     <AssemblyName>SillyCompany.Mobile.Practices.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -199,6 +199,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj">
+      <Project>{72eec247-1b47-42bd-a7c3-803c03a94a9a}</Project>
+      <Name>Sharpnado.CollectionView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame.UWP\MaterialFrame.UWP.csproj">
       <Project>{1e904232-ae2e-4d45-95f3-0c9f4d12831c}</Project>
       <Name>MaterialFrame.UWP</Name>

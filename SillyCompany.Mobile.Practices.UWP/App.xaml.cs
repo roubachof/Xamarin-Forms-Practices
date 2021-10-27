@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ImageCircle.Forms.Plugin.UWP;
 
 using Sharpnado.Presentation.Forms;
 
@@ -56,7 +55,6 @@ namespace SillyCompany.Mobile.Practices.UWP
                 Xamarin.Forms.Forms.Init(e);
 
                 new CoreEntryPoint().RegisterDependencies();
-                ImageCircleRenderer.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

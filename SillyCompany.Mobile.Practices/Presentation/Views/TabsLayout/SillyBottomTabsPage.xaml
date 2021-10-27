@@ -15,12 +15,9 @@
                         xmlns:views="clr-namespace:SillyCompany.Mobile.Practices.Presentation.Views;assembly=SillyCompany.Mobile.Practices"
                         xmlns:vm="clr-namespace:SillyCompany.Mobile.Practices.Presentation.ViewModels.TabsLayout;assembly=SillyCompany.Mobile.Practices"
                         x:Name="Root"
+                        x:DataType="vm:SillyBottomTabsPageViewModel"
                         ios:Page.UseSafeArea="false"
                         BackgroundImageSource="{DynamicResource DynamicBackgroundImageSource}">
-
-    <d:ContentPage.BindingContext>
-        <vm:SillyBottomTabsPageViewModel />
-    </d:ContentPage.BindingContext>
 
     <ContentPage.Content>
         <Grid x:Name="GridContainer"
@@ -40,9 +37,6 @@
                               Grid.RowSpan="3"
                               Animate="False"
                               SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                <!--<tabsLayout:HomeView BindingContext="{Binding HomePageViewModel}" />
-                <tabsLayout:ListView BindingContext="{Binding ListPageViewModel}" />
-                <tabsLayout:GridView BindingContext="{Binding GridPageViewModel}" />-->
                 <sho:LazyView x:Name="HomeLazyView"
                               x:TypeArguments="tabsLayout:HomeView"
                               BindingContext="{Binding HomePageViewModel}" />
@@ -194,7 +188,7 @@
                                IsVisible="{DynamicResource DynamicIsTabBlurVisible}"
                                WidthRequest="200"
                                HeightRequest="60"
-                               Margin="15,-15,15,15"
+                               Margin="15"
                                Padding="0"
                                HorizontalOptions="Center"
                                VerticalOptions="Start"
