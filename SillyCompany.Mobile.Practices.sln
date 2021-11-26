@@ -19,10 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{C4FBF1D4-87F0-4BA3-8D9E-AE8CBE13FFE5}"
 	ProjectSection(SolutionItems) = preProject
 		Sharpnado.Presentation.Forms\AssemblyInfo.targets = Sharpnado.Presentation.Forms\AssemblyInfo.targets
-		Sharpnado.Presentation.Forms\make-packages.ps1 = Sharpnado.Presentation.Forms\make-packages.ps1
 		Sharpnado.Presentation.Forms\README.md = Sharpnado.Presentation.Forms\README.md
-		Sharpnado.Presentation.Forms\Sharpnado.Forms.HorizontalListView.nuspec = Sharpnado.Presentation.Forms\Sharpnado.Forms.HorizontalListView.nuspec
-		Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.nuspec = Sharpnado.Presentation.Forms\Sharpnado.Presentation.Forms.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SillyCompany.Mobile.Practices.UWP", "SillyCompany.Mobile.Practices.UWP\SillyCompany.Mobile.Practices.UWP.csproj", "{10F8230A-3646-4601-B346-97CF3D146766}"
@@ -64,10 +61,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{8D8D0F84-E873-4F56-951A-6BC75813E677}"
 	ProjectSection(SolutionItems) = preProject
-		Sharpnado.HorizontalListView\AssemblyInfo.targets = Sharpnado.HorizontalListView\AssemblyInfo.targets
-		Sharpnado.HorizontalListView\make-package.ps1 = Sharpnado.HorizontalListView\make-package.ps1
-		Sharpnado.HorizontalListView\README.md = Sharpnado.HorizontalListView\README.md
-		Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.nuspec = Sharpnado.HorizontalListView\Sharpnado.HorizontalListView.nuspec
+		Sharpnado.CollectionView\AssemblyInfo.targets = Sharpnado.CollectionView\AssemblyInfo.targets
+		Sharpnado.CollectionView\make-package.ps1 = Sharpnado.CollectionView\make-package.ps1
+		Sharpnado.CollectionView\README.md = Sharpnado.CollectionView\README.md
+		Sharpnado.CollectionView\Sharpnado.CollectionView.nuspec = Sharpnado.CollectionView\Sharpnado.CollectionView.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{C787F171-18F9-402F-AF53-2E35D5AC368D}"
@@ -78,11 +75,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		Sharpnado.MaterialFrame\Sharpnado.MaterialFrame.nuspec = Sharpnado.MaterialFrame\Sharpnado.MaterialFrame.nuspec
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharpnado.CollectionView", "Sharpnado.HorizontalListView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj", "{72EEC247-1B47-42BD-A7C3-803C03A94A9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharpnado.CollectionView", "Sharpnado.CollectionView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj", "{72EEC247-1B47-42BD-A7C3-803C03A94A9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.CollectionView.Droid", "Sharpnado.HorizontalListView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj", "{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.CollectionView.Droid", "Sharpnado.CollectionView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj", "{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.CollectionView.iOS", "Sharpnado.HorizontalListView\Sharpnado.CollectionView.iOS\Sharpnado.CollectionView.iOS.csproj", "{613205D7-8798-4BBC-BE46-8B024F4592E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.CollectionView.iOS", "Sharpnado.CollectionView\Sharpnado.CollectionView.iOS\Sharpnado.CollectionView.iOS.csproj", "{613205D7-8798-4BBC-BE46-8B024F4592E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
