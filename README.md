@@ -15,9 +15,10 @@ Sample app for the following libraries:
 
 ## Including
 
-* HorizontalListView
+* CollectionView
 * Tabs
 * MaterialFrame
+* Shadows
 * TaskLoaderView
 * Paginator
 
