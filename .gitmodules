@@ -4,6 +4,6 @@
 [submodule "Sharpnado.MaterialFrame"]
 	path = Sharpnado.MaterialFrame
 	url = https://github.com/roubachof/Sharpnado.MaterialFrame.git
-[submodule "Sharpnado.HorizontalListView"]
-	path = Sharpnado.HorizontalListView
-	url = https://github.com/roubachof/Sharpnado.HorizontalListView.git
+[submodule "Sharpnado.CollectionView"]
+	path = Sharpnado.CollectionView
+	url = https://github.com/roubachof/Sharpnado.CollectionView.git
