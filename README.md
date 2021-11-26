@@ -2,7 +2,7 @@
 
 Sample app for the following libraries:
 
-* https://github.com/roubachof/Sharpnado.HorizontalListView
+* https://github.com/roubachof/Sharpnado.CollectionView
 * https://github.com/roubachof/Sharpnado.Tabs
 * https://github.com/roubachof/Sharpnado.MaterialFrame
 * https://github.com/roubachof/Sharpnado.TaskLoaderView
