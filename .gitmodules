@@ -5,5 +5,5 @@
 	path = Sharpnado.MaterialFrame
 	url = https://github.com/roubachof/Sharpnado.MaterialFrame.git
 [submodule "Sharpnado.CollectionView"]
-	path = Sharpnado.HorizontalListView
+	path = Sharpnado.CollectionView
 	url = https://github.com/roubachof/Sharpnado.CollectionView.git
