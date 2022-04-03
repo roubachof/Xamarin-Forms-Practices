@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj" />
+    <ProjectReference Include="..\Sharpnado.CollectionView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj" />
     <ProjectReference Include="..\Sharpnado.MaterialFrame\MaterialFrame\MaterialFrame\MaterialFrame.csproj" />
     <ProjectReference Include="..\Sharpnado.Tabs\Tabs\Tabs\Tabs.csproj" />
   </ItemGroup>

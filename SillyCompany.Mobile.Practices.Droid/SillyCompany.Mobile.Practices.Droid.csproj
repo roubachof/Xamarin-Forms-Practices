@@ -140,7 +140,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj">
+    <ProjectReference Include="..\Sharpnado.CollectionView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj">
       <Project>{f2d4f3e6-cb34-4d17-92ca-0a9bfde9c811}</Project>
       <Name>Sharpnado.CollectionView.Droid</Name>
     </ProjectReference>
@@ -273,7 +273,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionSillyCompanyMobilePracticesDroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionSillyCompanyMobilePracticesDroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -203,7 +203,7 @@
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sharpnado.HorizontalListView\Sharpnado.CollectionView.iOS\Sharpnado.CollectionView.iOS.csproj">
+    <ProjectReference Include="..\Sharpnado.CollectionView\Sharpnado.CollectionView.iOS\Sharpnado.CollectionView.iOS.csproj">
       <Project>{613205d7-8798-4bbc-be46-8b024f4592e6}</Project>
       <Name>Sharpnado.CollectionView.iOS</Name>
       <IsAppExtension>false</IsAppExtension>
